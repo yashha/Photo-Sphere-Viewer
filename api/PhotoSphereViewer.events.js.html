@@ -1,0 +1,639 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>PhotoSphereViewer.events.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #1C9F72;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #1C9F72;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #1C9F72;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #1C9F72;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.DOCLET_TOC_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Photo Sphere Viewer API
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVComponent.html">components.PSVComponent</a></li>
+										<li><a href="module-components.PSVHUD.html">components.PSVHUD</a></li>
+										<li><a href="module-components.PSVLoader.html">components.PSVLoader</a></li>
+										<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
+										<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
+										<li><a href="module-components.PSVNavBarSpacer.html">components.PSVNavBarSpacer</a></li>
+										<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
+										<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
+										<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarGyroscopeButton.html">components/buttons.PSVNavBarGyroscopeButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarMarkersButton.html">components/buttons.PSVNavBarMarkersButton</a></li>
+										<li><a href="module-components_buttons.PSVNavBarZoomButton.html">components/buttons.PSVNavBarZoomButton</a></li>
+										<li><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></li>
+										<li><a href="PSVError.html">PSVError</a></li>
+										<li><a href="PSVMarker.html">PSVMarker</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
+										<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
+										<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
+										<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
+										<li><a href="module-components_buttons.PSVNavBarMarkersButton.html#.event:render-markers-list">components/buttons.PSVNavBarMarkersButton.render-markers-list</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:panorama-cached">PhotoSphereViewer.panorama-cached</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:panorama-load-progress">PhotoSphereViewer.panorama-load-progress</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:panorama-loaded">PhotoSphereViewer.panorama-loaded</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:position-updated">PhotoSphereViewer.position-updated</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:ready">PhotoSphereViewer.ready</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:render">PhotoSphereViewer.render</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:size-updated">PhotoSphereViewer.size-updated</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:zoom-updated">PhotoSphereViewer.zoom-updated</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Components<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+										<li><a href="module-components.html">components</a></li>
+										<li><a href="module-components_buttons.html">components/buttons</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+										<li><a href="PSVUtils.html">PSVUtils</a></li>
+								</ul>
+							</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">PhotoSphereViewer.events.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
+ * Adds all needed event listeners
+ * @private
+ */
+PhotoSphereViewer.prototype._bindEvents = function() {
+  window.addEventListener('resize', this);
+
+  // all interation events are binded to the HUD only
+  if (this.config.mousemove) {
+    this.hud.container.style.cursor = 'move';
+    this.hud.container.addEventListener('mousedown', this);
+    this.hud.container.addEventListener('touchstart', this);
+    window.addEventListener('mouseup', this);
+    window.addEventListener('touchend', this);
+    this.hud.container.addEventListener('mousemove', this);
+    this.hud.container.addEventListener('touchmove', this);
+  }
+
+  if (PhotoSphereViewer.SYSTEM.fullscreenEvent) {
+    document.addEventListener(PhotoSphereViewer.SYSTEM.fullscreenEvent, this);
+  }
+
+  if (this.config.mousewheel) {
+    this.hud.container.addEventListener(PhotoSphereViewer.SYSTEM.mouseWheelEvent, this);
+  }
+
+  this.on('_side-reached', function(side) {
+    if (this.isAutorotateEnabled()) {
+      if (side === 'left' || side === 'right') {
+        this._reverseAutorotate();
+      }
+    }
+  });
+};
+
+/**
+ * Handles events
+ * @param {Event} evt
+ * @private
+ */
+PhotoSphereViewer.prototype.handleEvent = function(evt) {
+  switch (evt.type) {
+    // @formatter:off
+    case 'resize': PSVUtils.throttle(this._onResize(), 50); break;
+    case 'keydown':     this._onKeyDown(evt);     break;
+    case 'mousedown':   this._onMouseDown(evt);   break;
+    case 'touchstart':  this._onTouchStart(evt);  break;
+    case 'mouseup':     this._onMouseUp(evt);     break;
+    case 'touchend':    this._onTouchEnd(evt);    break;
+    case 'mousemove':   this._onMouseMove(evt);   break;
+    case 'touchmove':   this._onTouchMove(evt);   break;
+    case PhotoSphereViewer.SYSTEM.fullscreenEvent:  this._fullscreenToggled();  break;
+    case PhotoSphereViewer.SYSTEM.mouseWheelEvent:  this._onMouseWheel(evt);    break;
+    // @formatter:on
+  }
+};
+
+/**
+ * Resizes the canvas when the window is resized
+ * @fires PhotoSphereViewer.size-updated
+ * @private
+ */
+PhotoSphereViewer.prototype._onResize = function() {
+  if (this.container.clientWidth != this.prop.size.width || this.container.clientHeight != this.prop.size.height) {
+    this.prop.size.width = parseInt(this.container.clientWidth);
+    this.prop.size.height = parseInt(this.container.clientHeight);
+    this.prop.aspect = this.prop.size.width / this.prop.size.height;
+
+    if (this.renderer) {
+      this.renderer.setSize(this.prop.size.width, this.prop.size.height);
+      if (this.composer) {
+        this.composer.reset(new THREE.WebGLRenderTarget(this.prop.size.width, this.prop.size.height));
+      }
+      this.render();
+    }
+
+    /**
+     * @event size-updated
+     * @memberof PhotoSphereViewer
+     * @param {PhotoSphereViewer.Size} size
+     */
+    this.trigger('size-updated', this.getSize());
+  }
+};
+
+/**
+ * Handles keyboard events
+ * @param {KeyboardEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onKeyDown = function(evt) {
+  var dLong = 0;
+  var dLat = 0;
+  var dZoom = 0;
+
+  var key = evt.key || PhotoSphereViewer.KEYMAP[evt.keyCode || evt.which];
+
+  switch (key) {
+    // @formatter:off
+    case 'ArrowUp': dLat = 0.01; break;
+    case 'ArrowDown': dLat = -0.01; break;
+    case 'ArrowRight': dLong = 0.01; break;
+    case 'ArrowLeft': dLong = -0.01; break;
+    case 'PageUp':case '+': dZoom = 1; break;
+    case 'PageDown':case '-': dZoom = -1; break;
+    // @formatter:on
+  }
+
+  if (dZoom !== 0) {
+    this.zoom(this.prop.zoom_lvl + dZoom);
+  }
+  else if (dLat !== 0 || dLong !== 0) {
+    this.rotate({
+      longitude: this.prop.longitude + dLong * this.prop.move_speed * this.prop.hFov,
+      latitude: this.prop.latitude + dLat * this.prop.move_speed * this.prop.vFov
+    });
+  }
+};
+
+/**
+ * Handles mouse button events
+ * @param {MouseEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onMouseDown = function(evt) {
+  this._startMove(evt);
+};
+
+/**
+ * Handles mouse buttons events
+ * @param {MouseEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onMouseUp = function(evt) {
+  this._stopMove(evt);
+};
+
+/**
+ * Handles mouse move events
+ * @param {MouseEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onMouseMove = function(evt) {
+  if (evt.buttons !== 0) {
+    evt.preventDefault();
+    this._move(evt);
+  }
+};
+
+/**
+ * Handles touch events
+ * @param {TouchEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onTouchStart = function(evt) {
+  if (evt.touches.length === 1) {
+    this._startMove(evt.touches[0]);
+  }
+  else if (evt.touches.length === 2) {
+    this._startZoom(evt);
+  }
+};
+
+/**
+ * Handles touch events
+ * @param {TouchEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onTouchEnd = function(evt) {
+  this._stopMove(evt.changedTouches[0]);
+};
+
+/**
+ * Handles touch move events
+ * @param {TouchEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onTouchMove = function(evt) {
+  if (evt.touches.length === 1) {
+    evt.preventDefault();
+    this._move(evt.touches[0]);
+  }
+  else if (evt.touches.length === 2) {
+    evt.preventDefault();
+    this._zoom(evt);
+  }
+};
+
+/**
+ * Initializes the movement
+ * @param {MouseEvent|Touch} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._startMove = function(evt) {
+  if (this.isGyroscopeEnabled()) {
+    return;
+  }
+
+  this.stopAll();
+
+  this.prop.mouse_x = this.prop.start_mouse_x = parseInt(evt.clientX);
+  this.prop.mouse_y = this.prop.start_mouse_y = parseInt(evt.clientY);
+  this.prop.moving = true;
+  this.prop.zooming = false;
+
+  this.prop.mouse_history.length = 0;
+  this._logMouseMove(evt);
+};
+
+/**
+ * Initializes the zoom
+ * @param {TouchEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._startZoom = function(evt) {
+  var t = [
+    { x: parseInt(evt.touches[0].clientX), y: parseInt(evt.touches[0].clientY) },
+    { x: parseInt(evt.touches[1].clientX), y: parseInt(evt.touches[1].clientY) }
+  ];
+
+  this.prop.pinch_dist = Math.sqrt(Math.pow(t[0].x - t[1].x, 2) + Math.pow(t[0].y - t[1].y, 2));
+  this.prop.moving = false;
+  this.prop.zooming = true;
+};
+
+/**
+ * Stops the movement&lt;br>
+ * If the move threshold was not reached a click event is triggered, otherwise an animation is launched to simulate inertia
+ * @param {MouseEvent|Touch} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._stopMove = function(evt) {
+  if (this.isGyroscopeEnabled()) {
+    this._click(evt);
+    return;
+  }
+
+  if (this.prop.moving) {
+    // move threshold to trigger a click
+    if (Math.abs(evt.clientX - this.prop.start_mouse_x) &lt; PhotoSphereViewer.MOVE_THRESHOLD &amp;&amp; Math.abs(evt.clientY - this.prop.start_mouse_y) &lt; PhotoSphereViewer.MOVE_THRESHOLD) {
+      this._click(evt);
+      this.prop.moving = false;
+    }
+    // inertia animation
+    else if (this.config.move_inertia) {
+      this._logMouseMove(evt);
+      this._stopMoveInertia(evt);
+    }
+    else {
+      this.prop.moving = false;
+    }
+  }
+
+  this.prop.mouse_history.length = 0;
+  this.prop.zooming = false;
+};
+
+/**
+ * Performs an animation to simulate inertia when the movement stops
+ * @param {MouseEvent|Touch} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._stopMoveInertia = function(evt) {
+  var self = this;
+
+  var direction = {
+    x: evt.clientX - this.prop.mouse_history[0][1],
+    y: evt.clientY - this.prop.mouse_history[0][2]
+  };
+
+  var norm = Math.sqrt(direction.x * direction.x + direction.y * direction.y);
+
+  this.prop.animation_promise = PSVUtils.animation({
+    properties: {
+      clientX: { start: evt.clientX, end: evt.clientX + direction.x },
+      clientY: { start: evt.clientY, end: evt.clientY + direction.y }
+    },
+    duration: norm * PhotoSphereViewer.INERTIA_WINDOW / 100,
+    easing: 'outCirc',
+    onTick: function(properties) {
+      self._move(properties);
+    },
+    onCancel: function() {
+      self.prop.moving = false;
+    },
+    onDone: function() {
+      self.prop.moving = false;
+    }
+  });
+};
+
+/**
+ * Triggers an event with all coordinates when a simple click is performed
+ * @param {MouseEvent|Touch} evt
+ * @fires PhotoSphereViewer.click
+ * @private
+ */
+PhotoSphereViewer.prototype._click = function(evt) {
+  var boundingRect = this.container.getBoundingClientRect();
+
+  var data = {
+    target: evt.target,
+    client_x: evt.clientX,
+    client_y: evt.clientY,
+    viewer_x: parseInt(evt.clientX - boundingRect.left),
+    viewer_y: parseInt(evt.clientY - boundingRect.top)
+  };
+
+  var intersect = this.viewerCoordsToVector3({ x: data.viewer_x, y: data.viewer_y });
+
+  if (intersect) {
+    var sphericalCoords = this.vector3ToSphericalCoords(intersect);
+    data.longitude = sphericalCoords.longitude;
+    data.latitude = sphericalCoords.latitude;
+
+    var textureCoords = this.sphericalCoordsToTextureCoords(data);
+    data.texture_x = textureCoords.x;
+    data.texture_y = textureCoords.y;
+
+    /**
+     * @event click
+     * @memberof PhotoSphereViewer
+     * @param {PhotoSphereViewer.ClickData} data
+     */
+    this.trigger('click', data);
+  }
+};
+
+/**
+ * Performs movement
+ * @param {MouseEvent|Touch} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._move = function(evt) {
+  if (this.prop.moving) {
+    var x = parseInt(evt.clientX);
+    var y = parseInt(evt.clientY);
+
+    this.rotate({
+      longitude: this.prop.longitude - (x - this.prop.mouse_x) / this.prop.size.width * this.prop.move_speed * this.prop.hFov,
+      latitude: this.prop.latitude + (y - this.prop.mouse_y) / this.prop.size.height * this.prop.move_speed * this.prop.vFov
+    });
+
+    this.prop.mouse_x = x;
+    this.prop.mouse_y = y;
+
+    this._logMouseMove(evt);
+  }
+};
+
+/**
+ * Perfoms zoom
+ * @param {TouchEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._zoom = function(evt) {
+  if (this.prop.zooming) {
+    var t = [
+      { x: parseInt(evt.touches[0].clientX), y: parseInt(evt.touches[0].clientY) },
+      { x: parseInt(evt.touches[1].clientX), y: parseInt(evt.touches[1].clientY) }
+    ];
+
+    var p = Math.sqrt(Math.pow(t[0].x - t[1].x, 2) + Math.pow(t[0].y - t[1].y, 2));
+    var delta = 80 * (p - this.prop.pinch_dist) / this.prop.size.width;
+
+    this.zoom(this.prop.zoom_lvl + delta);
+
+    this.prop.pinch_dist = p;
+  }
+};
+
+/**
+ * Handles mouse wheel events
+ * @param {MouseWheelEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._onMouseWheel = function(evt) {
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  var delta = evt.deltaY !== undefined ? -evt.deltaY : (evt.wheelDelta !== undefined ? evt.wheelDelta : -evt.detail);
+
+  if (delta !== 0) {
+    var direction = parseInt(delta / Math.abs(delta));
+    this.zoom(this.prop.zoom_lvl + direction);
+  }
+};
+
+/**
+ * Handles fullscreen events
+ * @fires PhotoSphereViewer.fullscreen-updated
+ * @private
+ */
+PhotoSphereViewer.prototype._fullscreenToggled = function() {
+  var enabled = this.isFullscreenEnabled();
+
+  if (this.config.keyboard) {
+    if (enabled) {
+      this.startKeyboardControl();
+    }
+    else {
+      this.stopKeyboardControl();
+    }
+  }
+
+  /**
+   * @event fullscreen-updated
+   * @memberof PhotoSphereViewer
+   * @param {boolean} enabled
+   */
+  this.trigger('fullscreen-updated', enabled);
+};
+
+/**
+ * Stores each mouse position during a mouse move&lt;br>
+ * - Positions older than "INERTIA_WINDOW" are removed&lt;br>
+ * - Positions before a pause of "INERTIA_WINDOW" / 10 are removed &lt;br>
+ * @param {MouseEvent|Touch} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._logMouseMove = function(evt) {
+  var now = Date.now();
+  this.prop.mouse_history.push([now, evt.clientX, evt.clientY]);
+
+  var previous = null;
+
+  for (var i = 0; i &lt; this.prop.mouse_history.length;) {
+    if (this.prop.mouse_history[0][i] &lt; now - PhotoSphereViewer.INERTIA_WINDOW) {
+      this.prop.mouse_history.splice(i, 1);
+    }
+    else if (previous &amp;&amp; this.prop.mouse_history[0][i] - previous > PhotoSphereViewer.INERTIA_WINDOW / 10) {
+      this.prop.mouse_history.splice(0, i);
+      i = 0;
+      previous = this.prop.mouse_history[0][i];
+    }
+    else {
+      i++;
+      previous = this.prop.mouse_history[0][i];
+    }
+  }
+};
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+		<script src="js/custom.js"></script>
+	
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-28192323-3', 'auto');
+			ga('send', 'pageview');
+		</script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
