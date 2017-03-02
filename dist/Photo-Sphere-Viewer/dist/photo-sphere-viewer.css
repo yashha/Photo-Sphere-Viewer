@@ -1,10 +1,9 @@
 /*!
- * Photo Sphere Viewer 3.2.2
+ * Photo Sphere Viewer 3.2.3
  * Copyright (c) 2014-2015 Jérémy Heleine
- * Copyright (c) 2015-2016 Damien "Mistic" Sorel
+ * Copyright (c) 2015-2017 Damien "Mistic" Sorel
  * Licensed under MIT (http://opensource.org/licenses/MIT)
  */
-
 .psv-container {
   width: 100%;
   height: 100%;
@@ -20,6 +19,7 @@
   top: 0;
   left: 0;
   z-index: 0;
+  transition: opacity linear 100ms;
 }
 
 .psv-canvas {
@@ -480,7 +480,7 @@
   opacity: 1;
   transition-duration: .2s;
 }
-.psv-panel--open .psv-panel-close-button, .psv-panel--open .psv-panel-close-resizer {
+.psv-panel--open .psv-panel-close-button, .psv-panel--open .psv-panel-resizer {
   display: block;
 }
 

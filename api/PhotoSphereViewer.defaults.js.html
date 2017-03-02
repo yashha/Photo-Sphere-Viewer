@@ -90,15 +90,18 @@
 							<li class="dropdown">
 								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 										<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
 										<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
-										<li><a href="module-components_buttons.PSVNavBarMarkersButton.html#.event:render-markers-list">components/buttons.PSVNavBarMarkersButton.render-markers-list</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:panorama-cached">PhotoSphereViewer.panorama-cached</a></li>
@@ -151,7 +154,7 @@
 		<section class="source-section">
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
- * Number of pixels bellow which a mouse move will be considered as a click
+ * @summary Number of pixels bellow which a mouse move will be considered as a click
  * @type {int}
  * @readonly
  * @private
@@ -159,7 +162,15 @@
 PhotoSphereViewer.MOVE_THRESHOLD = 4;
 
 /**
- * Time size of the mouse position history used to compute inertia
+ * @summary Delay in milliseconds between two clicks to consider a double click
+ * @type {int}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.DBLCLICK_DELAY = 300;
+
+/**
+ * @summary Time size of the mouse position history used to compute inertia
  * @type {int}
  * @readonly
  * @private
@@ -167,7 +178,8 @@ PhotoSphereViewer.MOVE_THRESHOLD = 4;
 PhotoSphereViewer.INERTIA_WINDOW = 300;
 
 /**
- * Radius of the THREE.Sphere
+ * @summary Radius of the THREE.SphereGeometry
+ * Half-length of the THREE.BoxGeometry
  * @type {int}
  * @readonly
  * @private
@@ -175,7 +187,39 @@ PhotoSphereViewer.INERTIA_WINDOW = 300;
 PhotoSphereViewer.SPHERE_RADIUS = 100;
 
 /**
- * Map between keyboard events `keyCode|which` and `key`
+ * @summary Number of vertice of the THREE.SphereGeometry
+ * @type {int}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.SPHERE_VERTICES = 64;
+
+/**
+ * @summary Number of vertices of each side of the THREE.BoxGeometry
+ * @type {int}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.CUBE_VERTICES = 8;
+
+/**
+ * @summary Order of cube textures for arrays
+ * @type {int[]}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
+
+/**
+ * @summary Order of cube textures for maps
+ * @type {string[]}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
+
+/**
+ * @summary Map between keyboard events `keyCode|which` and `key`
  * @type {Object.&lt;int, string>}
  * @readonly
  * @private
@@ -192,7 +236,7 @@ PhotoSphereViewer.KEYMAP = {
 };
 
 /**
- * System properties
+ * @summary System properties
  * @type {Object}
  * @readonly
  * @private
@@ -209,14 +253,14 @@ PhotoSphereViewer.SYSTEM = {
 };
 
 /**
- * SVG icons sources
+ * @summary SVG icons sources
  * @type {Object.&lt;string, string>}
  * @readonly
  */
 PhotoSphereViewer.ICONS = {};
 
 /**
- * Default options, see {@link http://photo-sphere-viewer.js.org/#options}
+ * @summary Default options, see {@link http://photo-sphere-viewer.js.org/#options}
  * @type {Object}
  * @readonly
  */
@@ -228,7 +272,6 @@ PhotoSphereViewer.DEFAULTS = {
   usexmpdata: true,
   pano_data: null,
   webgl: true,
-  sphere_segments: 64,
   min_fov: 30,
   max_fov: 90,
   default_fov: null,
@@ -273,8 +316,7 @@ PhotoSphereViewer.DEFAULTS = {
   click_event_on_marker: false,
   transition: {
     duration: 1500,
-    loader: true,
-    blur: false
+    loader: true
   },
   loading_img: null,
   loading_txt: 'Loading...',
@@ -285,7 +327,7 @@ PhotoSphereViewer.DEFAULTS = {
 };
 
 /**
- * doT.js templates
+ * @summary doT.js templates
  * @type {Object.&lt;string, string>}
  * @readonly
  */

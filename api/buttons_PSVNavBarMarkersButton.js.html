@@ -90,15 +90,18 @@
 							<li class="dropdown">
 								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 										<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
 										<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
-										<li><a href="module-components_buttons.PSVNavBarMarkersButton.html#.event:render-markers-list">components/buttons.PSVNavBarMarkersButton.render-markers-list</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:panorama-cached">PhotoSphereViewer.panorama-cached</a></li>
@@ -160,15 +163,6 @@
 function PSVNavBarMarkersButton(navbar) {
   PSVNavBarButton.call(this, navbar);
 
-  /**
-   * @member {Object}
-   * @private
-   */
-  this.prop = {
-    panelOpened: false,
-    panelOpening: false
-  };
-
   this.create();
 }
 
@@ -178,140 +172,13 @@ PSVNavBarMarkersButton.prototype.constructor = PSVNavBarMarkersButton;
 PSVNavBarMarkersButton.id = 'markers';
 PSVNavBarMarkersButton.className = 'psv-button psv-button--hover-scale psv-markers-button';
 PSVNavBarMarkersButton.icon = 'pin.svg';
-PSVNavBarMarkersButton.publicMethods = ['toggleMarkersList', 'showMarkersList', 'hideMarkersList'];
 
 /**
- * Creates the button
- */
-PSVNavBarMarkersButton.prototype.create = function() {
-  PSVNavBarButton.prototype.create.call(this);
-
-  this.container.title = this.psv.config.lang.markers;
-
-  this.psv.on('open-panel', this);
-  this.psv.on('close-panel', this);
-};
-
-/**
- * Destroys the button
- */
-PSVNavBarMarkersButton.prototype.destroy = function() {
-  this.psv.off('open-panel', this);
-  this.psv.off('close-panel', this);
-
-  delete this.prop;
-
-  PSVNavBarButton.prototype.destroy.call(this);
-};
-
-/**
- * Handle events
- * @param {Event} e
- * @private
- */
-PSVNavBarMarkersButton.prototype.handleEvent = function(e) {
-  switch (e.type) {
-    // @formatter:off
-    case 'open-panel': this._onPanelOpened(); break;
-    case 'close-panel': this._onPanelClosed(); break;
-    // @formatter:on
-  }
-};
-
-/**
- * Toggles markers list on click
- * @private
+ * @override
+ * @description Toggles markers list
  */
 PSVNavBarMarkersButton.prototype._onClick = function() {
-  this.toggleMarkersList();
-};
-
-/**
- * Toggle the visibility of markers list
- */
-PSVNavBarMarkersButton.prototype.toggleMarkersList = function() {
-  if (this.prop.panelOpened) {
-    this.hideMarkersList();
-  }
-  else {
-    this.showMarkersList();
-  }
-};
-
-/**
- * Open side panel with list of markers
- * @fires module:components/buttons.PSVNavBarMarkersButton.render-markers-list
- */
-PSVNavBarMarkersButton.prototype.showMarkersList = function() {
-  var markers = [];
-  for (var id in this.psv.hud.markers) {
-    markers.push(this.psv.hud.markers[id]);
-  }
-
-  /**
-   * @event render-markers-list
-   * @memberof module:components/buttons.PSVNavBarMarkersButton
-   * @param {PSVMarker[]} markers
-   * @returns {PSVMarker[]}
-   */
-  var html = this.psv.config.templates.markersList({
-    markers: this.psv.change('render-markers-list', markers),
-    config: this.psv.config
-  });
-
-  this.prop.panelOpening = true;
-  this.psv.panel.showPanel(html, true);
-
-  this.psv.panel.container.querySelector('.psv-markers-list').addEventListener('click', this._onClickItem.bind(this));
-};
-
-/**
- * Close side panel
- */
-PSVNavBarMarkersButton.prototype.hideMarkersList = function() {
-  if (this.prop.panelOpened) {
-    this.psv.panel.hidePanel();
-  }
-};
-
-/**
- * Click on an item
- * @param {MouseEvent} e
- * @private
- */
-PSVNavBarMarkersButton.prototype._onClickItem = function(e) {
-  var li;
-  if (e.target &amp;&amp; (li = PSVUtils.getClosest(e.target, 'li')) &amp;&amp; li.dataset.psvMarker) {
-    this.psv.hud.gotoMarker(li.dataset.psvMarker, 1000);
-    this.psv.panel.hidePanel();
-  }
-};
-
-/**
- * Update status when the panel is updated
- * @private
- */
-PSVNavBarMarkersButton.prototype._onPanelOpened = function() {
-  if (this.prop.panelOpening) {
-    this.prop.panelOpening = false;
-    this.prop.panelOpened = true;
-  }
-  else {
-    this.prop.panelOpened = false;
-  }
-
-  this.toggleActive(this.prop.panelOpened);
-};
-
-/**
- * Update status when the panel is updated
- * @private
- */
-PSVNavBarMarkersButton.prototype._onPanelClosed = function() {
-  this.prop.panelOpened = false;
-  this.prop.panelOpening = false;
-
-  this.toggleActive(this.prop.panelOpened);
+  this.psv.hud.toggleMarkersList();
 };
 </code></pre>
 		</section>

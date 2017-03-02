@@ -90,15 +90,18 @@
 							<li class="dropdown">
 								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 										<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
 										<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
-										<li><a href="module-components_buttons.PSVNavBarMarkersButton.html#.event:render-markers-list">components/buttons.PSVNavBarMarkersButton.render-markers-list</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+										<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
 										<li><a href="PhotoSphereViewer.html#.event:panorama-cached">PhotoSphereViewer.panorama-cached</a></li>
@@ -151,7 +154,7 @@
 		<section class="source-section">
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
- * Starts to load the panorama
+ * @summary Starts to load the panorama
  * @returns {Promise}
  * @throws {PSVError} when the panorama is not configured
  */
@@ -164,7 +167,7 @@ PhotoSphereViewer.prototype.load = function() {
 };
 
 /**
- * Returns the current position of the camera
+ * @summary Returns the current position of the camera
  * @returns {PhotoSphereViewer.Position}
  */
 PhotoSphereViewer.prototype.getPosition = function() {
@@ -175,7 +178,7 @@ PhotoSphereViewer.prototype.getPosition = function() {
 };
 
 /**
- * Returns the current zoom level
+ * @summary Returns the current zoom level
  * @returns {int}
  */
 PhotoSphereViewer.prototype.getZoomLevel = function() {
@@ -183,7 +186,7 @@ PhotoSphereViewer.prototype.getZoomLevel = function() {
 };
 
 /**
- * Returns the current viewer size
+ * @summary Returns the current viewer size
  * @returns {PhotoSphereViewer.Size}
  */
 PhotoSphereViewer.prototype.getSize = function() {
@@ -194,7 +197,7 @@ PhotoSphereViewer.prototype.getSize = function() {
 };
 
 /**
- * Checks if the automatic rotation is enabled
+ * @summary Checks if the automatic rotation is enabled
  * @returns {boolean}
  */
 PhotoSphereViewer.prototype.isAutorotateEnabled = function() {
@@ -202,7 +205,7 @@ PhotoSphereViewer.prototype.isAutorotateEnabled = function() {
 };
 
 /**
- * Checks if the gyroscope is enabled
+ * @summary Checks if the gyroscope is enabled
  * @returns {boolean}
  */
 PhotoSphereViewer.prototype.isGyroscopeEnabled = function() {
@@ -210,7 +213,7 @@ PhotoSphereViewer.prototype.isGyroscopeEnabled = function() {
 };
 
 /**
- * Checks if the viewer is in fullscreen
+ * @summary Checks if the viewer is in fullscreen
  * @returns {boolean}
  */
 PhotoSphereViewer.prototype.isFullscreenEnabled = function() {
@@ -218,7 +221,7 @@ PhotoSphereViewer.prototype.isFullscreenEnabled = function() {
 };
 
 /**
- * Performs a render
+ * @summary Performs a render
  * @param {boolean} [updateDirection=true] - should update camera direction
  * @fires PhotoSphereViewer.render
  */
@@ -226,13 +229,12 @@ PhotoSphereViewer.prototype.render = function(updateDirection) {
   if (updateDirection !== false) {
     this.prop.direction = this.sphericalCoordsToVector3(this.prop);
 
-    if (this.config.fisheye) {
-      this.prop.direction.multiplyScalar(this.config.fisheye / 2);
-      this.camera.position.copy(this.prop.direction).negate();
-    }
-
+    this.camera.position.set(0, 0, 0);
     this.camera.lookAt(this.prop.direction);
-    // this.camera.rotation.z = 0;
+  }
+
+  if (this.config.fisheye) {
+    this.camera.position.copy(this.prop.direction).multiplyScalar(this.config.fisheye / 2).negate();
   }
 
   this.camera.aspect = this.prop.aspect;
@@ -249,15 +251,17 @@ PhotoSphereViewer.prototype.render = function(updateDirection) {
   /**
    * @event render
    * @memberof PhotoSphereViewer
+   * @summary Triggered on each viewer render, **this event is triggered very often**
    */
   this.trigger('render');
 };
 
 /**
- * Destroys the viewer
+ * @summary Destroys the viewer
+ * @description The memory used by the ThreeJS context is not totally cleared. This will be fixed as soon as possible.
  */
 PhotoSphereViewer.prototype.destroy = function() {
-  this.stopAll();
+  this._stopAll();
   this.stopKeyboardControl();
 
   if (this.isFullscreenEnabled()) {
@@ -294,17 +298,7 @@ PhotoSphereViewer.prototype.destroy = function() {
 
   // destroy ThreeJS view
   if (this.scene) {
-    this.scene.remove(this.camera);
-    this.scene.remove(this.mesh);
-  }
-
-  if (this.mesh) {
-    this.mesh.geometry.dispose();
-    this.mesh.geometry = null;
-    this.mesh.material.map.dispose();
-    this.mesh.material.map = null;
-    this.mesh.material.dispose();
-    this.mesh.material = null;
+    PSVUtils.cleanTHREEScene(this.scene);
   }
 
   // remove container
@@ -337,10 +331,11 @@ PhotoSphereViewer.prototype.destroy = function() {
 };
 
 /**
- * Loads a panorama file&lt;br>
+ * @summary Loads a new panorama file
+ * @description Loads a new panorama file, optionally changing the camera position and activating the transition animation.&lt;br>
  * If the "position" is not defined, the camera will not move and the ongoing animation will continue&lt;br>
  * "config.transition" must be configured for "transition" to be taken in account
- * @param {string} path - URL of the new panorama file
+ * @param {string|string[]} path - URL of the new panorama file
  * @param {PhotoSphereViewer.ExtendedPosition} [position]
  * @param {boolean} [transition=false]
  * @returns {Promise}
@@ -356,10 +351,14 @@ PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
     position = undefined;
   }
 
+  if (transition &amp;&amp; this.prop.isCubemap) {
+    throw new PSVError('Transition is not available with cubemap.');
+  }
+
   if (position) {
     this.cleanPosition(position);
 
-    this.stopAll();
+    this._stopAll();
   }
 
   this.config.panorama = path;
@@ -367,17 +366,12 @@ PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
   var self = this;
 
   if (!transition || !this.config.transition || !this.scene) {
-    this.loader = new PSVLoader(this);
+    this.loader.show();
+    if (this.canvas_container) {
+      this.canvas_container.style.opacity = 0;
+    }
 
     this.prop.loading_promise = this._loadTexture(this.config.panorama)
-      .ensure(function() {
-        if (self.loader) {
-          self.loader.destroy();
-          self.loader = null;
-        }
-
-        self.prop.loading_promise = null;
-      })
       .then(function(texture) {
         self._setTexture(texture);
 
@@ -385,27 +379,27 @@ PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
           self.rotate(position);
         }
       })
+      .ensure(function() {
+        self.loader.hide();
+        self.canvas_container.style.opacity = 1;
+
+        self.prop.loading_promise = null;
+      })
       .rethrow();
   }
   else {
     if (this.config.transition.loader) {
-      this.loader = new PSVLoader(this);
+      this.loader.show();
     }
 
     this.prop.loading_promise = this._loadTexture(this.config.panorama)
       .then(function(texture) {
-        if (self.loader) {
-          self.loader.destroy();
-          self.loader = null;
-        }
+        self.loader.hide();
 
         return self._transition(texture, position);
       })
       .ensure(function() {
-        if (self.loader) {
-          self.loader.destroy();
-          self.loader = null;
-        }
+        self.loader.hide();
 
         self.prop.loading_promise = null;
       })
@@ -416,20 +410,11 @@ PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
 };
 
 /**
- * Stops all current animations
- */
-PhotoSphereViewer.prototype.stopAll = function() {
-  this.stopAutorotate();
-  this.stopAnimation();
-  this.stopGyroscopeControl();
-};
-
-/**
- * Starts the autorotate animation
+ * @summary Starts the automatic rotation
  * @fires PhotoSphereViewer.autorotate
  */
 PhotoSphereViewer.prototype.startAutorotate = function() {
-  this.stopAll();
+  this._stopAll();
 
   var self = this;
   var last = null;
@@ -452,13 +437,14 @@ PhotoSphereViewer.prototype.startAutorotate = function() {
   /**
    * @event autorotate
    * @memberof PhotoSphereViewer
+   * @summary Triggered when the automatic rotation is enabled/disabled
    * @param {boolean} enabled
    */
   this.trigger('autorotate', true);
 };
 
 /**
- * Stops the autorotate animation
+ * @summary Stops the automatic rotation
  * @fires PhotoSphereViewer.autorotate
  */
 PhotoSphereViewer.prototype.stopAutorotate = function() {
@@ -476,7 +462,7 @@ PhotoSphereViewer.prototype.stopAutorotate = function() {
 };
 
 /**
- * Toggles the autorotate animation
+ * @summary Starts or stops the automatic rotation
  */
 PhotoSphereViewer.prototype.toggleAutorotate = function() {
   if (this.isAutorotateEnabled()) {
@@ -488,16 +474,16 @@ PhotoSphereViewer.prototype.toggleAutorotate = function() {
 };
 
 /**
- * Starts the gyroscope interaction
+ * @summary Enables the gyroscope navigation
  * @fires PhotoSphereViewer.gyroscope-updated
  */
 PhotoSphereViewer.prototype.startGyroscopeControl = function() {
-  if (!this.config.gyroscope) {
+  if (!this.doControls || !this.doControls.enabled || !this.doControls.deviceOrientation) {
     console.warn('PhotoSphereViewer: gyroscope disabled');
     return;
   }
 
-  this.stopAll();
+  this._stopAll();
 
   var self = this;
 
@@ -517,13 +503,14 @@ PhotoSphereViewer.prototype.startGyroscopeControl = function() {
   /**
    * @event gyroscope-updated
    * @memberof PhotoSphereViewer
+   * @summary Triggered when the gyroscope mode is enabled/disabled
    * @param {boolean} enabled
    */
   this.trigger('gyroscope-updated', true);
 };
 
 /**
- * Stops the gyroscope interaction
+ * @summary Disables the gyroscope navigation
  * @fires PhotoSphereViewer.gyroscope-updated
  */
 PhotoSphereViewer.prototype.stopGyroscopeControl = function() {
@@ -538,7 +525,7 @@ PhotoSphereViewer.prototype.stopGyroscopeControl = function() {
 };
 
 /**
- * Toggles the gyroscope interaction
+ * @summary Enables or disables the gyroscope navigation
  */
 PhotoSphereViewer.prototype.toggleGyroscopeControl = function() {
   if (this.isGyroscopeEnabled()) {
@@ -550,7 +537,7 @@ PhotoSphereViewer.prototype.toggleGyroscopeControl = function() {
 };
 
 /**
- * Rotates the camera
+ * @summary Rotates the view to specific longitude and latitude
  * @param {PhotoSphereViewer.ExtendedPosition} position
  * @param {boolean} [render=true]
  * @fires PhotoSphereViewer._side-reached
@@ -578,6 +565,7 @@ PhotoSphereViewer.prototype.rotate = function(position, render) {
     /**
      * @event position-updated
      * @memberof PhotoSphereViewer
+     * @summary Triggered when the view longitude and/or latitude changes
      * @param {PhotoSphereViewer.Position} position
      */
     this.trigger('position-updated', this.getPosition());
@@ -585,13 +573,13 @@ PhotoSphereViewer.prototype.rotate = function(position, render) {
 };
 
 /**
- * Rotates the camera with animation
+ * @summary Rotates the view to specific longitude and latitude with a smooth animation
  * @param {PhotoSphereViewer.ExtendedPosition} position
  * @param {string|int} duration - animation speed or duration (in milliseconds)
- * @return {Promise}
+ * @returns {Promise}
  */
 PhotoSphereViewer.prototype.animate = function(position, duration) {
-  this.stopAll();
+  this._stopAll();
 
   if (!duration) {
     this.rotate(position);
@@ -633,7 +621,7 @@ PhotoSphereViewer.prototype.animate = function(position, duration) {
 };
 
 /**
- * Stops the ongoing animation
+ * @summary Stops the ongoing animation
  */
 PhotoSphereViewer.prototype.stopAnimation = function() {
   if (this.prop.animation_promise) {
@@ -643,7 +631,7 @@ PhotoSphereViewer.prototype.stopAnimation = function() {
 };
 
 /**
- * Zooms
+ * @summary Zooms to a specific level between `max_fov` and `min_fov`
  * @param {int} level - new zoom level from 0 to 100
  * @param {boolean} [render=true]
  * @fires PhotoSphereViewer.zoom-updated
@@ -651,7 +639,7 @@ PhotoSphereViewer.prototype.stopAnimation = function() {
 PhotoSphereViewer.prototype.zoom = function(level, render) {
   this.prop.zoom_lvl = PSVUtils.bound(Math.round(level), 0, 100);
   this.prop.vFov = this.config.max_fov + (this.prop.zoom_lvl / 100) * (this.config.min_fov - this.config.max_fov);
-  this.prop.hFov = 2 * Math.atan(Math.tan(this.prop.vFov * Math.PI / 180 / 2) * this.prop.aspect) * 180 / Math.PI;
+  this.prop.hFov = THREE.Math.radToDeg(2 * Math.atan(Math.tan(THREE.Math.degToRad(this.prop.vFov) / 2) * this.prop.aspect));
 
   if (render !== false &amp;&amp; this.renderer) {
     this.render();
@@ -659,6 +647,7 @@ PhotoSphereViewer.prototype.zoom = function(level, render) {
     /**
      * @event zoom-updated
      * @memberof PhotoSphereViewer
+     * @summary Triggered when the zoom level changes
      * @param {int} zoomLevel
      */
     this.trigger('zoom-updated', this.getZoomLevel());
@@ -666,7 +655,7 @@ PhotoSphereViewer.prototype.zoom = function(level, render) {
 };
 
 /**
- * Zooms in
+ * @summary Increases the zoom level by 1
  */
 PhotoSphereViewer.prototype.zoomIn = function() {
   if (this.prop.zoom_lvl &lt; 100) {
@@ -675,7 +664,7 @@ PhotoSphereViewer.prototype.zoomIn = function() {
 };
 
 /**
- * Zooms out
+ * @summary Decreases the zoom level by 1
  */
 PhotoSphereViewer.prototype.zoomOut = function() {
   if (this.prop.zoom_lvl > 0) {
@@ -684,7 +673,7 @@ PhotoSphereViewer.prototype.zoomOut = function() {
 };
 
 /**
- * Toggles fullscreen
+ * @summary Enters or exits the fullscreen mode
  */
 PhotoSphereViewer.prototype.toggleFullscreen = function() {
   if (!this.isFullscreenEnabled()) {
@@ -696,21 +685,21 @@ PhotoSphereViewer.prototype.toggleFullscreen = function() {
 };
 
 /**
- * Starts listening keyboard events
+ * @summary Enables the keyboard controls (done automatically when entering fullscreen)
  */
 PhotoSphereViewer.prototype.startKeyboardControl = function() {
   window.addEventListener('keydown', this);
 };
 
 /**
- * Stops listening keyboard events
+ * @summary Disables the keyboard controls (done automatically when exiting fullscreen)
  */
 PhotoSphereViewer.prototype.stopKeyboardControl = function() {
   window.removeEventListener('keydown', this);
 };
 
 /**
- * Preload a panorama file without displaying it
+ * @summary Preload a panorama file without displaying it
  * @param {string} panorama
  * @returns {Promise}
  * @throws {PSVError} when the cache is disabled
@@ -724,7 +713,7 @@ PhotoSphereViewer.prototype.preloadPanorama = function(panorama) {
 };
 
 /**
- * Removes a specific panorama from the cache or clear the entire cache
+ * @summary Removes a panorama from the cache or clears the entire cache
  * @param {string} [panorama]
  * @throws {PSVError} when the cache is disabled
  */
@@ -747,7 +736,7 @@ PhotoSphereViewer.prototype.clearPanoramaCache = function(panorama) {
 };
 
 /**
- * Retrieves the cache for a panorama
+ * @summary Retrieves the cache for a panorama
  * @param {string} panorama
  * @returns {PhotoSphereViewer.CacheItem}
  * @throws {PSVError} when the cache is disabled

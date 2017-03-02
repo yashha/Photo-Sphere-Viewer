@@ -1,4 +1,8 @@
+/**
+ * Initialize the viewer
+ */
 var PSV = new PhotoSphereViewer({
+  // main configuration
   panorama: rootURL + '/assets/Bryce-Canyon-National-Park-Mark-Doliner.jpg',
   container: 'photosphere',
   loading_img: rootURL + '/assets/photosphere-logo.gif',
@@ -10,8 +14,11 @@ var PSV = new PhotoSphereViewer({
   size: {
     height: 500
   },
+
+  // list of markers
   markers: [
     {
+      // image marker that opens the panel when clicked
       id: 'image',
       longitude: 5.69810,
       latitude: -0.13770,
@@ -23,6 +30,7 @@ var PSV = new PhotoSphereViewer({
       content: document.getElementById('lorem-content').innerHTML
     },
     {
+      // html marker with custom style
       id: 'text',
       longitude: 0,
       latitude: 0,
@@ -41,6 +49,7 @@ var PSV = new PhotoSphereViewer({
       }
     },
     {
+      // polygon marker
       id: 'polygon',
       polygon_px: [3184, 794, 3268, 841, 3367, 1194, 3327, 1307, 3065, 1221, 3097, 847],
       svgStyle: {
@@ -54,6 +63,7 @@ var PSV = new PhotoSphereViewer({
       }
     },
     {
+      // circle marker
       id: 'circle',
       circle: 20,
       x: 2500,
@@ -63,6 +73,9 @@ var PSV = new PhotoSphereViewer({
   ]
 });
 
+/**
+ * Create a new marker when the user clicks somewhere
+ */
 PSV.on('click', function(e) {
   PSV.addMarker({
     id: '#' + Math.random(),
@@ -79,6 +92,9 @@ PSV.on('click', function(e) {
   });
 });
 
+/**
+ * Delete a generated marker when the user clicks on it
+ */
 PSV.on('select-marker', function(marker) {
   if (marker.data && marker.data.generated) {
     PSV.removeMarker(marker);

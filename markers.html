@@ -26,7 +26,18 @@ title: Markers
   <div id="photosphere"></div>
 
   <br>
-  <a href="{{site.github.url}}/assets/markers-demo.js" class="btn btn-default"><b>&lt;/&gt;</b> See source</a>
+
+  <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#markersSource">
+    <b>&lt;/&gt;</b> Show source
+  </button>
+
+  <div class="collapse" id="markersSource">
+    <!-- @formatter:off -->
+{% highlight javascript %}
+{% include_relative assets/markers-demo.js %}
+{% endhighlight %}
+<!-- @formatter:on -->
+  </div>
 </section>
 
 <section class="bs-docs-section">
@@ -187,116 +198,17 @@ title: Markers
     </table>
   </div>
 
+
   <h2 id="methods">Methods</h2>
 
-  <h4><code>.addMarker(properties [, render])</code></h4>
-  <p>Adds a new marker to the viewer. The method returns an object representing the actual marker with all <code>properties</code>
-    and an additional <code>$el</code> attribute, referencing the HTMLElement in the viewer.</p>
-  <p>Set the <code>render</code> flag to false to postpone viewer update (usefull when adding a batch of markers), call
-    <code>render()</code> method when done.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.addMarker({
-  id: 'marker-1',
-  image: 'path/to/pin.png',
-  width: 32,
-  height: 32,
-  x: 500,
-  y: 1000
-});
-{% endhighlight %}
-<!-- @formatter:on -->
+  <p>Check the <a class="btn btn-outline" href="{{site.github.url}}/api/module-components.PSVHUD.html#methods">API documentation</a> to learn
+    more about additional methods dedicated to the markers.</p>
 
-  <h4><code>.updateMarker(marker [, render])</code></h4>
-  <p>Updates the existing marker with the same <code>id</code>. Every property can be changed but you can't change its
-    type (Eg: <code>image</code> to <code>html</code>).</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-// update by defining new properties
-viewer.updateMarker({
-  id: 'marker-1',
-  x: 1000
-});
-
-// update via reference
-var marker = viewer.addMarker({ ... });
-marker.x = 1000;
-viewer.updateMarker(marker);
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.getMarker(markerId)</code></h4>
-  <p>Returns the internal marker object for a marker id.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-var marker = viewer.getMarker('marker-1');
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.getCurrentMarker()</code></h4>
-  <p>Returns the last marker selected by the user or <code>null</code>.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-var currentMarker = viewer.getCurrentMarker();
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.removeMarker(marker | markerId [, render])</code></h4>
-  <p>Removes a marker from the viewer.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.removeMarker('marker-1');
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.gotoMarker(marker | markerId [, duration | speed])</code></h4>
-  <p>Rotate the view to face the marker. If the last parameter is provided (see the <a
-    href="{{site.github.url}}/index.html#methods"><code>animate()</code> method</a>) the camera will rotate
-    smoothly to the the marker.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.gotoMarker('marker-1', 1500);
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.clearMarkers([render])</code></h4>
-  <p>Removes all markers.</p>
-
-  <h4><code>.hideMarker(marker | markerId)</code> / <code>.showMarker(marker | markerId)</code> / <code>.toggleMarker(marker
-    | markerId)</code></h4>
 
   <h2 id="events">Events</h2>
 
-  <h4><code>select-marker [marker]</code></h4>
-  <p>Triggered when the user click on a marker. The marker can be retrieved from outside the event handler with <code>getCurrentMarker()</code>
-    method.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('select-marker', function(marker) {
-  alert('Select ' + marker.id);
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>unselect-marker [marker]</code></h4>
-  <p>Triggered when a marker was selected a the user click elsewhere.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('unselect-marker', function(marker) {
-  alert(marker.id + ' was selected');
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>render-markers-list [markers]</code></h4>
-  <p>Used to alter the list of markers displayed on the side-panel.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('render-markers-list', function(markers) {
-  return markers.slice(0, 5);
-});
-{% endhighlight %}
-<!-- @formatter:on -->
+  <p><a class="btn btn-outline" href="{{site.github.url}}/api/module-components.PSVHUD.html#events">More events</a> are also available for
+    markers.</p>
 </section>
 
 
@@ -315,8 +227,8 @@ viewer.on('render-markers-list', function(markers) {
 <script src="{{site.github.url}}/dist/D.js/lib/D.min.js"></script>
 <script src="{{site.github.url}}/dist/doT/doT.min.js"></script>
 <script src="{{site.github.url}}/dist/uevent/uevent.min.js"></script>
-<script src="{{site.github.url}}/dist/threejs-examples/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="{{site.github.url}}/dist/threejs-examples/examples/js/renderers/Projector.js"></script>
+<script src="{{site.github.url}}/dist/three.js-examples/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="{{site.github.url}}/dist/three.js-examples/examples/js/renderers/Projector.js"></script>
 <script src="{{site.github.url}}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
 
 <script type="text/template" id="lorem-content">

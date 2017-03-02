@@ -116,34 +116,32 @@ window.lunrData = {
         "module-components.PSVComponent.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvcomponent#contain",
-          "psvcomponent#contain",
-          "readonly&gt"
+          "psvcomponent#contain"
         ],
         "module-components.PSVComponent.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvcomponent#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvcomponent#par",
-          "readonly&gt"
+          "psvcomponent#par"
         ],
         "module-components.PSVComponent.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvcomponent#psv",
           "photosphereview",
           "psv",
-          "psvcomponent#psv",
-          "readonly&gt"
+          "psvcomponent#psv"
         ],
         "module-components.PSVComponent.html#create": [
           "compon",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components.psvcomponent#cr",
           "psvcomponent#cr"
         ],
@@ -151,6 +149,7 @@ window.lunrData = {
           "compon",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components.psvcomponent#destroy",
           "psvcomponent#destroy"
         ],
@@ -158,6 +157,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvcomponent#hid",
           "psvcomponent#hid"
         ],
@@ -165,6 +165,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvcomponent#show",
           "psvcomponent#show",
           "show"
@@ -176,39 +177,35 @@ window.lunrData = {
           "module:components.psvhud",
           "psvhud"
         ],
-        "module-components.PSVHUD.html#$svg": [
-          "contain",
-          "lt;protected&gt",
-          "member",
-          "module:components.psvhud#$svg",
-          "psvhud#$svg",
-          "svg",
-          "svgelement"
-        ],
         "module-components.PSVHUD.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvhud#contain",
-          "psvhud#contain",
-          "readonly&gt"
+          "psvhud#contain"
         ],
         "module-components.PSVHUD.html#currentMarker": [
           "currentmark",
+          "last",
           "lt;readonly&gt",
+          "marker",
           "member",
           "module:components.psvhud#currentmark",
           "psvhud#currentmark",
-          "psvmarker"
+          "psvmarker",
+          "select"
         ],
         "module-components.PSVHUD.html#hoveringMarker": [
+          "cursor",
           "hoveringmark",
           "lt;readonly&gt",
+          "marker",
           "member",
           "module:components.psvhud#hoveringmark",
           "psvhud#hoveringmark",
-          "psvmarker"
+          "psvmarker",
+          "under"
         ],
         "module-components.PSVHUD.html#markers": [
           "marker",
@@ -216,38 +213,45 @@ window.lunrData = {
           "module:components.psvhud#mark",
           "object.&lt;str",
           "psvhud#mark",
-          "psvmarker&gt"
+          "psvmarker&gt",
+          "regist"
         ],
         "module-components.PSVHUD.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvhud#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvhud#par",
-          "readonly&gt"
+          "psvhud#par"
         ],
         "module-components.PSVHUD.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvhud#psv",
           "photosphereview",
           "psv",
-          "psvhud#psv",
-          "readonly&gt"
+          "psvhud#psv"
+        ],
+        "module-components.PSVHUD.html#svgContainer": [
+          "lt;readonly&gt",
+          "member",
+          "module:components.psvhud#svgcontain",
+          "psvhud#svgcontain",
+          "svgcontain",
+          "svgelement"
         ],
         "module-components.PSVHUD.html#addMarker": [
           "add",
           "addmark",
           "function",
-          "hud",
           "marker",
           "module:components.psvhud#addmark",
           "new",
           "properti",
           "psvhud#addmark",
           "psvmarker",
-          "render"
+          "render",
+          "viewer"
         ],
         "module-components.PSVHUD.html#clearMarkers": [
           "clearmark",
@@ -259,58 +263,63 @@ window.lunrData = {
           "render"
         ],
         "module-components.PSVHUD.html#create": [
+          "compon",
           "creat",
           "function",
-          "hud",
+          "lt;protected&gt",
           "module:components.psvhud#cr",
           "psvhud#creat"
         ],
         "module-components.PSVHUD.html#destroy": [
+          "compon",
           "destroy",
           "function",
-          "hud",
+          "lt;protected&gt",
           "module:components.psvhud#destroy",
           "psvhud#destroy"
         ],
         "module-components.PSVHUD.html#getCurrentMarker": [
-          "current",
           "function",
-          "get",
           "getcurrentmark",
+          "last",
           "marker",
           "module:components.psvhud#getcurrentmark",
           "psvhud#getcurrentmark",
           "psvmarker",
-          "select"
+          "return",
+          "select",
+          "user"
         ],
         "module-components.PSVHUD.html#getMarker": [
-          "extern",
           "function",
-          "get",
           "getmark",
           "id",
-          "it'",
+          "intern",
           "marker",
+          "markerid",
           "module:components.psvhud#getmark",
           "object",
           "psvhud#getmark",
-          "psvmarker"
+          "psvmarker",
+          "return"
         ],
         "module-components.PSVHUD.html#gotoMarker": [
           "durat",
+          "face",
           "function",
-          "goe",
           "gotomark",
           "marker",
           "module:components.psvhud#gotomark",
           "promis",
           "psvhud#gotomark",
-          "specif"
+          "rotat",
+          "view"
         ],
         "module-components.PSVHUD.html#hide": [
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvhud#hid",
           "psvhud#hid"
         ],
@@ -322,6 +331,18 @@ window.lunrData = {
           "module:components.psvhud#hidemark",
           "psvhud#hidemark"
         ],
+        "module-components.PSVHUD.html#hideMarkersList": [
+          "close",
+          "contain",
+          "function",
+          "hidemarkerslist",
+          "list",
+          "marker",
+          "module:components.psvhud#hidemarkerslist",
+          "panel",
+          "psvhud#hidemarkerslist",
+          "side"
+        ],
         "module-components.PSVHUD.html#removeMarker": [
           "function",
           "marker",
@@ -329,12 +350,24 @@ window.lunrData = {
           "psvhud#removemark",
           "remov",
           "removemark",
-          "render"
+          "render",
+          "viewer"
+        ],
+        "module-components.PSVHUD.html#renderMarkers": [
+          "function",
+          "marker",
+          "module:components.psvhud#rendermark",
+          "posit",
+          "psvhud#rendermark",
+          "rendermark",
+          "updat",
+          "visibl"
         ],
         "module-components.PSVHUD.html#show": [
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvhud#show",
           "psvhud#show",
           "show"
@@ -347,6 +380,17 @@ window.lunrData = {
           "show",
           "showmark"
         ],
+        "module-components.PSVHUD.html#showMarkersList": [
+          "function",
+          "list",
+          "marker",
+          "module:components.psvhud#showmarkerslist",
+          "open",
+          "panel",
+          "psvhud#showmarkerslist",
+          "showmarkerslist",
+          "side"
+        ],
         "module-components.PSVHUD.html#toggleMarker": [
           "function",
           "marker",
@@ -355,26 +399,35 @@ window.lunrData = {
           "toggl",
           "togglemark"
         ],
-        "module-components.PSVHUD.html#updateMarker": [
+        "module-components.PSVHUD.html#toggleMarkersList": [
           "function",
+          "list",
+          "marker",
+          "module:components.psvhud#togglemarkerslist",
+          "psvhud#togglemarkerslist",
+          "toggl",
+          "togglemarkerslist",
+          "visibl"
+        ],
+        "module-components.PSVHUD.html#updateMarker": [
+          "can't",
+          "chang",
+          "eg",
+          "exist",
+          "function",
+          "html",
+          "id",
+          "imag",
           "marker",
           "module:components.psvhud#updatemark",
           "properti",
           "psvhud#updatemark",
           "psvmarker",
           "render",
+          "same",
+          "type",
           "updat",
           "updatemark"
-        ],
-        "module-components.PSVHUD.html#updatePositions": [
-          "function",
-          "marker",
-          "module:components.psvhud#updateposit",
-          "posit",
-          "psvhud#updateposit",
-          "updat",
-          "updateposit",
-          "visibl"
         ],
         "module-components.PSVLoader.html": [
           "class",
@@ -386,41 +439,40 @@ window.lunrData = {
         "module-components.PSVLoader.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvloader#contain",
-          "psvloader#contain",
-          "readonly&gt"
+          "psvloader#contain"
         ],
         "module-components.PSVLoader.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvloader#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvloader#par",
-          "readonly&gt"
+          "psvloader#par"
         ],
         "module-components.PSVLoader.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvloader#psv",
           "photosphereview",
           "psv",
-          "psvloader#psv",
-          "readonly&gt"
+          "psvloader#psv"
         ],
         "module-components.PSVLoader.html#create": [
+          "compon",
           "creat",
           "function",
-          "loader",
+          "lt;protected&gt",
           "module:components.psvloader#cr",
           "psvloader#cr"
         ],
         "module-components.PSVLoader.html#destroy": [
+          "compon",
           "destroy",
           "function",
-          "loader",
+          "lt;protected&gt",
           "module:components.psvloader#destroy",
           "psvloader#destroy"
         ],
@@ -428,6 +480,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvloader#hid",
           "psvloader#hid"
         ],
@@ -445,6 +498,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvloader#show",
           "psvloader#show",
           "show"
@@ -460,51 +514,52 @@ window.lunrData = {
         "module-components.PSVNavBar.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbar#contain",
-          "psvnavbar#contain",
-          "readonly&gt"
+          "psvnavbar#contain"
         ],
         "module-components.PSVNavBar.html#items": [
           "array.&lt;module:components/buttons.psvnavbarbutton&gt",
+          "button",
           "item",
-          "lt;protect",
+          "list",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbar#item",
-          "psvnavbar#item",
-          "readonly&gt"
+          "navbar",
+          "psvnavbar#item"
         ],
         "module-components.PSVNavBar.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbar#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbar#par",
-          "readonly&gt"
+          "psvnavbar#par"
         ],
         "module-components.PSVNavBar.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbar#psv",
           "photosphereview",
           "psv",
-          "psvnavbar#psv",
-          "readonly&gt"
+          "psvnavbar#psv"
         ],
         "module-components.PSVNavBar.html#create": [
+          "compon",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbar#cr",
-          "navbar",
           "psvnavbar#cr"
         ],
         "module-components.PSVNavBar.html#destroy": [
+          "compon",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbar#destroy",
-          "navbar",
           "psvnavbar#destroy"
         ],
         "module-components.PSVNavBar.html#getNavbarButton": [
@@ -522,6 +577,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvnavbar#hid",
           "psvnavbar#hid"
         ],
@@ -537,6 +593,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbar#show",
           "psvnavbar#show",
           "show"
@@ -569,34 +626,32 @@ window.lunrData = {
         "module-components.PSVNavBarCaption.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbarcaption#contain",
-          "psvnavbarcaption#contain",
-          "readonly&gt"
+          "psvnavbarcaption#contain"
         ],
         "module-components.PSVNavBarCaption.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbarcaption#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarcaption#par",
-          "readonly&gt"
+          "psvnavbarcaption#par"
         ],
         "module-components.PSVNavBarCaption.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbarcaption#psv",
           "photosphereview",
           "psv",
-          "psvnavbarcaption#psv",
-          "readonly&gt"
+          "psvnavbarcaption#psv"
         ],
         "module-components.PSVNavBarCaption.html#create": [
           "compon",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbarcaption#cr",
           "psvnavbarcaption#cr"
         ],
@@ -604,6 +659,7 @@ window.lunrData = {
           "compon",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbarcaption#destroy",
           "psvnavbarcaption#destroy"
         ],
@@ -611,6 +667,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvnavbarcaption#hid",
           "psvnavbarcaption#hid"
         ],
@@ -628,6 +685,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbarcaption#show",
           "psvnavbarcaption#show",
           "show"
@@ -643,29 +701,26 @@ window.lunrData = {
         "module-components.PSVNavBarSpacer.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbarspacer#contain",
-          "psvnavbarspacer#contain",
-          "readonly&gt"
+          "psvnavbarspacer#contain"
         ],
         "module-components.PSVNavBarSpacer.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbarspacer#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarspacer#par",
-          "readonly&gt"
+          "psvnavbarspacer#par"
         ],
         "module-components.PSVNavBarSpacer.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvnavbarspacer#psv",
           "photosphereview",
           "psv",
-          "psvnavbarspacer#psv",
-          "readonly&gt"
+          "psvnavbarspacer#psv"
         ],
         "module-components.PSVNavBarSpacer.html#weight": [
           "int",
@@ -679,6 +734,7 @@ window.lunrData = {
           "compon",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbarspacer#cr",
           "psvnavbarspacer#cr"
         ],
@@ -686,6 +742,7 @@ window.lunrData = {
           "compon",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbarspacer#destroy",
           "psvnavbarspacer#destroy"
         ],
@@ -693,6 +750,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvnavbarspacer#hid",
           "psvnavbarspacer#hid"
         ],
@@ -700,6 +758,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvnavbarspacer#show",
           "psvnavbarspacer#show",
           "show"
@@ -714,58 +773,48 @@ window.lunrData = {
         "module-components.PSVPanel.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvpanel#contain",
-          "psvpanel#contain",
-          "readonly&gt"
-        ],
-        "module-components.PSVPanel.html#content": [
-          "contain",
-          "content",
-          "htmlelement",
-          "lt;protect",
-          "member",
-          "module:components.psvpanel#cont",
-          "psvpanel#cont",
-          "readonly&gt"
+          "psvpanel#contain"
         ],
         "module-components.PSVPanel.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvpanel#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvpanel#par",
-          "readonly&gt"
+          "psvpanel#par"
         ],
         "module-components.PSVPanel.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvpanel#psv",
           "photosphereview",
           "psv",
-          "psvpanel#psv",
-          "readonly&gt"
+          "psvpanel#psv"
         ],
         "module-components.PSVPanel.html#create": [
+          "compon",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components.psvpanel#cr",
-          "panel",
           "psvpanel#cr"
         ],
         "module-components.PSVPanel.html#destroy": [
+          "compon",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components.psvpanel#destroy",
-          "panel",
           "psvpanel#destroy"
         ],
         "module-components.PSVPanel.html#hide": [
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvpanel#hid",
           "psvpanel#hid"
         ],
@@ -781,6 +830,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvpanel#show",
           "psvpanel#show",
           "show"
@@ -805,48 +855,48 @@ window.lunrData = {
         "module-components.PSVTooltip.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvtooltip#contain",
-          "psvtooltip#contain",
-          "readonly&gt"
+          "psvtooltip#contain"
         ],
         "module-components.PSVTooltip.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvtooltip#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvtooltip#par",
-          "readonly&gt"
+          "psvtooltip#par"
         ],
         "module-components.PSVTooltip.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components.psvtooltip#psv",
           "photosphereview",
           "psv",
-          "psvtooltip#psv",
-          "readonly&gt"
+          "psvtooltip#psv"
         ],
         "module-components.PSVTooltip.html#create": [
+          "compon",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components.psvtooltip#cr",
-          "psvtooltip#cr",
-          "tooltip"
+          "psvtooltip#cr"
         ],
         "module-components.PSVTooltip.html#destroy": [
+          "compon",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components.psvtooltip#destroy",
-          "psvtooltip#destroy",
-          "tooltip"
+          "psvtooltip#destroy"
         ],
         "module-components.PSVTooltip.html#hide": [
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components.psvtooltip#hid",
           "psvtooltip#hid"
         ],
@@ -872,18 +922,20 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components.psvtooltip#show",
           "psvtooltip#show",
           "show"
         ],
         "module-components.PSVTooltip.html#showTooltip": [
           "config",
+          "display",
           "function",
           "module:components.psvtooltip#showtooltip",
           "psvtooltip#showtooltip",
-          "show",
           "showtooltip",
-          "tooltip"
+          "tooltip",
+          "viewer"
         ],
         "module-components_buttons.PSVNavBarAutorotateButton.html": [
           "autorot",
@@ -898,50 +950,53 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarAutorotateButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarautorotatebutton#contain",
-          "psvnavbarautorotatebutton#contain",
-          "readonly&gt"
+          "psvnavbarautorotatebutton#contain"
         ],
         "module-components_buttons.PSVNavBarAutorotateButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarautorotatebutton#en",
-          "psvnavbarautorotatebutton#en"
+          "psvnavbarautorotatebutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarAutorotateButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarautorotatebutton#id",
           "psvnavbarautorotatebutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarAutorotateButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarautorotatebutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarautorotatebutton#par",
-          "readonly&gt"
+          "psvnavbarautorotatebutton#par"
         ],
         "module-components_buttons.PSVNavBarAutorotateButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarautorotatebutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbarautorotatebutton#psv",
-          "readonly&gt"
+          "psvnavbarautorotatebutton#psv"
         ],
         "module-components_buttons.PSVNavBarAutorotateButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarautorotatebutton#cr",
           "psvnavbarautorotatebutton#cr"
         ],
@@ -949,6 +1004,7 @@ window.lunrData = {
           "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarautorotatebutton#destroy",
           "psvnavbarautorotatebutton#destroy"
         ],
@@ -970,6 +1026,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarautorotatebutton#hid",
           "psvnavbarautorotatebutton#hid"
         ],
@@ -977,6 +1034,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarautorotatebutton#show",
           "psvnavbarautorotatebutton#show",
           "show"
@@ -1004,11 +1062,12 @@ window.lunrData = {
           "button",
           "icon",
           "inject",
-          "lt;static&gt",
+          "lt;static",
           "member",
           "module:components/buttons.psvnavbarbutton.icon",
           "name",
           "psvnavbarbutton.icon",
+          "readonly&gt",
           "string",
           "svg"
         ],
@@ -1018,11 +1077,12 @@ window.lunrData = {
           "icon",
           "iconact",
           "inject",
-          "lt;static&gt",
+          "lt;static",
           "member",
           "module:components/buttons.psvnavbarbutton.iconact",
           "name",
           "psvnavbarbutton.iconact",
+          "readonly&gt",
           "string",
           "svg"
         ],
@@ -1030,67 +1090,72 @@ window.lunrData = {
           "button",
           "id",
           "identifi",
-          "lt;static&gt",
+          "lt;static",
           "member",
           "module:components/buttons.psvnavbarbutton.id",
           "psvnavbarbutton.id",
+          "readonly&gt",
           "string",
           "uniqu"
         ],
         "module-components_buttons.PSVNavBarButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarbutton#contain",
-          "psvnavbarbutton#contain",
-          "readonly&gt"
+          "psvnavbarbutton#contain"
         ],
         "module-components_buttons.PSVNavBarButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarbutton#en",
-          "psvnavbarbutton#en"
+          "psvnavbarbutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarbutton#id",
           "psvnavbarbutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarbutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarbutton#par",
-          "readonly&gt"
+          "psvnavbarbutton#par"
         ],
         "module-components_buttons.PSVNavBarButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarbutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbarbutton#psv",
-          "readonly&gt"
+          "psvnavbarbutton#psv"
         ],
         "module-components_buttons.PSVNavBarButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarbutton#cr",
           "psvnavbarbutton#cr"
         ],
         "module-components_buttons.PSVNavBarButton.html#destroy": [
-          "compon",
+          "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarbutton#destroy",
           "psvnavbarbutton#destroy"
         ],
@@ -1112,6 +1177,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarbutton#hid",
           "psvnavbarbutton#hid"
         ],
@@ -1119,6 +1185,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarbutton#show",
           "psvnavbarbutton#show",
           "show"
@@ -1146,50 +1213,53 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarCustomButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarcustombutton#contain",
-          "psvnavbarcustombutton#contain",
-          "readonly&gt"
+          "psvnavbarcustombutton#contain"
         ],
         "module-components_buttons.PSVNavBarCustomButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarcustombutton#en",
-          "psvnavbarcustombutton#en"
+          "psvnavbarcustombutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarCustomButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarcustombutton#id",
           "psvnavbarcustombutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarCustomButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarcustombutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarcustombutton#par",
-          "readonly&gt"
+          "psvnavbarcustombutton#par"
         ],
         "module-components_buttons.PSVNavBarCustomButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarcustombutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbarcustombutton#psv",
-          "readonly&gt"
+          "psvnavbarcustombutton#psv"
         ],
         "module-components_buttons.PSVNavBarCustomButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarcustombutton#cr",
           "psvnavbarcustombutton#cr"
         ],
@@ -1197,6 +1267,7 @@ window.lunrData = {
           "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarcustombutton#destroy",
           "psvnavbarcustombutton#destroy"
         ],
@@ -1218,6 +1289,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarcustombutton#hid",
           "psvnavbarcustombutton#hid"
         ],
@@ -1225,6 +1297,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarcustombutton#show",
           "psvnavbarcustombutton#show",
           "show"
@@ -1252,57 +1325,61 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarDownloadButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbardownloadbutton#contain",
-          "psvnavbardownloadbutton#contain",
-          "readonly&gt"
+          "psvnavbardownloadbutton#contain"
         ],
         "module-components_buttons.PSVNavBarDownloadButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbardownloadbutton#en",
-          "psvnavbardownloadbutton#en"
+          "psvnavbardownloadbutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarDownloadButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbardownloadbutton#id",
           "psvnavbardownloadbutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarDownloadButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbardownloadbutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbardownloadbutton#par",
-          "readonly&gt"
+          "psvnavbardownloadbutton#par"
         ],
         "module-components_buttons.PSVNavBarDownloadButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbardownloadbutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbardownloadbutton#psv",
-          "readonly&gt"
+          "psvnavbardownloadbutton#psv"
         ],
         "module-components_buttons.PSVNavBarDownloadButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbardownloadbutton#cr",
           "psvnavbardownloadbutton#cr"
         ],
         "module-components_buttons.PSVNavBarDownloadButton.html#destroy": [
-          "compon",
+          "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbardownloadbutton#destroy",
           "psvnavbardownloadbutton#destroy"
         ],
@@ -1324,6 +1401,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbardownloadbutton#hid",
           "psvnavbardownloadbutton#hid"
         ],
@@ -1331,6 +1409,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbardownloadbutton#show",
           "psvnavbardownloadbutton#show",
           "show"
@@ -1358,50 +1437,53 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarFullscreenButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarfullscreenbutton#contain",
-          "psvnavbarfullscreenbutton#contain",
-          "readonly&gt"
+          "psvnavbarfullscreenbutton#contain"
         ],
         "module-components_buttons.PSVNavBarFullscreenButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarfullscreenbutton#en",
-          "psvnavbarfullscreenbutton#en"
+          "psvnavbarfullscreenbutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarFullscreenButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarfullscreenbutton#id",
           "psvnavbarfullscreenbutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarFullscreenButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarfullscreenbutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarfullscreenbutton#par",
-          "readonly&gt"
+          "psvnavbarfullscreenbutton#par"
         ],
         "module-components_buttons.PSVNavBarFullscreenButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarfullscreenbutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbarfullscreenbutton#psv",
-          "readonly&gt"
+          "psvnavbarfullscreenbutton#psv"
         ],
         "module-components_buttons.PSVNavBarFullscreenButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarfullscreenbutton#cr",
           "psvnavbarfullscreenbutton#cr"
         ],
@@ -1409,6 +1491,7 @@ window.lunrData = {
           "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarfullscreenbutton#destroy",
           "psvnavbarfullscreenbutton#destroy"
         ],
@@ -1430,6 +1513,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarfullscreenbutton#hid",
           "psvnavbarfullscreenbutton#hid"
         ],
@@ -1437,6 +1521,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarfullscreenbutton#show",
           "psvnavbarfullscreenbutton#show",
           "show"
@@ -1464,62 +1549,61 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarGyroscopeButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbargyroscopebutton#contain",
-          "psvnavbargyroscopebutton#contain",
-          "readonly&gt"
+          "psvnavbargyroscopebutton#contain"
         ],
         "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbargyroscopebutton#en",
-          "psvnavbargyroscopebutton#en"
+          "psvnavbargyroscopebutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarGyroscopeButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbargyroscopebutton#id",
           "psvnavbargyroscopebutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbargyroscopebutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbargyroscopebutton#par",
-          "readonly&gt"
+          "psvnavbargyroscopebutton#par"
         ],
         "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbargyroscopebutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbargyroscopebutton#psv",
-          "readonly&gt"
+          "psvnavbargyroscopebutton#psv"
         ],
         "module-components_buttons.PSVNavBarGyroscopeButton.html#create": [
-          "api",
           "button",
           "creat",
           "function",
-          "gyroscop",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbargyroscopebutton#cr",
-          "onc",
-          "psvnavbargyroscopebutton#cr",
-          "readi",
-          "visibl"
+          "psvnavbargyroscopebutton#cr"
         ],
         "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy": [
           "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbargyroscopebutton#destroy",
           "psvnavbargyroscopebutton#destroy"
         ],
@@ -1541,6 +1625,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbargyroscopebutton#hid",
           "psvnavbargyroscopebutton#hid"
         ],
@@ -1548,6 +1633,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbargyroscopebutton#show",
           "psvnavbargyroscopebutton#show",
           "show"
@@ -1575,50 +1661,53 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarMarkersButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarmarkersbutton#contain",
-          "psvnavbarmarkersbutton#contain",
-          "readonly&gt"
+          "psvnavbarmarkersbutton#contain"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarmarkersbutton#en",
-          "psvnavbarmarkersbutton#en"
+          "psvnavbarmarkersbutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarmarkersbutton#id",
           "psvnavbarmarkersbutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarmarkersbutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarmarkersbutton#par",
-          "readonly&gt"
+          "psvnavbarmarkersbutton#par"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarmarkersbutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbarmarkersbutton#psv",
-          "readonly&gt"
+          "psvnavbarmarkersbutton#psv"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarmarkersbutton#cr",
           "psvnavbarmarkersbutton#cr"
         ],
@@ -1626,6 +1715,7 @@ window.lunrData = {
           "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarmarkersbutton#destroy",
           "psvnavbarmarkersbutton#destroy"
         ],
@@ -1647,36 +1737,18 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarmarkersbutton#hid",
           "psvnavbarmarkersbutton#hid"
-        ],
-        "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": [
-          "close",
-          "function",
-          "hidemarkerslist",
-          "module:components/buttons.psvnavbarmarkersbutton#hidemarkerslist",
-          "panel",
-          "psvnavbarmarkersbutton#hidemarkerslist",
-          "side"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#show": [
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarmarkersbutton#show",
           "psvnavbarmarkersbutton#show",
           "show"
-        ],
-        "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": [
-          "function",
-          "list",
-          "marker",
-          "module:components/buttons.psvnavbarmarkersbutton#showmarkerslist",
-          "open",
-          "panel",
-          "psvnavbarmarkersbutton#showmarkerslist",
-          "showmarkerslist",
-          "side"
         ],
         "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": [
           "activ",
@@ -1687,16 +1759,6 @@ window.lunrData = {
           "psvnavbarmarkersbutton#toggleact",
           "state",
           "toggleact"
-        ],
-        "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": [
-          "function",
-          "list",
-          "marker",
-          "module:components/buttons.psvnavbarmarkersbutton#togglemarkerslist",
-          "psvnavbarmarkersbutton#togglemarkerslist",
-          "toggl",
-          "togglemarkerslist",
-          "visibl"
         ],
         "module-components_buttons.PSVNavBarZoomButton.html": [
           "bar",
@@ -1711,50 +1773,53 @@ window.lunrData = {
         "module-components_buttons.PSVNavBarZoomButton.html#container": [
           "contain",
           "htmlelement",
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarzoombutton#contain",
-          "psvnavbarzoombutton#contain",
-          "readonly&gt"
+          "psvnavbarzoombutton#contain"
         ],
         "module-components_buttons.PSVNavBarZoomButton.html#enabled": [
           "boolean",
+          "button",
           "enabl",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarzoombutton#en",
-          "psvnavbarzoombutton#en"
+          "psvnavbarzoombutton#en",
+          "state"
         ],
         "module-components_buttons.PSVNavBarZoomButton.html#id": [
+          "button",
           "id",
+          "identifi",
           "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarzoombutton#id",
           "psvnavbarzoombutton#id",
-          "string"
+          "string",
+          "uniqu"
         ],
         "module-components_buttons.PSVNavBarZoomButton.html#parent": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarzoombutton#par",
           "parent",
           "photosphereviewer|module:components.psvcompon",
-          "psvnavbarzoombutton#par",
-          "readonly&gt"
+          "psvnavbarzoombutton#par"
         ],
         "module-components_buttons.PSVNavBarZoomButton.html#psv": [
-          "lt;protect",
+          "lt;readonly&gt",
           "member",
           "module:components/buttons.psvnavbarzoombutton#psv",
           "photosphereview",
           "psv",
-          "psvnavbarzoombutton#psv",
-          "readonly&gt"
+          "psvnavbarzoombutton#psv"
         ],
         "module-components_buttons.PSVNavBarZoomButton.html#create": [
           "button",
           "creat",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarzoombutton#cr",
           "psvnavbarzoombutton#cr"
         ],
@@ -1762,6 +1827,7 @@ window.lunrData = {
           "button",
           "destroy",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarzoombutton#destroy",
           "psvnavbarzoombutton#destroy"
         ],
@@ -1783,6 +1849,7 @@ window.lunrData = {
           "compon",
           "function",
           "hide",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarzoombutton#hid",
           "psvnavbarzoombutton#hid"
         ],
@@ -1790,6 +1857,7 @@ window.lunrData = {
           "compon",
           "display",
           "function",
+          "lt;protected&gt",
           "module:components/buttons.psvnavbarzoombutton#show",
           "psvnavbarzoombutton#show",
           "show"
@@ -1824,10 +1892,12 @@ window.lunrData = {
         ],
         "PhotoSphereViewer.html#.Error": [
           "error",
-          "lt;static&gt",
+          "expos",
+          "lt;static",
           "member",
-          "object",
-          "photosphereviewer.error"
+          "photosphereviewer.error",
+          "psverror",
+          "readonly&gt"
         ],
         "PhotoSphereViewer.html#.ICONS": [
           "icon",
@@ -1851,10 +1921,13 @@ window.lunrData = {
           "templat"
         ],
         "PhotoSphereViewer.html#.Utils": [
-          "lt;static&gt",
+          "expos",
+          "lt;static",
           "member",
           "object",
           "photosphereviewer.util",
+          "psvutil",
+          "readonly&gt",
           "util"
         ],
         "PhotoSphereViewer.html#config": [
@@ -1910,11 +1983,9 @@ window.lunrData = {
           "top"
         ],
         "PhotoSphereViewer.html#prop": [
-          "extern",
           "intern",
           "lt;readonly&gt",
           "member",
-          "modifi",
           "object",
           "photosphereviewer#prop",
           "prop",
@@ -1929,23 +2000,17 @@ window.lunrData = {
         ],
         "PhotoSphereViewer.html#animate": [
           "anim",
-          "camera",
           "durat",
           "function",
+          "latitud",
+          "longitud",
           "photosphereviewer#anim",
           "posit",
           "promis",
-          "rotat"
-        ],
-        "PhotoSphereViewer.html#applyRanges": [
-          "appli",
-          "applyrang",
-          "array.&lt;string&gt",
-          "function",
-          "photosphereviewer#applyrang",
-          "posit",
-          "quot;latitude_range&quot",
-          "quot;longitude_range&quot"
+          "rotat",
+          "smooth",
+          "specif",
+          "view"
         ],
         "PhotoSphereViewer.html#change": [
           "argument",
@@ -1960,18 +2025,6 @@ window.lunrData = {
           "valu",
           "viewer"
         ],
-        "PhotoSphereViewer.html#cleanPosition": [
-          "boundari",
-          "cleanposit",
-          "convert",
-          "ensur",
-          "function",
-          "latitude/longitud",
-          "photosphereviewer#cleanposit",
-          "posit",
-          "present",
-          "x/i"
-        ],
         "PhotoSphereViewer.html#clearPanoramaCache": [
           "cach",
           "clear",
@@ -1980,13 +2033,21 @@ window.lunrData = {
           "function",
           "panorama",
           "photosphereviewer#clearpanoramacach",
-          "remov",
-          "specif"
+          "remov"
         ],
         "PhotoSphereViewer.html#destroy": [
+          "clear",
+          "context",
           "destroy",
+          "fix",
           "function",
+          "memori",
           "photosphereviewer#destroy",
+          "possibl",
+          "soon",
+          "threej",
+          "total",
+          "us",
           "viewer"
         ],
         "PhotoSphereViewer.html#getPanoramaCache": [
@@ -2118,17 +2179,22 @@ window.lunrData = {
           "updatedirect"
         ],
         "PhotoSphereViewer.html#rotate": [
-          "camera",
           "function",
+          "latitud",
+          "longitud",
           "photosphereviewer#rot",
           "posit",
           "render",
-          "rotat"
+          "rotat",
+          "specif",
+          "view"
         ],
         "PhotoSphereViewer.html#setPanorama": [
           "account",
+          "activ",
           "anim",
           "camera",
+          "chang",
           "configur",
           "continu",
           "defin",
@@ -2136,7 +2202,9 @@ window.lunrData = {
           "function",
           "load",
           "move",
+          "new",
           "ongo",
+          "option",
           "panorama",
           "path",
           "photosphereviewer#setpanorama",
@@ -2174,37 +2242,32 @@ window.lunrData = {
           "three.vector3"
         ],
         "PhotoSphereViewer.html#startAutorotate": [
-          "anim",
-          "autorot",
+          "automat",
           "function",
           "photosphereviewer#startautorot",
+          "rotat",
           "start",
           "startautorot"
         ],
         "PhotoSphereViewer.html#startGyroscopeControl": [
+          "enabl",
           "function",
           "gyroscop",
-          "interact",
+          "navig",
           "photosphereviewer#startgyroscopecontrol",
-          "start",
           "startgyroscopecontrol"
         ],
         "PhotoSphereViewer.html#startKeyboardControl": [
-          "event",
+          "automat",
+          "control",
+          "done",
+          "enabl",
+          "enter",
+          "fullscreen",
           "function",
           "keyboard",
-          "listen",
           "photosphereviewer#startkeyboardcontrol",
-          "start",
           "startkeyboardcontrol"
-        ],
-        "PhotoSphereViewer.html#stopAll": [
-          "anim",
-          "current",
-          "function",
-          "photosphereviewer#stopal",
-          "stop",
-          "stopal"
         ],
         "PhotoSphereViewer.html#stopAnimation": [
           "anim",
@@ -2215,28 +2278,31 @@ window.lunrData = {
           "stopanim"
         ],
         "PhotoSphereViewer.html#stopAutorotate": [
-          "anim",
-          "autorot",
+          "automat",
           "function",
           "photosphereviewer#stopautorot",
+          "rotat",
           "stop",
           "stopautorot"
         ],
         "PhotoSphereViewer.html#stopGyroscopeControl": [
+          "disabl",
           "function",
           "gyroscop",
-          "interact",
+          "navig",
           "photosphereviewer#stopgyroscopecontrol",
-          "stop",
           "stopgyroscopecontrol"
         ],
         "PhotoSphereViewer.html#stopKeyboardControl": [
-          "event",
+          "automat",
+          "control",
+          "disabl",
+          "done",
+          "exit",
+          "fullscreen",
           "function",
           "keyboard",
-          "listen",
           "photosphereviewer#stopkeyboardcontrol",
-          "stop",
           "stopkeyboardcontrol"
         ],
         "PhotoSphereViewer.html#textureCoordsToSphericalCoords": [
@@ -2253,26 +2319,30 @@ window.lunrData = {
           "texturecoordstosphericalcoord"
         ],
         "PhotoSphereViewer.html#toggleAutorotate": [
-          "anim",
-          "autorot",
+          "automat",
           "function",
           "photosphereviewer#toggleautorot",
-          "toggl",
+          "rotat",
+          "start",
+          "stop",
           "toggleautorot"
         ],
         "PhotoSphereViewer.html#toggleFullscreen": [
+          "enter",
+          "exit",
           "fullscreen",
           "function",
+          "mode",
           "photosphereviewer#togglefullscreen",
-          "toggl",
           "togglefullscreen"
         ],
         "PhotoSphereViewer.html#toggleGyroscopeControl": [
+          "disabl",
+          "enabl",
           "function",
           "gyroscop",
-          "interact",
+          "navig",
           "photosphereviewer#togglegyroscopecontrol",
-          "toggl",
           "togglegyroscopecontrol"
         ],
         "PhotoSphereViewer.html#trigger": [
@@ -2319,40 +2389,57 @@ window.lunrData = {
           "viewerpoint"
         ],
         "PhotoSphereViewer.html#zoom": [
+          "between",
           "function",
           "level",
+          "max_fov",
+          "min_fov",
           "photosphereviewer#zoom",
           "render",
+          "specif",
           "zoom"
         ],
         "PhotoSphereViewer.html#zoomIn": [
+          "1",
           "function",
+          "increas",
+          "level",
           "photosphereviewer#zoomin",
           "zoom",
           "zoomin"
         ],
         "PhotoSphereViewer.html#zoomOut": [
+          "1",
+          "decreas",
           "function",
-          "out",
+          "level",
           "photosphereviewer#zoomout",
           "zoom",
           "zoomout"
         ],
         "PhotoSphereViewer.html#.CacheItem": [
+          "cach",
           "cacheitem",
+          "entri",
+          "memori",
           "photosphereviewer.cacheitem",
           "typedef"
         ],
         "PhotoSphereViewer.html#.ClickData": [
+          "click",
           "clickdata",
+          "data",
+          "event",
           "photosphereviewer.clickdata",
           "typedef"
         ],
         "PhotoSphereViewer.html#.ExtendedPosition": [
           "coordin",
+          "defin",
           "degre",
           "express",
           "extendedposit",
+          "object",
           "photosphereviewer.extendedposit",
           "pixel",
           "posit",
@@ -2362,21 +2449,31 @@ window.lunrData = {
           "typedef"
         ],
         "PhotoSphereViewer.html#.PanoData": [
+          "crop",
+          "inform",
           "panodata",
+          "panorama",
           "photosphereviewer.panodata",
           "typedef"
         ],
         "PhotoSphereViewer.html#.Point": [
+          "defin",
+          "object",
           "photosphereviewer.point",
           "point",
           "typedef"
         ],
         "PhotoSphereViewer.html#.Position": [
+          "defin",
+          "object",
           "photosphereviewer.posit",
           "posit",
+          "spheric",
           "typedef"
         ],
         "PhotoSphereViewer.html#.Size": [
+          "defin",
+          "object",
           "photosphereviewer.s",
           "size",
           "typedef"
@@ -2573,8 +2670,7 @@ window.lunrData = {
           "option",
           "promis",
           "properti",
-          "psvutils.anim",
-          "util"
+          "psvutils.anim"
         ],
         "PSVUtils.html#.bound": [
           "bound",
@@ -2600,6 +2696,18 @@ window.lunrData = {
           "psvutils.checkthre",
           "three.j"
         ],
+        "PSVUtils.html#.cleanTHREEScene": [
+          "children",
+          "cleanthreescen",
+          "dispos",
+          "function",
+          "lt;static&gt",
+          "psvutils.cleanthreescen",
+          "remov",
+          "scene",
+          "textur",
+          "three.j"
+        ],
         "PSVUtils.html#.clone": [
           "clone",
           "function",
@@ -2615,10 +2723,8 @@ window.lunrData = {
           "deepmerg",
           "enumer",
           "function",
-          "instead",
           "lt;static&gt",
           "merg",
-          "modifi",
           "object",
           "psvutils.deepmerg",
           "replac",
@@ -2745,8 +2851,7 @@ window.lunrData = {
           "iscanvassupport",
           "lt;static&gt",
           "psvutils.iscanvassupport",
-          "support",
-          "whether"
+          "support"
         ],
         "PSVUtils.html#.isFullscreenEnabled": [
           "boolean",
@@ -2757,8 +2862,7 @@ window.lunrData = {
           "function",
           "isfullscreenen",
           "lt;static&gt",
-          "psvutils.isfullscreenen",
-          "whether"
+          "psvutils.isfullscreenen"
         ],
         "PSVUtils.html#.isInteger": [
           "boolean",
@@ -2803,8 +2907,7 @@ window.lunrData = {
           "lt;static&gt",
           "psvutils.iswebglsupport",
           "support",
-          "webgl",
-          "whether"
+          "webgl"
         ],
         "PSVUtils.html#.mouseWheelEvent": [
           "event",
@@ -2890,6 +2993,15 @@ window.lunrData = {
           "psvutils.requestfullscreen",
           "requestfullscreen"
         ],
+        "PSVUtils.html#.sum": [
+          "array",
+          "comput",
+          "function",
+          "lt;static&gt",
+          "number",
+          "psvutils.sum",
+          "sum"
+        ],
         "PSVUtils.html#.throttle": [
           "dure",
           "func",
@@ -2908,7 +3020,6 @@ window.lunrData = {
         ],
         "PSVUtils.html#.toggleClass": [
           "activ",
-          "boolean",
           "class",
           "classnam",
           "css",
@@ -2920,10 +3031,22 @@ window.lunrData = {
           "toggleclass"
         ]
       },
-      "length": 322
+      "length": 320
     },
     "tokenStore": {
       "root": {
+        "1": {
+          "docs": {
+            "PhotoSphereViewer.html#zoomIn": {
+              "ref": "PhotoSphereViewer.html#zoomIn",
+              "tf": 17.5
+            },
+            "PhotoSphereViewer.html#zoomOut": {
+              "ref": "PhotoSphereViewer.html#zoomOut",
+              "tf": 17.5
+            }
+          }
+        },
         "5": {
           "0": {
             "docs": {},
@@ -2941,7 +3064,7 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.parsePosition": {
                             "ref": "PSVUtils.html#.parsePosition",
-                            "tf": 2.631578947368421
+                            "tf": 7
                           }
                         }
                       }
@@ -2963,44 +3086,6 @@ window.lunrData = {
                 "index.html": {
                   "ref": "index.html",
                   "tf": 150
-                },
-                "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
-                  "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                  "tf": 6.25
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "l": {
-                "docs": {},
-                "i": {
-                  "docs": {
-                    "PhotoSphereViewer.html#applyRanges": {
-                      "ref": "PhotoSphereViewer.html#applyRanges",
-                      "tf": 16.666666666666664
-                    }
-                  }
-                },
-                "y": {
-                  "docs": {},
-                  "r": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "n": {
-                        "docs": {},
-                        "g": {
-                          "docs": {
-                            "PhotoSphereViewer.html#applyRanges": {
-                              "ref": "PhotoSphereViewer.html#applyRanges",
-                              "tf": 683.3333333333334
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -3009,18 +3094,18 @@ window.lunrData = {
             "docs": {
               "module-components.PSVComponent.html#.className": {
                 "ref": "module-components.PSVComponent.html#.className",
-                "tf": 10
+                "tf": 14
               }
             },
             "d": {
               "docs": {
                 "module-components.PSVHUD.html#addMarker": {
                   "ref": "module-components.PSVHUD.html#addMarker",
-                  "tf": 12.5
+                  "tf": 17.5
                 },
                 "PSVUtils.html#.addClasses": {
                   "ref": "PSVUtils.html#.addClasses",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
                 }
               },
               "m": {
@@ -3072,7 +3157,11 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.deepmerge": {
                       "ref": "PSVUtils.html#.deepmerge",
-                      "tf": 3.8461538461538463
+                      "tf": 10
+                    },
+                    "PSVUtils.html#.sum": {
+                      "ref": "PSVUtils.html#.sum",
+                      "tf": 48.33333333333333
                     }
                   },
                   ".": {
@@ -3106,10 +3195,6 @@ window.lunrData = {
                                                 "module-components.PSVComponent.html#.publicMethods": {
                                                   "ref": "module-components.PSVComponent.html#.publicMethods",
                                                   "tf": 25
-                                                },
-                                                "PhotoSphereViewer.html#applyRanges": {
-                                                  "ref": "PhotoSphereViewer.html#applyRanges",
-                                                  "tf": 33.33333333333333
                                                 },
                                                 "PSVMarker.html#.types": {
                                                   "ref": "PSVMarker.html#.types",
@@ -3215,7 +3300,7 @@ window.lunrData = {
                                                                                                                     "docs": {
                                                                                                                       "module-components.PSVNavBar.html#items": {
                                                                                                                         "ref": "module-components.PSVNavBar.html#items",
-                                                                                                                        "tf": 25
+                                                                                                                        "tf": 33.33333333333333
                                                                                                                       }
                                                                                                                     }
                                                                                                                   }
@@ -3312,43 +3397,47 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                       "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "module-components_buttons.PSVNavBarButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarCustomButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarCustomButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
                     },
                     "module-components_buttons.PSVNavBarZoomButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarZoomButton.html#toggleActive",
-                      "tf": 62.5
+                      "tf": 67.5
+                    },
+                    "PhotoSphereViewer.html#setPanorama": {
+                      "ref": "PhotoSphereViewer.html#setPanorama",
+                      "tf": 2.1739130434782608
                     },
                     "PSVUtils.html#.toggleClass": {
                       "ref": "PSVUtils.html#.toggleClass",
-                      "tf": 16.666666666666664
+                      "tf": 20
                     }
                   }
                 }
@@ -3366,7 +3455,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#setPanorama": {
                           "ref": "PhotoSphereViewer.html#setPanorama",
-                          "tf": 3.3333333333333335
+                          "tf": 2.1739130434782608
                         }
                       }
                     }
@@ -3390,18 +3479,6 @@ window.lunrData = {
                         "module-components_buttons.PSVNavBarAutorotateButton.html": {
                           "ref": "module-components_buttons.PSVNavBarAutorotateButton.html",
                           "tf": 10
-                        },
-                        "PhotoSphereViewer.html#startAutorotate": {
-                          "ref": "PhotoSphereViewer.html#startAutorotate",
-                          "tf": 16.666666666666664
-                        },
-                        "PhotoSphereViewer.html#stopAutorotate": {
-                          "ref": "PhotoSphereViewer.html#stopAutorotate",
-                          "tf": 16.666666666666664
-                        },
-                        "PhotoSphereViewer.html#toggleAutorotate": {
-                          "ref": "PhotoSphereViewer.html#toggleAutorotate",
-                          "tf": 16.666666666666664
                         }
                       }
                     }
@@ -3415,7 +3492,27 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#isAutorotateEnabled": {
                           "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
-                          "tf": 12.5
+                          "tf": 17.5
+                        },
+                        "PhotoSphereViewer.html#startAutorotate": {
+                          "ref": "PhotoSphereViewer.html#startAutorotate",
+                          "tf": 23.333333333333332
+                        },
+                        "PhotoSphereViewer.html#startKeyboardControl": {
+                          "ref": "PhotoSphereViewer.html#startKeyboardControl",
+                          "tf": 10
+                        },
+                        "PhotoSphereViewer.html#stopAutorotate": {
+                          "ref": "PhotoSphereViewer.html#stopAutorotate",
+                          "tf": 23.333333333333332
+                        },
+                        "PhotoSphereViewer.html#stopKeyboardControl": {
+                          "ref": "PhotoSphereViewer.html#stopKeyboardControl",
+                          "tf": 10
+                        },
+                        "PhotoSphereViewer.html#toggleAutorotate": {
+                          "ref": "PhotoSphereViewer.html#toggleAutorotate",
+                          "tf": 17.5
                         }
                       }
                     }
@@ -3432,35 +3529,19 @@ window.lunrData = {
                 "docs": {
                   "PhotoSphereViewer.html#animate": {
                     "ref": "PhotoSphereViewer.html#animate",
-                    "tf": 691.6666666666666
+                    "tf": 685
                   },
                   "PhotoSphereViewer.html#setPanorama": {
                     "ref": "PhotoSphereViewer.html#setPanorama",
-                    "tf": 3.3333333333333335
-                  },
-                  "PhotoSphereViewer.html#startAutorotate": {
-                    "ref": "PhotoSphereViewer.html#startAutorotate",
-                    "tf": 16.666666666666664
-                  },
-                  "PhotoSphereViewer.html#stopAll": {
-                    "ref": "PhotoSphereViewer.html#stopAll",
-                    "tf": 16.666666666666664
+                    "tf": 4.3478260869565215
                   },
                   "PhotoSphereViewer.html#stopAnimation": {
                     "ref": "PhotoSphereViewer.html#stopAnimation",
-                    "tf": 16.666666666666664
-                  },
-                  "PhotoSphereViewer.html#stopAutorotate": {
-                    "ref": "PhotoSphereViewer.html#stopAutorotate",
-                    "tf": 16.666666666666664
-                  },
-                  "PhotoSphereViewer.html#toggleAutorotate": {
-                    "ref": "PhotoSphereViewer.html#toggleAutorotate",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   },
                   "PSVUtils.html#.animation": {
                     "ref": "PSVUtils.html#.animation",
-                    "tf": 681.25
+                    "tf": 675
                   }
                 }
               }
@@ -3471,7 +3552,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.parseAngle": {
                     "ref": "PSVUtils.html#.parseAngle",
-                    "tf": 25.555555555555557
+                    "tf": 27.77777777777778
                   }
                 }
               }
@@ -3489,11 +3570,11 @@ window.lunrData = {
                     "docs": {
                       "PhotoSphereViewer.html#on": {
                         "ref": "PhotoSphereViewer.html#on",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#once": {
                         "ref": "PhotoSphereViewer.html#once",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -3516,11 +3597,11 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.deepmerge": {
                             "ref": "PSVUtils.html#.deepmerge",
-                            "tf": 3.8461538461538463
+                            "tf": 14
                           },
                           "PSVUtils.html#.getXMPValue": {
                             "ref": "PSVUtils.html#.getXMPValue",
-                            "tf": 8.333333333333332
+                            "tf": 11.666666666666666
                           }
                         }
                       }
@@ -3563,7 +3644,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.deepmerge": {
                       "ref": "PSVUtils.html#.deepmerge",
-                      "tf": 3.8461538461538463
+                      "tf": 10
                     }
                   }
                 }
@@ -3580,7 +3661,7 @@ window.lunrData = {
                   "docs": {
                     "PSVMarker.html#.getType": {
                       "ref": "PSVMarker.html#.getType",
-                      "tf": 10
+                      "tf": 14
                     }
                   }
                 }
@@ -3608,72 +3689,87 @@ window.lunrData = {
                         },
                         "module-components.PSVComponent.html#show": {
                           "ref": "module-components.PSVComponent.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVHUD.html#show": {
                           "ref": "module-components.PSVHUD.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVLoader.html#show": {
                           "ref": "module-components.PSVLoader.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVNavBar.html#show": {
                           "ref": "module-components.PSVNavBar.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVNavBarCaption.html#show": {
                           "ref": "module-components.PSVNavBarCaption.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVNavBarSpacer.html#show": {
                           "ref": "module-components.PSVNavBarSpacer.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVPanel.html#show": {
                           "ref": "module-components.PSVPanel.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVTooltip.html#show": {
                           "ref": "module-components.PSVTooltip.html#show",
-                          "tf": 25
+                          "tf": 35
+                        },
+                        "module-components.PSVTooltip.html#showTooltip": {
+                          "ref": "module-components.PSVTooltip.html#showTooltip",
+                          "tf": 23.333333333333332
                         },
                         "module-components_buttons.PSVNavBarAutorotateButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarCustomButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarCustomButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarDownloadButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarDownloadButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarFullscreenButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarGyroscopeButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarMarkersButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components_buttons.PSVNavBarZoomButton.html#show": {
                           "ref": "module-components_buttons.PSVNavBarZoomButton.html#show",
-                          "tf": 25
+                          "tf": 35
                         },
                         "PhotoSphereViewer.html#preloadPanorama": {
                           "ref": "PhotoSphereViewer.html#preloadPanorama",
-                          "tf": 10
+                          "tf": 14
                         }
+                      }
+                    }
+                  }
+                },
+                "o": {
+                  "docs": {},
+                  "s": {
+                    "docs": {
+                      "PSVUtils.html#.cleanTHREEScene": {
+                        "ref": "PSVUtils.html#.cleanTHREEScene",
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -3687,35 +3783,47 @@ window.lunrData = {
                     "docs": {
                       "module-components_buttons.PSVNavBarAutorotateButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#disable",
-                        "tf": 725
+                        "tf": 735
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#disable",
-                        "tf": 725
+                        "tf": 735
+                      },
+                      "PhotoSphereViewer.html#stopGyroscopeControl": {
+                        "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
+                        "tf": 23.333333333333332
+                      },
+                      "PhotoSphereViewer.html#stopKeyboardControl": {
+                        "ref": "PhotoSphereViewer.html#stopKeyboardControl",
+                        "tf": 10
+                      },
+                      "PhotoSphereViewer.html#toggleGyroscopeControl": {
+                        "ref": "PhotoSphereViewer.html#toggleGyroscopeControl",
+                        "tf": 17.5
                       }
                     }
                   }
@@ -3736,7 +3844,7 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.isPlainObject": {
                             "ref": "PSVUtils.html#.isPlainObject",
-                            "tf": 1.8518518518518516
+                            "tf": 1.9230769230769231
                           }
                         }
                       }
@@ -3814,8 +3922,23 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#.TEMPLATES": {
                       "ref": "PhotoSphereViewer.html#.TEMPLATES",
-                      "tf": 25
+                      "tf": 35
                     }
+                  }
+                }
+              }
+            },
+            "n": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "PhotoSphereViewer.html#startKeyboardControl": {
+                    "ref": "PhotoSphereViewer.html#startKeyboardControl",
+                    "tf": 10
+                  },
+                  "PhotoSphereViewer.html#stopKeyboardControl": {
+                    "ref": "PhotoSphereViewer.html#stopKeyboardControl",
+                    "tf": 10
                   }
                 }
               }
@@ -3835,75 +3958,75 @@ window.lunrData = {
                       "docs": {
                         "module-components.PSVComponent.html#destroy": {
                           "ref": "module-components.PSVComponent.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVHUD.html#destroy": {
                           "ref": "module-components.PSVHUD.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVLoader.html#destroy": {
                           "ref": "module-components.PSVLoader.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVNavBar.html#destroy": {
                           "ref": "module-components.PSVNavBar.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVNavBarCaption.html#destroy": {
                           "ref": "module-components.PSVNavBarCaption.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVNavBarSpacer.html#destroy": {
                           "ref": "module-components.PSVNavBarSpacer.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVPanel.html#destroy": {
                           "ref": "module-components.PSVPanel.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components.PSVTooltip.html#destroy": {
                           "ref": "module-components.PSVTooltip.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarAutorotateButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarCustomButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarCustomButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarDownloadButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarDownloadButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarFullscreenButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarMarkersButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarMarkersButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "module-components_buttons.PSVNavBarZoomButton.html#destroy": {
                           "ref": "module-components_buttons.PSVNavBarZoomButton.html#destroy",
-                          "tf": 725
+                          "tf": 685
                         },
                         "PhotoSphereViewer.html#destroy": {
                           "ref": "PhotoSphereViewer.html#destroy",
-                          "tf": 775
+                          "tf": 785
                         },
                         "PSVMarker.html#destroy": {
                           "ref": "PSVMarker.html#destroy",
-                          "tf": 775
+                          "tf": 785
                         }
                       }
                     }
@@ -3923,7 +4046,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#.DEFAULTS": {
                           "ref": "PhotoSphereViewer.html#.DEFAULTS",
-                          "tf": 683.3333333333334
+                          "tf": 686.6666666666666
                         }
                       }
                     }
@@ -3936,7 +4059,43 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#setPanorama": {
                       "ref": "PhotoSphereViewer.html#setPanorama",
-                      "tf": 3.3333333333333335
+                      "tf": 2.1739130434782608
+                    },
+                    "PhotoSphereViewer.html#.ExtendedPosition": {
+                      "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                      "tf": 14
+                    },
+                    "PhotoSphereViewer.html#.Point": {
+                      "ref": "PhotoSphereViewer.html#.Point",
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#.Position": {
+                      "ref": "PhotoSphereViewer.html#.Position",
+                      "tf": 17.5
+                    },
+                    "PhotoSphereViewer.html#.Size": {
+                      "ref": "PhotoSphereViewer.html#.Size",
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              }
+            },
+            "c": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "s": {
+                      "docs": {
+                        "PhotoSphereViewer.html#zoomOut": {
+                          "ref": "PhotoSphereViewer.html#zoomOut",
+                          "tf": 17.5
+                        }
+                      }
                     }
                   }
                 }
@@ -3954,7 +4113,7 @@ window.lunrData = {
                     },
                     "PSVUtils.html#.parseAngle": {
                       "ref": "PSVUtils.html#.parseAngle",
-                      "tf": 5.555555555555555
+                      "tf": 7.777777777777778
                     }
                   }
                 }
@@ -3974,7 +4133,7 @@ window.lunrData = {
                         "docs": {
                           "PSVMarker.html#.getType": {
                             "ref": "PSVMarker.html#.getType",
-                            "tf": 10
+                            "tf": 14
                           }
                         }
                       }
@@ -3987,15 +4146,15 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.isCanvasSupported": {
                         "ref": "PSVUtils.html#.isCanvasSupported",
-                        "tf": 12.5
+                        "tf": 23.333333333333332
                       },
                       "PSVUtils.html#.isFullscreenEnabled": {
                         "ref": "PSVUtils.html#.isFullscreenEnabled",
-                        "tf": 12.5
+                        "tf": 23.333333333333332
                       },
                       "PSVUtils.html#.isWebGLSupported": {
                         "ref": "PSVUtils.html#.isWebGLSupported",
-                        "tf": 12.5
+                        "tf": 23.333333333333332
                       }
                     }
                   }
@@ -4010,7 +4169,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.animation": {
                       "ref": "PSVUtils.html#.animation",
-                      "tf": 6.25
+                      "tf": 11.666666666666666
                     }
                   }
                 }
@@ -4063,7 +4222,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.throttle": {
                     "ref": "PSVUtils.html#.throttle",
-                    "tf": 5.555555555555555
+                    "tf": 7.777777777777778
                   }
                 }
               }
@@ -4075,6 +4234,10 @@ window.lunrData = {
               "docs": {},
               "a": {
                 "docs": {
+                  "PhotoSphereViewer.html#.ClickData": {
+                    "ref": "PhotoSphereViewer.html#.ClickData",
+                    "tf": 23.333333333333332
+                  },
                   "PSVUtils.html#.getXMPValue": {
                     "ref": "PSVUtils.html#.getXMPValue",
                     "tf": 25
@@ -4123,31 +4286,13 @@ window.lunrData = {
                   "docs": {},
                   "n": {
                     "docs": {
+                      "module-components.PSVHUD.html#getMarker": {
+                        "ref": "module-components.PSVHUD.html#getMarker",
+                        "tf": 11.666666666666666
+                      },
                       "PhotoSphereViewer.html#prop": {
                         "ref": "PhotoSphereViewer.html#prop",
-                        "tf": 12.5
-                      }
-                    }
-                  },
-                  "a": {
-                    "docs": {},
-                    "c": {
-                      "docs": {},
-                      "t": {
-                        "docs": {
-                          "PhotoSphereViewer.html#startGyroscopeControl": {
-                            "ref": "PhotoSphereViewer.html#startGyroscopeControl",
-                            "tf": 16.666666666666664
-                          },
-                          "PhotoSphereViewer.html#stopGyroscopeControl": {
-                            "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
-                            "tf": 16.666666666666664
-                          },
-                          "PhotoSphereViewer.html#toggleGyroscopeControl": {
-                            "ref": "PhotoSphereViewer.html#toggleGyroscopeControl",
-                            "tf": 16.666666666666664
-                          }
-                        }
+                        "tf": 35
                       }
                     }
                   },
@@ -4159,7 +4304,7 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.animation": {
                             "ref": "PSVUtils.html#.animation",
-                            "tf": 6.25
+                            "tf": 11.666666666666666
                           }
                         }
                       }
@@ -4169,7 +4314,7 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.bound": {
                         "ref": "PSVUtils.html#.bound",
-                        "tf": 12.5
+                        "tf": 17.5
                       }
                     }
                   }
@@ -4178,7 +4323,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.isInteger": {
                       "ref": "PSVUtils.html#.isInteger",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     }
                   }
                 }
@@ -4194,31 +4339,11 @@ window.lunrData = {
                     "docs": {
                       "module-components_buttons.PSVNavBarButton.html#.icon": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                        "tf": 10
+                        "tf": 14
                       },
                       "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                        "tf": 8.333333333333332
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "d": {
-                      "docs": {
-                        "PSVUtils.html#.deepmerge": {
-                          "ref": "PSVUtils.html#.deepmerge",
-                          "tf": 3.8461538461538463
-                        }
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -4227,6 +4352,23 @@ window.lunrData = {
             },
             "c": {
               "docs": {},
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "s": {
+                      "docs": {
+                        "PhotoSphereViewer.html#zoomIn": {
+                          "ref": "PhotoSphereViewer.html#zoomIn",
+                          "tf": 17.5
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "l": {
                 "docs": {},
                 "u": {
@@ -4235,7 +4377,24 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.hasParent": {
                         "ref": "PSVUtils.html#.hasParent",
-                        "tf": 7.142857142857142
+                        "tf": 10
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "f": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "m": {
+                    "docs": {
+                      "PhotoSphereViewer.html#.PanoData": {
+                        "ref": "PhotoSphereViewer.html#.PanoData",
+                        "tf": 23.333333333333332
                       }
                     }
                   }
@@ -4254,7 +4413,7 @@ window.lunrData = {
                       "docs": {
                         "PSVUtils.html#.isPlainObject": {
                           "ref": "PSVUtils.html#.isPlainObject",
-                          "tf": 1.8518518518518516
+                          "tf": 1.9230769230769231
                         }
                       }
                     }
@@ -4270,7 +4429,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.throttle": {
                       "ref": "PSVUtils.html#.throttle",
-                      "tf": 5.555555555555555
+                      "tf": 7.777777777777778
                     }
                   }
                 }
@@ -4281,7 +4440,11 @@ window.lunrData = {
             "docs": {
               "module-components.PSVHUD.html#getMarker": {
                 "ref": "module-components.PSVHUD.html#getMarker",
-                "tf": 8.333333333333332
+                "tf": 11.666666666666666
+              },
+              "module-components.PSVHUD.html#updateMarker": {
+                "ref": "module-components.PSVHUD.html#updateMarker",
+                "tf": 14
               },
               "module-components.PSVNavBar.html#getNavbarButton": {
                 "ref": "module-components.PSVNavBar.html#getNavbarButton",
@@ -4293,7 +4456,7 @@ window.lunrData = {
               },
               "module-components_buttons.PSVNavBarButton.html#.id": {
                 "ref": "module-components_buttons.PSVNavBarButton.html#.id",
-                "tf": 633.3333333333334
+                "tf": 625
               },
               "module-components_buttons.PSVNavBarButton.html#id": {
                 "ref": "module-components_buttons.PSVNavBarButton.html#id",
@@ -4342,11 +4505,87 @@ window.lunrData = {
                         "docs": {
                           "module-components.PSVNavBar.html#getNavbarButton": {
                             "ref": "module-components.PSVNavBar.html#getNavbarButton",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarAutorotateButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#id",
+                            "tf": 23.333333333333332
                           },
                           "module-components_buttons.PSVNavBarButton.html#.id": {
                             "ref": "module-components_buttons.PSVNavBarButton.html#.id",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarButton.html#id",
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarCustomButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarCustomButton.html#id",
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarDownloadButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarDownloadButton.html#id",
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarFullscreenButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#id",
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarGyroscopeButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#id",
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarMarkersButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#id",
+                            "tf": 23.333333333333332
+                          },
+                          "module-components_buttons.PSVNavBarZoomButton.html#id": {
+                            "ref": "module-components_buttons.PSVNavBarZoomButton.html#id",
+                            "tf": 23.333333333333332
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "m": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "g": {
+                "docs": {
+                  "module-components.PSVHUD.html#updateMarker": {
+                    "ref": "module-components.PSVHUD.html#updateMarker",
+                    "tf": 6.25
+                  },
+                  "PSVMarker.html#isNormal": {
+                    "ref": "PSVMarker.html#isNormal",
+                    "tf": 14
+                  }
+                }
+              }
+            },
+            "p": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "m": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "t": {
+                          "docs": {
+                            "PSVUtils.html#.parsePosition": {
+                              "ref": "PSVUtils.html#.parsePosition",
+                              "tf": 5.555555555555555
+                            }
                           }
                         }
                       }
@@ -4358,21 +4597,13 @@ window.lunrData = {
           },
           "t": {
             "docs": {},
-            "'": {
-              "docs": {
-                "module-components.PSVHUD.html#getMarker": {
-                  "ref": "module-components.PSVHUD.html#getMarker",
-                  "tf": 8.333333333333332
-                }
-              }
-            },
             "e": {
               "docs": {},
               "m": {
                 "docs": {
                   "module-components.PSVNavBar.html#items": {
                     "ref": "module-components.PSVNavBar.html#items",
-                    "tf": 625
+                    "tf": 633.3333333333334
                   }
                 }
               }
@@ -4387,11 +4618,11 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.getClosest": {
                         "ref": "PSVUtils.html#.getClosest",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PSVUtils.html#.hasParent": {
                         "ref": "PSVUtils.html#.hasParent",
-                        "tf": 7.142857142857142
+                        "tf": 10
                       }
                     }
                   }
@@ -4766,15 +4997,15 @@ window.lunrData = {
                 "docs": {
                   "module-components_buttons.PSVNavBarButton.html#.icon": {
                     "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                    "tf": 643.3333333333334
+                    "tf": 639
                   },
                   "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                     "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                    "tf": 8.333333333333332
+                    "tf": 11.666666666666666
                   },
                   "PhotoSphereViewer.html#.ICONS": {
                     "ref": "PhotoSphereViewer.html#.ICONS",
-                    "tf": 686.6666666666666
+                    "tf": 693.3333333333334
                   }
                 },
                 "a": {
@@ -4785,47 +5016,7 @@ window.lunrData = {
                       "docs": {
                         "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                           "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                          "tf": 633.3333333333334
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "m": {
-            "docs": {},
-            "a": {
-              "docs": {},
-              "g": {
-                "docs": {
-                  "PSVMarker.html#isNormal": {
-                    "ref": "PSVMarker.html#isNormal",
-                    "tf": 10
-                  }
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "l": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "m": {
-                    "docs": {},
-                    "e": {
-                      "docs": {},
-                      "n": {
-                        "docs": {},
-                        "t": {
-                          "docs": {
-                            "PSVUtils.html#.parsePosition": {
-                              "ref": "PSVUtils.html#.parsePosition",
-                              "tf": 2.631578947368421
-                            }
-                          }
+                          "tf": 625
                         }
                       }
                     }
@@ -4838,7 +5029,7 @@ window.lunrData = {
             "docs": {
               "PSVUtils.html#.isPlainObject": {
                 "ref": "PSVUtils.html#.isPlainObject",
-                "tf": 1.8518518518518516
+                "tf": 1.9230769230769231
               }
             }
           }
@@ -4929,15 +5120,23 @@ window.lunrData = {
                   },
                   "module-components.PSVComponent.html#.publicMethods": {
                     "ref": "module-components.PSVComponent.html#.publicMethods",
-                    "tf": 8.333333333333332
+                    "tf": 11.666666666666666
                   },
-                  "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                    "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                    "tf": 10
+                  "module-components.PSVHUD.html#hideMarkersList": {
+                    "ref": "module-components.PSVHUD.html#hideMarkersList",
+                    "tf": 11.666666666666666
                   },
-                  "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                    "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-                    "tf": 12.5
+                  "module-components.PSVHUD.html#showMarkersList": {
+                    "ref": "module-components.PSVHUD.html#showMarkersList",
+                    "tf": 14
+                  },
+                  "module-components.PSVHUD.html#toggleMarkersList": {
+                    "ref": "module-components.PSVHUD.html#toggleMarkersList",
+                    "tf": 17.5
+                  },
+                  "module-components.PSVNavBar.html#items": {
+                    "ref": "module-components.PSVNavBar.html#items",
+                    "tf": 23.333333333333332
                   }
                 },
                 ":": {
@@ -5029,23 +5228,15 @@ window.lunrData = {
                     "docs": {
                       "PhotoSphereViewer.html#off": {
                         "ref": "PhotoSphereViewer.html#off",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#on": {
                         "ref": "PhotoSphereViewer.html#on",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#once": {
                         "ref": "PhotoSphereViewer.html#once",
-                        "tf": 8.333333333333332
-                      },
-                      "PhotoSphereViewer.html#startKeyboardControl": {
-                        "ref": "PhotoSphereViewer.html#startKeyboardControl",
-                        "tf": 12.5
-                      },
-                      "PhotoSphereViewer.html#stopKeyboardControl": {
-                        "ref": "PhotoSphereViewer.html#stopKeyboardControl",
-                        "tf": 12.5
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -5077,9 +5268,25 @@ window.lunrData = {
                               "ref": "module-components.PSVComponent.html#.publicMethods",
                               "tf": 25
                             },
+                            "module-components_buttons.PSVNavBarButton.html#.icon": {
+                              "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
+                              "tf": 25
+                            },
+                            "module-components_buttons.PSVNavBarButton.html#.iconActive": {
+                              "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
+                              "tf": 25
+                            },
+                            "module-components_buttons.PSVNavBarButton.html#.id": {
+                              "ref": "module-components_buttons.PSVNavBarButton.html#.id",
+                              "tf": 25
+                            },
                             "PhotoSphereViewer.html#.DEFAULTS": {
                               "ref": "PhotoSphereViewer.html#.DEFAULTS",
                               "tf": 25
+                            },
+                            "PhotoSphereViewer.html#.Error": {
+                              "ref": "PhotoSphereViewer.html#.Error",
+                              "tf": 33.33333333333333
                             },
                             "PhotoSphereViewer.html#.ICONS": {
                               "ref": "PhotoSphereViewer.html#.ICONS",
@@ -5088,6 +5295,10 @@ window.lunrData = {
                             "PhotoSphereViewer.html#.TEMPLATES": {
                               "ref": "PhotoSphereViewer.html#.TEMPLATES",
                               "tf": 20
+                            },
+                            "PhotoSphereViewer.html#.Utils": {
+                              "ref": "PhotoSphereViewer.html#.Utils",
+                              "tf": 25
                             },
                             "PSVMarker.html#.$el": {
                               "ref": "PSVMarker.html#.$el",
@@ -5124,26 +5335,6 @@ window.lunrData = {
                               "docs": {},
                               "t": {
                                 "docs": {
-                                  "module-components_buttons.PSVNavBarButton.html#.icon": {
-                                    "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                                    "tf": 33.33333333333333
-                                  },
-                                  "module-components_buttons.PSVNavBarButton.html#.iconActive": {
-                                    "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                                    "tf": 33.33333333333333
-                                  },
-                                  "module-components_buttons.PSVNavBarButton.html#.id": {
-                                    "ref": "module-components_buttons.PSVNavBarButton.html#.id",
-                                    "tf": 33.33333333333333
-                                  },
-                                  "PhotoSphereViewer.html#.Error": {
-                                    "ref": "PhotoSphereViewer.html#.Error",
-                                    "tf": 33.33333333333333
-                                  },
-                                  "PhotoSphereViewer.html#.Utils": {
-                                    "ref": "PhotoSphereViewer.html#.Utils",
-                                    "tf": 33.33333333333333
-                                  },
                                   "PSVMarker.html#.getType": {
                                     "ref": "PSVMarker.html#.getType",
                                     "tf": 20
@@ -5163,6 +5354,10 @@ window.lunrData = {
                                   "PSVUtils.html#.checkTHREE": {
                                     "ref": "PSVUtils.html#.checkTHREE",
                                     "tf": 25
+                                  },
+                                  "PSVUtils.html#.cleanTHREEScene": {
+                                    "ref": "PSVUtils.html#.cleanTHREEScene",
+                                    "tf": 33.33333333333333
                                   },
                                   "PSVUtils.html#.clone": {
                                     "ref": "PSVUtils.html#.clone",
@@ -5252,259 +5447,17 @@ window.lunrData = {
                                     "ref": "PSVUtils.html#.requestFullscreen",
                                     "tf": 33.33333333333333
                                   },
+                                  "PSVUtils.html#.sum": {
+                                    "ref": "PSVUtils.html#.sum",
+                                    "tf": 25
+                                  },
                                   "PSVUtils.html#.throttle": {
                                     "ref": "PSVUtils.html#.throttle",
                                     "tf": 20
                                   },
                                   "PSVUtils.html#.toggleClass": {
                                     "ref": "PSVUtils.html#.toggleClass",
-                                    "tf": 16.666666666666664
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "p": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "o": {
-                    "docs": {},
-                    "t": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "c": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "module-components.PSVComponent.html#container": {
-                                "ref": "module-components.PSVComponent.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVComponent.html#parent": {
-                                "ref": "module-components.PSVComponent.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVComponent.html#psv": {
-                                "ref": "module-components.PSVComponent.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVHUD.html#container": {
-                                "ref": "module-components.PSVHUD.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVHUD.html#parent": {
-                                "ref": "module-components.PSVHUD.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVHUD.html#psv": {
-                                "ref": "module-components.PSVHUD.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVLoader.html#container": {
-                                "ref": "module-components.PSVLoader.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVLoader.html#parent": {
-                                "ref": "module-components.PSVLoader.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVLoader.html#psv": {
-                                "ref": "module-components.PSVLoader.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBar.html#container": {
-                                "ref": "module-components.PSVNavBar.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBar.html#items": {
-                                "ref": "module-components.PSVNavBar.html#items",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBar.html#parent": {
-                                "ref": "module-components.PSVNavBar.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBar.html#psv": {
-                                "ref": "module-components.PSVNavBar.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBarCaption.html#container": {
-                                "ref": "module-components.PSVNavBarCaption.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBarCaption.html#parent": {
-                                "ref": "module-components.PSVNavBarCaption.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBarCaption.html#psv": {
-                                "ref": "module-components.PSVNavBarCaption.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBarSpacer.html#container": {
-                                "ref": "module-components.PSVNavBarSpacer.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBarSpacer.html#parent": {
-                                "ref": "module-components.PSVNavBarSpacer.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVNavBarSpacer.html#psv": {
-                                "ref": "module-components.PSVNavBarSpacer.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVPanel.html#container": {
-                                "ref": "module-components.PSVPanel.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVPanel.html#content": {
-                                "ref": "module-components.PSVPanel.html#content",
-                                "tf": 25
-                              },
-                              "module-components.PSVPanel.html#parent": {
-                                "ref": "module-components.PSVPanel.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVPanel.html#psv": {
-                                "ref": "module-components.PSVPanel.html#psv",
-                                "tf": 25
-                              },
-                              "module-components.PSVTooltip.html#container": {
-                                "ref": "module-components.PSVTooltip.html#container",
-                                "tf": 25
-                              },
-                              "module-components.PSVTooltip.html#parent": {
-                                "ref": "module-components.PSVTooltip.html#parent",
-                                "tf": 25
-                              },
-                              "module-components.PSVTooltip.html#psv": {
-                                "ref": "module-components.PSVTooltip.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarAutorotateButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarAutorotateButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarAutorotateButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarCustomButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarCustomButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarCustomButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarCustomButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarCustomButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarCustomButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarDownloadButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarDownloadButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarDownloadButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarDownloadButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarDownloadButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarDownloadButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarFullscreenButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarFullscreenButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarFullscreenButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarGyroscopeButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarMarkersButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarMarkersButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarMarkersButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarMarkersButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarMarkersButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarMarkersButton.html#psv",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarZoomButton.html#container": {
-                                "ref": "module-components_buttons.PSVNavBarZoomButton.html#container",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarZoomButton.html#parent": {
-                                "ref": "module-components_buttons.PSVNavBarZoomButton.html#parent",
-                                "tf": 25
-                              },
-                              "module-components_buttons.PSVNavBarZoomButton.html#psv": {
-                                "ref": "module-components_buttons.PSVNavBarZoomButton.html#psv",
-                                "tf": 25
-                              },
-                              "PSVMarker.html#psv": {
-                                "ref": "PSVMarker.html#psv",
-                                "tf": 25
-                              }
-                            },
-                            "e": {
-                              "docs": {},
-                              "d": {
-                                "docs": {},
-                                "&": {
-                                  "docs": {},
-                                  "g": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {
-                                        "module-components.PSVHUD.html#$svg": {
-                                          "ref": "module-components.PSVHUD.html#$svg",
-                                          "tf": 33.33333333333333
-                                        }
-                                      }
-                                    }
+                                    "tf": 20
                                   }
                                 }
                               }
@@ -5538,6 +5491,22 @@ window.lunrData = {
                                   "docs": {},
                                   "t": {
                                     "docs": {
+                                      "module-components.PSVComponent.html#container": {
+                                        "ref": "module-components.PSVComponent.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVComponent.html#parent": {
+                                        "ref": "module-components.PSVComponent.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVComponent.html#psv": {
+                                        "ref": "module-components.PSVComponent.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVHUD.html#container": {
+                                        "ref": "module-components.PSVHUD.html#container",
+                                        "tf": 33.33333333333333
+                                      },
                                       "module-components.PSVHUD.html#currentMarker": {
                                         "ref": "module-components.PSVHUD.html#currentMarker",
                                         "tf": 33.33333333333333
@@ -5546,8 +5515,100 @@ window.lunrData = {
                                         "ref": "module-components.PSVHUD.html#hoveringMarker",
                                         "tf": 33.33333333333333
                                       },
+                                      "module-components.PSVHUD.html#parent": {
+                                        "ref": "module-components.PSVHUD.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVHUD.html#psv": {
+                                        "ref": "module-components.PSVHUD.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVHUD.html#svgContainer": {
+                                        "ref": "module-components.PSVHUD.html#svgContainer",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVLoader.html#container": {
+                                        "ref": "module-components.PSVLoader.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVLoader.html#parent": {
+                                        "ref": "module-components.PSVLoader.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVLoader.html#psv": {
+                                        "ref": "module-components.PSVLoader.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBar.html#container": {
+                                        "ref": "module-components.PSVNavBar.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBar.html#items": {
+                                        "ref": "module-components.PSVNavBar.html#items",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBar.html#parent": {
+                                        "ref": "module-components.PSVNavBar.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBar.html#psv": {
+                                        "ref": "module-components.PSVNavBar.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBarCaption.html#container": {
+                                        "ref": "module-components.PSVNavBarCaption.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBarCaption.html#parent": {
+                                        "ref": "module-components.PSVNavBarCaption.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBarCaption.html#psv": {
+                                        "ref": "module-components.PSVNavBarCaption.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBarSpacer.html#container": {
+                                        "ref": "module-components.PSVNavBarSpacer.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBarSpacer.html#parent": {
+                                        "ref": "module-components.PSVNavBarSpacer.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVNavBarSpacer.html#psv": {
+                                        "ref": "module-components.PSVNavBarSpacer.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
                                       "module-components.PSVNavBarSpacer.html#weight": {
                                         "ref": "module-components.PSVNavBarSpacer.html#weight",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVPanel.html#container": {
+                                        "ref": "module-components.PSVPanel.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVPanel.html#parent": {
+                                        "ref": "module-components.PSVPanel.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVPanel.html#psv": {
+                                        "ref": "module-components.PSVPanel.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVTooltip.html#container": {
+                                        "ref": "module-components.PSVTooltip.html#container",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVTooltip.html#parent": {
+                                        "ref": "module-components.PSVTooltip.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components.PSVTooltip.html#psv": {
+                                        "ref": "module-components.PSVTooltip.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarAutorotateButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#container",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarAutorotateButton.html#enabled": {
@@ -5558,12 +5619,36 @@ window.lunrData = {
                                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#id",
                                         "tf": 33.33333333333333
                                       },
+                                      "module-components_buttons.PSVNavBarAutorotateButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarAutorotateButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarButton.html#container",
+                                        "tf": 33.33333333333333
+                                      },
                                       "module-components_buttons.PSVNavBarButton.html#enabled": {
                                         "ref": "module-components_buttons.PSVNavBarButton.html#enabled",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarButton.html#id": {
                                         "ref": "module-components_buttons.PSVNavBarButton.html#id",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarCustomButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarCustomButton.html#container",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarCustomButton.html#enabled": {
@@ -5574,12 +5659,36 @@ window.lunrData = {
                                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#id",
                                         "tf": 33.33333333333333
                                       },
+                                      "module-components_buttons.PSVNavBarCustomButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarCustomButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarCustomButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarCustomButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarDownloadButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#container",
+                                        "tf": 33.33333333333333
+                                      },
                                       "module-components_buttons.PSVNavBarDownloadButton.html#enabled": {
                                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#enabled",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarDownloadButton.html#id": {
                                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#id",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarDownloadButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarDownloadButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarFullscreenButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#container",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarFullscreenButton.html#enabled": {
@@ -5590,12 +5699,36 @@ window.lunrData = {
                                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#id",
                                         "tf": 33.33333333333333
                                       },
+                                      "module-components_buttons.PSVNavBarFullscreenButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarFullscreenButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarGyroscopeButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#container",
+                                        "tf": 33.33333333333333
+                                      },
                                       "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled": {
                                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarGyroscopeButton.html#id": {
                                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#id",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarMarkersButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#container",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarMarkersButton.html#enabled": {
@@ -5606,12 +5739,32 @@ window.lunrData = {
                                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#id",
                                         "tf": 33.33333333333333
                                       },
+                                      "module-components_buttons.PSVNavBarMarkersButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarMarkersButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#psv",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarZoomButton.html#container": {
+                                        "ref": "module-components_buttons.PSVNavBarZoomButton.html#container",
+                                        "tf": 33.33333333333333
+                                      },
                                       "module-components_buttons.PSVNavBarZoomButton.html#enabled": {
                                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#enabled",
                                         "tf": 33.33333333333333
                                       },
                                       "module-components_buttons.PSVNavBarZoomButton.html#id": {
                                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#id",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarZoomButton.html#parent": {
+                                        "ref": "module-components_buttons.PSVNavBarZoomButton.html#parent",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "module-components_buttons.PSVNavBarZoomButton.html#psv": {
+                                        "ref": "module-components_buttons.PSVNavBarZoomButton.html#psv",
                                         "tf": 33.33333333333333
                                       },
                                       "PhotoSphereViewer.html#config": {
@@ -5661,6 +5814,346 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "p": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "t": {
+                            "docs": {
+                              "PSVMarker.html#psv": {
+                                "ref": "PSVMarker.html#psv",
+                                "tf": 25
+                              }
+                            },
+                            "e": {
+                              "docs": {},
+                              "d": {
+                                "docs": {},
+                                "&": {
+                                  "docs": {},
+                                  "g": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {
+                                        "module-components.PSVComponent.html#create": {
+                                          "ref": "module-components.PSVComponent.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVComponent.html#destroy": {
+                                          "ref": "module-components.PSVComponent.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVComponent.html#hide": {
+                                          "ref": "module-components.PSVComponent.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVComponent.html#show": {
+                                          "ref": "module-components.PSVComponent.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVHUD.html#create": {
+                                          "ref": "module-components.PSVHUD.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVHUD.html#destroy": {
+                                          "ref": "module-components.PSVHUD.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVHUD.html#hide": {
+                                          "ref": "module-components.PSVHUD.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVHUD.html#show": {
+                                          "ref": "module-components.PSVHUD.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVLoader.html#create": {
+                                          "ref": "module-components.PSVLoader.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVLoader.html#destroy": {
+                                          "ref": "module-components.PSVLoader.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVLoader.html#hide": {
+                                          "ref": "module-components.PSVLoader.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVLoader.html#show": {
+                                          "ref": "module-components.PSVLoader.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBar.html#create": {
+                                          "ref": "module-components.PSVNavBar.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBar.html#destroy": {
+                                          "ref": "module-components.PSVNavBar.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBar.html#hide": {
+                                          "ref": "module-components.PSVNavBar.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBar.html#show": {
+                                          "ref": "module-components.PSVNavBar.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarCaption.html#create": {
+                                          "ref": "module-components.PSVNavBarCaption.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarCaption.html#destroy": {
+                                          "ref": "module-components.PSVNavBarCaption.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarCaption.html#hide": {
+                                          "ref": "module-components.PSVNavBarCaption.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarCaption.html#show": {
+                                          "ref": "module-components.PSVNavBarCaption.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarSpacer.html#create": {
+                                          "ref": "module-components.PSVNavBarSpacer.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarSpacer.html#destroy": {
+                                          "ref": "module-components.PSVNavBarSpacer.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarSpacer.html#hide": {
+                                          "ref": "module-components.PSVNavBarSpacer.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVNavBarSpacer.html#show": {
+                                          "ref": "module-components.PSVNavBarSpacer.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVPanel.html#create": {
+                                          "ref": "module-components.PSVPanel.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVPanel.html#destroy": {
+                                          "ref": "module-components.PSVPanel.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVPanel.html#hide": {
+                                          "ref": "module-components.PSVPanel.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVPanel.html#show": {
+                                          "ref": "module-components.PSVPanel.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVTooltip.html#create": {
+                                          "ref": "module-components.PSVTooltip.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVTooltip.html#destroy": {
+                                          "ref": "module-components.PSVTooltip.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVTooltip.html#hide": {
+                                          "ref": "module-components.PSVTooltip.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components.PSVTooltip.html#show": {
+                                          "ref": "module-components.PSVTooltip.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarAutorotateButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarAutorotateButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarAutorotateButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarAutorotateButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarCustomButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarCustomButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarCustomButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarCustomButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarCustomButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarCustomButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarCustomButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarCustomButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarDownloadButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarDownloadButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarDownloadButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarDownloadButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarDownloadButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarDownloadButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarDownloadButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarDownloadButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarFullscreenButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarFullscreenButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarFullscreenButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarFullscreenButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarGyroscopeButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarGyroscopeButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarMarkersButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarMarkersButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarMarkersButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarMarkersButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarMarkersButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarMarkersButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarZoomButton.html#create": {
+                                          "ref": "module-components_buttons.PSVNavBarZoomButton.html#create",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarZoomButton.html#destroy": {
+                                          "ref": "module-components_buttons.PSVNavBarZoomButton.html#destroy",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarZoomButton.html#hide": {
+                                          "ref": "module-components_buttons.PSVNavBarZoomButton.html#hide",
+                                          "tf": 50
+                                        },
+                                        "module-components_buttons.PSVNavBarZoomButton.html#show": {
+                                          "ref": "module-components_buttons.PSVNavBarZoomButton.html#show",
+                                          "tf": 50
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "s": {
+              "docs": {},
+              "t": {
+                "docs": {
+                  "module-components.PSVHUD.html#currentMarker": {
+                    "ref": "module-components.PSVHUD.html#currentMarker",
+                    "tf": 23.333333333333332
+                  },
+                  "module-components.PSVHUD.html#getCurrentMarker": {
+                    "ref": "module-components.PSVHUD.html#getCurrentMarker",
+                    "tf": 14
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "u": {
+                    "docs": {},
+                    "d": {
+                      "docs": {
+                        "PhotoSphereViewer.html#animate": {
+                          "ref": "PhotoSphereViewer.html#animate",
+                          "tf": 10
+                        },
+                        "PhotoSphereViewer.html#rotate": {
+                          "ref": "PhotoSphereViewer.html#rotate",
+                          "tf": 14
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -5672,15 +6165,15 @@ window.lunrData = {
                 "docs": {
                   "PhotoSphereViewer.html#load": {
                     "ref": "PhotoSphereViewer.html#load",
-                    "tf": 716.6666666666666
+                    "tf": 723.3333333333334
                   },
                   "PhotoSphereViewer.html#setPanorama": {
                     "ref": "PhotoSphereViewer.html#setPanorama",
-                    "tf": 3.3333333333333335
+                    "tf": 19.67391304347826
                   },
                   "PSVUtils.html#.checkTHREE": {
                     "ref": "PSVUtils.html#.checkTHREE",
-                    "tf": 12.5
+                    "tf": 17.5
                   }
                 },
                 "e": {
@@ -5691,17 +6184,9 @@ window.lunrData = {
                         "ref": "module-components.PSVLoader.html",
                         "tf": 25
                       },
-                      "module-components.PSVLoader.html#create": {
-                        "ref": "module-components.PSVLoader.html#create",
-                        "tf": 25
-                      },
-                      "module-components.PSVLoader.html#destroy": {
-                        "ref": "module-components.PSVLoader.html#destroy",
-                        "tf": 25
-                      },
                       "module-components.PSVLoader.html#setProgress": {
                         "ref": "module-components.PSVLoader.html#setProgress",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "PhotoSphereViewer.html#loader": {
                         "ref": "PhotoSphereViewer.html#loader",
@@ -5724,62 +6209,17 @@ window.lunrData = {
                       "docs": {},
                       "d": {
                         "docs": {
+                          "PhotoSphereViewer.html#animate": {
+                            "ref": "PhotoSphereViewer.html#animate",
+                            "tf": 10
+                          },
+                          "PhotoSphereViewer.html#rotate": {
+                            "ref": "PhotoSphereViewer.html#rotate",
+                            "tf": 14
+                          },
                           "PSVUtils.html#.getShortestArc": {
                             "ref": "PSVUtils.html#.getShortestArc",
-                            "tf": 8.333333333333332
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "i": {
-                "docs": {},
-                "t": {
-                  "docs": {},
-                  "u": {
-                    "docs": {},
-                    "d": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "/": {
-                          "docs": {},
-                          "l": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "n": {
-                                "docs": {},
-                                "g": {
-                                  "docs": {},
-                                  "i": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {},
-                                      "u": {
-                                        "docs": {},
-                                        "d": {
-                                          "docs": {
-                                            "PhotoSphereViewer.html#cleanPosition": {
-                                              "ref": "PhotoSphereViewer.html#cleanPosition",
-                                              "tf": 8.333333333333332
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
+                            "tf": 11.666666666666666
                           }
                         }
                       }
@@ -5799,15 +6239,23 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#getZoomLevel": {
                       "ref": "PhotoSphereViewer.html#getZoomLevel",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#zoom": {
                       "ref": "PhotoSphereViewer.html#zoom",
-                      "tf": 33.33333333333333
+                      "tf": 44.99999999999999
+                    },
+                    "PhotoSphereViewer.html#zoomIn": {
+                      "ref": "PhotoSphereViewer.html#zoomIn",
+                      "tf": 17.5
+                    },
+                    "PhotoSphereViewer.html#zoomOut": {
+                      "ref": "PhotoSphereViewer.html#zoomOut",
+                      "tf": 17.5
                     },
                     "PSVUtils.html#.hasParent": {
                       "ref": "PSVUtils.html#.hasParent",
-                      "tf": 7.142857142857142
+                      "tf": 10
                     }
                   }
                 }
@@ -5819,7 +6267,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.parsePosition": {
                     "ref": "PSVUtils.html#.parsePosition",
-                    "tf": 2.631578947368421
+                    "tf": 7
                   }
                 }
               }
@@ -5848,27 +6296,31 @@ window.lunrData = {
                           },
                           "PhotoSphereViewer.html#clearPanoramaCache": {
                             "ref": "PhotoSphereViewer.html#clearPanoramaCache",
-                            "tf": 57.14285714285714
+                            "tf": 61.666666666666664
                           },
                           "PhotoSphereViewer.html#getPanoramaCache": {
                             "ref": "PhotoSphereViewer.html#getPanoramaCache",
-                            "tf": 49.99999999999999
+                            "tf": 56.66666666666666
                           },
                           "PhotoSphereViewer.html#load": {
                             "ref": "PhotoSphereViewer.html#load",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           },
                           "PhotoSphereViewer.html#preloadPanorama": {
                             "ref": "PhotoSphereViewer.html#preloadPanorama",
-                            "tf": 43.33333333333333
+                            "tf": 47.33333333333333
                           },
                           "PhotoSphereViewer.html#setPanorama": {
                             "ref": "PhotoSphereViewer.html#setPanorama",
-                            "tf": 3.3333333333333335
+                            "tf": 19.67391304347826
+                          },
+                          "PhotoSphereViewer.html#.PanoData": {
+                            "ref": "PhotoSphereViewer.html#.PanoData",
+                            "tf": 23.333333333333332
                           },
                           "PSVUtils.html#.getXMPValue": {
                             "ref": "PSVUtils.html#.getXMPValue",
-                            "tf": 8.333333333333332
+                            "tf": 11.666666666666666
                           }
                         }
                       }
@@ -5897,33 +6349,25 @@ window.lunrData = {
                 "docs": {},
                 "l": {
                   "docs": {
+                    "module-components.PSVHUD.html#hideMarkersList": {
+                      "ref": "module-components.PSVHUD.html#hideMarkersList",
+                      "tf": 11.666666666666666
+                    },
+                    "module-components.PSVHUD.html#showMarkersList": {
+                      "ref": "module-components.PSVHUD.html#showMarkersList",
+                      "tf": 14
+                    },
                     "module-components.PSVPanel.html": {
                       "ref": "module-components.PSVPanel.html",
                       "tf": 25
                     },
-                    "module-components.PSVPanel.html#create": {
-                      "ref": "module-components.PSVPanel.html#create",
-                      "tf": 25
-                    },
-                    "module-components.PSVPanel.html#destroy": {
-                      "ref": "module-components.PSVPanel.html#destroy",
-                      "tf": 25
-                    },
                     "module-components.PSVPanel.html#hidePanel": {
                       "ref": "module-components.PSVPanel.html#hidePanel",
-                      "tf": 25
+                      "tf": 35
                     },
                     "module-components.PSVPanel.html#showPanel": {
                       "ref": "module-components.PSVPanel.html#showPanel",
-                      "tf": 25
-                    },
-                    "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-                      "tf": 16.666666666666664
-                    },
-                    "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                      "tf": 10
+                      "tf": 35
                     },
                     "PhotoSphereViewer.html#panel": {
                       "ref": "PhotoSphereViewer.html#panel",
@@ -5943,79 +6387,79 @@ window.lunrData = {
                     "docs": {
                       "module-components.PSVComponent.html#parent": {
                         "ref": "module-components.PSVComponent.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVHUD.html#parent": {
                         "ref": "module-components.PSVHUD.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVLoader.html#parent": {
                         "ref": "module-components.PSVLoader.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVNavBar.html#parent": {
                         "ref": "module-components.PSVNavBar.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVNavBarCaption.html#parent": {
                         "ref": "module-components.PSVNavBarCaption.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVNavBarSpacer.html#parent": {
                         "ref": "module-components.PSVNavBarSpacer.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVPanel.html#parent": {
                         "ref": "module-components.PSVPanel.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components.PSVTooltip.html#parent": {
                         "ref": "module-components.PSVTooltip.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#parent": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#parent",
-                        "tf": 625
+                        "tf": 633.3333333333334
                       },
                       "PhotoSphereViewer.html#parent": {
                         "ref": "PhotoSphereViewer.html#parent",
-                        "tf": 708.3333333333334
+                        "tf": 718.3333333333334
                       },
                       "PSVUtils.html#.getClosest": {
                         "ref": "PSVUtils.html#.getClosest",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PSVUtils.html#.hasParent": {
                         "ref": "PSVUtils.html#.hasParent",
-                        "tf": 27.142857142857142
+                        "tf": 30
                       }
                     }
                   }
@@ -6037,7 +6481,7 @@ window.lunrData = {
                             "docs": {
                               "PSVUtils.html#.hasParent": {
                                 "ref": "PSVUtils.html#.hasParent",
-                                "tf": 7.142857142857142
+                                "tf": 10
                               }
                             }
                           }
@@ -6051,11 +6495,11 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.parseAngle": {
                     "ref": "PSVUtils.html#.parseAngle",
-                    "tf": 5.555555555555555
+                    "tf": 7.777777777777778
                   },
                   "PSVUtils.html#.parseSpeed": {
                     "ref": "PSVUtils.html#.parseSpeed",
-                    "tf": 25
+                    "tf": 35
                   }
                 },
                 "e": {
@@ -6131,7 +6575,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.isPlainObject": {
                     "ref": "PSVUtils.html#.isPlainObject",
-                    "tf": 3.7037037037037033
+                    "tf": 3.8461538461538463
                   }
                 }
               }
@@ -6172,67 +6616,67 @@ window.lunrData = {
                                       "docs": {
                                         "module-components.PSVComponent.html#psv": {
                                           "ref": "module-components.PSVComponent.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVHUD.html#psv": {
                                           "ref": "module-components.PSVHUD.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVLoader.html#psv": {
                                           "ref": "module-components.PSVLoader.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVNavBar.html#psv": {
                                           "ref": "module-components.PSVNavBar.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVNavBarCaption.html#psv": {
                                           "ref": "module-components.PSVNavBarCaption.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVNavBarSpacer.html#psv": {
                                           "ref": "module-components.PSVNavBarSpacer.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVPanel.html#psv": {
                                           "ref": "module-components.PSVPanel.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components.PSVTooltip.html#psv": {
                                           "ref": "module-components.PSVTooltip.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarAutorotateButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarCustomButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarCustomButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarDownloadButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarDownloadButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarFullscreenButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarMarkersButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarMarkersButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "module-components_buttons.PSVNavBarZoomButton.html#psv": {
                                           "ref": "module-components_buttons.PSVNavBarZoomButton.html#psv",
-                                          "tf": 25
+                                          "tf": 33.33333333333333
                                         },
                                         "PhotoSphereViewer.html": {
                                           "ref": "PhotoSphereViewer.html",
@@ -6317,67 +6761,67 @@ window.lunrData = {
                                                                                                   "docs": {
                                                                                                     "module-components.PSVComponent.html#parent": {
                                                                                                       "ref": "module-components.PSVComponent.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVHUD.html#parent": {
                                                                                                       "ref": "module-components.PSVHUD.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVLoader.html#parent": {
                                                                                                       "ref": "module-components.PSVLoader.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVNavBar.html#parent": {
                                                                                                       "ref": "module-components.PSVNavBar.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVNavBarCaption.html#parent": {
                                                                                                       "ref": "module-components.PSVNavBarCaption.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVNavBarSpacer.html#parent": {
                                                                                                       "ref": "module-components.PSVNavBarSpacer.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVPanel.html#parent": {
                                                                                                       "ref": "module-components.PSVPanel.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components.PSVTooltip.html#parent": {
                                                                                                       "ref": "module-components.PSVTooltip.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarAutorotateButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarCustomButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarCustomButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarDownloadButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarDownloadButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarFullscreenButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarMarkersButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     },
                                                                                                     "module-components_buttons.PSVNavBarZoomButton.html#parent": {
                                                                                                       "ref": "module-components_buttons.PSVNavBarZoomButton.html#parent",
-                                                                                                      "tf": 25
+                                                                                                      "tf": 33.33333333333333
                                                                                                     }
                                                                                                   }
                                                                                                 }
@@ -6773,29 +7217,6 @@ window.lunrData = {
                                                   "docs": {},
                                                   "a": {
                                                     "docs": {},
-                                                    "n": {
-                                                      "docs": {},
-                                                      "p": {
-                                                        "docs": {},
-                                                        "o": {
-                                                          "docs": {},
-                                                          "s": {
-                                                            "docs": {},
-                                                            "i": {
-                                                              "docs": {},
-                                                              "t": {
-                                                                "docs": {
-                                                                  "PhotoSphereViewer.html#cleanPosition": {
-                                                                    "ref": "PhotoSphereViewer.html#cleanPosition",
-                                                                    "tf": 1150
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    },
                                                     "r": {
                                                       "docs": {},
                                                       "p": {
@@ -7257,35 +7678,6 @@ window.lunrData = {
                                                       "PhotoSphereViewer.html#animate": {
                                                         "ref": "PhotoSphereViewer.html#animate",
                                                         "tf": 1150
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "p": {
-                                                "docs": {},
-                                                "p": {
-                                                  "docs": {},
-                                                  "l": {
-                                                    "docs": {},
-                                                    "y": {
-                                                      "docs": {},
-                                                      "r": {
-                                                        "docs": {},
-                                                        "a": {
-                                                          "docs": {},
-                                                          "n": {
-                                                            "docs": {},
-                                                            "g": {
-                                                              "docs": {
-                                                                "PhotoSphereViewer.html#applyRanges": {
-                                                                  "ref": "PhotoSphereViewer.html#applyRanges",
-                                                                  "tf": 1150
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
                                                       }
                                                     }
                                                   }
@@ -7907,14 +8299,6 @@ window.lunrData = {
                                                     "docs": {},
                                                     "a": {
                                                       "docs": {},
-                                                      "l": {
-                                                        "docs": {
-                                                          "PhotoSphereViewer.html#stopAll": {
-                                                            "ref": "PhotoSphereViewer.html#stopAll",
-                                                            "tf": 1150
-                                                          }
-                                                        }
-                                                      },
                                                       "n": {
                                                         "docs": {},
                                                         "i": {
@@ -8302,67 +8686,67 @@ window.lunrData = {
               "docs": {
                 "module-components.PSVComponent.html#psv": {
                   "ref": "module-components.PSVComponent.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVHUD.html#psv": {
                   "ref": "module-components.PSVHUD.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVLoader.html#psv": {
                   "ref": "module-components.PSVLoader.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVNavBar.html#psv": {
                   "ref": "module-components.PSVNavBar.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVNavBarCaption.html#psv": {
                   "ref": "module-components.PSVNavBarCaption.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVNavBarSpacer.html#psv": {
                   "ref": "module-components.PSVNavBarSpacer.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVPanel.html#psv": {
                   "ref": "module-components.PSVPanel.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components.PSVTooltip.html#psv": {
                   "ref": "module-components.PSVTooltip.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarAutorotateButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarCustomButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarCustomButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarDownloadButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarDownloadButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarFullscreenButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarMarkersButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarMarkersButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "module-components_buttons.PSVNavBarZoomButton.html#psv": {
                   "ref": "module-components_buttons.PSVNavBarZoomButton.html#psv",
-                  "tf": 625
+                  "tf": 633.3333333333334
                 },
                 "PSVMarker.html#psv": {
                   "ref": "PSVMarker.html#psv",
@@ -8610,23 +8994,6 @@ window.lunrData = {
                     },
                     "#": {
                       "docs": {},
-                      "$": {
-                        "docs": {},
-                        "s": {
-                          "docs": {},
-                          "v": {
-                            "docs": {},
-                            "g": {
-                              "docs": {
-                                "module-components.PSVHUD.html#$svg": {
-                                  "ref": "module-components.PSVHUD.html#$svg",
-                                  "tf": 100
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
                       "c": {
                         "docs": {},
                         "o": {
@@ -8797,6 +9164,32 @@ window.lunrData = {
                                           "ref": "module-components.PSVHUD.html#hideMarker",
                                           "tf": 100
                                         }
+                                      },
+                                      "e": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {
+                                                      "module-components.PSVHUD.html#hideMarkersList": {
+                                                        "ref": "module-components.PSVHUD.html#hideMarkersList",
+                                                        "tf": 100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -8843,6 +9236,98 @@ window.lunrData = {
                               "module-components.PSVHUD.html#psv": {
                                 "ref": "module-components.PSVHUD.html#psv",
                                 "tf": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "s": {
+                        "docs": {},
+                        "v": {
+                          "docs": {},
+                          "g": {
+                            "docs": {},
+                            "c": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "n": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {
+                                            "module-components.PSVHUD.html#svgContainer": {
+                                              "ref": "module-components.PSVHUD.html#svgContainer",
+                                              "tf": 100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "h": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "w": {
+                              "docs": {
+                                "module-components.PSVHUD.html#show": {
+                                  "ref": "module-components.PSVHUD.html#show",
+                                  "tf": 100
+                                }
+                              },
+                              "m": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {},
+                                    "k": {
+                                      "docs": {
+                                        "module-components.PSVHUD.html#showMarker": {
+                                          "ref": "module-components.PSVHUD.html#showMarker",
+                                          "tf": 100
+                                        }
+                                      },
+                                      "e": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {
+                                                      "module-components.PSVHUD.html#showMarkersList": {
+                                                        "ref": "module-components.PSVHUD.html#showMarkersList",
+                                                        "tf": 100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -9022,33 +9507,28 @@ window.lunrData = {
                                 }
                               }
                             }
-                          }
-                        }
-                      },
-                      "s": {
-                        "docs": {},
-                        "h": {
-                          "docs": {},
-                          "o": {
+                          },
+                          "n": {
                             "docs": {},
-                            "w": {
-                              "docs": {
-                                "module-components.PSVHUD.html#show": {
-                                  "ref": "module-components.PSVHUD.html#show",
-                                  "tf": 100
-                                }
-                              },
-                              "m": {
+                            "d": {
+                              "docs": {},
+                              "e": {
                                 "docs": {},
-                                "a": {
+                                "r": {
                                   "docs": {},
-                                  "r": {
+                                  "m": {
                                     "docs": {},
-                                    "k": {
-                                      "docs": {
-                                        "module-components.PSVHUD.html#showMarker": {
-                                          "ref": "module-components.PSVHUD.html#showMarker",
-                                          "tf": 100
+                                    "a": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "k": {
+                                          "docs": {
+                                            "module-components.PSVHUD.html#renderMarkers": {
+                                              "ref": "module-components.PSVHUD.html#renderMarkers",
+                                              "tf": 100
+                                            }
+                                          }
                                         }
                                       }
                                     }
@@ -9082,6 +9562,32 @@ window.lunrData = {
                                             "module-components.PSVHUD.html#toggleMarker": {
                                               "ref": "module-components.PSVHUD.html#toggleMarker",
                                               "tf": 100
+                                            }
+                                          },
+                                          "e": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "s": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {
+                                                          "module-components.PSVHUD.html#toggleMarkersList": {
+                                                            "ref": "module-components.PSVHUD.html#toggleMarkersList",
+                                                            "tf": 100
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
                                             }
                                           }
                                         }
@@ -9117,26 +9623,6 @@ window.lunrData = {
                                             "module-components.PSVHUD.html#updateMarker": {
                                               "ref": "module-components.PSVHUD.html#updateMarker",
                                               "tf": 100
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "p": {
-                                    "docs": {},
-                                    "o": {
-                                      "docs": {},
-                                      "s": {
-                                        "docs": {},
-                                        "i": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {
-                                              "module-components.PSVHUD.html#updatePositions": {
-                                                "ref": "module-components.PSVHUD.html#updatePositions",
-                                                "tf": 100
-                                              }
                                             }
                                           }
                                         }
@@ -11819,47 +12305,6 @@ window.lunrData = {
                                                                 "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
                                                                 "tf": 100
                                                               }
-                                                            },
-                                                            "e": {
-                                                              "docs": {},
-                                                              "m": {
-                                                                "docs": {},
-                                                                "a": {
-                                                                  "docs": {},
-                                                                  "r": {
-                                                                    "docs": {},
-                                                                    "k": {
-                                                                      "docs": {},
-                                                                      "e": {
-                                                                        "docs": {},
-                                                                        "r": {
-                                                                          "docs": {},
-                                                                          "s": {
-                                                                            "docs": {},
-                                                                            "l": {
-                                                                              "docs": {},
-                                                                              "i": {
-                                                                                "docs": {},
-                                                                                "s": {
-                                                                                  "docs": {},
-                                                                                  "t": {
-                                                                                    "docs": {
-                                                                                      "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                                                                                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-                                                                                        "tf": 100
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
                                                             }
                                                           }
                                                         }
@@ -11875,44 +12320,6 @@ window.lunrData = {
                                                                 "module-components_buttons.PSVNavBarMarkersButton.html#show": {
                                                                   "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
                                                                   "tf": 100
-                                                                }
-                                                              },
-                                                              "m": {
-                                                                "docs": {},
-                                                                "a": {
-                                                                  "docs": {},
-                                                                  "r": {
-                                                                    "docs": {},
-                                                                    "k": {
-                                                                      "docs": {},
-                                                                      "e": {
-                                                                        "docs": {},
-                                                                        "r": {
-                                                                          "docs": {},
-                                                                          "s": {
-                                                                            "docs": {},
-                                                                            "l": {
-                                                                              "docs": {},
-                                                                              "i": {
-                                                                                "docs": {},
-                                                                                "s": {
-                                                                                  "docs": {},
-                                                                                  "t": {
-                                                                                    "docs": {
-                                                                                      "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                                                                                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                                                                                        "tf": 100
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
                                                                 }
                                                               }
                                                             }
@@ -11940,44 +12347,6 @@ window.lunrData = {
                                                                           "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
                                                                             "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
                                                                             "tf": 100
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  "m": {
-                                                                    "docs": {},
-                                                                    "a": {
-                                                                      "docs": {},
-                                                                      "r": {
-                                                                        "docs": {},
-                                                                        "k": {
-                                                                          "docs": {},
-                                                                          "e": {
-                                                                            "docs": {},
-                                                                            "r": {
-                                                                              "docs": {},
-                                                                              "s": {
-                                                                                "docs": {},
-                                                                                "l": {
-                                                                                  "docs": {},
-                                                                                  "i": {
-                                                                                    "docs": {},
-                                                                                    "s": {
-                                                                                      "docs": {},
-                                                                                      "t": {
-                                                                                        "docs": {
-                                                                                          "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                                                                                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-                                                                                            "tf": 100
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
                                                                           }
                                                                         }
                                                                       }
@@ -12256,12 +12625,7 @@ window.lunrData = {
                               "n": {
                                 "docs": {},
                                 "t": {
-                                  "docs": {
-                                    "module-components.PSVPanel.html#content": {
-                                      "ref": "module-components.PSVPanel.html#content",
-                                      "tf": 100
-                                    }
-                                  },
+                                  "docs": {},
                                   "a": {
                                     "docs": {},
                                     "i": {
@@ -12670,6 +13034,10 @@ window.lunrData = {
                       "docs": {},
                       "r": {
                         "docs": {
+                          "PhotoSphereViewer.html#.Error": {
+                            "ref": "PhotoSphereViewer.html#.Error",
+                            "tf": 35
+                          },
                           "PSVError.html": {
                             "ref": "PSVError.html",
                             "tf": 1900
@@ -12688,6 +13056,10 @@ window.lunrData = {
                     "docs": {},
                     "l": {
                       "docs": {
+                        "PhotoSphereViewer.html#.Utils": {
+                          "ref": "PhotoSphereViewer.html#.Utils",
+                          "tf": 35
+                        },
                         "PSVUtils.html": {
                           "ref": "PSVUtils.html",
                           "tf": 1900
@@ -12749,6 +13121,17 @@ window.lunrData = {
                                       "ref": "PSVUtils.html#.svgNS",
                                       "tf": 1150
                                     }
+                                  }
+                                }
+                              }
+                            },
+                            "u": {
+                              "docs": {},
+                              "m": {
+                                "docs": {
+                                  "PSVUtils.html#.sum": {
+                                    "ref": "PSVUtils.html#.sum",
+                                    "tf": 1150
                                   }
                                 }
                               }
@@ -12928,6 +13311,47 @@ window.lunrData = {
                             },
                             "l": {
                               "docs": {},
+                              "e": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "h": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "c": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {
+                                                        "PSVUtils.html#.cleanTHREEScene": {
+                                                          "ref": "PSVUtils.html#.cleanTHREEScene",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
                               "o": {
                                 "docs": {},
                                 "n": {
@@ -13710,23 +14134,23 @@ window.lunrData = {
                           },
                           "module-components.PSVHUD.html#updateMarker": {
                             "ref": "module-components.PSVHUD.html#updateMarker",
-                            "tf": 25
+                            "tf": 31.25
                           },
                           "PhotoSphereViewer.html#prop": {
                             "ref": "PhotoSphereViewer.html#prop",
-                            "tf": 12.5
+                            "tf": 35
                           },
                           "PSVMarker.html#.getType": {
                             "ref": "PSVMarker.html#.getType",
-                            "tf": 30
+                            "tf": 34
                           },
                           "PSVMarker.html#update": {
                             "ref": "PSVMarker.html#update",
-                            "tf": 62.5
+                            "tf": 67.5
                           },
                           "PSVUtils.html#.animation": {
                             "ref": "PSVUtils.html#.animation",
-                            "tf": 6.25
+                            "tf": 11.666666666666666
                           }
                         }
                       }
@@ -13780,7 +14204,7 @@ window.lunrData = {
                         "docs": {
                           "module-components.PSVLoader.html#setProgress": {
                             "ref": "module-components.PSVLoader.html#setProgress",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           }
                         }
                       }
@@ -13791,23 +14215,6 @@ window.lunrData = {
             },
             "e": {
               "docs": {},
-              "s": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "t": {
-                      "docs": {
-                        "PhotoSphereViewer.html#cleanPosition": {
-                          "ref": "PhotoSphereViewer.html#cleanPosition",
-                          "tf": 8.333333333333332
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "l": {
                 "docs": {},
                 "o": {
@@ -13818,7 +14225,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#preloadPanorama": {
                           "ref": "PhotoSphereViewer.html#preloadPanorama",
-                          "tf": 10
+                          "tf": 14
                         }
                       },
                       "p": {
@@ -13864,25 +14271,17 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "module-components.PSVHUD.html#updatePositions": {
-                      "ref": "module-components.PSVHUD.html#updatePositions",
-                      "tf": 12.5
+                    "module-components.PSVHUD.html#renderMarkers": {
+                      "ref": "module-components.PSVHUD.html#renderMarkers",
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#animate": {
                       "ref": "PhotoSphereViewer.html#animate",
                       "tf": 25
                     },
-                    "PhotoSphereViewer.html#applyRanges": {
-                      "ref": "PhotoSphereViewer.html#applyRanges",
-                      "tf": 33.33333333333333
-                    },
-                    "PhotoSphereViewer.html#cleanPosition": {
-                      "ref": "PhotoSphereViewer.html#cleanPosition",
-                      "tf": 50
-                    },
                     "PhotoSphereViewer.html#getPosition": {
                       "ref": "PhotoSphereViewer.html#getPosition",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#rotate": {
                       "ref": "PhotoSphereViewer.html#rotate",
@@ -13890,7 +14289,7 @@ window.lunrData = {
                     },
                     "PhotoSphereViewer.html#setPanorama": {
                       "ref": "PhotoSphereViewer.html#setPanorama",
-                      "tf": 20
+                      "tf": 22.17391304347826
                     },
                     "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                       "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
@@ -13902,23 +14301,23 @@ window.lunrData = {
                     },
                     "PhotoSphereViewer.html#vector3ToViewerCoords": {
                       "ref": "PhotoSphereViewer.html#vector3ToViewerCoords",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#viewerCoordsToVector3": {
                       "ref": "PhotoSphereViewer.html#viewerCoordsToVector3",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#.ExtendedPosition": {
                       "ref": "PhotoSphereViewer.html#.ExtendedPosition",
-                      "tf": 5.555555555555555
+                      "tf": 19.555555555555557
                     },
                     "PhotoSphereViewer.html#.Position": {
                       "ref": "PhotoSphereViewer.html#.Position",
-                      "tf": 750
+                      "tf": 767.5
                     },
                     "PSVUtils.html#.parsePosition": {
                       "ref": "PSVUtils.html#.parsePosition",
-                      "tf": 5.263157894736842
+                      "tf": 12.555555555555555
                     }
                   },
                   "i": {
@@ -13939,7 +14338,7 @@ window.lunrData = {
                                   "docs": {
                                     "PSVUtils.html#.parsePosition": {
                                       "ref": "PSVUtils.html#.parsePosition",
-                                      "tf": 2.631578947368421
+                                      "tf": 5.555555555555555
                                     }
                                   }
                                 }
@@ -13960,9 +14359,13 @@ window.lunrData = {
                     "docs": {},
                     "l": {
                       "docs": {
+                        "PhotoSphereViewer.html#destroy": {
+                          "ref": "PhotoSphereViewer.html#destroy",
+                          "tf": 5.555555555555555
+                        },
                         "PSVUtils.html#.parsePosition": {
                           "ref": "PSVUtils.html#.parsePosition",
-                          "tf": 2.631578947368421
+                          "tf": 5.555555555555555
                         }
                       }
                     }
@@ -13982,7 +14385,7 @@ window.lunrData = {
                     },
                     "PhotoSphereViewer.html#.Point": {
                       "ref": "PhotoSphereViewer.html#.Point",
-                      "tf": 750
+                      "tf": 773.3333333333334
                     }
                   }
                 }
@@ -14000,7 +14403,7 @@ window.lunrData = {
                       "docs": {
                         "PSVMarker.html#isPolygon": {
                           "ref": "PSVMarker.html#isPolygon",
-                          "tf": 16.666666666666664
+                          "tf": 23.333333333333332
                         }
                       }
                     }
@@ -14023,7 +14426,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#render": {
                           "ref": "PhotoSphereViewer.html#render",
-                          "tf": 25
+                          "tf": 35
                         }
                       }
                     }
@@ -14042,11 +14445,11 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                       "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
-                      "tf": 7.142857142857142
+                      "tf": 10
                     },
                     "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
                       "ref": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
-                      "tf": 7.142857142857142
+                      "tf": 10
                     },
                     "PhotoSphereViewer.html#.ExtendedPosition": {
                       "ref": "PhotoSphereViewer.html#.ExtendedPosition",
@@ -14061,7 +14464,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.HalfPI": {
                     "ref": "PSVUtils.html#.HalfPI",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   }
                 }
               },
@@ -14072,7 +14475,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.TwoPI": {
                     "ref": "PSVUtils.html#.TwoPI",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   }
                 }
               },
@@ -14089,7 +14492,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.isPlainObject": {
                       "ref": "PSVUtils.html#.isPlainObject",
-                      "tf": 3.7037037037037033
+                      "tf": 21.346153846153847
                     }
                   }
                 }
@@ -14135,209 +14538,25 @@ window.lunrData = {
                                   "ref": "module-components.PSVComponent.html#.publicMethods",
                                   "tf": 25
                                 },
-                                "module-components.PSVComponent.html#container": {
-                                  "ref": "module-components.PSVComponent.html#container",
+                                "module-components_buttons.PSVNavBarButton.html#.icon": {
+                                  "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
                                   "tf": 25
                                 },
-                                "module-components.PSVComponent.html#parent": {
-                                  "ref": "module-components.PSVComponent.html#parent",
+                                "module-components_buttons.PSVNavBarButton.html#.iconActive": {
+                                  "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
                                   "tf": 25
                                 },
-                                "module-components.PSVComponent.html#psv": {
-                                  "ref": "module-components.PSVComponent.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVHUD.html#container": {
-                                  "ref": "module-components.PSVHUD.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVHUD.html#parent": {
-                                  "ref": "module-components.PSVHUD.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVHUD.html#psv": {
-                                  "ref": "module-components.PSVHUD.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVLoader.html#container": {
-                                  "ref": "module-components.PSVLoader.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVLoader.html#parent": {
-                                  "ref": "module-components.PSVLoader.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVLoader.html#psv": {
-                                  "ref": "module-components.PSVLoader.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBar.html#container": {
-                                  "ref": "module-components.PSVNavBar.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBar.html#items": {
-                                  "ref": "module-components.PSVNavBar.html#items",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBar.html#parent": {
-                                  "ref": "module-components.PSVNavBar.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBar.html#psv": {
-                                  "ref": "module-components.PSVNavBar.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBarCaption.html#container": {
-                                  "ref": "module-components.PSVNavBarCaption.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBarCaption.html#parent": {
-                                  "ref": "module-components.PSVNavBarCaption.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBarCaption.html#psv": {
-                                  "ref": "module-components.PSVNavBarCaption.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBarSpacer.html#container": {
-                                  "ref": "module-components.PSVNavBarSpacer.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBarSpacer.html#parent": {
-                                  "ref": "module-components.PSVNavBarSpacer.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVNavBarSpacer.html#psv": {
-                                  "ref": "module-components.PSVNavBarSpacer.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVPanel.html#container": {
-                                  "ref": "module-components.PSVPanel.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVPanel.html#content": {
-                                  "ref": "module-components.PSVPanel.html#content",
-                                  "tf": 25
-                                },
-                                "module-components.PSVPanel.html#parent": {
-                                  "ref": "module-components.PSVPanel.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVPanel.html#psv": {
-                                  "ref": "module-components.PSVPanel.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components.PSVTooltip.html#container": {
-                                  "ref": "module-components.PSVTooltip.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVTooltip.html#parent": {
-                                  "ref": "module-components.PSVTooltip.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components.PSVTooltip.html#psv": {
-                                  "ref": "module-components.PSVTooltip.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarAutorotateButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarAutorotateButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarAutorotateButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarCustomButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarCustomButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarCustomButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarCustomButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarCustomButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarCustomButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarDownloadButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarDownloadButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarDownloadButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarDownloadButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarDownloadButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarDownloadButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarFullscreenButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarFullscreenButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarFullscreenButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarGyroscopeButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarMarkersButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarMarkersButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarMarkersButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarMarkersButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarMarkersButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarMarkersButton.html#psv",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarZoomButton.html#container": {
-                                  "ref": "module-components_buttons.PSVNavBarZoomButton.html#container",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarZoomButton.html#parent": {
-                                  "ref": "module-components_buttons.PSVNavBarZoomButton.html#parent",
-                                  "tf": 25
-                                },
-                                "module-components_buttons.PSVNavBarZoomButton.html#psv": {
-                                  "ref": "module-components_buttons.PSVNavBarZoomButton.html#psv",
+                                "module-components_buttons.PSVNavBarButton.html#.id": {
+                                  "ref": "module-components_buttons.PSVNavBarButton.html#.id",
                                   "tf": 25
                                 },
                                 "PhotoSphereViewer.html#.DEFAULTS": {
                                   "ref": "PhotoSphereViewer.html#.DEFAULTS",
                                   "tf": 25
+                                },
+                                "PhotoSphereViewer.html#.Error": {
+                                  "ref": "PhotoSphereViewer.html#.Error",
+                                  "tf": 33.33333333333333
                                 },
                                 "PhotoSphereViewer.html#.ICONS": {
                                   "ref": "PhotoSphereViewer.html#.ICONS",
@@ -14346,6 +14565,10 @@ window.lunrData = {
                                 "PhotoSphereViewer.html#.TEMPLATES": {
                                   "ref": "PhotoSphereViewer.html#.TEMPLATES",
                                   "tf": 20
+                                },
+                                "PhotoSphereViewer.html#.Utils": {
+                                  "ref": "PhotoSphereViewer.html#.Utils",
+                                  "tf": 25
                                 },
                                 "PSVMarker.html#.$el": {
                                   "ref": "PSVMarker.html#.$el",
@@ -14386,12 +14609,21 @@ window.lunrData = {
                       }
                     }
                   }
-                },
-                "i": {
-                  "docs": {
-                    "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
-                      "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                      "tf": 6.25
+                }
+              }
+            },
+            "g": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "module-components.PSVHUD.html#markers": {
+                        "ref": "module-components.PSVHUD.html#markers",
+                        "tf": 35
+                      }
                     }
                   }
                 }
@@ -14423,7 +14655,7 @@ window.lunrData = {
                       },
                       "PhotoSphereViewer.html#render": {
                         "ref": "PhotoSphereViewer.html#render",
-                        "tf": 725
+                        "tf": 735
                       },
                       "PhotoSphereViewer.html#rotate": {
                         "ref": "PhotoSphereViewer.html#rotate",
@@ -14432,6 +14664,23 @@ window.lunrData = {
                       "PhotoSphereViewer.html#zoom": {
                         "ref": "PhotoSphereViewer.html#zoom",
                         "tf": 33.33333333333333
+                      }
+                    },
+                    "m": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "k": {
+                            "docs": {
+                              "module-components.PSVHUD.html#renderMarkers": {
+                                "ref": "module-components.PSVHUD.html#renderMarkers",
+                                "tf": 700
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -14446,23 +14695,27 @@ window.lunrData = {
                   "docs": {
                     "module-components.PSVHUD.html#clearMarkers": {
                       "ref": "module-components.PSVHUD.html#clearMarkers",
-                      "tf": 25
+                      "tf": 35
                     },
                     "module-components.PSVHUD.html#removeMarker": {
                       "ref": "module-components.PSVHUD.html#removeMarker",
-                      "tf": 25
+                      "tf": 23.333333333333332
                     },
                     "PhotoSphereViewer.html#clearPanoramaCache": {
                       "ref": "PhotoSphereViewer.html#clearPanoramaCache",
-                      "tf": 7.142857142857142
+                      "tf": 11.666666666666666
                     },
                     "PhotoSphereViewer.html#off": {
                       "ref": "PhotoSphereViewer.html#off",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "PSVUtils.html#.cleanTHREEScene": {
+                      "ref": "PSVUtils.html#.cleanTHREEScene",
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.removeClasses": {
                       "ref": "PSVUtils.html#.removeClasses",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     }
                   },
                   "e": {
@@ -14516,41 +14769,49 @@ window.lunrData = {
                   "docs": {},
                   "n": {
                     "docs": {
+                      "module-components.PSVHUD.html#getCurrentMarker": {
+                        "ref": "module-components.PSVHUD.html#getCurrentMarker",
+                        "tf": 14
+                      },
+                      "module-components.PSVHUD.html#getMarker": {
+                        "ref": "module-components.PSVHUD.html#getMarker",
+                        "tf": 11.666666666666666
+                      },
                       "module-components.PSVNavBar.html#getNavbarButton": {
                         "ref": "module-components.PSVNavBar.html#getNavbarButton",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "PhotoSphereViewer.html#change": {
                         "ref": "PhotoSphereViewer.html#change",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       },
                       "PhotoSphereViewer.html#getPosition": {
                         "ref": "PhotoSphereViewer.html#getPosition",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#getSize": {
                         "ref": "PhotoSphereViewer.html#getSize",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#getZoomLevel": {
                         "ref": "PhotoSphereViewer.html#getZoomLevel",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PSVUtils.html#.getWebGLCtx": {
                         "ref": "PSVUtils.html#.getWebGLCtx",
-                        "tf": 10
+                        "tf": 14
                       },
                       "PSVUtils.html#.getXMPValue": {
                         "ref": "PSVUtils.html#.getXMPValue",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       },
                       "PSVUtils.html#.parseAngle": {
                         "ref": "PSVUtils.html#.parseAngle",
-                        "tf": 5.555555555555555
+                        "tf": 7.777777777777778
                       },
                       "PSVUtils.html#.throttle": {
                         "ref": "PSVUtils.html#.throttle",
-                        "tf": 5.555555555555555
+                        "tf": 7.777777777777778
                       }
                     }
                   }
@@ -14566,7 +14827,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#getPanoramaCache": {
                           "ref": "PhotoSphereViewer.html#getPanoramaCache",
-                          "tf": 16.666666666666664
+                          "tf": 23.333333333333332
                         }
                       }
                     }
@@ -14598,7 +14859,7 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.deepmerge": {
                         "ref": "PSVUtils.html#.deepmerge",
-                        "tf": 3.8461538461538463
+                        "tf": 10
                       }
                     }
                   }
@@ -14678,17 +14939,33 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
+                    "module-components.PSVHUD.html#gotoMarker": {
+                      "ref": "module-components.PSVHUD.html#gotoMarker",
+                      "tf": 17.5
+                    },
                     "PhotoSphereViewer.html#animate": {
                       "ref": "PhotoSphereViewer.html#animate",
-                      "tf": 16.666666666666664
+                      "tf": 10
                     },
                     "PhotoSphereViewer.html#isAutorotateEnabled": {
                       "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#rotate": {
                       "ref": "PhotoSphereViewer.html#rotate",
-                      "tf": 708.3333333333334
+                      "tf": 697.3333333333334
+                    },
+                    "PhotoSphereViewer.html#startAutorotate": {
+                      "ref": "PhotoSphereViewer.html#startAutorotate",
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#stopAutorotate": {
+                      "ref": "PhotoSphereViewer.html#stopAutorotate",
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#toggleAutorotate": {
+                      "ref": "PhotoSphereViewer.html#toggleAutorotate",
+                      "tf": 17.5
                     }
                   }
                 }
@@ -14707,19 +14984,19 @@ window.lunrData = {
                     "docs": {
                       "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                         "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
-                        "tf": 7.142857142857142
+                        "tf": 10
                       },
                       "PhotoSphereViewer.html#sphericalCoordsToVector3": {
                         "ref": "PhotoSphereViewer.html#sphericalCoordsToVector3",
-                        "tf": 10
+                        "tf": 14
                       },
                       "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
                         "ref": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
-                        "tf": 7.142857142857142
+                        "tf": 10
                       },
                       "PhotoSphereViewer.html#vector3ToSphericalCoords": {
                         "ref": "PhotoSphereViewer.html#vector3ToSphericalCoords",
-                        "tf": 10
+                        "tf": 14
                       },
                       "PhotoSphereViewer.html#.ExtendedPosition": {
                         "ref": "PhotoSphereViewer.html#.ExtendedPosition",
@@ -14727,7 +15004,7 @@ window.lunrData = {
                       },
                       "PSVUtils.html#.parseAngle": {
                         "ref": "PSVUtils.html#.parseAngle",
-                        "tf": 11.11111111111111
+                        "tf": 15.555555555555555
                       }
                     }
                   }
@@ -14754,7 +15031,7 @@ window.lunrData = {
                       },
                       "PhotoSphereViewer.html#.DEFAULTS": {
                         "ref": "PhotoSphereViewer.html#.DEFAULTS",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       }
                     }
                   },
@@ -14764,23 +15041,27 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
-                          "tf": 7.142857142857142
+                          "tf": 10
                         },
                         "PhotoSphereViewer.html#sphericalCoordsToVector3": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToVector3",
-                          "tf": 10
+                          "tf": 14
                         },
                         "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
                           "ref": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
-                          "tf": 7.142857142857142
+                          "tf": 10
                         },
                         "PhotoSphereViewer.html#vector3ToSphericalCoords": {
                           "ref": "PhotoSphereViewer.html#vector3ToSphericalCoords",
-                          "tf": 10
+                          "tf": 14
                         },
                         "PhotoSphereViewer.html#.ExtendedPosition": {
                           "ref": "PhotoSphereViewer.html#.ExtendedPosition",
-                          "tf": 5.555555555555555
+                          "tf": 19.555555555555557
+                        },
+                        "PhotoSphereViewer.html#.Position": {
+                          "ref": "PhotoSphereViewer.html#.Position",
+                          "tf": 17.5
                         }
                       },
                       "a": {
@@ -14885,42 +15166,6 @@ window.lunrData = {
                 }
               }
             },
-            "e": {
-              "docs": {},
-              "c": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "f": {
-                    "docs": {
-                      "module-components.PSVHUD.html#gotoMarker": {
-                        "ref": "module-components.PSVHUD.html#gotoMarker",
-                        "tf": 16.666666666666664
-                      },
-                      "PhotoSphereViewer.html#clearPanoramaCache": {
-                        "ref": "PhotoSphereViewer.html#clearPanoramaCache",
-                        "tf": 7.142857142857142
-                      },
-                      "PSVUtils.html#.parsePosition": {
-                        "ref": "PSVUtils.html#.parsePosition",
-                        "tf": 2.631578947368421
-                      }
-                    }
-                  }
-                }
-              },
-              "e": {
-                "docs": {},
-                "d": {
-                  "docs": {
-                    "PSVUtils.html#.parseSpeed": {
-                      "ref": "PSVUtils.html#.parseSpeed",
-                      "tf": 50
-                    }
-                  }
-                }
-              }
-            },
             "a": {
               "docs": {},
               "c": {
@@ -14933,6 +15178,46 @@ window.lunrData = {
                         "ref": "module-components.PSVNavBarSpacer.html",
                         "tf": 16.666666666666664
                       }
+                    }
+                  }
+                }
+              }
+            },
+            "e": {
+              "docs": {},
+              "c": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "f": {
+                    "docs": {
+                      "PhotoSphereViewer.html#animate": {
+                        "ref": "PhotoSphereViewer.html#animate",
+                        "tf": 10
+                      },
+                      "PhotoSphereViewer.html#rotate": {
+                        "ref": "PhotoSphereViewer.html#rotate",
+                        "tf": 14
+                      },
+                      "PhotoSphereViewer.html#zoom": {
+                        "ref": "PhotoSphereViewer.html#zoom",
+                        "tf": 11.666666666666666
+                      },
+                      "PSVUtils.html#.parsePosition": {
+                        "ref": "PSVUtils.html#.parsePosition",
+                        "tf": 5.555555555555555
+                      }
+                    }
+                  }
+                }
+              },
+              "e": {
+                "docs": {},
+                "d": {
+                  "docs": {
+                    "PSVUtils.html#.parseSpeed": {
+                      "ref": "PSVUtils.html#.parseSpeed",
+                      "tf": 60
                     }
                   }
                 }
@@ -14961,15 +15246,23 @@ window.lunrData = {
                       "docs": {
                         "PSVUtils.html#.isCanvasSupported": {
                           "ref": "PSVUtils.html#.isCanvasSupported",
-                          "tf": 12.5
+                          "tf": 23.333333333333332
                         },
                         "PSVUtils.html#.isWebGLSupported": {
                           "ref": "PSVUtils.html#.isWebGLSupported",
-                          "tf": 12.5
+                          "tf": 23.333333333333332
                         }
                       }
                     }
                   }
+                }
+              }
+            },
+            "m": {
+              "docs": {
+                "PSVUtils.html#.sum": {
+                  "ref": "PSVUtils.html#.sum",
+                  "tf": 698.3333333333334
                 }
               }
             }
@@ -14994,15 +15287,15 @@ window.lunrData = {
                       },
                       "module-components_buttons.PSVNavBarButton.html#.icon": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                        "tf": 33.33333333333333
+                        "tf": 25
                       },
                       "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                        "tf": 33.33333333333333
+                        "tf": 25
                       },
                       "module-components_buttons.PSVNavBarButton.html#.id": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.id",
-                        "tf": 33.33333333333333
+                        "tf": 25
                       },
                       "module-components_buttons.PSVNavBarButton.html#id": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#id",
@@ -15085,37 +15378,69 @@ window.lunrData = {
                 "docs": {},
                 "e": {
                   "docs": {
+                    "module-components_buttons.PSVNavBarAutorotateButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#enabled",
+                      "tf": 35
+                    },
                     "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarCustomButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarCustomButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarCustomButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarCustomButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarDownloadButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarDownloadButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarFullscreenButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarMarkersButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarZoomButton.html#enabled": {
+                      "ref": "module-components_buttons.PSVNavBarZoomButton.html#enabled",
+                      "tf": 35
                     },
                     "module-components_buttons.PSVNavBarZoomButton.html#toggleActive": {
                       "ref": "module-components_buttons.PSVNavBarZoomButton.html#toggleActive",
-                      "tf": 12.5
+                      "tf": 17.5
                     }
                   }
                 },
@@ -15137,19 +15462,15 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#load": {
                       "ref": "PhotoSphereViewer.html#load",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PhotoSphereViewer.html#startAutorotate": {
                       "ref": "PhotoSphereViewer.html#startAutorotate",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
-                    "PhotoSphereViewer.html#startGyroscopeControl": {
-                      "ref": "PhotoSphereViewer.html#startGyroscopeControl",
-                      "tf": 16.666666666666664
-                    },
-                    "PhotoSphereViewer.html#startKeyboardControl": {
-                      "ref": "PhotoSphereViewer.html#startKeyboardControl",
-                      "tf": 12.5
+                    "PhotoSphereViewer.html#toggleAutorotate": {
+                      "ref": "PhotoSphereViewer.html#toggleAutorotate",
+                      "tf": 17.5
                     }
                   },
                   "a": {
@@ -15288,37 +15609,21 @@ window.lunrData = {
               "docs": {},
               "p": {
                 "docs": {
-                  "PhotoSphereViewer.html#stopAll": {
-                    "ref": "PhotoSphereViewer.html#stopAll",
-                    "tf": 16.666666666666664
-                  },
                   "PhotoSphereViewer.html#stopAnimation": {
                     "ref": "PhotoSphereViewer.html#stopAnimation",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   },
                   "PhotoSphereViewer.html#stopAutorotate": {
                     "ref": "PhotoSphereViewer.html#stopAutorotate",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   },
-                  "PhotoSphereViewer.html#stopGyroscopeControl": {
-                    "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
-                    "tf": 16.666666666666664
-                  },
-                  "PhotoSphereViewer.html#stopKeyboardControl": {
-                    "ref": "PhotoSphereViewer.html#stopKeyboardControl",
-                    "tf": 12.5
+                  "PhotoSphereViewer.html#toggleAutorotate": {
+                    "ref": "PhotoSphereViewer.html#toggleAutorotate",
+                    "tf": 17.5
                   }
                 },
                 "a": {
                   "docs": {},
-                  "l": {
-                    "docs": {
-                      "PhotoSphereViewer.html#stopAll": {
-                        "ref": "PhotoSphereViewer.html#stopAll",
-                        "tf": 750
-                      }
-                    }
-                  },
                   "n": {
                     "docs": {},
                     "i": {
@@ -15470,7 +15775,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.getStyle": {
                       "ref": "PSVUtils.html#.getStyle",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     }
                   }
                 }
@@ -15485,83 +15790,79 @@ window.lunrData = {
                 "docs": {
                   "module-components.PSVComponent.html#show": {
                     "ref": "module-components.PSVComponent.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVHUD.html#show": {
                     "ref": "module-components.PSVHUD.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVHUD.html#showMarker": {
                     "ref": "module-components.PSVHUD.html#showMarker",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components.PSVLoader.html#show": {
                     "ref": "module-components.PSVLoader.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVNavBar.html#show": {
                     "ref": "module-components.PSVNavBar.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVNavBar.html#showNavbar": {
                     "ref": "module-components.PSVNavBar.html#showNavbar",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components.PSVNavBarCaption.html#show": {
                     "ref": "module-components.PSVNavBarCaption.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVNavBarSpacer.html#show": {
                     "ref": "module-components.PSVNavBarSpacer.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVPanel.html#show": {
                     "ref": "module-components.PSVPanel.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components.PSVPanel.html#showPanel": {
                     "ref": "module-components.PSVPanel.html#showPanel",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components.PSVTooltip.html#show": {
                     "ref": "module-components.PSVTooltip.html#show",
-                    "tf": 700
-                  },
-                  "module-components.PSVTooltip.html#showTooltip": {
-                    "ref": "module-components.PSVTooltip.html#showTooltip",
-                    "tf": 25
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarAutorotateButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarCustomButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarCustomButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarDownloadButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarDownloadButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarFullscreenButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarGyroscopeButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarMarkersButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   },
                   "module-components_buttons.PSVNavBarZoomButton.html#show": {
                     "ref": "module-components_buttons.PSVNavBarZoomButton.html#show",
-                    "tf": 700
+                    "tf": 650
                   }
                 },
                 "m": {
@@ -15591,8 +15892,8 @@ window.lunrData = {
                                     "docs": {},
                                     "t": {
                                       "docs": {
-                                        "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                                          "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
+                                        "module-components.PSVHUD.html#showMarkersList": {
+                                          "ref": "module-components.PSVHUD.html#showMarkersList",
                                           "tf": 700
                                         }
                                       }
@@ -15683,11 +15984,11 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.HalfPI": {
                       "ref": "PSVUtils.html#.HalfPI",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PSVUtils.html#.TwoPI": {
                       "ref": "PSVUtils.html#.TwoPI",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     }
                   },
                   "e": {
@@ -15698,76 +15999,11 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.getShortestArc": {
                             "ref": "PSVUtils.html#.getShortestArc",
-                            "tf": 8.333333333333332
+                            "tf": 11.666666666666666
                           }
                         }
                       }
                     }
-                  }
-                }
-              }
-            }
-          },
-          "v": {
-            "docs": {},
-            "g": {
-              "docs": {
-                "module-components.PSVHUD.html#$svg": {
-                  "ref": "module-components.PSVHUD.html#$svg",
-                  "tf": 658.3333333333334
-                },
-                "module-components_buttons.PSVNavBarButton.html#.icon": {
-                  "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                  "tf": 10
-                },
-                "module-components_buttons.PSVNavBarButton.html#.iconActive": {
-                  "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                  "tf": 8.333333333333332
-                },
-                "PhotoSphereViewer.html#.ICONS": {
-                  "ref": "PhotoSphereViewer.html#.ICONS",
-                  "tf": 16.666666666666664
-                },
-                "PSVMarker.html#isSvg": {
-                  "ref": "PSVMarker.html#isSvg",
-                  "tf": 16.666666666666664
-                },
-                "PSVUtils.html#.svgNS": {
-                  "ref": "PSVUtils.html#.svgNS",
-                  "tf": 16.666666666666664
-                }
-              },
-              "e": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "e": {
-                    "docs": {},
-                    "m": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "module-components.PSVHUD.html#$svg": {
-                                "ref": "module-components.PSVHUD.html#$svg",
-                                "tf": 33.33333333333333
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "n": {
-                "docs": {
-                  "PSVUtils.html#.svgNS": {
-                    "ref": "PSVUtils.html#.svgNS",
-                    "tf": 675
                   }
                 }
               }
@@ -15783,9 +16019,13 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
+                      "module-components.PSVHUD.html#currentMarker": {
+                        "ref": "module-components.PSVHUD.html#currentMarker",
+                        "tf": 23.333333333333332
+                      },
                       "module-components.PSVHUD.html#getCurrentMarker": {
                         "ref": "module-components.PSVHUD.html#getCurrentMarker",
-                        "tf": 12.5
+                        "tf": 14
                       }
                     },
                     "o": {
@@ -15807,11 +16047,11 @@ window.lunrData = {
               "docs": {
                 "module-components.PSVLoader.html#setProgress": {
                   "ref": "module-components.PSVLoader.html#setProgress",
-                  "tf": 16.666666666666664
+                  "tf": 23.333333333333332
                 },
                 "module-components.PSVNavBarCaption.html#setCaption": {
                   "ref": "module-components.PSVNavBarCaption.html#setCaption",
-                  "tf": 16.666666666666664
+                  "tf": 23.333333333333332
                 }
               },
               "p": {
@@ -15891,7 +16131,7 @@ window.lunrData = {
               "docs": {
                 "PhotoSphereViewer.html#.DEFAULTS": {
                   "ref": "PhotoSphereViewer.html#.DEFAULTS",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
                 }
               }
             },
@@ -15903,11 +16143,11 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.addClasses": {
                       "ref": "PSVUtils.html#.addClasses",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.removeClasses": {
                       "ref": "PSVUtils.html#.removeClasses",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     }
                   }
                 }
@@ -15923,9 +16163,96 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.hasParent": {
                         "ref": "PSVUtils.html#.hasParent",
-                        "tf": 7.142857142857142
+                        "tf": 10
                       }
                     }
+                  }
+                }
+              }
+            }
+          },
+          "v": {
+            "docs": {},
+            "g": {
+              "docs": {
+                "module-components_buttons.PSVNavBarButton.html#.icon": {
+                  "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
+                  "tf": 14
+                },
+                "module-components_buttons.PSVNavBarButton.html#.iconActive": {
+                  "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
+                  "tf": 11.666666666666666
+                },
+                "PhotoSphereViewer.html#.ICONS": {
+                  "ref": "PhotoSphereViewer.html#.ICONS",
+                  "tf": 23.333333333333332
+                },
+                "PSVMarker.html#isSvg": {
+                  "ref": "PSVMarker.html#isSvg",
+                  "tf": 23.333333333333332
+                },
+                "PSVUtils.html#.svgNS": {
+                  "ref": "PSVUtils.html#.svgNS",
+                  "tf": 23.333333333333332
+                }
+              },
+              "c": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "n": {
+                            "docs": {
+                              "module-components.PSVHUD.html#svgContainer": {
+                                "ref": "module-components.PSVHUD.html#svgContainer",
+                                "tf": 633.3333333333334
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "e": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "m": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "t": {
+                            "docs": {
+                              "module-components.PSVHUD.html#svgContainer": {
+                                "ref": "module-components.PSVHUD.html#svgContainer",
+                                "tf": 33.33333333333333
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "n": {
+                "docs": {
+                  "PSVUtils.html#.svgNS": {
+                    "ref": "PSVUtils.html#.svgNS",
+                    "tf": 675
                   }
                 }
               }
@@ -15937,13 +16264,13 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                    "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-                    "tf": 16.666666666666664
+                  "module-components.PSVHUD.html#hideMarkersList": {
+                    "ref": "module-components.PSVHUD.html#hideMarkersList",
+                    "tf": 11.666666666666666
                   },
-                  "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                    "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                    "tf": 10
+                  "module-components.PSVHUD.html#showMarkersList": {
+                    "ref": "module-components.PSVHUD.html#showMarkersList",
+                    "tf": 14
                   }
                 }
               }
@@ -15954,11 +16281,25 @@ window.lunrData = {
                 "docs": {
                   "PhotoSphereViewer.html#getSize": {
                     "ref": "PhotoSphereViewer.html#getSize",
-                    "tf": 12.5
+                    "tf": 17.5
                   },
                   "PhotoSphereViewer.html#.Size": {
                     "ref": "PhotoSphereViewer.html#.Size",
-                    "tf": 750
+                    "tf": 773.3333333333334
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "m": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "module-components.PSVHUD.html#updateMarker": {
+                    "ref": "module-components.PSVHUD.html#updateMarker",
+                    "tf": 14
                   }
                 }
               }
@@ -15974,7 +16315,55 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#.ICONS": {
                       "ref": "PhotoSphereViewer.html#.ICONS",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              }
+            },
+            "o": {
+              "docs": {},
+              "n": {
+                "docs": {
+                  "PhotoSphereViewer.html#destroy": {
+                    "ref": "PhotoSphereViewer.html#destroy",
+                    "tf": 5.555555555555555
+                  }
+                }
+              }
+            }
+          },
+          "m": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "h": {
+                    "docs": {
+                      "PhotoSphereViewer.html#animate": {
+                        "ref": "PhotoSphereViewer.html#animate",
+                        "tf": 10
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "c": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "n": {
+                "docs": {},
+                "e": {
+                  "docs": {
+                    "PSVUtils.html#.cleanTHREEScene": {
+                      "ref": "PSVUtils.html#.cleanTHREEScene",
+                      "tf": 44.99999999999999
                     }
                   }
                 }
@@ -16004,7 +16393,20 @@ window.lunrData = {
             "e": {
               "docs": {},
               "w": {
-                "docs": {},
+                "docs": {
+                  "module-components.PSVHUD.html#gotoMarker": {
+                    "ref": "module-components.PSVHUD.html#gotoMarker",
+                    "tf": 17.5
+                  },
+                  "PhotoSphereViewer.html#animate": {
+                    "ref": "PhotoSphereViewer.html#animate",
+                    "tf": 10
+                  },
+                  "PhotoSphereViewer.html#rotate": {
+                    "ref": "PhotoSphereViewer.html#rotate",
+                    "tf": 14
+                  }
+                },
                 "e": {
                   "docs": {},
                   "r": {
@@ -16015,7 +16417,19 @@ window.lunrData = {
                       },
                       "module-components.PSVComponent.html#.publicMethods": {
                         "ref": "module-components.PSVComponent.html#.publicMethods",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
+                      },
+                      "module-components.PSVHUD.html#addMarker": {
+                        "ref": "module-components.PSVHUD.html#addMarker",
+                        "tf": 17.5
+                      },
+                      "module-components.PSVHUD.html#removeMarker": {
+                        "ref": "module-components.PSVHUD.html#removeMarker",
+                        "tf": 23.333333333333332
+                      },
+                      "module-components.PSVTooltip.html#showTooltip": {
+                        "ref": "module-components.PSVTooltip.html#showTooltip",
+                        "tf": 23.333333333333332
                       },
                       "PhotoSphereViewer.html": {
                         "ref": "PhotoSphereViewer.html",
@@ -16023,43 +16437,43 @@ window.lunrData = {
                       },
                       "PhotoSphereViewer.html#change": {
                         "ref": "PhotoSphereViewer.html#change",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       },
                       "PhotoSphereViewer.html#destroy": {
                         "ref": "PhotoSphereViewer.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "PhotoSphereViewer.html#getSize": {
                         "ref": "PhotoSphereViewer.html#getSize",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#isFullscreenEnabled": {
                         "ref": "PhotoSphereViewer.html#isFullscreenEnabled",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "PhotoSphereViewer.html#off": {
                         "ref": "PhotoSphereViewer.html#off",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#on": {
                         "ref": "PhotoSphereViewer.html#on",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#once": {
                         "ref": "PhotoSphereViewer.html#once",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       },
                       "PhotoSphereViewer.html#trigger": {
                         "ref": "PhotoSphereViewer.html#trigger",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "PhotoSphereViewer.html#vector3ToViewerCoords": {
                         "ref": "PhotoSphereViewer.html#vector3ToViewerCoords",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "PhotoSphereViewer.html#viewerCoordsToVector3": {
                         "ref": "PhotoSphereViewer.html#viewerCoordsToVector3",
-                        "tf": 12.5
+                        "tf": 17.5
                       }
                     },
                     ".": {
@@ -16088,7 +16502,7 @@ window.lunrData = {
                                             "docs": {
                                               "PhotoSphereViewer.html#.DEFAULTS": {
                                                 "ref": "PhotoSphereViewer.html#.DEFAULTS",
-                                                "tf": 8.333333333333332
+                                                "tf": 11.666666666666666
                                               }
                                             }
                                           }
@@ -16185,21 +16599,17 @@ window.lunrData = {
                   "docs": {},
                   "l": {
                     "docs": {
-                      "module-components.PSVHUD.html#updatePositions": {
-                        "ref": "module-components.PSVHUD.html#updatePositions",
-                        "tf": 12.5
+                      "module-components.PSVHUD.html#renderMarkers": {
+                        "ref": "module-components.PSVHUD.html#renderMarkers",
+                        "tf": 17.5
+                      },
+                      "module-components.PSVHUD.html#toggleMarkersList": {
+                        "ref": "module-components.PSVHUD.html#toggleMarkersList",
+                        "tf": 17.5
                       },
                       "module-components.PSVTooltip.html#isTooltipVisible": {
                         "ref": "module-components.PSVTooltip.html#isTooltipVisible",
-                        "tf": 16.666666666666664
-                      },
-                      "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
-                        "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                        "tf": 6.25
-                      },
-                      "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-                        "tf": 12.5
+                        "tf": 23.333333333333332
                       },
                       "PSVMarker.html#visible": {
                         "ref": "PSVMarker.html#visible",
@@ -16223,23 +16633,23 @@ window.lunrData = {
                   },
                   "PhotoSphereViewer.html#change": {
                     "ref": "PhotoSphereViewer.html#change",
-                    "tf": 33.33333333333333
+                    "tf": 36.666666666666664
                   },
                   "PSVUtils.html#.getXMPValue": {
                     "ref": "PSVUtils.html#.getXMPValue",
-                    "tf": 8.333333333333332
+                    "tf": 11.666666666666666
                   },
                   "PSVUtils.html#.isInteger": {
                     "ref": "PSVUtils.html#.isInteger",
-                    "tf": 41.666666666666664
+                    "tf": 48.33333333333333
                   },
                   "PSVUtils.html#.parseAngle": {
                     "ref": "PSVUtils.html#.parseAngle",
-                    "tf": 11.11111111111111
+                    "tf": 15.555555555555555
                   },
                   "PSVUtils.html#.parsePosition": {
                     "ref": "PSVUtils.html#.parsePosition",
-                    "tf": 27.63157894736842
+                    "tf": 32
                   }
                 }
               }
@@ -16384,7 +16794,7 @@ window.lunrData = {
                     },
                     "module-components.PSVComponent.html#.className": {
                       "ref": "module-components.PSVComponent.html#.className",
-                      "tf": 10
+                      "tf": 14
                     },
                     "module-components.PSVHUD.html": {
                       "ref": "module-components.PSVHUD.html",
@@ -16460,15 +16870,15 @@ window.lunrData = {
                     },
                     "PSVUtils.html#.addClasses": {
                       "ref": "PSVUtils.html#.addClasses",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.removeClasses": {
                       "ref": "PSVUtils.html#.removeClasses",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.toggleClass": {
                       "ref": "PSVUtils.html#.toggleClass",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     }
                   },
                   "n": {
@@ -16491,7 +16901,7 @@ window.lunrData = {
                           },
                           "PSVUtils.html#.toggleClass": {
                             "ref": "PSVUtils.html#.toggleClass",
-                            "tf": 16.666666666666664
+                            "tf": 20
                           }
                         }
                       }
@@ -16508,7 +16918,11 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#clearPanoramaCache": {
                       "ref": "PhotoSphereViewer.html#clearPanoramaCache",
-                      "tf": 7.142857142857142
+                      "tf": 11.666666666666666
+                    },
+                    "PhotoSphereViewer.html#destroy": {
+                      "ref": "PhotoSphereViewer.html#destroy",
+                      "tf": 5.555555555555555
                     }
                   },
                   "m": {
@@ -16572,19 +16986,31 @@ window.lunrData = {
                 },
                 "n": {
                   "docs": {},
-                  "p": {
+                  "t": {
                     "docs": {},
-                    "o": {
+                    "h": {
                       "docs": {},
-                      "s": {
+                      "r": {
                         "docs": {},
-                        "i": {
+                        "e": {
                           "docs": {},
-                          "t": {
-                            "docs": {
-                              "PhotoSphereViewer.html#cleanPosition": {
-                                "ref": "PhotoSphereViewer.html#cleanPosition",
-                                "tf": 700
+                          "e": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "c": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {
+                                      "PSVUtils.html#.cleanTHREEScene": {
+                                        "ref": "PSVUtils.html#.cleanTHREEScene",
+                                        "tf": 683.3333333333334
+                                      }
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -16601,13 +17027,13 @@ window.lunrData = {
                 "docs": {},
                 "e": {
                   "docs": {
-                    "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-                      "tf": 16.666666666666664
+                    "module-components.PSVHUD.html#hideMarkersList": {
+                      "ref": "module-components.PSVHUD.html#hideMarkersList",
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.parsePosition": {
                       "ref": "PSVUtils.html#.parsePosition",
-                      "tf": 2.631578947368421
+                      "tf": 5.555555555555555
                     }
                   },
                   "s": {
@@ -16616,7 +17042,7 @@ window.lunrData = {
                       "docs": {
                         "PSVUtils.html#.getClosest": {
                           "ref": "PSVUtils.html#.getClosest",
-                          "tf": 12.5
+                          "tf": 17.5
                         }
                       }
                     }
@@ -16629,7 +17055,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.clone": {
                       "ref": "PSVUtils.html#.clone",
-                      "tf": 700
+                      "tf": 710
                     }
                   }
                 }
@@ -16640,7 +17066,12 @@ window.lunrData = {
               "c": {
                 "docs": {},
                 "k": {
-                  "docs": {},
+                  "docs": {
+                    "PhotoSphereViewer.html#.ClickData": {
+                      "ref": "PhotoSphereViewer.html#.ClickData",
+                      "tf": 23.333333333333332
+                    }
+                  },
                   "d": {
                     "docs": {},
                     "a": {
@@ -16682,163 +17113,195 @@ window.lunrData = {
                       },
                       "module-components.PSVComponent.html#create": {
                         "ref": "module-components.PSVComponent.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVComponent.html#destroy": {
                         "ref": "module-components.PSVComponent.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVComponent.html#hide": {
                         "ref": "module-components.PSVComponent.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVComponent.html#show": {
                         "ref": "module-components.PSVComponent.html#show",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components.PSVHUD.html#create": {
+                        "ref": "module-components.PSVHUD.html#create",
+                        "tf": 35
+                      },
+                      "module-components.PSVHUD.html#destroy": {
+                        "ref": "module-components.PSVHUD.html#destroy",
+                        "tf": 35
                       },
                       "module-components.PSVHUD.html#hide": {
                         "ref": "module-components.PSVHUD.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVHUD.html#show": {
                         "ref": "module-components.PSVHUD.html#show",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components.PSVLoader.html#create": {
+                        "ref": "module-components.PSVLoader.html#create",
+                        "tf": 35
+                      },
+                      "module-components.PSVLoader.html#destroy": {
+                        "ref": "module-components.PSVLoader.html#destroy",
+                        "tf": 35
                       },
                       "module-components.PSVLoader.html#hide": {
                         "ref": "module-components.PSVLoader.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVLoader.html#show": {
                         "ref": "module-components.PSVLoader.html#show",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components.PSVNavBar.html#create": {
+                        "ref": "module-components.PSVNavBar.html#create",
+                        "tf": 35
+                      },
+                      "module-components.PSVNavBar.html#destroy": {
+                        "ref": "module-components.PSVNavBar.html#destroy",
+                        "tf": 35
                       },
                       "module-components.PSVNavBar.html#hide": {
                         "ref": "module-components.PSVNavBar.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBar.html#show": {
                         "ref": "module-components.PSVNavBar.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarCaption.html#create": {
                         "ref": "module-components.PSVNavBarCaption.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarCaption.html#destroy": {
                         "ref": "module-components.PSVNavBarCaption.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarCaption.html#hide": {
                         "ref": "module-components.PSVNavBarCaption.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarCaption.html#show": {
                         "ref": "module-components.PSVNavBarCaption.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarSpacer.html#create": {
                         "ref": "module-components.PSVNavBarSpacer.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarSpacer.html#destroy": {
                         "ref": "module-components.PSVNavBarSpacer.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarSpacer.html#hide": {
                         "ref": "module-components.PSVNavBarSpacer.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarSpacer.html#show": {
                         "ref": "module-components.PSVNavBarSpacer.html#show",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components.PSVPanel.html#create": {
+                        "ref": "module-components.PSVPanel.html#create",
+                        "tf": 35
+                      },
+                      "module-components.PSVPanel.html#destroy": {
+                        "ref": "module-components.PSVPanel.html#destroy",
+                        "tf": 35
                       },
                       "module-components.PSVPanel.html#hide": {
                         "ref": "module-components.PSVPanel.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVPanel.html#show": {
                         "ref": "module-components.PSVPanel.html#show",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components.PSVTooltip.html#create": {
+                        "ref": "module-components.PSVTooltip.html#create",
+                        "tf": 35
+                      },
+                      "module-components.PSVTooltip.html#destroy": {
+                        "ref": "module-components.PSVTooltip.html#destroy",
+                        "tf": 35
                       },
                       "module-components.PSVTooltip.html#hide": {
                         "ref": "module-components.PSVTooltip.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVTooltip.html#show": {
                         "ref": "module-components.PSVTooltip.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#show",
-                        "tf": 25
-                      },
-                      "module-components_buttons.PSVNavBarButton.html#destroy": {
-                        "ref": "module-components_buttons.PSVNavBarButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#show",
-                        "tf": 25
-                      },
-                      "module-components_buttons.PSVNavBarDownloadButton.html#destroy": {
-                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#hide": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#hide",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#show": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#show",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.html": {
                         "ref": "module-components.html",
@@ -16846,7 +17309,7 @@ window.lunrData = {
                       },
                       "PSVUtils.html#.checkTHREE": {
                         "ref": "PSVUtils.html#.checkTHREE",
-                        "tf": 37.5
+                        "tf": 42.5
                       }
                     },
                     "e": {
@@ -17436,11 +17899,11 @@ window.lunrData = {
                             "docs": {
                               "module-components.PSVComponent.html#.className": {
                                 "ref": "module-components.PSVComponent.html#.className",
-                                "tf": 10
+                                "tf": 14
                               },
                               "module-components.PSVComponent.html#.publicMethods": {
                                 "ref": "module-components.PSVComponent.html#.publicMethods",
-                                "tf": 8.333333333333332
+                                "tf": 11.666666666666666
                               }
                             }
                           }
@@ -17455,7 +17918,11 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.getShortestArc": {
                         "ref": "PSVUtils.html#.getShortestArc",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
+                      },
+                      "PSVUtils.html#.sum": {
+                        "ref": "PSVUtils.html#.sum",
+                        "tf": 23.333333333333332
                       }
                     }
                   }
@@ -17474,83 +17941,79 @@ window.lunrData = {
                       "docs": {
                         "module-components.PSVComponent.html#.className": {
                           "ref": "module-components.PSVComponent.html#.className",
-                          "tf": 10
+                          "tf": 14
                         },
                         "module-components.PSVComponent.html#container": {
                           "ref": "module-components.PSVComponent.html#container",
-                          "tf": 625
-                        },
-                        "module-components.PSVHUD.html#$svg": {
-                          "ref": "module-components.PSVHUD.html#$svg",
-                          "tf": 25
+                          "tf": 633.3333333333334
                         },
                         "module-components.PSVHUD.html#container": {
                           "ref": "module-components.PSVHUD.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
+                        },
+                        "module-components.PSVHUD.html#hideMarkersList": {
+                          "ref": "module-components.PSVHUD.html#hideMarkersList",
+                          "tf": 11.666666666666666
                         },
                         "module-components.PSVLoader.html#container": {
                           "ref": "module-components.PSVLoader.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components.PSVNavBar.html#container": {
                           "ref": "module-components.PSVNavBar.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components.PSVNavBarCaption.html#container": {
                           "ref": "module-components.PSVNavBarCaption.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components.PSVNavBarSpacer.html#container": {
                           "ref": "module-components.PSVNavBarSpacer.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components.PSVPanel.html#container": {
                           "ref": "module-components.PSVPanel.html#container",
-                          "tf": 625
-                        },
-                        "module-components.PSVPanel.html#content": {
-                          "ref": "module-components.PSVPanel.html#content",
-                          "tf": 25
+                          "tf": 633.3333333333334
                         },
                         "module-components.PSVTooltip.html#container": {
                           "ref": "module-components.PSVTooltip.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarAutorotateButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarCustomButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarCustomButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarDownloadButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarDownloadButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarFullscreenButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarGyroscopeButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarMarkersButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarMarkersButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "module-components_buttons.PSVNavBarZoomButton.html#container": {
                           "ref": "module-components_buttons.PSVNavBarZoomButton.html#container",
-                          "tf": 625
+                          "tf": 633.3333333333334
                         },
                         "PhotoSphereViewer.html#container": {
                           "ref": "PhotoSphereViewer.html#container",
-                          "tf": 708.3333333333334
+                          "tf": 718.3333333333334
                         }
                       }
                     }
@@ -17562,10 +18025,6 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "module-components.PSVPanel.html#content": {
-                          "ref": "module-components.PSVPanel.html#content",
-                          "tf": 650
-                        },
                         "module-components.PSVPanel.html#showPanel": {
                           "ref": "module-components.PSVPanel.html#showPanel",
                           "tf": 33.33333333333333
@@ -17577,13 +18036,17 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
+                        "PhotoSphereViewer.html#destroy": {
+                          "ref": "PhotoSphereViewer.html#destroy",
+                          "tf": 5.555555555555555
+                        },
                         "PSVUtils.html#.getMaxTextureWidth": {
                           "ref": "PSVUtils.html#.getMaxTextureWidth",
-                          "tf": 8.333333333333332
+                          "tf": 11.666666666666666
                         },
                         "PSVUtils.html#.getWebGLCtx": {
                           "ref": "PSVUtils.html#.getWebGLCtx",
-                          "tf": 10
+                          "tf": 14
                         }
                       }
                     }
@@ -17597,7 +18060,25 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#setPanorama": {
                           "ref": "PhotoSphereViewer.html#setPanorama",
-                          "tf": 3.3333333333333335
+                          "tf": 2.1739130434782608
+                        }
+                      }
+                    }
+                  }
+                },
+                "r": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "PhotoSphereViewer.html#startKeyboardControl": {
+                          "ref": "PhotoSphereViewer.html#startKeyboardControl",
+                          "tf": 10
+                        },
+                        "PhotoSphereViewer.html#stopKeyboardControl": {
+                          "ref": "PhotoSphereViewer.html#stopKeyboardControl",
+                          "tf": 10
                         }
                       }
                     }
@@ -17625,11 +18106,11 @@ window.lunrData = {
                         "docs": {
                           "PhotoSphereViewer.html#config": {
                             "ref": "PhotoSphereViewer.html#config",
-                            "tf": 25
+                            "tf": 35
                           },
                           "PhotoSphereViewer.html#setPanorama": {
                             "ref": "PhotoSphereViewer.html#setPanorama",
-                            "tf": 3.3333333333333335
+                            "tf": 2.1739130434782608
                           }
                         }
                       }
@@ -17645,33 +18126,29 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "PhotoSphereViewer.html#cleanPosition": {
-                          "ref": "PhotoSphereViewer.html#cleanPosition",
-                          "tf": 8.333333333333332
-                        },
                         "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
-                          "tf": 7.142857142857142
+                          "tf": 10
                         },
                         "PhotoSphereViewer.html#sphericalCoordsToVector3": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToVector3",
-                          "tf": 10
+                          "tf": 14
                         },
                         "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
                           "ref": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
-                          "tf": 7.142857142857142
+                          "tf": 10
                         },
                         "PhotoSphereViewer.html#vector3ToSphericalCoords": {
                           "ref": "PhotoSphereViewer.html#vector3ToSphericalCoords",
-                          "tf": 10
+                          "tf": 14
                         },
                         "PhotoSphereViewer.html#vector3ToViewerCoords": {
                           "ref": "PhotoSphereViewer.html#vector3ToViewerCoords",
-                          "tf": 12.5
+                          "tf": 17.5
                         },
                         "PhotoSphereViewer.html#viewerCoordsToVector3": {
                           "ref": "PhotoSphereViewer.html#viewerCoordsToVector3",
-                          "tf": 12.5
+                          "tf": 17.5
                         }
                       }
                     }
@@ -17692,7 +18169,7 @@ window.lunrData = {
                           "docs": {
                             "PSVUtils.html#.isPlainObject": {
                               "ref": "PSVUtils.html#.isPlainObject",
-                              "tf": 1.8518518518518516
+                              "tf": 1.9230769230769231
                             }
                           },
                           "o": {
@@ -17701,7 +18178,7 @@ window.lunrData = {
                               "docs": {
                                 "PSVUtils.html#.isPlainObject": {
                                   "ref": "PSVUtils.html#.isPlainObject",
-                                  "tf": 1.8518518518518516
+                                  "tf": 1.9230769230769231
                                 }
                               }
                             }
@@ -17725,19 +18202,19 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
-                          "tf": 14.285714285714285
+                          "tf": 20
                         },
                         "PhotoSphereViewer.html#sphericalCoordsToVector3": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToVector3",
-                          "tf": 10
+                          "tf": 14
                         },
                         "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
                           "ref": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
-                          "tf": 14.285714285714285
+                          "tf": 20
                         },
                         "PhotoSphereViewer.html#vector3ToSphericalCoords": {
                           "ref": "PhotoSphereViewer.html#vector3ToSphericalCoords",
-                          "tf": 10
+                          "tf": 14
                         },
                         "PhotoSphereViewer.html#.ExtendedPosition": {
                           "ref": "PhotoSphereViewer.html#.ExtendedPosition",
@@ -17756,23 +18233,23 @@ window.lunrData = {
               "docs": {
                 "module-components.PSVComponent.html#.className": {
                   "ref": "module-components.PSVComponent.html#.className",
-                  "tf": 10
+                  "tf": 14
                 },
                 "PSVUtils.html#.addClasses": {
                   "ref": "PSVUtils.html#.addClasses",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
                 },
                 "PSVUtils.html#.parsePosition": {
                   "ref": "PSVUtils.html#.parsePosition",
-                  "tf": 2.631578947368421
+                  "tf": 7
                 },
                 "PSVUtils.html#.removeClasses": {
                   "ref": "PSVUtils.html#.removeClasses",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
                 },
                 "PSVUtils.html#.toggleClass": {
                   "ref": "PSVUtils.html#.toggleClass",
-                  "tf": 16.666666666666664
+                  "tf": 23.333333333333332
                 }
               }
             }
@@ -17787,67 +18264,67 @@ window.lunrData = {
                   "docs": {
                     "module-components.PSVComponent.html#create": {
                       "ref": "module-components.PSVComponent.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVHUD.html#create": {
                       "ref": "module-components.PSVHUD.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVLoader.html#create": {
                       "ref": "module-components.PSVLoader.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVNavBar.html#create": {
                       "ref": "module-components.PSVNavBar.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVNavBarCaption.html#create": {
                       "ref": "module-components.PSVNavBarCaption.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVNavBarSpacer.html#create": {
                       "ref": "module-components.PSVNavBarSpacer.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVPanel.html#create": {
                       "ref": "module-components.PSVPanel.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components.PSVTooltip.html#create": {
                       "ref": "module-components.PSVTooltip.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarAutorotateButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarCustomButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarCustomButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarDownloadButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarDownloadButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarFullscreenButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                      "tf": 706.25
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarMarkersButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     },
                     "module-components_buttons.PSVNavBarZoomButton.html#create": {
                       "ref": "module-components_buttons.PSVNavBarZoomButton.html#create",
-                      "tf": 725
+                      "tf": 685
                     }
                   },
                   "i": {
@@ -17858,11 +18335,22 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.svgNS": {
                             "ref": "PSVUtils.html#.svgNS",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           }
                         }
                       }
                     }
+                  }
+                }
+              }
+            },
+            "o": {
+              "docs": {},
+              "p": {
+                "docs": {
+                  "PhotoSphereViewer.html#.PanoData": {
+                    "ref": "PhotoSphereViewer.html#.PanoData",
+                    "tf": 23.333333333333332
                   }
                 }
               }
@@ -17880,25 +18368,17 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "module-components.PSVHUD.html#getCurrentMarker": {
-                          "ref": "module-components.PSVHUD.html#getCurrentMarker",
-                          "tf": 12.5
-                        },
                         "PhotoSphereViewer.html#getPosition": {
                           "ref": "PhotoSphereViewer.html#getPosition",
-                          "tf": 12.5
+                          "tf": 17.5
                         },
                         "PhotoSphereViewer.html#getSize": {
                           "ref": "PhotoSphereViewer.html#getSize",
-                          "tf": 12.5
+                          "tf": 17.5
                         },
                         "PhotoSphereViewer.html#getZoomLevel": {
                           "ref": "PhotoSphereViewer.html#getZoomLevel",
-                          "tf": 12.5
-                        },
-                        "PhotoSphereViewer.html#stopAll": {
-                          "ref": "PhotoSphereViewer.html#stopAll",
-                          "tf": 16.666666666666664
+                          "tf": 17.5
                         }
                       },
                       "m": {
@@ -17917,6 +18397,20 @@ window.lunrData = {
                             }
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              },
+              "s": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "module-components.PSVHUD.html#hoveringMarker": {
+                        "ref": "module-components.PSVHUD.html#hoveringMarker",
+                        "tf": 23.333333333333332
                       }
                     }
                   }
@@ -17947,6 +18441,35 @@ window.lunrData = {
           },
           "a": {
             "docs": {},
+            "n": {
+              "docs": {},
+              "'": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "module-components.PSVHUD.html#updateMarker": {
+                      "ref": "module-components.PSVHUD.html#updateMarker",
+                      "tf": 6.25
+                    }
+                  }
+                }
+              },
+              "v": {
+                "docs": {},
+                "a": {
+                  "docs": {
+                    "PSVUtils.html#.getWebGLCtx": {
+                      "ref": "PSVUtils.html#.getWebGLCtx",
+                      "tf": 14
+                    },
+                    "PSVUtils.html#.isCanvasSupported": {
+                      "ref": "PSVUtils.html#.isCanvasSupported",
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              }
+            },
             "p": {
               "docs": {},
               "t": {
@@ -17963,37 +18486,8 @@ window.lunrData = {
                         },
                         "module-components.PSVNavBarCaption.html#setCaption": {
                           "ref": "module-components.PSVNavBarCaption.html#setCaption",
-                          "tf": 16.666666666666664
+                          "tf": 23.333333333333332
                         }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "m": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "a": {
-                    "docs": {
-                      "PhotoSphereViewer.html#animate": {
-                        "ref": "PhotoSphereViewer.html#animate",
-                        "tf": 16.666666666666664
-                      },
-                      "PhotoSphereViewer.html#getPosition": {
-                        "ref": "PhotoSphereViewer.html#getPosition",
-                        "tf": 12.5
-                      },
-                      "PhotoSphereViewer.html#rotate": {
-                        "ref": "PhotoSphereViewer.html#rotate",
-                        "tf": 25
-                      },
-                      "PhotoSphereViewer.html#setPanorama": {
-                        "ref": "PhotoSphereViewer.html#setPanorama",
-                        "tf": 3.3333333333333335
                       }
                     }
                   }
@@ -18006,11 +18500,15 @@ window.lunrData = {
                 "docs": {
                   "PhotoSphereViewer.html#clearPanoramaCache": {
                     "ref": "PhotoSphereViewer.html#clearPanoramaCache",
-                    "tf": 14.285714285714285
+                    "tf": 23.333333333333332
                   },
                   "PhotoSphereViewer.html#getPanoramaCache": {
                     "ref": "PhotoSphereViewer.html#getPanoramaCache",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
+                  },
+                  "PhotoSphereViewer.html#.CacheItem": {
+                    "ref": "PhotoSphereViewer.html#.CacheItem",
+                    "tf": 23.333333333333332
                   }
                 },
                 "e": {
@@ -18035,13 +18533,34 @@ window.lunrData = {
                 }
               }
             },
+            "m": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "a": {
+                    "docs": {
+                      "PhotoSphereViewer.html#getPosition": {
+                        "ref": "PhotoSphereViewer.html#getPosition",
+                        "tf": 17.5
+                      },
+                      "PhotoSphereViewer.html#setPanorama": {
+                        "ref": "PhotoSphereViewer.html#setPanorama",
+                        "tf": 4.3478260869565215
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "l": {
               "docs": {},
               "l": {
                 "docs": {
                   "PhotoSphereViewer.html#once": {
                     "ref": "PhotoSphereViewer.html#once",
-                    "tf": 8.333333333333332
+                    "tf": 11.666666666666666
                   }
                 },
                 "b": {
@@ -18070,28 +18589,64 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "n": {
-              "docs": {},
-              "v": {
-                "docs": {},
-                "a": {
-                  "docs": {
-                    "PSVUtils.html#.getWebGLCtx": {
-                      "ref": "PSVUtils.html#.getWebGLCtx",
-                      "tf": 10
-                    },
-                    "PSVUtils.html#.isCanvasSupported": {
-                      "ref": "PSVUtils.html#.isCanvasSupported",
-                      "tf": 12.5
-                    }
-                  }
-                }
-              }
             }
           },
           "h": {
             "docs": {},
+            "a": {
+              "docs": {},
+              "n": {
+                "docs": {},
+                "g": {
+                  "docs": {
+                    "module-components.PSVHUD.html#updateMarker": {
+                      "ref": "module-components.PSVHUD.html#updateMarker",
+                      "tf": 12.5
+                    },
+                    "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarCustomButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarCustomButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "module-components_buttons.PSVNavBarZoomButton.html#toggleActive": {
+                      "ref": "module-components_buttons.PSVNavBarZoomButton.html#toggleActive",
+                      "tf": 17.5
+                    },
+                    "PhotoSphereViewer.html#change": {
+                      "ref": "PhotoSphereViewer.html#change",
+                      "tf": 675
+                    },
+                    "PhotoSphereViewer.html#setPanorama": {
+                      "ref": "PhotoSphereViewer.html#setPanorama",
+                      "tf": 2.1739130434782608
+                    }
+                  }
+                }
+              }
+            },
             "e": {
               "docs": {},
               "c": {
@@ -18100,39 +18655,39 @@ window.lunrData = {
                   "docs": {
                     "module-components.PSVTooltip.html#isTooltipVisible": {
                       "ref": "module-components.PSVTooltip.html#isTooltipVisible",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PhotoSphereViewer.html#isAutorotateEnabled": {
                       "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#isFullscreenEnabled": {
                       "ref": "PhotoSphereViewer.html#isFullscreenEnabled",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PhotoSphereViewer.html#isGyroscopeEnabled": {
                       "ref": "PhotoSphereViewer.html#isGyroscopeEnabled",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PSVMarker.html#isNormal": {
                       "ref": "PSVMarker.html#isNormal",
-                      "tf": 10
+                      "tf": 14
                     },
                     "PSVMarker.html#isPolygon": {
                       "ref": "PSVMarker.html#isPolygon",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PSVMarker.html#isSvg": {
                       "ref": "PSVMarker.html#isSvg",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     },
                     "PSVUtils.html#.checkTHREE": {
                       "ref": "PSVUtils.html#.checkTHREE",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PSVUtils.html#.isInteger": {
                       "ref": "PSVUtils.html#.isInteger",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     }
                   },
                   "t": {
@@ -18155,47 +18710,24 @@ window.lunrData = {
                 }
               }
             },
-            "a": {
+            "i": {
               "docs": {},
-              "n": {
+              "l": {
                 "docs": {},
-                "g": {
-                  "docs": {
-                    "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarCustomButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarCustomButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "module-components_buttons.PSVNavBarZoomButton.html#toggleActive": {
-                      "ref": "module-components_buttons.PSVNavBarZoomButton.html#toggleActive",
-                      "tf": 12.5
-                    },
-                    "PhotoSphereViewer.html#change": {
-                      "ref": "PhotoSphereViewer.html#change",
-                      "tf": 675
+                "d": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "n": {
+                        "docs": {
+                          "PSVUtils.html#.cleanTHREEScene": {
+                            "ref": "PSVUtils.html#.cleanTHREEScene",
+                            "tf": 11.666666666666666
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -18224,7 +18756,7 @@ window.lunrData = {
                               "docs": {
                                 "PSVUtils.html#.parsePosition": {
                                   "ref": "PSVUtils.html#.parsePosition",
-                                  "tf": 2.631578947368421
+                                  "tf": 7
                                 }
                               }
                             }
@@ -18254,127 +18786,77 @@ window.lunrData = {
                     },
                     "PhotoSphereViewer.html#change": {
                       "ref": "PhotoSphereViewer.html#change",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PhotoSphereViewer.html#off": {
                       "ref": "PhotoSphereViewer.html#off",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#on": {
                       "ref": "PhotoSphereViewer.html#on",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#once": {
                       "ref": "PhotoSphereViewer.html#once",
-                      "tf": 8.333333333333332
-                    },
-                    "PhotoSphereViewer.html#startKeyboardControl": {
-                      "ref": "PhotoSphereViewer.html#startKeyboardControl",
-                      "tf": 12.5
-                    },
-                    "PhotoSphereViewer.html#stopKeyboardControl": {
-                      "ref": "PhotoSphereViewer.html#stopKeyboardControl",
-                      "tf": 12.5
+                      "tf": 11.666666666666666
                     },
                     "PhotoSphereViewer.html#trigger": {
                       "ref": "PhotoSphereViewer.html#trigger",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#.ClickData": {
+                      "ref": "PhotoSphereViewer.html#.ClickData",
+                      "tf": 23.333333333333332
                     },
                     "PSVUtils.html#.fullscreenEvent": {
                       "ref": "PSVUtils.html#.fullscreenEvent",
-                      "tf": 20
+                      "tf": 17.5
                     },
                     "PSVUtils.html#.mouseWheelEvent": {
                       "ref": "PSVUtils.html#.mouseWheelEvent",
-                      "tf": 10
+                      "tf": 14
                     }
                   }
                 }
               }
             }
           },
+          "g": {
+            "docs": {
+              "module-components.PSVHUD.html#updateMarker": {
+                "ref": "module-components.PSVHUD.html#updateMarker",
+                "tf": 6.25
+              }
+            }
+          },
           "x": {
             "docs": {},
-            "t": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "module-components.PSVHUD.html#getMarker": {
-                        "ref": "module-components.PSVHUD.html#getMarker",
-                        "tf": 8.333333333333332
-                      },
-                      "PhotoSphereViewer.html#prop": {
-                        "ref": "PhotoSphereViewer.html#prop",
-                        "tf": 12.5
-                      }
-                    }
-                  }
-                },
-                "n": {
-                  "docs": {},
-                  "d": {
-                    "docs": {},
-                    "e": {
-                      "docs": {},
-                      "d": {
-                        "docs": {},
-                        "p": {
-                          "docs": {},
-                          "o": {
-                            "docs": {},
-                            "s": {
-                              "docs": {},
-                              "i": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {
-                                    "PhotoSphereViewer.html#.ExtendedPosition": {
-                                      "ref": "PhotoSphereViewer.html#.ExtendedPosition",
-                                      "tf": 750
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "s": {
-                    "docs": {},
-                    "s": {
-                      "docs": {
-                        "PhotoSphereViewer.html#.ExtendedPosition": {
-                          "ref": "PhotoSphereViewer.html#.ExtendedPosition",
-                          "tf": 5.555555555555555
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "i": {
               "docs": {},
+              "s": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "module-components.PSVHUD.html#updateMarker": {
+                      "ref": "module-components.PSVHUD.html#updateMarker",
+                      "tf": 14
+                    }
+                  }
+                }
+              },
               "t": {
                 "docs": {
+                  "PhotoSphereViewer.html#stopKeyboardControl": {
+                    "ref": "PhotoSphereViewer.html#stopKeyboardControl",
+                    "tf": 10
+                  },
+                  "PhotoSphereViewer.html#toggleFullscreen": {
+                    "ref": "PhotoSphereViewer.html#toggleFullscreen",
+                    "tf": 17.5
+                  },
                   "PSVUtils.html#.exitFullscreen": {
                     "ref": "PSVUtils.html#.exitFullscreen",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   }
                 },
                 "f": {
@@ -18414,13 +18896,86 @@ window.lunrData = {
                 }
               }
             },
+            "p": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "s": {
+                  "docs": {
+                    "PhotoSphereViewer.html#.Error": {
+                      "ref": "PhotoSphereViewer.html#.Error",
+                      "tf": 35
+                    },
+                    "PhotoSphereViewer.html#.Utils": {
+                      "ref": "PhotoSphereViewer.html#.Utils",
+                      "tf": 35
+                    }
+                  }
+                }
+              },
+              "r": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "s": {
+                    "docs": {},
+                    "s": {
+                      "docs": {
+                        "PhotoSphereViewer.html#.ExtendedPosition": {
+                          "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                          "tf": 5.555555555555555
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "d": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "d": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "i": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {
+                                    "PhotoSphereViewer.html#.ExtendedPosition": {
+                                      "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                                      "tf": 750
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "o": {
               "docs": {},
               "t": {
                 "docs": {
                   "PSVUtils.html#.isPlainObject": {
                     "ref": "PSVUtils.html#.isPlainObject",
-                    "tf": 1.8518518518518516
+                    "tf": 1.9230769230769231
                   }
                 }
               }
@@ -18440,7 +18995,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarAutorotateButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarButton.html#enabled",
@@ -18448,7 +19003,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarCustomButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarCustomButton.html#enabled",
@@ -18456,7 +19011,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarCustomButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarCustomButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarDownloadButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarDownloadButton.html#enabled",
@@ -18464,7 +19019,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarDownloadButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarDownloadButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarFullscreenButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#enabled",
@@ -18472,7 +19027,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarFullscreenButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled",
@@ -18480,7 +19035,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarGyroscopeButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarMarkersButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#enabled",
@@ -18488,7 +19043,7 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarMarkersButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "module-components_buttons.PSVNavBarZoomButton.html#enabled": {
                       "ref": "module-components_buttons.PSVNavBarZoomButton.html#enabled",
@@ -18496,37 +19051,31 @@ window.lunrData = {
                     },
                     "module-components_buttons.PSVNavBarZoomButton.html#enable": {
                       "ref": "module-components_buttons.PSVNavBarZoomButton.html#enable",
-                      "tf": 725
+                      "tf": 735
                     },
                     "PhotoSphereViewer.html#isAutorotateEnabled": {
                       "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#isGyroscopeEnabled": {
                       "ref": "PhotoSphereViewer.html#isGyroscopeEnabled",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#startGyroscopeControl": {
+                      "ref": "PhotoSphereViewer.html#startGyroscopeControl",
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#startKeyboardControl": {
+                      "ref": "PhotoSphereViewer.html#startKeyboardControl",
+                      "tf": 10
+                    },
+                    "PhotoSphereViewer.html#toggleGyroscopeControl": {
+                      "ref": "PhotoSphereViewer.html#toggleGyroscopeControl",
+                      "tf": 17.5
                     },
                     "PSVUtils.html#.isFullscreenEnabled": {
                       "ref": "PSVUtils.html#.isFullscreenEnabled",
-                      "tf": 12.5
-                    }
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "PhotoSphereViewer.html#cleanPosition": {
-                      "ref": "PhotoSphereViewer.html#cleanPosition",
-                      "tf": 8.333333333333332
-                    },
-                    "PSVUtils.html#.bound": {
-                      "ref": "PSVUtils.html#.bound",
-                      "tf": 12.5
+                      "tf": 23.333333333333332
                     }
                   }
                 }
@@ -18540,7 +19089,7 @@ window.lunrData = {
                   "docs": {
                     "PhotoSphereViewer.html#clearPanoramaCache": {
                       "ref": "PhotoSphereViewer.html#clearPanoramaCache",
-                      "tf": 7.142857142857142
+                      "tf": 11.666666666666666
                     }
                   }
                 }
@@ -18549,9 +19098,42 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
+                    "PhotoSphereViewer.html#startKeyboardControl": {
+                      "ref": "PhotoSphereViewer.html#startKeyboardControl",
+                      "tf": 10
+                    },
+                    "PhotoSphereViewer.html#toggleFullscreen": {
+                      "ref": "PhotoSphereViewer.html#toggleFullscreen",
+                      "tf": 17.5
+                    },
                     "PSVUtils.html#.requestFullscreen": {
                       "ref": "PSVUtils.html#.requestFullscreen",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              },
+              "r": {
+                "docs": {},
+                "i": {
+                  "docs": {
+                    "PhotoSphereViewer.html#.CacheItem": {
+                      "ref": "PhotoSphereViewer.html#.CacheItem",
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "PSVUtils.html#.bound": {
+                      "ref": "PSVUtils.html#.bound",
+                      "tf": 17.5
                     }
                   }
                 }
@@ -18567,7 +19149,7 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.deepmerge": {
                         "ref": "PSVUtils.html#.deepmerge",
-                        "tf": 3.8461538461538463
+                        "tf": 14
                       }
                     }
                   }
@@ -18623,23 +19205,23 @@ window.lunrData = {
                       "docs": {
                         "PSVUtils.html#.addClasses": {
                           "ref": "PSVUtils.html#.addClasses",
-                          "tf": 33.33333333333333
+                          "tf": 36.666666666666664
                         },
                         "PSVUtils.html#.getStyle": {
                           "ref": "PSVUtils.html#.getStyle",
-                          "tf": 16.666666666666664
+                          "tf": 23.333333333333332
                         },
                         "PSVUtils.html#.hasParent": {
                           "ref": "PSVUtils.html#.hasParent",
-                          "tf": 7.142857142857142
+                          "tf": 10
                         },
                         "PSVUtils.html#.removeClasses": {
                           "ref": "PSVUtils.html#.removeClasses",
-                          "tf": 33.33333333333333
+                          "tf": 36.666666666666664
                         },
                         "PSVUtils.html#.toggleClass": {
                           "ref": "PSVUtils.html#.toggleClass",
-                          "tf": 16.666666666666664
+                          "tf": 20
                         }
                       }
                     }
@@ -18672,7 +19254,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.animation": {
                     "ref": "PSVUtils.html#.animation",
-                    "tf": 6.25
+                    "tf": 11.666666666666666
                   }
                 }
               }
@@ -18681,7 +19263,7 @@ window.lunrData = {
               "docs": {
                 "PSVUtils.html#.animation": {
                   "ref": "PSVUtils.html#.animation",
-                  "tf": 6.25
+                  "tf": 11.666666666666666
                 }
               }
             }
@@ -18692,7 +19274,7 @@ window.lunrData = {
               "docs": {
                 "PSVUtils.html#.isPlainObject": {
                   "ref": "PSVUtils.html#.isPlainObject",
-                  "tf": 1.8518518518518516
+                  "tf": 1.9230769230769231
                 }
               }
             }
@@ -18708,11 +19290,11 @@ window.lunrData = {
                 "docs": {
                   "module-components_buttons.PSVNavBarButton.html#.icon": {
                     "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                    "tf": 10
+                    "tf": 14
                   },
                   "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                     "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                    "tf": 8.333333333333332
+                    "tf": 11.666666666666666
                   },
                   "PhotoSphereViewer.html#change": {
                     "ref": "PhotoSphereViewer.html#change",
@@ -18736,11 +19318,11 @@ window.lunrData = {
                   },
                   "PSVUtils.html#.fullscreenEvent": {
                     "ref": "PSVUtils.html#.fullscreenEvent",
-                    "tf": 10
+                    "tf": 17.5
                   },
                   "PSVUtils.html#.mouseWheelEvent": {
                     "ref": "PSVUtils.html#.mouseWheelEvent",
-                    "tf": 10
+                    "tf": 14
                   }
                 },
                 "s": {
@@ -18761,7 +19343,7 @@ window.lunrData = {
                           },
                           "PSVUtils.html#.svgNS": {
                             "ref": "PSVUtils.html#.svgNS",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           }
                         }
                       }
@@ -18811,6 +19393,18 @@ window.lunrData = {
                     "module-components_buttons.PSVNavBarZoomButton.html": {
                       "ref": "module-components_buttons.PSVNavBarZoomButton.html",
                       "tf": 10
+                    },
+                    "PhotoSphereViewer.html#startGyroscopeControl": {
+                      "ref": "PhotoSphereViewer.html#startGyroscopeControl",
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#stopGyroscopeControl": {
+                      "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
+                      "tf": 23.333333333333332
+                    },
+                    "PhotoSphereViewer.html#toggleGyroscopeControl": {
+                      "ref": "PhotoSphereViewer.html#toggleGyroscopeControl",
+                      "tf": 17.5
                     }
                   }
                 }
@@ -18821,25 +19415,21 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "module-components.PSVNavBar.html#create": {
-                        "ref": "module-components.PSVNavBar.html#create",
-                        "tf": 25
-                      },
-                      "module-components.PSVNavBar.html#destroy": {
-                        "ref": "module-components.PSVNavBar.html#destroy",
-                        "tf": 25
+                      "module-components.PSVNavBar.html#items": {
+                        "ref": "module-components.PSVNavBar.html#items",
+                        "tf": 23.333333333333332
                       },
                       "module-components.PSVNavBar.html#hideNavbar": {
                         "ref": "module-components.PSVNavBar.html#hideNavbar",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBar.html#showNavbar": {
                         "ref": "module-components.PSVNavBar.html#showNavbar",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBar.html#toggleNavbar": {
                         "ref": "module-components.PSVNavBar.html#toggleNavbar",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVNavBarCaption.html": {
                         "ref": "module-components.PSVNavBarCaption.html",
@@ -18865,11 +19455,15 @@ window.lunrData = {
               "docs": {
                 "module-components.PSVHUD.html#addMarker": {
                   "ref": "module-components.PSVHUD.html#addMarker",
-                  "tf": 12.5
+                  "tf": 17.5
+                },
+                "PhotoSphereViewer.html#setPanorama": {
+                  "ref": "PhotoSphereViewer.html#setPanorama",
+                  "tf": 19.67391304347826
                 },
                 "PSVMarker.html#update": {
                   "ref": "PSVMarker.html#update",
-                  "tf": 12.5
+                  "tf": 17.5
                 }
               }
             }
@@ -18909,11 +19503,11 @@ window.lunrData = {
                     "docs": {
                       "PSVMarker.html#isNormal": {
                         "ref": "PSVMarker.html#isNormal",
-                        "tf": 10
+                        "tf": 14
                       },
                       "PSVUtils.html#.parseAngle": {
                         "ref": "PSVUtils.html#.parseAngle",
-                        "tf": 5.555555555555555
+                        "tf": 7.777777777777778
                       }
                     }
                   }
@@ -18933,7 +19527,11 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.bound": {
                         "ref": "PSVUtils.html#.bound",
-                        "tf": 29.166666666666664
+                        "tf": 34.166666666666664
+                      },
+                      "PSVUtils.html#.sum": {
+                        "ref": "PSVUtils.html#.sum",
+                        "tf": 25
                       }
                     }
                   }
@@ -18946,7 +19544,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.isPlainObject": {
                     "ref": "PSVUtils.html#.isPlainObject",
-                    "tf": 1.8518518518518516
+                    "tf": 1.9230769230769231
                   }
                 }
               }
@@ -18976,7 +19574,7 @@ window.lunrData = {
                 },
                 "module-components.PSVNavBarCaption.html#setCaption": {
                   "ref": "module-components.PSVNavBarCaption.html#setCaption",
-                  "tf": 16.666666666666664
+                  "tf": 23.333333333333332
                 },
                 "module-components_buttons.PSVNavBarAutorotateButton.html": {
                   "ref": "module-components_buttons.PSVNavBarAutorotateButton.html",
@@ -19023,25 +19621,11 @@ window.lunrData = {
                   "docs": {
                     "module-components.PSVComponent.html#.publicMethods": {
                       "ref": "module-components.PSVComponent.html#.publicMethods",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.bound": {
                       "ref": "PSVUtils.html#.bound",
                       "tf": 666.6666666666666
-                    }
-                  },
-                  "a": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "i": {
-                        "docs": {
-                          "PhotoSphereViewer.html#cleanPosition": {
-                            "ref": "PhotoSphereViewer.html#cleanPosition",
-                            "tf": 8.333333333333332
-                          }
-                        }
-                      }
                     }
                   }
                 }
@@ -19148,10 +19732,6 @@ window.lunrData = {
                         "PSVUtils.html#.isWebGLSupported": {
                           "ref": "PSVUtils.html#.isWebGLSupported",
                           "tf": 33.33333333333333
-                        },
-                        "PSVUtils.html#.toggleClass": {
-                          "ref": "PSVUtils.html#.toggleClass",
-                          "tf": 16.666666666666664
                         }
                       }
                     }
@@ -19170,33 +19750,45 @@ window.lunrData = {
                   "docs": {},
                   "n": {
                     "docs": {
+                      "module-components.PSVNavBar.html#items": {
+                        "ref": "module-components.PSVNavBar.html#items",
+                        "tf": 23.333333333333332
+                      },
                       "module-components.PSVNavBar.html#getNavbarButton": {
                         "ref": "module-components.PSVNavBar.html#getNavbarButton",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarAutorotateButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarAutorotateButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#destroy": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarButton.html": {
                         "ref": "module-components_buttons.PSVNavBarButton.html",
@@ -19204,171 +19796,235 @@ window.lunrData = {
                       },
                       "module-components_buttons.PSVNavBarButton.html#.icon": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.icon",
-                        "tf": 10
+                        "tf": 14
                       },
                       "module-components_buttons.PSVNavBarButton.html#.iconActive": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.iconActive",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       },
                       "module-components_buttons.PSVNavBarButton.html#.id": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#.id",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
+                      },
+                      "module-components_buttons.PSVNavBarButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarButton.html#id",
+                        "tf": 23.333333333333332
                       },
                       "module-components_buttons.PSVNavBarButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#create",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarButton.html#destroy": {
+                        "ref": "module-components_buttons.PSVNavBarButton.html#destroy",
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarCustomButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarCustomButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarCustomButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarCustomButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarCustomButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#destroy": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarCustomButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarCustomButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarDownloadButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarDownloadButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarDownloadButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#create",
-                        "tf": 25
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarDownloadButton.html#destroy": {
+                        "ref": "module-components_buttons.PSVNavBarDownloadButton.html#destroy",
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarFullscreenButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarFullscreenButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#destroy": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarGyroscopeButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                        "tf": 12.5
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarMarkersButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarMarkersButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarMarkersButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#destroy": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html",
                         "tf": 10
                       },
+                      "module-components_buttons.PSVNavBarZoomButton.html#enabled": {
+                        "ref": "module-components_buttons.PSVNavBarZoomButton.html#enabled",
+                        "tf": 35
+                      },
+                      "module-components_buttons.PSVNavBarZoomButton.html#id": {
+                        "ref": "module-components_buttons.PSVNavBarZoomButton.html#id",
+                        "tf": 23.333333333333332
+                      },
                       "module-components_buttons.PSVNavBarZoomButton.html#create": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#create",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#destroy": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#disable": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#disable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#enable": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#enable",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components_buttons.PSVNavBarZoomButton.html#toggleActive": {
                         "ref": "module-components_buttons.PSVNavBarZoomButton.html#toggleActive",
-                        "tf": 12.5
+                        "tf": 17.5
                       }
                     }
                   }
@@ -19383,7 +20039,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.isPlainObject": {
                       "ref": "PSVUtils.html#.isPlainObject",
-                      "tf": 3.7037037037037033
+                      "tf": 3.8461538461538463
                     }
                   }
                 }
@@ -19402,9 +20058,13 @@ window.lunrData = {
                     "docs": {},
                     "n": {
                       "docs": {
+                        "PhotoSphereViewer.html#zoom": {
+                          "ref": "PhotoSphereViewer.html#zoom",
+                          "tf": 11.666666666666666
+                        },
                         "PSVUtils.html#.getShortestArc": {
                           "ref": "PSVUtils.html#.getShortestArc",
-                          "tf": 8.333333333333332
+                          "tf": 11.666666666666666
                         }
                       }
                     }
@@ -19711,23 +20371,6 @@ window.lunrData = {
                                                         },
                                                         "#": {
                                                           "docs": {},
-                                                          "$": {
-                                                            "docs": {},
-                                                            "s": {
-                                                              "docs": {},
-                                                              "v": {
-                                                                "docs": {},
-                                                                "g": {
-                                                                  "docs": {
-                                                                    "module-components.PSVHUD.html#$svg": {
-                                                                      "ref": "module-components.PSVHUD.html#$svg",
-                                                                      "tf": 1100
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          },
                                                           "c": {
                                                             "docs": {},
                                                             "o": {
@@ -19889,6 +20532,32 @@ window.lunrData = {
                                                                               "ref": "module-components.PSVHUD.html#hideMarker",
                                                                               "tf": 1100
                                                                             }
+                                                                          },
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "r": {
+                                                                              "docs": {},
+                                                                              "s": {
+                                                                                "docs": {},
+                                                                                "l": {
+                                                                                  "docs": {},
+                                                                                  "i": {
+                                                                                    "docs": {},
+                                                                                    "s": {
+                                                                                      "docs": {},
+                                                                                      "t": {
+                                                                                        "docs": {
+                                                                                          "module-components.PSVHUD.html#hideMarkersList": {
+                                                                                            "ref": "module-components.PSVHUD.html#hideMarkersList",
+                                                                                            "tf": 1100
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
                                                                           }
                                                                         }
                                                                       }
@@ -19935,6 +20604,98 @@ window.lunrData = {
                                                                   "module-components.PSVHUD.html#psv": {
                                                                     "ref": "module-components.PSVHUD.html#psv",
                                                                     "tf": 1100
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "s": {
+                                                            "docs": {},
+                                                            "v": {
+                                                              "docs": {},
+                                                              "g": {
+                                                                "docs": {},
+                                                                "c": {
+                                                                  "docs": {},
+                                                                  "o": {
+                                                                    "docs": {},
+                                                                    "n": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "i": {
+                                                                            "docs": {},
+                                                                            "n": {
+                                                                              "docs": {
+                                                                                "module-components.PSVHUD.html#svgContainer": {
+                                                                                  "ref": "module-components.PSVHUD.html#svgContainer",
+                                                                                  "tf": 1100
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "h": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "w": {
+                                                                  "docs": {
+                                                                    "module-components.PSVHUD.html#show": {
+                                                                      "ref": "module-components.PSVHUD.html#show",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  },
+                                                                  "m": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {},
+                                                                        "k": {
+                                                                          "docs": {
+                                                                            "module-components.PSVHUD.html#showMarker": {
+                                                                              "ref": "module-components.PSVHUD.html#showMarker",
+                                                                              "tf": 1100
+                                                                            }
+                                                                          },
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "r": {
+                                                                              "docs": {},
+                                                                              "s": {
+                                                                                "docs": {},
+                                                                                "l": {
+                                                                                  "docs": {},
+                                                                                  "i": {
+                                                                                    "docs": {},
+                                                                                    "s": {
+                                                                                      "docs": {},
+                                                                                      "t": {
+                                                                                        "docs": {
+                                                                                          "module-components.PSVHUD.html#showMarkersList": {
+                                                                                            "ref": "module-components.PSVHUD.html#showMarkersList",
+                                                                                            "tf": 1100
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
                                                                   }
                                                                 }
                                                               }
@@ -20114,33 +20875,28 @@ window.lunrData = {
                                                                     }
                                                                   }
                                                                 }
-                                                              }
-                                                            }
-                                                          },
-                                                          "s": {
-                                                            "docs": {},
-                                                            "h": {
-                                                              "docs": {},
-                                                              "o": {
+                                                              },
+                                                              "n": {
                                                                 "docs": {},
-                                                                "w": {
-                                                                  "docs": {
-                                                                    "module-components.PSVHUD.html#show": {
-                                                                      "ref": "module-components.PSVHUD.html#show",
-                                                                      "tf": 1100
-                                                                    }
-                                                                  },
-                                                                  "m": {
+                                                                "d": {
+                                                                  "docs": {},
+                                                                  "e": {
                                                                     "docs": {},
-                                                                    "a": {
+                                                                    "r": {
                                                                       "docs": {},
-                                                                      "r": {
+                                                                      "m": {
                                                                         "docs": {},
-                                                                        "k": {
-                                                                          "docs": {
-                                                                            "module-components.PSVHUD.html#showMarker": {
-                                                                              "ref": "module-components.PSVHUD.html#showMarker",
-                                                                              "tf": 1100
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "r": {
+                                                                            "docs": {},
+                                                                            "k": {
+                                                                              "docs": {
+                                                                                "module-components.PSVHUD.html#renderMarkers": {
+                                                                                  "ref": "module-components.PSVHUD.html#renderMarkers",
+                                                                                  "tf": 1100
+                                                                                }
+                                                                              }
                                                                             }
                                                                           }
                                                                         }
@@ -20174,6 +20930,32 @@ window.lunrData = {
                                                                                 "module-components.PSVHUD.html#toggleMarker": {
                                                                                   "ref": "module-components.PSVHUD.html#toggleMarker",
                                                                                   "tf": 1100
+                                                                                }
+                                                                              },
+                                                                              "e": {
+                                                                                "docs": {},
+                                                                                "r": {
+                                                                                  "docs": {},
+                                                                                  "s": {
+                                                                                    "docs": {},
+                                                                                    "l": {
+                                                                                      "docs": {},
+                                                                                      "i": {
+                                                                                        "docs": {},
+                                                                                        "s": {
+                                                                                          "docs": {},
+                                                                                          "t": {
+                                                                                            "docs": {
+                                                                                              "module-components.PSVHUD.html#toggleMarkersList": {
+                                                                                                "ref": "module-components.PSVHUD.html#toggleMarkersList",
+                                                                                                "tf": 1100
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
                                                                                 }
                                                                               }
                                                                             }
@@ -20209,26 +20991,6 @@ window.lunrData = {
                                                                                 "module-components.PSVHUD.html#updateMarker": {
                                                                                   "ref": "module-components.PSVHUD.html#updateMarker",
                                                                                   "tf": 1100
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      },
-                                                                      "p": {
-                                                                        "docs": {},
-                                                                        "o": {
-                                                                          "docs": {},
-                                                                          "s": {
-                                                                            "docs": {},
-                                                                            "i": {
-                                                                              "docs": {},
-                                                                              "t": {
-                                                                                "docs": {
-                                                                                  "module-components.PSVHUD.html#updatePositions": {
-                                                                                    "ref": "module-components.PSVHUD.html#updatePositions",
-                                                                                    "tf": 1100
-                                                                                  }
                                                                                 }
                                                                               }
                                                                             }
@@ -21090,12 +21852,7 @@ window.lunrData = {
                                                                   "n": {
                                                                     "docs": {},
                                                                     "t": {
-                                                                      "docs": {
-                                                                        "module-components.PSVPanel.html#content": {
-                                                                          "ref": "module-components.PSVPanel.html#content",
-                                                                          "tf": 1100
-                                                                        }
-                                                                      },
+                                                                      "docs": {},
                                                                       "a": {
                                                                         "docs": {},
                                                                         "i": {
@@ -23149,47 +23906,6 @@ window.lunrData = {
                                                                                                                     "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
                                                                                                                     "tf": 1100
                                                                                                                   }
-                                                                                                                },
-                                                                                                                "e": {
-                                                                                                                  "docs": {},
-                                                                                                                  "m": {
-                                                                                                                    "docs": {},
-                                                                                                                    "a": {
-                                                                                                                      "docs": {},
-                                                                                                                      "r": {
-                                                                                                                        "docs": {},
-                                                                                                                        "k": {
-                                                                                                                          "docs": {},
-                                                                                                                          "e": {
-                                                                                                                            "docs": {},
-                                                                                                                            "r": {
-                                                                                                                              "docs": {},
-                                                                                                                              "s": {
-                                                                                                                                "docs": {},
-                                                                                                                                "l": {
-                                                                                                                                  "docs": {},
-                                                                                                                                  "i": {
-                                                                                                                                    "docs": {},
-                                                                                                                                    "s": {
-                                                                                                                                      "docs": {},
-                                                                                                                                      "t": {
-                                                                                                                                        "docs": {
-                                                                                                                                          "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                                                                                                                                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-                                                                                                                                            "tf": 1100
-                                                                                                                                          }
-                                                                                                                                        }
-                                                                                                                                      }
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                }
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                  }
                                                                                                                 }
                                                                                                               }
                                                                                                             }
@@ -23205,44 +23921,6 @@ window.lunrData = {
                                                                                                                     "module-components_buttons.PSVNavBarMarkersButton.html#show": {
                                                                                                                       "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
                                                                                                                       "tf": 1100
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  "m": {
-                                                                                                                    "docs": {},
-                                                                                                                    "a": {
-                                                                                                                      "docs": {},
-                                                                                                                      "r": {
-                                                                                                                        "docs": {},
-                                                                                                                        "k": {
-                                                                                                                          "docs": {},
-                                                                                                                          "e": {
-                                                                                                                            "docs": {},
-                                                                                                                            "r": {
-                                                                                                                              "docs": {},
-                                                                                                                              "s": {
-                                                                                                                                "docs": {},
-                                                                                                                                "l": {
-                                                                                                                                  "docs": {},
-                                                                                                                                  "i": {
-                                                                                                                                    "docs": {},
-                                                                                                                                    "s": {
-                                                                                                                                      "docs": {},
-                                                                                                                                      "t": {
-                                                                                                                                        "docs": {
-                                                                                                                                          "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                                                                                                                                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                                                                                                                                            "tf": 1100
-                                                                                                                                          }
-                                                                                                                                        }
-                                                                                                                                      }
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                }
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                        }
-                                                                                                                      }
                                                                                                                     }
                                                                                                                   }
                                                                                                                 }
@@ -23270,44 +23948,6 @@ window.lunrData = {
                                                                                                                               "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
                                                                                                                                 "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
                                                                                                                                 "tf": 1100
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                        }
-                                                                                                                      },
-                                                                                                                      "m": {
-                                                                                                                        "docs": {},
-                                                                                                                        "a": {
-                                                                                                                          "docs": {},
-                                                                                                                          "r": {
-                                                                                                                            "docs": {},
-                                                                                                                            "k": {
-                                                                                                                              "docs": {},
-                                                                                                                              "e": {
-                                                                                                                                "docs": {},
-                                                                                                                                "r": {
-                                                                                                                                  "docs": {},
-                                                                                                                                  "s": {
-                                                                                                                                    "docs": {},
-                                                                                                                                    "l": {
-                                                                                                                                      "docs": {},
-                                                                                                                                      "i": {
-                                                                                                                                        "docs": {},
-                                                                                                                                        "s": {
-                                                                                                                                          "docs": {},
-                                                                                                                                          "t": {
-                                                                                                                                            "docs": {
-                                                                                                                                              "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                                                                                                                                                "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-                                                                                                                                                "tf": 1100
-                                                                                                                                              }
-                                                                                                                                            }
-                                                                                                                                          }
-                                                                                                                                        }
-                                                                                                                                      }
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                }
                                                                                                                               }
                                                                                                                             }
                                                                                                                           }
@@ -23594,17 +24234,9 @@ window.lunrData = {
                   "docs": {},
                   "i": {
                     "docs": {
-                      "PhotoSphereViewer.html#prop": {
-                        "ref": "PhotoSphereViewer.html#prop",
-                        "tf": 12.5
-                      },
                       "PhotoSphereViewer.html#change": {
                         "ref": "PhotoSphereViewer.html#change",
-                        "tf": 8.333333333333332
-                      },
-                      "PSVUtils.html#.deepmerge": {
-                        "ref": "PSVUtils.html#.deepmerge",
-                        "tf": 3.8461538461538463
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -23612,13 +24244,17 @@ window.lunrData = {
               },
               "e": {
                 "docs": {
+                  "PhotoSphereViewer.html#toggleFullscreen": {
+                    "ref": "PhotoSphereViewer.html#toggleFullscreen",
+                    "tf": 17.5
+                  },
                   "PSVUtils.html#.exitFullscreen": {
                     "ref": "PSVUtils.html#.exitFullscreen",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   },
                   "PSVUtils.html#.requestFullscreen": {
                     "ref": "PSVUtils.html#.requestFullscreen",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   }
                 }
               }
@@ -23629,7 +24265,7 @@ window.lunrData = {
                 "docs": {
                   "PhotoSphereViewer.html#setPanorama": {
                     "ref": "PhotoSphereViewer.html#setPanorama",
-                    "tf": 3.3333333333333335
+                    "tf": 2.1739130434782608
                   }
                 }
               }
@@ -23640,7 +24276,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.mouseWheelEvent": {
                     "ref": "PSVUtils.html#.mouseWheelEvent",
-                    "tf": 10
+                    "tf": 14
                   }
                 },
                 "e": {
@@ -23705,10 +24341,6 @@ window.lunrData = {
                         "ref": "module-components.PSVComponent.html#psv",
                         "tf": 110
                       },
-                      "module-components.PSVHUD.html#$svg": {
-                        "ref": "module-components.PSVHUD.html#$svg",
-                        "tf": 110
-                      },
                       "module-components.PSVHUD.html#container": {
                         "ref": "module-components.PSVHUD.html#container",
                         "tf": 110
@@ -23731,6 +24363,10 @@ window.lunrData = {
                       },
                       "module-components.PSVHUD.html#psv": {
                         "ref": "module-components.PSVHUD.html#psv",
+                        "tf": 110
+                      },
+                      "module-components.PSVHUD.html#svgContainer": {
+                        "ref": "module-components.PSVHUD.html#svgContainer",
                         "tf": 110
                       },
                       "module-components.PSVLoader.html#container": {
@@ -23791,10 +24427,6 @@ window.lunrData = {
                       },
                       "module-components.PSVPanel.html#container": {
                         "ref": "module-components.PSVPanel.html#container",
-                        "tf": 110
-                      },
-                      "module-components.PSVPanel.html#content": {
-                        "ref": "module-components.PSVPanel.html#content",
                         "tf": 110
                       },
                       "module-components.PSVPanel.html#parent": {
@@ -24084,6 +24716,24 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "i": {
+                    "docs": {
+                      "PhotoSphereViewer.html#destroy": {
+                        "ref": "PhotoSphereViewer.html#destroy",
+                        "tf": 5.555555555555555
+                      },
+                      "PhotoSphereViewer.html#.CacheItem": {
+                        "ref": "PhotoSphereViewer.html#.CacheItem",
+                        "tf": 23.333333333333332
+                      }
+                    }
+                  }
+                }
               }
             },
             "t": {
@@ -24096,7 +24746,7 @@ window.lunrData = {
                     "docs": {
                       "module-components.PSVComponent.html#.publicMethods": {
                         "ref": "module-components.PSVComponent.html#.publicMethods",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -24114,7 +24764,7 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.getXMPValue": {
                             "ref": "PSVUtils.html#.getXMPValue",
-                            "tf": 8.333333333333332
+                            "tf": 11.666666666666666
                           }
                         }
                       }
@@ -24129,7 +24779,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.deepmerge": {
                     "ref": "PSVUtils.html#.deepmerge",
-                    "tf": 7.6923076923076925
+                    "tf": 14
                   }
                 }
               }
@@ -24143,11 +24793,11 @@ window.lunrData = {
                 "docs": {
                   "module-components.PSVComponent.html#.publicMethods": {
                     "ref": "module-components.PSVComponent.html#.publicMethods",
-                    "tf": 8.333333333333332
+                    "tf": 11.666666666666666
                   },
                   "PhotoSphereViewer.html#container": {
                     "ref": "PhotoSphereViewer.html#container",
-                    "tf": 25
+                    "tf": 35
                   }
                 }
               }
@@ -24160,65 +24810,77 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
+                      "module-components.PSVHUD.html#currentMarker": {
+                        "ref": "module-components.PSVHUD.html#currentMarker",
+                        "tf": 23.333333333333332
+                      },
+                      "module-components.PSVHUD.html#hoveringMarker": {
+                        "ref": "module-components.PSVHUD.html#hoveringMarker",
+                        "tf": 23.333333333333332
+                      },
                       "module-components.PSVHUD.html#markers": {
                         "ref": "module-components.PSVHUD.html#markers",
-                        "tf": 633.3333333333334
+                        "tf": 668.3333333333334
                       },
                       "module-components.PSVHUD.html#addMarker": {
                         "ref": "module-components.PSVHUD.html#addMarker",
-                        "tf": 12.5
+                        "tf": 17.5
                       },
                       "module-components.PSVHUD.html#clearMarkers": {
                         "ref": "module-components.PSVHUD.html#clearMarkers",
-                        "tf": 25
+                        "tf": 35
                       },
                       "module-components.PSVHUD.html#getCurrentMarker": {
                         "ref": "module-components.PSVHUD.html#getCurrentMarker",
-                        "tf": 12.5
+                        "tf": 14
                       },
                       "module-components.PSVHUD.html#getMarker": {
                         "ref": "module-components.PSVHUD.html#getMarker",
-                        "tf": 41.66666666666666
+                        "tf": 23.333333333333332
                       },
                       "module-components.PSVHUD.html#gotoMarker": {
                         "ref": "module-components.PSVHUD.html#gotoMarker",
-                        "tf": 41.666666666666664
+                        "tf": 42.5
                       },
                       "module-components.PSVHUD.html#hideMarker": {
                         "ref": "module-components.PSVHUD.html#hideMarker",
-                        "tf": 75
+                        "tf": 85
+                      },
+                      "module-components.PSVHUD.html#hideMarkersList": {
+                        "ref": "module-components.PSVHUD.html#hideMarkersList",
+                        "tf": 11.666666666666666
                       },
                       "module-components.PSVHUD.html#removeMarker": {
                         "ref": "module-components.PSVHUD.html#removeMarker",
-                        "tf": 58.33333333333333
+                        "tf": 56.66666666666666
+                      },
+                      "module-components.PSVHUD.html#renderMarkers": {
+                        "ref": "module-components.PSVHUD.html#renderMarkers",
+                        "tf": 17.5
                       },
                       "module-components.PSVHUD.html#showMarker": {
                         "ref": "module-components.PSVHUD.html#showMarker",
-                        "tf": 75
+                        "tf": 85
+                      },
+                      "module-components.PSVHUD.html#showMarkersList": {
+                        "ref": "module-components.PSVHUD.html#showMarkersList",
+                        "tf": 14
                       },
                       "module-components.PSVHUD.html#toggleMarker": {
                         "ref": "module-components.PSVHUD.html#toggleMarker",
-                        "tf": 75
+                        "tf": 85
+                      },
+                      "module-components.PSVHUD.html#toggleMarkersList": {
+                        "ref": "module-components.PSVHUD.html#toggleMarkersList",
+                        "tf": 17.5
                       },
                       "module-components.PSVHUD.html#updateMarker": {
                         "ref": "module-components.PSVHUD.html#updateMarker",
-                        "tf": 25
-                      },
-                      "module-components.PSVHUD.html#updatePositions": {
-                        "ref": "module-components.PSVHUD.html#updatePositions",
-                        "tf": 12.5
+                        "tf": 14
                       },
                       "module-components_buttons.PSVNavBarMarkersButton.html": {
                         "ref": "module-components_buttons.PSVNavBarMarkersButton.html",
                         "tf": 10
-                      },
-                      "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                        "tf": 10
-                      },
-                      "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                        "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-                        "tf": 12.5
                       },
                       "PSVMarker.html": {
                         "ref": "PSVMarker.html",
@@ -24226,31 +24888,42 @@ window.lunrData = {
                       },
                       "PSVMarker.html#.types": {
                         "ref": "PSVMarker.html#.types",
-                        "tf": 25
+                        "tf": 35
                       },
                       "PSVMarker.html#.getType": {
                         "ref": "PSVMarker.html#.getType",
-                        "tf": 10
+                        "tf": 14
                       },
                       "PSVMarker.html#destroy": {
                         "ref": "PSVMarker.html#destroy",
-                        "tf": 25
+                        "tf": 35
                       },
                       "PSVMarker.html#isNormal": {
                         "ref": "PSVMarker.html#isNormal",
-                        "tf": 10
+                        "tf": 14
                       },
                       "PSVMarker.html#isPolygon": {
                         "ref": "PSVMarker.html#isPolygon",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "PSVMarker.html#isSvg": {
                         "ref": "PSVMarker.html#isSvg",
-                        "tf": 16.666666666666664
+                        "tf": 23.333333333333332
                       },
                       "PSVMarker.html#update": {
                         "ref": "PSVMarker.html#update",
-                        "tf": 12.5
+                        "tf": 17.5
+                      }
+                    },
+                    "i": {
+                      "docs": {},
+                      "d": {
+                        "docs": {
+                          "module-components.PSVHUD.html#getMarker": {
+                            "ref": "module-components.PSVHUD.html#getMarker",
+                            "tf": 33.33333333333333
+                          }
+                        }
                       }
                     }
                   }
@@ -24265,7 +24938,24 @@ window.lunrData = {
                 },
                 "PSVUtils.html#.getMaxTextureWidth": {
                   "ref": "PSVUtils.html#.getMaxTextureWidth",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
+                }
+              },
+              "_": {
+                "docs": {},
+                "f": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "v": {
+                      "docs": {
+                        "PhotoSphereViewer.html#zoom": {
+                          "ref": "PhotoSphereViewer.html#zoom",
+                          "tf": 11.666666666666666
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -24275,7 +24965,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.isPlainObject": {
                     "ref": "PSVUtils.html#.isPlainObject",
-                    "tf": 1.8518518518518516
+                    "tf": 1.9230769230769231
                   }
                 }
               }
@@ -24289,6 +24979,23 @@ window.lunrData = {
                   "ref": "PSVUtils.html#.bound",
                   "tf": 16.666666666666664
                 }
+              },
+              "_": {
+                "docs": {},
+                "f": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "v": {
+                      "docs": {
+                        "PhotoSphereViewer.html#zoom": {
+                          "ref": "PhotoSphereViewer.html#zoom",
+                          "tf": 11.666666666666666
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -24301,13 +25008,17 @@ window.lunrData = {
               "docs": {},
               "l": {
                 "docs": {
+                  "module-components.PSVHUD.html#updateMarker": {
+                    "ref": "module-components.PSVHUD.html#updateMarker",
+                    "tf": 6.25
+                  },
                   "module-components.PSVNavBarCaption.html#setCaption": {
                     "ref": "module-components.PSVNavBarCaption.html#setCaption",
                     "tf": 50
                   },
                   "PSVMarker.html#isNormal": {
                     "ref": "PSVMarker.html#isNormal",
-                    "tf": 10
+                    "tf": 14
                   }
                 },
                 "e": {
@@ -24326,71 +25037,67 @@ window.lunrData = {
                               "docs": {
                                 "module-components.PSVComponent.html#container": {
                                   "ref": "module-components.PSVComponent.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVHUD.html#container": {
                                   "ref": "module-components.PSVHUD.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVLoader.html#container": {
                                   "ref": "module-components.PSVLoader.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVNavBar.html#container": {
                                   "ref": "module-components.PSVNavBar.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVNavBarCaption.html#container": {
                                   "ref": "module-components.PSVNavBarCaption.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVNavBarSpacer.html#container": {
                                   "ref": "module-components.PSVNavBarSpacer.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVPanel.html#container": {
                                   "ref": "module-components.PSVPanel.html#container",
-                                  "tf": 25
-                                },
-                                "module-components.PSVPanel.html#content": {
-                                  "ref": "module-components.PSVPanel.html#content",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components.PSVTooltip.html#container": {
                                   "ref": "module-components.PSVTooltip.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarAutorotateButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarCustomButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarCustomButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarDownloadButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarDownloadButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarFullscreenButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarGyroscopeButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarMarkersButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarMarkersButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "module-components_buttons.PSVNavBarZoomButton.html#container": {
                                   "ref": "module-components_buttons.PSVNavBarZoomButton.html#container",
-                                  "tf": 25
+                                  "tf": 33.33333333333333
                                 },
                                 "PhotoSphereViewer.html#container": {
                                   "ref": "PhotoSphereViewer.html#container",
@@ -24489,7 +25196,7 @@ window.lunrData = {
                                 "docs": {
                                   "PhotoSphereViewer.html#.DEFAULTS": {
                                     "ref": "PhotoSphereViewer.html#.DEFAULTS",
-                                    "tf": 8.333333333333332
+                                    "tf": 11.666666666666666
                                   }
                                 }
                               }
@@ -24555,7 +25262,7 @@ window.lunrData = {
                                                                                             "docs": {
                                                                                               "PSVUtils.html#.isPlainObject": {
                                                                                                 "ref": "PSVUtils.html#.isPlainObject",
-                                                                                                "tf": 1.8518518518518516
+                                                                                                "tf": 1.9230769230769231
                                                                                               }
                                                                                             }
                                                                                           },
@@ -24668,7 +25375,7 @@ window.lunrData = {
                                                                         "docs": {
                                                                           "PSVUtils.html#.parsePosition": {
                                                                             "ref": "PSVUtils.html#.parsePosition",
-                                                                            "tf": 2.631578947368421
+                                                                            "tf": 5.555555555555555
                                                                           }
                                                                         }
                                                                       }
@@ -24710,83 +25417,83 @@ window.lunrData = {
                 "docs": {
                   "module-components.PSVComponent.html#hide": {
                     "ref": "module-components.PSVComponent.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVHUD.html#hide": {
                     "ref": "module-components.PSVHUD.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVHUD.html#hideMarker": {
                     "ref": "module-components.PSVHUD.html#hideMarker",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components.PSVLoader.html#hide": {
                     "ref": "module-components.PSVLoader.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVNavBar.html#hide": {
                     "ref": "module-components.PSVNavBar.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVNavBar.html#hideNavbar": {
                     "ref": "module-components.PSVNavBar.html#hideNavbar",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components.PSVNavBarCaption.html#hide": {
                     "ref": "module-components.PSVNavBarCaption.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVNavBarSpacer.html#hide": {
                     "ref": "module-components.PSVNavBarSpacer.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVPanel.html#hide": {
                     "ref": "module-components.PSVPanel.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVPanel.html#hidePanel": {
                     "ref": "module-components.PSVPanel.html#hidePanel",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components.PSVTooltip.html#hide": {
                     "ref": "module-components.PSVTooltip.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components.PSVTooltip.html#hideTooltip": {
                     "ref": "module-components.PSVTooltip.html#hideTooltip",
-                    "tf": 25
+                    "tf": 35
                   },
                   "module-components_buttons.PSVNavBarAutorotateButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarCustomButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarCustomButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarDownloadButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarDownloadButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarFullscreenButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarGyroscopeButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarMarkersButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   },
                   "module-components_buttons.PSVNavBarZoomButton.html#hide": {
                     "ref": "module-components_buttons.PSVNavBarZoomButton.html#hide",
-                    "tf": 725
+                    "tf": 685
                   }
                 },
                 "m": {
@@ -24816,8 +25523,8 @@ window.lunrData = {
                                     "docs": {},
                                     "t": {
                                       "docs": {
-                                        "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                                          "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
+                                        "module-components.PSVHUD.html#hideMarkersList": {
+                                          "ref": "module-components.PSVHUD.html#hideMarkersList",
                                           "tf": 700
                                         }
                                       }
@@ -24912,18 +25619,6 @@ window.lunrData = {
                   "ref": "module-components.PSVHUD.html",
                   "tf": 25
                 },
-                "module-components.PSVHUD.html#addMarker": {
-                  "ref": "module-components.PSVHUD.html#addMarker",
-                  "tf": 12.5
-                },
-                "module-components.PSVHUD.html#create": {
-                  "ref": "module-components.PSVHUD.html#create",
-                  "tf": 25
-                },
-                "module-components.PSVHUD.html#destroy": {
-                  "ref": "module-components.PSVHUD.html#destroy",
-                  "tf": 25
-                },
                 "PhotoSphereViewer.html#hud": {
                   "ref": "PhotoSphereViewer.html#hud",
                   "tf": 683.3333333333334
@@ -24974,7 +25669,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.isPlainObject": {
                     "ref": "PSVUtils.html#.isPlainObject",
-                    "tf": 1.8518518518518516
+                    "tf": 1.9230769230769231
                   }
                 }
               }
@@ -25005,11 +25700,11 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.HalfPI": {
                     "ref": "PSVUtils.html#.HalfPI",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   },
                   "PSVUtils.html#.TwoPI": {
                     "ref": "PSVUtils.html#.TwoPI",
-                    "tf": 16.666666666666664
+                    "tf": 23.333333333333332
                   }
                 }
               }
@@ -25106,8 +25801,16 @@ window.lunrData = {
                             "ref": "module-components.PSVHUD.html#hideMarker",
                             "tf": 110
                           },
+                          "module-components.PSVHUD.html#hideMarkersList": {
+                            "ref": "module-components.PSVHUD.html#hideMarkersList",
+                            "tf": 110
+                          },
                           "module-components.PSVHUD.html#removeMarker": {
                             "ref": "module-components.PSVHUD.html#removeMarker",
+                            "tf": 110
+                          },
+                          "module-components.PSVHUD.html#renderMarkers": {
+                            "ref": "module-components.PSVHUD.html#renderMarkers",
                             "tf": 110
                           },
                           "module-components.PSVHUD.html#show": {
@@ -25118,16 +25821,20 @@ window.lunrData = {
                             "ref": "module-components.PSVHUD.html#showMarker",
                             "tf": 110
                           },
+                          "module-components.PSVHUD.html#showMarkersList": {
+                            "ref": "module-components.PSVHUD.html#showMarkersList",
+                            "tf": 110
+                          },
                           "module-components.PSVHUD.html#toggleMarker": {
                             "ref": "module-components.PSVHUD.html#toggleMarker",
                             "tf": 110
                           },
-                          "module-components.PSVHUD.html#updateMarker": {
-                            "ref": "module-components.PSVHUD.html#updateMarker",
+                          "module-components.PSVHUD.html#toggleMarkersList": {
+                            "ref": "module-components.PSVHUD.html#toggleMarkersList",
                             "tf": 110
                           },
-                          "module-components.PSVHUD.html#updatePositions": {
-                            "ref": "module-components.PSVHUD.html#updatePositions",
+                          "module-components.PSVHUD.html#updateMarker": {
+                            "ref": "module-components.PSVHUD.html#updateMarker",
                             "tf": 110
                           },
                           "module-components.PSVLoader.html#create": {
@@ -25458,24 +26165,12 @@ window.lunrData = {
                             "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
                             "tf": 110
                           },
-                          "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-                            "tf": 110
-                          },
                           "module-components_buttons.PSVNavBarMarkersButton.html#show": {
                             "ref": "module-components_buttons.PSVNavBarMarkersButton.html#show",
                             "tf": 110
                           },
-                          "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                            "tf": 110
-                          },
                           "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
                             "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
-                            "tf": 110
-                          },
-                          "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                            "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
                             "tf": 110
                           },
                           "module-components_buttons.PSVNavBarZoomButton.html#create": {
@@ -25510,16 +26205,8 @@ window.lunrData = {
                             "ref": "PhotoSphereViewer.html#animate",
                             "tf": 110
                           },
-                          "PhotoSphereViewer.html#applyRanges": {
-                            "ref": "PhotoSphereViewer.html#applyRanges",
-                            "tf": 110
-                          },
                           "PhotoSphereViewer.html#change": {
                             "ref": "PhotoSphereViewer.html#change",
-                            "tf": 110
-                          },
-                          "PhotoSphereViewer.html#cleanPosition": {
-                            "ref": "PhotoSphereViewer.html#cleanPosition",
                             "tf": 110
                           },
                           "PhotoSphereViewer.html#clearPanoramaCache": {
@@ -25608,10 +26295,6 @@ window.lunrData = {
                           },
                           "PhotoSphereViewer.html#startKeyboardControl": {
                             "ref": "PhotoSphereViewer.html#startKeyboardControl",
-                            "tf": 110
-                          },
-                          "PhotoSphereViewer.html#stopAll": {
-                            "ref": "PhotoSphereViewer.html#stopAll",
                             "tf": 110
                           },
                           "PhotoSphereViewer.html#stopAnimation": {
@@ -25714,6 +26397,10 @@ window.lunrData = {
                             "ref": "PSVUtils.html#.checkTHREE",
                             "tf": 110
                           },
+                          "PSVUtils.html#.cleanTHREEScene": {
+                            "ref": "PSVUtils.html#.cleanTHREEScene",
+                            "tf": 110
+                          },
                           "PSVUtils.html#.clone": {
                             "ref": "PSVUtils.html#.clone",
                             "tf": 110
@@ -25772,7 +26459,7 @@ window.lunrData = {
                           },
                           "PSVUtils.html#.isPlainObject": {
                             "ref": "PSVUtils.html#.isPlainObject",
-                            "tf": 111.85185185185185
+                            "tf": 110
                           },
                           "PSVUtils.html#.isWebGLSupported": {
                             "ref": "PSVUtils.html#.isWebGLSupported",
@@ -25802,9 +26489,13 @@ window.lunrData = {
                             "ref": "PSVUtils.html#.requestFullscreen",
                             "tf": 110
                           },
+                          "PSVUtils.html#.sum": {
+                            "ref": "PSVUtils.html#.sum",
+                            "tf": 110
+                          },
                           "PSVUtils.html#.throttle": {
                             "ref": "PSVUtils.html#.throttle",
-                            "tf": 135.55555555555554
+                            "tf": 137.77777777777777
                           },
                           "PSVUtils.html#.toggleClass": {
                             "ref": "PSVUtils.html#.toggleClass",
@@ -25839,27 +26530,35 @@ window.lunrData = {
                               },
                               "PhotoSphereViewer.html#isFullscreenEnabled": {
                                 "ref": "PhotoSphereViewer.html#isFullscreenEnabled",
-                                "tf": 16.666666666666664
+                                "tf": 23.333333333333332
+                              },
+                              "PhotoSphereViewer.html#startKeyboardControl": {
+                                "ref": "PhotoSphereViewer.html#startKeyboardControl",
+                                "tf": 10
+                              },
+                              "PhotoSphereViewer.html#stopKeyboardControl": {
+                                "ref": "PhotoSphereViewer.html#stopKeyboardControl",
+                                "tf": 10
                               },
                               "PhotoSphereViewer.html#toggleFullscreen": {
                                 "ref": "PhotoSphereViewer.html#toggleFullscreen",
-                                "tf": 25
+                                "tf": 17.5
                               },
                               "PSVUtils.html#.exitFullscreen": {
                                 "ref": "PSVUtils.html#.exitFullscreen",
-                                "tf": 16.666666666666664
+                                "tf": 23.333333333333332
                               },
                               "PSVUtils.html#.fullscreenEvent": {
                                 "ref": "PSVUtils.html#.fullscreenEvent",
-                                "tf": 10
+                                "tf": 17.5
                               },
                               "PSVUtils.html#.isFullscreenEnabled": {
                                 "ref": "PSVUtils.html#.isFullscreenEnabled",
-                                "tf": 12.5
+                                "tf": 23.333333333333332
                               },
                               "PSVUtils.html#.requestFullscreen": {
                                 "ref": "PSVUtils.html#.requestFullscreen",
-                                "tf": 16.666666666666664
+                                "tf": 23.333333333333332
                               }
                             },
                             "e": {
@@ -25882,19 +26581,41 @@ window.lunrData = {
               }
             }
           },
+          "a": {
+            "docs": {},
+            "c": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "module-components.PSVHUD.html#gotoMarker": {
+                    "ref": "module-components.PSVHUD.html#gotoMarker",
+                    "tf": 17.5
+                  }
+                }
+              }
+            }
+          },
           "i": {
             "docs": {},
+            "x": {
+              "docs": {
+                "PhotoSphereViewer.html#destroy": {
+                  "ref": "PhotoSphereViewer.html#destroy",
+                  "tf": 5.555555555555555
+                }
+              }
+            },
             "l": {
               "docs": {},
               "e": {
                 "docs": {
                   "PhotoSphereViewer.html#preloadPanorama": {
                     "ref": "PhotoSphereViewer.html#preloadPanorama",
-                    "tf": 10
+                    "tf": 14
                   },
                   "PhotoSphereViewer.html#setPanorama": {
                     "ref": "PhotoSphereViewer.html#setPanorama",
-                    "tf": 3.3333333333333335
+                    "tf": 19.67391304347826
                   }
                 }
               }
@@ -25934,6 +26655,287 @@ window.lunrData = {
             }
           }
         },
+        "u": {
+          "docs": {},
+          "n": {
+            "docs": {},
+            "d": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "module-components.PSVHUD.html#hoveringMarker": {
+                      "ref": "module-components.PSVHUD.html#hoveringMarker",
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              }
+            },
+            "i": {
+              "docs": {},
+              "q": {
+                "docs": {},
+                "u": {
+                  "docs": {
+                    "module-components_buttons.PSVNavBarAutorotateButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarButton.html#.id": {
+                      "ref": "module-components_buttons.PSVNavBarButton.html#.id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarCustomButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarCustomButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarDownloadButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarDownloadButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarFullscreenButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarFullscreenButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarGyroscopeButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarMarkersButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#id",
+                      "tf": 23.333333333333332
+                    },
+                    "module-components_buttons.PSVNavBarZoomButton.html#id": {
+                      "ref": "module-components_buttons.PSVNavBarZoomButton.html#id",
+                      "tf": 23.333333333333332
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "s": {
+            "docs": {
+              "PhotoSphereViewer.html#destroy": {
+                "ref": "PhotoSphereViewer.html#destroy",
+                "tf": 5.555555555555555
+              },
+              "PSVError.html": {
+                "ref": "PSVError.html",
+                "tf": 12.5
+              }
+            },
+            "e": {
+              "docs": {},
+              "r": {
+                "docs": {
+                  "module-components.PSVHUD.html#getCurrentMarker": {
+                    "ref": "module-components.PSVHUD.html#getCurrentMarker",
+                    "tf": 14
+                  }
+                }
+              }
+            },
+            "/": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "c": {
+                    "docs": {},
+                    "s": {
+                      "docs": {},
+                      "/": {
+                        "docs": {},
+                        "w": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "b": {
+                              "docs": {},
+                              "/": {
+                                "docs": {},
+                                "c": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "s": {
+                                      "docs": {},
+                                      "/": {
+                                        "docs": {},
+                                        "b": {
+                                          "docs": {},
+                                          "a": {
+                                            "docs": {},
+                                            "c": {
+                                              "docs": {},
+                                              "k": {
+                                                "docs": {},
+                                                "g": {
+                                                  "docs": {},
+                                                  "r": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {},
+                                                      "u": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "d": {
+                                                            "docs": {
+                                                              "PSVUtils.html#.parsePosition": {
+                                                                "ref": "PSVUtils.html#.parsePosition",
+                                                                "tf": 5.555555555555555
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "p": {
+            "docs": {},
+            "d": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "module-components.PSVHUD.html#renderMarkers": {
+                      "ref": "module-components.PSVHUD.html#renderMarkers",
+                      "tf": 17.5
+                    },
+                    "module-components.PSVHUD.html#updateMarker": {
+                      "ref": "module-components.PSVHUD.html#updateMarker",
+                      "tf": 14
+                    },
+                    "PSVMarker.html#update": {
+                      "ref": "PSVMarker.html#update",
+                      "tf": 717.5
+                    }
+                  },
+                  "e": {
+                    "docs": {},
+                    "m": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "k": {
+                            "docs": {
+                              "module-components.PSVHUD.html#updateMarker": {
+                                "ref": "module-components.PSVHUD.html#updateMarker",
+                                "tf": 625
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "d": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "c": {
+                              "docs": {},
+                              "t": {
+                                "docs": {
+                                  "PhotoSphereViewer.html#render": {
+                                    "ref": "PhotoSphereViewer.html#render",
+                                    "tf": 50
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "t": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "l": {
+                "docs": {
+                  "PhotoSphereViewer.html#.Utils": {
+                    "ref": "PhotoSphereViewer.html#.Utils",
+                    "tf": 675
+                  },
+                  "PSVUtils.html": {
+                    "ref": "PSVUtils.html",
+                    "tf": 16.666666666666664
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "v": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "t": {
+                    "docs": {},
+                    ".": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "v": {
+                          "docs": {
+                            "PhotoSphereViewer.html#trigger": {
+                              "ref": "PhotoSphereViewer.html#trigger",
+                              "tf": 25
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "o": {
           "docs": {},
           "b": {
@@ -25953,27 +26955,39 @@ window.lunrData = {
                     "docs": {
                       "module-components.PSVHUD.html#getMarker": {
                         "ref": "module-components.PSVHUD.html#getMarker",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       },
                       "PhotoSphereViewer.html#.DEFAULTS": {
                         "ref": "PhotoSphereViewer.html#.DEFAULTS",
                         "tf": 25
                       },
-                      "PhotoSphereViewer.html#.Error": {
-                        "ref": "PhotoSphereViewer.html#.Error",
-                        "tf": 33.33333333333333
-                      },
                       "PhotoSphereViewer.html#.Utils": {
                         "ref": "PhotoSphereViewer.html#.Utils",
-                        "tf": 33.33333333333333
+                        "tf": 25
                       },
                       "PhotoSphereViewer.html#config": {
                         "ref": "PhotoSphereViewer.html#config",
-                        "tf": 58.33333333333333
+                        "tf": 68.33333333333333
                       },
                       "PhotoSphereViewer.html#prop": {
                         "ref": "PhotoSphereViewer.html#prop",
                         "tf": 33.33333333333333
+                      },
+                      "PhotoSphereViewer.html#.ExtendedPosition": {
+                        "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                        "tf": 14
+                      },
+                      "PhotoSphereViewer.html#.Point": {
+                        "ref": "PhotoSphereViewer.html#.Point",
+                        "tf": 23.333333333333332
+                      },
+                      "PhotoSphereViewer.html#.Position": {
+                        "ref": "PhotoSphereViewer.html#.Position",
+                        "tf": 17.5
+                      },
+                      "PhotoSphereViewer.html#.Size": {
+                        "ref": "PhotoSphereViewer.html#.Size",
+                        "tf": 23.333333333333332
                       },
                       "PSVMarker.html": {
                         "ref": "PSVMarker.html",
@@ -25981,15 +26995,15 @@ window.lunrData = {
                       },
                       "PSVUtils.html#.clone": {
                         "ref": "PSVUtils.html#.clone",
-                        "tf": 50
+                        "tf": 60
                       },
                       "PSVUtils.html#.deepmerge": {
                         "ref": "PSVUtils.html#.deepmerge",
-                        "tf": 27.692307692307693
+                        "tf": 44
                       },
                       "PSVUtils.html#.isPlainObject": {
                         "ref": "PSVUtils.html#.isPlainObject",
-                        "tf": 11.11111111111111
+                        "tf": 46.53846153846154
                       },
                       "PSVUtils.html#.parsePosition": {
                         "ref": "PSVUtils.html#.parsePosition",
@@ -26050,7 +27064,7 @@ window.lunrData = {
                                       "docs": {
                                         "PSVUtils.html#.isPlainObject": {
                                           "ref": "PSVUtils.html#.isPlainObject",
-                                          "tf": 1.8518518518518516
+                                          "tf": 1.9230769230769231
                                         }
                                       }
                                     }
@@ -26067,58 +27081,15 @@ window.lunrData = {
               }
             }
           },
-          "n": {
-            "docs": {
-              "PSVUtils.html#.addClasses": {
-                "ref": "PSVUtils.html#.addClasses",
-                "tf": 8.333333333333332
-              },
-              "PSVUtils.html#.removeClasses": {
-                "ref": "PSVUtils.html#.removeClasses",
-                "tf": 8.333333333333332
-              }
-            },
-            "c": {
-              "docs": {
-                "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
-                  "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                  "tf": 6.25
-                },
-                "PhotoSphereViewer.html#once": {
-                  "ref": "PhotoSphereViewer.html#once",
-                  "tf": 683.3333333333334
-                },
-                "PSVUtils.html#.throttle": {
-                  "ref": "PSVUtils.html#.throttle",
-                  "tf": 5.555555555555555
-                }
-              }
-            },
-            "g": {
-              "docs": {},
-              "o": {
-                "docs": {
-                  "PhotoSphereViewer.html#setPanorama": {
-                    "ref": "PhotoSphereViewer.html#setPanorama",
-                    "tf": 3.3333333333333335
-                  },
-                  "PhotoSphereViewer.html#stopAnimation": {
-                    "ref": "PhotoSphereViewer.html#stopAnimation",
-                    "tf": 16.666666666666664
-                  }
-                }
-              }
-            }
-          },
           "p": {
             "docs": {},
             "e": {
               "docs": {},
               "n": {
                 "docs": {
-                  "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-                    "ref": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-                    "tf": 10
+                  "module-components.PSVHUD.html#showMarkersList": {
+                    "ref": "module-components.PSVHUD.html#showMarkersList",
+                    "tf": 14
                   }
                 }
               }
@@ -26133,11 +27104,15 @@ window.lunrData = {
                     "docs": {
                       "PhotoSphereViewer.html#.DEFAULTS": {
                         "ref": "PhotoSphereViewer.html#.DEFAULTS",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
+                      },
+                      "PhotoSphereViewer.html#setPanorama": {
+                        "ref": "PhotoSphereViewer.html#setPanorama",
+                        "tf": 2.1739130434782608
                       },
                       "PSVUtils.html#.animation": {
                         "ref": "PSVUtils.html#.animation",
-                        "tf": 31.25
+                        "tf": 36.666666666666664
                       }
                     }
                   }
@@ -26145,13 +27120,41 @@ window.lunrData = {
               }
             }
           },
-          "u": {
-            "docs": {},
-            "t": {
+          "n": {
+            "docs": {
+              "PSVUtils.html#.addClasses": {
+                "ref": "PSVUtils.html#.addClasses",
+                "tf": 11.666666666666666
+              },
+              "PSVUtils.html#.removeClasses": {
+                "ref": "PSVUtils.html#.removeClasses",
+                "tf": 11.666666666666666
+              }
+            },
+            "c": {
               "docs": {
-                "PhotoSphereViewer.html#zoomOut": {
-                  "ref": "PhotoSphereViewer.html#zoomOut",
-                  "tf": 25
+                "PhotoSphereViewer.html#once": {
+                  "ref": "PhotoSphereViewer.html#once",
+                  "tf": 686.6666666666666
+                },
+                "PSVUtils.html#.throttle": {
+                  "ref": "PSVUtils.html#.throttle",
+                  "tf": 7.777777777777778
+                }
+              }
+            },
+            "g": {
+              "docs": {},
+              "o": {
+                "docs": {
+                  "PhotoSphereViewer.html#setPanorama": {
+                    "ref": "PhotoSphereViewer.html#setPanorama",
+                    "tf": 2.1739130434782608
+                  },
+                  "PhotoSphereViewer.html#stopAnimation": {
+                    "ref": "PhotoSphereViewer.html#stopAnimation",
+                    "tf": 23.333333333333332
+                  }
                 }
               }
             }
@@ -26168,7 +27171,7 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.getShortestArc": {
                         "ref": "PSVUtils.html#.getShortestArc",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -26183,33 +27186,25 @@ window.lunrData = {
             "docs": {},
             "t": {
               "docs": {
-                "module-components.PSVHUD.html#getCurrentMarker": {
-                  "ref": "module-components.PSVHUD.html#getCurrentMarker",
-                  "tf": 12.5
-                },
-                "module-components.PSVHUD.html#getMarker": {
-                  "ref": "module-components.PSVHUD.html#getMarker",
-                  "tf": 8.333333333333332
-                },
                 "PSVUtils.html#.fullscreenEvent": {
                   "ref": "PSVUtils.html#.fullscreenEvent",
-                  "tf": 10
+                  "tf": 17.5
                 },
                 "PSVUtils.html#.getClosest": {
                   "ref": "PSVUtils.html#.getClosest",
-                  "tf": 12.5
+                  "tf": 17.5
                 },
                 "PSVUtils.html#.getMaxTextureWidth": {
                   "ref": "PSVUtils.html#.getMaxTextureWidth",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
                 },
                 "PSVUtils.html#.getStyle": {
                   "ref": "PSVUtils.html#.getStyle",
-                  "tf": 16.666666666666664
+                  "tf": 23.333333333333332
                 },
                 "PSVUtils.html#.mouseWheelEvent": {
                   "ref": "PSVUtils.html#.mouseWheelEvent",
-                  "tf": 10
+                  "tf": 14
                 }
               },
               "c": {
@@ -26601,14 +27596,6 @@ window.lunrData = {
           },
           "o": {
             "docs": {},
-            "e": {
-              "docs": {
-                "module-components.PSVHUD.html#gotoMarker": {
-                  "ref": "module-components.PSVHUD.html#gotoMarker",
-                  "tf": 16.666666666666664
-                }
-              }
-            },
             "t": {
               "docs": {},
               "o": {
@@ -26651,25 +27638,21 @@ window.lunrData = {
                             "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html",
                             "tf": 10
                           },
-                          "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
-                            "ref": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
-                            "tf": 6.25
-                          },
                           "PhotoSphereViewer.html#isGyroscopeEnabled": {
                             "ref": "PhotoSphereViewer.html#isGyroscopeEnabled",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           },
                           "PhotoSphereViewer.html#startGyroscopeControl": {
                             "ref": "PhotoSphereViewer.html#startGyroscopeControl",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           },
                           "PhotoSphereViewer.html#stopGyroscopeControl": {
                             "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
-                            "tf": 16.666666666666664
+                            "tf": 23.333333333333332
                           },
                           "PhotoSphereViewer.html#toggleGyroscopeControl": {
                             "ref": "PhotoSphereViewer.html#toggleGyroscopeControl",
-                            "tf": 16.666666666666664
+                            "tf": 17.5
                           }
                         }
                       }
@@ -26689,15 +27672,15 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.bound": {
                       "ref": "PSVUtils.html#.bound",
-                      "tf": 12.5
+                      "tf": 17.5
                     },
                     "PSVUtils.html#.getXMPValue": {
                       "ref": "PSVUtils.html#.getXMPValue",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.throttle": {
                       "ref": "PSVUtils.html#.throttle",
-                      "tf": 5.555555555555555
+                      "tf": 7.777777777777778
                     }
                   }
                 }
@@ -26717,31 +27700,19 @@ window.lunrData = {
                   "docs": {
                     "module-components.PSVHUD.html#toggleMarker": {
                       "ref": "module-components.PSVHUD.html#toggleMarker",
-                      "tf": 25
+                      "tf": 35
+                    },
+                    "module-components.PSVHUD.html#toggleMarkersList": {
+                      "ref": "module-components.PSVHUD.html#toggleMarkersList",
+                      "tf": 17.5
                     },
                     "module-components.PSVNavBar.html#toggleNavbar": {
                       "ref": "module-components.PSVNavBar.html#toggleNavbar",
-                      "tf": 25
-                    },
-                    "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                      "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-                      "tf": 12.5
-                    },
-                    "PhotoSphereViewer.html#toggleAutorotate": {
-                      "ref": "PhotoSphereViewer.html#toggleAutorotate",
-                      "tf": 16.666666666666664
-                    },
-                    "PhotoSphereViewer.html#toggleFullscreen": {
-                      "ref": "PhotoSphereViewer.html#toggleFullscreen",
-                      "tf": 25
-                    },
-                    "PhotoSphereViewer.html#toggleGyroscopeControl": {
-                      "ref": "PhotoSphereViewer.html#toggleGyroscopeControl",
-                      "tf": 16.666666666666664
+                      "tf": 35
                     },
                     "PSVUtils.html#.toggleClass": {
                       "ref": "PSVUtils.html#.toggleClass",
-                      "tf": 16.666666666666664
+                      "tf": 23.333333333333332
                     }
                   },
                   "e": {
@@ -26773,8 +27744,8 @@ window.lunrData = {
                                         "docs": {},
                                         "t": {
                                           "docs": {
-                                            "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-                                              "ref": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
+                                            "module-components.PSVHUD.html#toggleMarkersList": {
+                                              "ref": "module-components.PSVHUD.html#toggleMarkersList",
                                               "tf": 700
                                             }
                                           }
@@ -26977,7 +27948,7 @@ window.lunrData = {
                               "docs": {
                                 "PSVUtils.html#.toggleClass": {
                                   "ref": "PSVUtils.html#.toggleClass",
-                                  "tf": 666.6666666666666
+                                  "tf": 670
                                 }
                               }
                             }
@@ -27003,25 +27974,17 @@ window.lunrData = {
                           "ref": "module-components.PSVTooltip.html",
                           "tf": 25
                         },
-                        "module-components.PSVTooltip.html#create": {
-                          "ref": "module-components.PSVTooltip.html#create",
-                          "tf": 25
-                        },
-                        "module-components.PSVTooltip.html#destroy": {
-                          "ref": "module-components.PSVTooltip.html#destroy",
-                          "tf": 25
-                        },
                         "module-components.PSVTooltip.html#hideTooltip": {
                           "ref": "module-components.PSVTooltip.html#hideTooltip",
-                          "tf": 25
+                          "tf": 35
                         },
                         "module-components.PSVTooltip.html#isTooltipVisible": {
                           "ref": "module-components.PSVTooltip.html#isTooltipVisible",
-                          "tf": 16.666666666666664
+                          "tf": 23.333333333333332
                         },
                         "module-components.PSVTooltip.html#showTooltip": {
                           "ref": "module-components.PSVTooltip.html#showTooltip",
-                          "tf": 25
+                          "tf": 23.333333333333332
                         },
                         "PhotoSphereViewer.html#tooltip": {
                           "ref": "PhotoSphereViewer.html#tooltip",
@@ -27037,11 +28000,89 @@ window.lunrData = {
               "docs": {
                 "PhotoSphereViewer.html#parent": {
                   "ref": "PhotoSphereViewer.html#parent",
-                  "tf": 25
+                  "tf": 35
                 },
                 "PSVUtils.html#.parsePosition": {
                   "ref": "PSVUtils.html#.parsePosition",
-                  "tf": 2.631578947368421
+                  "tf": 7
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "l": {
+                  "docs": {
+                    "PhotoSphereViewer.html#destroy": {
+                      "ref": "PhotoSphereViewer.html#destroy",
+                      "tf": 5.555555555555555
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "y": {
+            "docs": {},
+            "p": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "module-components.PSVHUD.html#updateMarker": {
+                    "ref": "module-components.PSVHUD.html#updateMarker",
+                    "tf": 6.25
+                  },
+                  "PSVMarker.html#.type": {
+                    "ref": "PSVMarker.html#.type",
+                    "tf": 675
+                  },
+                  "PSVMarker.html#.types": {
+                    "ref": "PSVMarker.html#.types",
+                    "tf": 710
+                  },
+                  "PSVMarker.html#.getType": {
+                    "ref": "PSVMarker.html#.getType",
+                    "tf": 14
+                  }
+                },
+                "d": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "f": {
+                      "docs": {
+                        "PhotoSphereViewer.html#.CacheItem": {
+                          "ref": "PhotoSphereViewer.html#.CacheItem",
+                          "tf": 110
+                        },
+                        "PhotoSphereViewer.html#.ClickData": {
+                          "ref": "PhotoSphereViewer.html#.ClickData",
+                          "tf": 110
+                        },
+                        "PhotoSphereViewer.html#.ExtendedPosition": {
+                          "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                          "tf": 110
+                        },
+                        "PhotoSphereViewer.html#.PanoData": {
+                          "ref": "PhotoSphereViewer.html#.PanoData",
+                          "tf": 110
+                        },
+                        "PhotoSphereViewer.html#.Point": {
+                          "ref": "PhotoSphereViewer.html#.Point",
+                          "tf": 110
+                        },
+                        "PhotoSphereViewer.html#.Position": {
+                          "ref": "PhotoSphereViewer.html#.Position",
+                          "tf": 110
+                        },
+                        "PhotoSphereViewer.html#.Size": {
+                          "ref": "PhotoSphereViewer.html#.Size",
+                          "tf": 110
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -27060,7 +28101,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#.TEMPLATES": {
                           "ref": "PhotoSphereViewer.html#.TEMPLATES",
-                          "tf": 695
+                          "tf": 705
                         }
                       }
                     }
@@ -27078,19 +28119,23 @@ window.lunrData = {
                     "docs": {
                       "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                         "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
-                        "tf": 7.142857142857142
+                        "tf": 10
                       },
                       "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
                         "ref": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
-                        "tf": 7.142857142857142
+                        "tf": 10
                       },
                       "PhotoSphereViewer.html#.ExtendedPosition": {
                         "ref": "PhotoSphereViewer.html#.ExtendedPosition",
-                        "tf": 5.555555555555555
+                        "tf": 19.555555555555557
+                      },
+                      "PSVUtils.html#.cleanTHREEScene": {
+                        "ref": "PSVUtils.html#.cleanTHREEScene",
+                        "tf": 11.666666666666666
                       },
                       "PSVUtils.html#.getMaxTextureWidth": {
                         "ref": "PSVUtils.html#.getMaxTextureWidth",
-                        "tf": 8.333333333333332
+                        "tf": 11.666666666666666
                       }
                     },
                     "e": {
@@ -27177,7 +28222,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.isPlainObject": {
                     "ref": "PSVUtils.html#.isPlainObject",
-                    "tf": 3.7037037037037033
+                    "tf": 21.346153846153847
                   }
                 }
               }
@@ -27189,7 +28234,7 @@ window.lunrData = {
               "docs": {
                 "PSVUtils.html#.getWebGLCtx": {
                   "ref": "PSVUtils.html#.getWebGLCtx",
-                  "tf": 10
+                  "tf": 14
                 }
               },
               "g": {
@@ -27202,15 +28247,15 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#change": {
                           "ref": "PhotoSphereViewer.html#change",
-                          "tf": 8.333333333333332
+                          "tf": 11.666666666666666
                         },
                         "PhotoSphereViewer.html#trigger": {
                           "ref": "PhotoSphereViewer.html#trigger",
-                          "tf": 691.6666666666666
+                          "tf": 698.3333333333334
                         },
                         "PSVUtils.html#.throttle": {
                           "ref": "PSVUtils.html#.throttle",
-                          "tf": 5.555555555555555
+                          "tf": 7.777777777777778
                         }
                       }
                     }
@@ -27230,7 +28275,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#setPanorama": {
                           "ref": "PhotoSphereViewer.html#setPanorama",
-                          "tf": 20
+                          "tf": 22.17391304347826
                         }
                       }
                     }
@@ -27243,43 +28288,9 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.parsePosition": {
                             "ref": "PSVUtils.html#.parsePosition",
-                            "tf": 2.631578947368421
+                            "tf": 7
                           }
                         }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "k": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "n": {
-                  "docs": {
-                    "PhotoSphereViewer.html#setPanorama": {
-                      "ref": "PhotoSphereViewer.html#setPanorama",
-                      "tf": 3.3333333333333335
-                    }
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "g": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "PSVUtils.html#.deepmerge": {
-                        "ref": "PSVUtils.html#.deepmerge",
-                        "tf": 23.846153846153847
                       }
                     }
                   }
@@ -27295,6 +28306,14 @@ window.lunrData = {
                 "docs": {},
                 "e": {
                   "docs": {},
+                  "j": {
+                    "docs": {
+                      "PhotoSphereViewer.html#destroy": {
+                        "ref": "PhotoSphereViewer.html#destroy",
+                        "tf": 5.555555555555555
+                      }
+                    }
+                  },
                   ".": {
                     "docs": {},
                     "v": {
@@ -27312,19 +28331,19 @@ window.lunrData = {
                                   "docs": {
                                     "PhotoSphereViewer.html#sphericalCoordsToVector3": {
                                       "ref": "PhotoSphereViewer.html#sphericalCoordsToVector3",
-                                      "tf": 43.33333333333333
+                                      "tf": 47.33333333333333
                                     },
                                     "PhotoSphereViewer.html#vector3ToSphericalCoords": {
                                       "ref": "PhotoSphereViewer.html#vector3ToSphericalCoords",
-                                      "tf": 10
+                                      "tf": 14
                                     },
                                     "PhotoSphereViewer.html#vector3ToViewerCoords": {
                                       "ref": "PhotoSphereViewer.html#vector3ToViewerCoords",
-                                      "tf": 12.5
+                                      "tf": 17.5
                                     },
                                     "PhotoSphereViewer.html#viewerCoordsToVector3": {
                                       "ref": "PhotoSphereViewer.html#viewerCoordsToVector3",
-                                      "tf": 45.83333333333333
+                                      "tf": 50.83333333333333
                                     }
                                   }
                                 },
@@ -27339,7 +28358,11 @@ window.lunrData = {
                       "docs": {
                         "PSVUtils.html#.checkTHREE": {
                           "ref": "PSVUtils.html#.checkTHREE",
-                          "tf": 12.5
+                          "tf": 17.5
+                        },
+                        "PSVUtils.html#.cleanTHREEScene": {
+                          "ref": "PSVUtils.html#.cleanTHREEScene",
+                          "tf": 11.666666666666666
                         }
                       }
                     }
@@ -27365,59 +28388,33 @@ window.lunrData = {
               }
             }
           },
-          "y": {
+          "a": {
             "docs": {},
-            "p": {
+            "k": {
               "docs": {},
               "e": {
-                "docs": {
-                  "PSVMarker.html#.type": {
-                    "ref": "PSVMarker.html#.type",
-                    "tf": 675
-                  },
-                  "PSVMarker.html#.types": {
-                    "ref": "PSVMarker.html#.types",
-                    "tf": 700
-                  },
-                  "PSVMarker.html#.getType": {
-                    "ref": "PSVMarker.html#.getType",
-                    "tf": 10
+                "docs": {},
+                "n": {
+                  "docs": {
+                    "PhotoSphereViewer.html#setPanorama": {
+                      "ref": "PhotoSphereViewer.html#setPanorama",
+                      "tf": 2.1739130434782608
+                    }
                   }
-                },
-                "d": {
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "g": {
+                "docs": {},
+                "e": {
                   "docs": {},
-                  "e": {
-                    "docs": {},
-                    "f": {
-                      "docs": {
-                        "PhotoSphereViewer.html#.CacheItem": {
-                          "ref": "PhotoSphereViewer.html#.CacheItem",
-                          "tf": 110
-                        },
-                        "PhotoSphereViewer.html#.ClickData": {
-                          "ref": "PhotoSphereViewer.html#.ClickData",
-                          "tf": 110
-                        },
-                        "PhotoSphereViewer.html#.ExtendedPosition": {
-                          "ref": "PhotoSphereViewer.html#.ExtendedPosition",
-                          "tf": 110
-                        },
-                        "PhotoSphereViewer.html#.PanoData": {
-                          "ref": "PhotoSphereViewer.html#.PanoData",
-                          "tf": 110
-                        },
-                        "PhotoSphereViewer.html#.Point": {
-                          "ref": "PhotoSphereViewer.html#.Point",
-                          "tf": 110
-                        },
-                        "PhotoSphereViewer.html#.Position": {
-                          "ref": "PhotoSphereViewer.html#.Position",
-                          "tf": 110
-                        },
-                        "PhotoSphereViewer.html#.Size": {
-                          "ref": "PhotoSphereViewer.html#.Size",
-                          "tf": 110
-                        }
+                  "t": {
+                    "docs": {
+                      "PSVUtils.html#.deepmerge": {
+                        "ref": "PSVUtils.html#.deepmerge",
+                        "tf": 30
                       }
                     }
                   }
@@ -27431,11 +28428,11 @@ window.lunrData = {
               "docs": {
                 "PSVUtils.html#.deepmerge": {
                   "ref": "PSVUtils.html#.deepmerge",
-                  "tf": 3.8461538461538463
+                  "tf": 14
                 },
                 "PSVUtils.html#.getShortestArc": {
                   "ref": "PSVUtils.html#.getShortestArc",
-                  "tf": 8.333333333333332
+                  "tf": 11.666666666666666
                 }
               },
               "p": {
@@ -27459,251 +28456,7 @@ window.lunrData = {
                 "docs": {
                   "PSVUtils.html#.throttle": {
                     "ref": "PSVUtils.html#.throttle",
-                    "tf": 5.555555555555555
-                  }
-                }
-              }
-            }
-          }
-        },
-        "u": {
-          "docs": {},
-          "p": {
-            "docs": {},
-            "d": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "module-components.PSVHUD.html#updateMarker": {
-                      "ref": "module-components.PSVHUD.html#updateMarker",
-                      "tf": 25
-                    },
-                    "module-components.PSVHUD.html#updatePositions": {
-                      "ref": "module-components.PSVHUD.html#updatePositions",
-                      "tf": 12.5
-                    },
-                    "PSVMarker.html#update": {
-                      "ref": "PSVMarker.html#update",
-                      "tf": 712.5
-                    }
-                  },
-                  "e": {
-                    "docs": {},
-                    "m": {
-                      "docs": {},
-                      "a": {
-                        "docs": {},
-                        "r": {
-                          "docs": {},
-                          "k": {
-                            "docs": {
-                              "module-components.PSVHUD.html#updateMarker": {
-                                "ref": "module-components.PSVHUD.html#updateMarker",
-                                "tf": 625
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "p": {
-                      "docs": {},
-                      "o": {
-                        "docs": {},
-                        "s": {
-                          "docs": {},
-                          "i": {
-                            "docs": {},
-                            "t": {
-                              "docs": {
-                                "module-components.PSVHUD.html#updatePositions": {
-                                  "ref": "module-components.PSVHUD.html#updatePositions",
-                                  "tf": 700
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "d": {
-                      "docs": {},
-                      "i": {
-                        "docs": {},
-                        "r": {
-                          "docs": {},
-                          "e": {
-                            "docs": {},
-                            "c": {
-                              "docs": {},
-                              "t": {
-                                "docs": {
-                                  "PhotoSphereViewer.html#render": {
-                                    "ref": "PhotoSphereViewer.html#render",
-                                    "tf": 50
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "n": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "q": {
-                "docs": {},
-                "u": {
-                  "docs": {
-                    "module-components_buttons.PSVNavBarButton.html#.id": {
-                      "ref": "module-components_buttons.PSVNavBarButton.html#.id",
-                      "tf": 16.666666666666664
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "t": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "l": {
-                "docs": {
-                  "PhotoSphereViewer.html#.Utils": {
-                    "ref": "PhotoSphereViewer.html#.Utils",
-                    "tf": 683.3333333333334
-                  },
-                  "PSVUtils.html": {
-                    "ref": "PSVUtils.html",
-                    "tf": 16.666666666666664
-                  },
-                  "PSVUtils.html#.animation": {
-                    "ref": "PSVUtils.html#.animation",
-                    "tf": 6.25
-                  }
-                }
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "v": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "n": {
-                  "docs": {},
-                  "t": {
-                    "docs": {},
-                    ".": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "v": {
-                          "docs": {
-                            "PhotoSphereViewer.html#trigger": {
-                              "ref": "PhotoSphereViewer.html#trigger",
-                              "tf": 25
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "s": {
-            "docs": {
-              "PSVError.html": {
-                "ref": "PSVError.html",
-                "tf": 12.5
-              }
-            },
-            "/": {
-              "docs": {},
-              "d": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "c": {
-                    "docs": {},
-                    "s": {
-                      "docs": {},
-                      "/": {
-                        "docs": {},
-                        "w": {
-                          "docs": {},
-                          "e": {
-                            "docs": {},
-                            "b": {
-                              "docs": {},
-                              "/": {
-                                "docs": {},
-                                "c": {
-                                  "docs": {},
-                                  "s": {
-                                    "docs": {},
-                                    "s": {
-                                      "docs": {},
-                                      "/": {
-                                        "docs": {},
-                                        "b": {
-                                          "docs": {},
-                                          "a": {
-                                            "docs": {},
-                                            "c": {
-                                              "docs": {},
-                                              "k": {
-                                                "docs": {},
-                                                "g": {
-                                                  "docs": {},
-                                                  "r": {
-                                                    "docs": {},
-                                                    "o": {
-                                                      "docs": {},
-                                                      "u": {
-                                                        "docs": {},
-                                                        "n": {
-                                                          "docs": {},
-                                                          "d": {
-                                                            "docs": {
-                                                              "PSVUtils.html#.parsePosition": {
-                                                                "ref": "PSVUtils.html#.parsePosition",
-                                                                "tf": 2.631578947368421
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
+                    "tf": 7.777777777777778
                   }
                 }
               }
@@ -27739,15 +28492,15 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.getMaxTextureWidth": {
                       "ref": "PSVUtils.html#.getMaxTextureWidth",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     },
                     "PSVUtils.html#.getWebGLCtx": {
                       "ref": "PSVUtils.html#.getWebGLCtx",
-                      "tf": 10
+                      "tf": 14
                     },
                     "PSVUtils.html#.isWebGLSupported": {
                       "ref": "PSVUtils.html#.isWebGLSupported",
-                      "tf": 12.5
+                      "tf": 23.333333333333332
                     }
                   },
                   "r": {
@@ -27821,7 +28574,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#preloadPanorama": {
                           "ref": "PhotoSphereViewer.html#preloadPanorama",
-                          "tf": 10
+                          "tf": 14
                         }
                       }
                     }
@@ -27837,7 +28590,7 @@ window.lunrData = {
                   "docs": {
                     "PSVUtils.html#.getMaxTextureWidth": {
                       "ref": "PSVUtils.html#.getMaxTextureWidth",
-                      "tf": 8.333333333333332
+                      "tf": 11.666666666666666
                     }
                   }
                 }
@@ -27853,7 +28606,7 @@ window.lunrData = {
                     "docs": {
                       "PSVUtils.html#.throttle": {
                         "ref": "PSVUtils.html#.throttle",
-                        "tf": 5.555555555555555
+                        "tf": 7.777777777777778
                       }
                     }
                   }
@@ -27865,38 +28618,13 @@ window.lunrData = {
             "docs": {},
             "e": {
               "docs": {},
-              "t": {
-                "docs": {},
-                "h": {
-                  "docs": {},
-                  "e": {
-                    "docs": {},
-                    "r": {
-                      "docs": {
-                        "PSVUtils.html#.isCanvasSupported": {
-                          "ref": "PSVUtils.html#.isCanvasSupported",
-                          "tf": 12.5
-                        },
-                        "PSVUtils.html#.isFullscreenEnabled": {
-                          "ref": "PSVUtils.html#.isFullscreenEnabled",
-                          "tf": 12.5
-                        },
-                        "PSVUtils.html#.isWebGLSupported": {
-                          "ref": "PSVUtils.html#.isWebGLSupported",
-                          "tf": 12.5
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "e": {
                 "docs": {},
                 "l": {
                   "docs": {
                     "PSVUtils.html#.mouseWheelEvent": {
                       "ref": "PSVUtils.html#.mouseWheelEvent",
-                      "tf": 10
+                      "tf": 14
                     }
                   }
                 }
@@ -27932,19 +28660,19 @@ window.lunrData = {
                   },
                   "PhotoSphereViewer.html#getZoomLevel": {
                     "ref": "PhotoSphereViewer.html#getZoomLevel",
-                    "tf": 12.5
+                    "tf": 17.5
                   },
                   "PhotoSphereViewer.html#zoom": {
                     "ref": "PhotoSphereViewer.html#zoom",
-                    "tf": 733.3333333333334
+                    "tf": 695
                   },
                   "PhotoSphereViewer.html#zoomIn": {
                     "ref": "PhotoSphereViewer.html#zoomIn",
-                    "tf": 50
+                    "tf": 17.5
                   },
                   "PhotoSphereViewer.html#zoomOut": {
                     "ref": "PhotoSphereViewer.html#zoomOut",
-                    "tf": 25
+                    "tf": 17.5
                   }
                 },
                 "i": {
@@ -27990,137 +28718,13 @@ window.lunrData = {
                       "docs": {
                         "PSVUtils.html#.parsePosition": {
                           "ref": "PSVUtils.html#.parsePosition",
-                          "tf": 2.631578947368421
+                          "tf": 7
                         }
                       }
                     },
                     "docs": {}
                   },
                   "docs": {},
-                  "l": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "t": {
-                        "docs": {},
-                        "i": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "u": {
-                              "docs": {},
-                              "d": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "_": {
-                                    "docs": {},
-                                    "r": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "n": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {},
-                                            "e": {
-                                              "docs": {},
-                                              "&": {
-                                                "docs": {},
-                                                "q": {
-                                                  "docs": {},
-                                                  "u": {
-                                                    "docs": {},
-                                                    "o": {
-                                                      "docs": {},
-                                                      "t": {
-                                                        "docs": {
-                                                          "PhotoSphereViewer.html#applyRanges": {
-                                                            "ref": "PhotoSphereViewer.html#applyRanges",
-                                                            "tf": 16.666666666666664
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "o": {
-                      "docs": {},
-                      "n": {
-                        "docs": {},
-                        "g": {
-                          "docs": {},
-                          "i": {
-                            "docs": {},
-                            "t": {
-                              "docs": {},
-                              "u": {
-                                "docs": {},
-                                "d": {
-                                  "docs": {},
-                                  "e": {
-                                    "docs": {},
-                                    "_": {
-                                      "docs": {},
-                                      "r": {
-                                        "docs": {},
-                                        "a": {
-                                          "docs": {},
-                                          "n": {
-                                            "docs": {},
-                                            "g": {
-                                              "docs": {},
-                                              "e": {
-                                                "docs": {},
-                                                "&": {
-                                                  "docs": {},
-                                                  "q": {
-                                                    "docs": {},
-                                                    "u": {
-                                                      "docs": {},
-                                                      "o": {
-                                                        "docs": {},
-                                                        "t": {
-                                                          "docs": {
-                                                            "PhotoSphereViewer.html#applyRanges": {
-                                                              "ref": "PhotoSphereViewer.html#applyRanges",
-                                                              "tf": 16.666666666666664
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
                   "c": {
                     "docs": {},
                     "o": {
@@ -28167,7 +28771,7 @@ window.lunrData = {
                                                               "docs": {
                                                                 "PhotoSphereViewer.html#setPanorama": {
                                                                   "ref": "PhotoSphereViewer.html#setPanorama",
-                                                                  "tf": 3.3333333333333335
+                                                                  "tf": 2.1739130434782608
                                                                 }
                                                               }
                                                             }
@@ -28220,7 +28824,7 @@ window.lunrData = {
                                             "docs": {
                                               "PhotoSphereViewer.html#setPanorama": {
                                                 "ref": "PhotoSphereViewer.html#setPanorama",
-                                                "tf": 3.3333333333333335
+                                                "tf": 2.1739130434782608
                                               }
                                             }
                                           }
@@ -28268,7 +28872,7 @@ window.lunrData = {
                                                 "docs": {
                                                   "PhotoSphereViewer.html#setPanorama": {
                                                     "ref": "PhotoSphereViewer.html#setPanorama",
-                                                    "tf": 3.3333333333333335
+                                                    "tf": 2.1739130434782608
                                                   }
                                                 }
                                               }
@@ -28291,7 +28895,7 @@ window.lunrData = {
                         "docs": {
                           "PSVUtils.html#.parsePosition": {
                             "ref": "PSVUtils.html#.parsePosition",
-                            "tf": 2.631578947368421
+                            "tf": 7
                           }
                         }
                       }
@@ -28319,7 +28923,7 @@ window.lunrData = {
                                       "docs": {
                                         "PSVUtils.html#.parsePosition": {
                                           "ref": "PSVUtils.html#.parsePosition",
-                                          "tf": 2.631578947368421
+                                          "tf": 5.555555555555555
                                         }
                                       }
                                     }
@@ -28332,25 +28936,6 @@ window.lunrData = {
                       }
                     }
                   }
-                }
-              }
-            }
-          }
-        },
-        "x": {
-          "docs": {
-            "PSVUtils.html#.bound": {
-              "ref": "PSVUtils.html#.bound",
-              "tf": 16.666666666666664
-            }
-          },
-          "/": {
-            "docs": {},
-            "i": {
-              "docs": {
-                "PhotoSphereViewer.html#cleanPosition": {
-                  "ref": "PhotoSphereViewer.html#cleanPosition",
-                  "tf": 8.333333333333332
                 }
               }
             }
@@ -28374,11 +28959,11 @@ window.lunrData = {
                         "docs": {
                           "PhotoSphereViewer.html#startKeyboardControl": {
                             "ref": "PhotoSphereViewer.html#startKeyboardControl",
-                            "tf": 12.5
+                            "tf": 10
                           },
                           "PhotoSphereViewer.html#stopKeyboardControl": {
                             "ref": "PhotoSphereViewer.html#stopKeyboardControl",
-                            "tf": 12.5
+                            "tf": 10
                           }
                         }
                       }
@@ -28388,11 +28973,20 @@ window.lunrData = {
               }
             }
           }
+        },
+        "x": {
+          "docs": {
+            "PSVUtils.html#.bound": {
+              "ref": "PSVUtils.html#.bound",
+              "tf": 16.666666666666664
+            }
+          }
         }
       },
-      "length": 2236
+      "length": 2351
     },
     "corpusTokens": [
+      "1",
       "50%&quot",
       "account",
       "activ",
@@ -28405,8 +28999,6 @@ window.lunrData = {
       "angl",
       "anim",
       "api",
-      "appli",
-      "applyrang",
       "argument",
       "array",
       "array.&lt;module:components/buttons.psvnavbarbutton&gt",
@@ -28422,7 +29014,6 @@ window.lunrData = {
       "between",
       "boolean",
       "bound",
-      "boundari",
       "built",
       "button",
       "cach",
@@ -28430,18 +29021,21 @@ window.lunrData = {
       "call",
       "callback",
       "camera",
+      "can't",
       "canva",
       "caption",
       "center&quot",
       "chang",
       "check",
       "checkthre",
+      "children",
       "class",
       "classnam",
-      "cleanposit",
+      "cleanthreescen",
       "clear",
       "clearmark",
       "clearpanoramacach",
+      "click",
       "clickdata",
       "clone",
       "close",
@@ -28474,15 +29068,19 @@ window.lunrData = {
       "content",
       "context",
       "continu",
+      "control",
       "convert",
       "coordin",
       "creat",
       "creation",
+      "crop",
       "css",
       "current",
       "currentmark",
+      "cursor",
       "custom",
       "data",
+      "decreas",
       "deepmerg",
       "default",
       "defin",
@@ -28494,7 +29092,9 @@ window.lunrData = {
       "directli",
       "disabl",
       "display",
+      "dispos",
       "document",
+      "done",
       "dot.j",
       "download",
       "durat",
@@ -28502,6 +29102,7 @@ window.lunrData = {
       "e.g",
       "each",
       "eas",
+      "eg",
       "el",
       "element",
       "elt",
@@ -28509,16 +29110,20 @@ window.lunrData = {
       "ensur",
       "enter",
       "entir",
+      "entri",
       "enumer",
       "error",
       "event",
+      "exist",
       "exit",
       "exitfullscreen",
       "exot",
+      "expos",
       "express",
       "extendedposit",
-      "extern",
+      "face",
       "file",
+      "fix",
       "float",
       "fullscreen",
       "fullscreenev",
@@ -28540,7 +29145,6 @@ window.lunrData = {
       "getxmpvalu",
       "getzoomlevel",
       "given",
-      "goe",
       "gotomark",
       "gyroscop",
       "halfpi",
@@ -28569,13 +29173,13 @@ window.lunrData = {
       "imag",
       "implement",
       "includ",
+      "increas",
       "index",
+      "inform",
       "inherit",
       "inject",
-      "instead",
       "int",
       "integ",
-      "interact",
       "intern",
       "interpol",
       "interv",
@@ -28591,12 +29195,12 @@ window.lunrData = {
       "issvg",
       "istooltipvis",
       "iswebglsupport",
-      "it'",
       "item",
       "itself",
       "javascript",
       "keyboard",
-      "latitude/longitud",
+      "last",
+      "latitud",
       "left",
       "level",
       "lib",
@@ -28617,13 +29221,17 @@ window.lunrData = {
       "lt;static&gt",
       "main",
       "marker",
+      "markerid",
       "math",
       "max",
+      "max_fov",
       "member",
+      "memori",
       "merg",
       "metadata",
       "method",
       "min",
+      "min_fov",
       "mode",
       "modifi",
       "modul",
@@ -28639,7 +29247,6 @@ window.lunrData = {
       "module:components.psvcomponent.classnam",
       "module:components.psvcomponent.publicmethod",
       "module:components.psvhud",
-      "module:components.psvhud#$svg",
       "module:components.psvhud#addmark",
       "module:components.psvhud#clearmark",
       "module:components.psvhud#contain",
@@ -28651,16 +29258,20 @@ window.lunrData = {
       "module:components.psvhud#gotomark",
       "module:components.psvhud#hid",
       "module:components.psvhud#hidemark",
+      "module:components.psvhud#hidemarkerslist",
       "module:components.psvhud#hoveringmark",
       "module:components.psvhud#mark",
       "module:components.psvhud#par",
       "module:components.psvhud#psv",
       "module:components.psvhud#removemark",
+      "module:components.psvhud#rendermark",
       "module:components.psvhud#show",
       "module:components.psvhud#showmark",
+      "module:components.psvhud#showmarkerslist",
+      "module:components.psvhud#svgcontain",
       "module:components.psvhud#togglemark",
+      "module:components.psvhud#togglemarkerslist",
       "module:components.psvhud#updatemark",
-      "module:components.psvhud#updateposit",
       "module:components.psvload",
       "module:components.psvloader#contain",
       "module:components.psvloader#cr",
@@ -28702,7 +29313,6 @@ window.lunrData = {
       "module:components.psvnavbarspacer#show",
       "module:components.psvnavbarspacer#weight",
       "module:components.psvpanel",
-      "module:components.psvpanel#cont",
       "module:components.psvpanel#contain",
       "module:components.psvpanel#cr",
       "module:components.psvpanel#destroy",
@@ -28806,14 +29416,11 @@ window.lunrData = {
       "module:components/buttons.psvnavbarmarkersbutton#dis",
       "module:components/buttons.psvnavbarmarkersbutton#en",
       "module:components/buttons.psvnavbarmarkersbutton#hid",
-      "module:components/buttons.psvnavbarmarkersbutton#hidemarkerslist",
       "module:components/buttons.psvnavbarmarkersbutton#id",
       "module:components/buttons.psvnavbarmarkersbutton#par",
       "module:components/buttons.psvnavbarmarkersbutton#psv",
       "module:components/buttons.psvnavbarmarkersbutton#show",
-      "module:components/buttons.psvnavbarmarkersbutton#showmarkerslist",
       "module:components/buttons.psvnavbarmarkersbutton#toggleact",
-      "module:components/buttons.psvnavbarmarkersbutton#togglemarkerslist",
       "module:components/buttons.psvnavbarzoombutton",
       "module:components/buttons.psvnavbarzoombutton#contain",
       "module:components/buttons.psvnavbarzoombutton#cr",
@@ -28848,7 +29455,6 @@ window.lunrData = {
       "ongo",
       "open",
       "option",
-      "out",
       "panel",
       "panodata",
       "panorama",
@@ -28864,9 +29470,7 @@ window.lunrData = {
       "photo",
       "photosphereview",
       "photosphereviewer#anim",
-      "photosphereviewer#applyrang",
       "photosphereviewer#chang",
-      "photosphereviewer#cleanposit",
       "photosphereviewer#clearpanoramacach",
       "photosphereviewer#config",
       "photosphereviewer#contain",
@@ -28896,7 +29500,6 @@ window.lunrData = {
       "photosphereviewer#startautorot",
       "photosphereviewer#startgyroscopecontrol",
       "photosphereviewer#startkeyboardcontrol",
-      "photosphereviewer#stopal",
       "photosphereviewer#stopanim",
       "photosphereviewer#stopautorot",
       "photosphereviewer#stopgyroscopecontrol",
@@ -28937,7 +29540,6 @@ window.lunrData = {
       "possibl",
       "preload",
       "preloadpanorama",
-      "present",
       "progress",
       "promis",
       "prop",
@@ -28955,7 +29557,6 @@ window.lunrData = {
       "psvcomponent.publicmethod",
       "psverror",
       "psvhud",
-      "psvhud#$svg",
       "psvhud#addmark",
       "psvhud#clearmark",
       "psvhud#contain",
@@ -28967,16 +29568,20 @@ window.lunrData = {
       "psvhud#gotomark",
       "psvhud#hid",
       "psvhud#hidemark",
+      "psvhud#hidemarkerslist",
       "psvhud#hoveringmark",
       "psvhud#mark",
       "psvhud#par",
       "psvhud#psv",
       "psvhud#removemark",
+      "psvhud#rendermark",
       "psvhud#show",
       "psvhud#showmark",
+      "psvhud#showmarkerslist",
+      "psvhud#svgcontain",
       "psvhud#togglemark",
+      "psvhud#togglemarkerslist",
       "psvhud#updatemark",
-      "psvhud#updateposit",
       "psvloader",
       "psvloader#contain",
       "psvloader#cr",
@@ -29103,14 +29708,11 @@ window.lunrData = {
       "psvnavbarmarkersbutton#dis",
       "psvnavbarmarkersbutton#en",
       "psvnavbarmarkersbutton#hid",
-      "psvnavbarmarkersbutton#hidemarkerslist",
       "psvnavbarmarkersbutton#id",
       "psvnavbarmarkersbutton#par",
       "psvnavbarmarkersbutton#psv",
       "psvnavbarmarkersbutton#show",
-      "psvnavbarmarkersbutton#showmarkerslist",
       "psvnavbarmarkersbutton#toggleact",
-      "psvnavbarmarkersbutton#togglemarkerslist",
       "psvnavbarspac",
       "psvnavbarspacer#contain",
       "psvnavbarspacer#cr",
@@ -29133,7 +29735,6 @@ window.lunrData = {
       "psvnavbarzoombutton#show",
       "psvnavbarzoombutton#toggleact",
       "psvpanel",
-      "psvpanel#cont",
       "psvpanel#contain",
       "psvpanel#cr",
       "psvpanel#destroy",
@@ -29159,6 +29760,7 @@ window.lunrData = {
       "psvutils.anim",
       "psvutils.bound",
       "psvutils.checkthre",
+      "psvutils.cleanthreescen",
       "psvutils.clon",
       "psvutils.deepmerg",
       "psvutils.exitfullscreen",
@@ -29182,6 +29784,7 @@ window.lunrData = {
       "psvutils.parsespe",
       "psvutils.removeclass",
       "psvutils.requestfullscreen",
+      "psvutils.sum",
       "psvutils.svgn",
       "psvutils.throttl",
       "psvutils.toggleclass",
@@ -29190,26 +29793,27 @@ window.lunrData = {
       "quot;10",
       "quot;background",
       "quot;config.transition&quot",
-      "quot;latitude_range&quot",
-      "quot;longitude_range&quot",
       "quot;position&quot",
       "quot;top",
       "quot;transition&quot",
       "radian",
-      "readi",
       "readm",
       "readonly&gt",
       "refer",
+      "regist",
       "remov",
       "removeclass",
       "removemark",
       "render",
+      "rendermark",
       "replac",
       "repres",
       "requestfullscreen",
       "retriev",
       "return",
       "rotat",
+      "same",
+      "scene",
       "search",
       "see",
       "select",
@@ -29229,6 +29833,8 @@ window.lunrData = {
       "showtooltip",
       "side",
       "size",
+      "smooth",
+      "soon",
       "sourc",
       "spacer",
       "specif",
@@ -29245,7 +29851,6 @@ window.lunrData = {
       "state",
       "static",
       "stop",
-      "stopal",
       "stopanim",
       "stopautorot",
       "stopgyroscopecontrol",
@@ -29254,8 +29859,10 @@ window.lunrData = {
       "string&gt",
       "style",
       "sub",
+      "sum",
       "support",
       "svg",
+      "svgcontain",
       "svgelement",
       "svgn",
       "taken",
@@ -29266,6 +29873,7 @@ window.lunrData = {
       "texturecoordstosphericalcoord",
       "three.j",
       "three.vector3",
+      "threej",
       "throttl",
       "time",
       "toggl",
@@ -29279,6 +29887,7 @@ window.lunrData = {
       "togglenavbar",
       "tooltip",
       "top",
+      "total",
       "transit",
       "translat",
       "tri",
@@ -29288,18 +29897,20 @@ window.lunrData = {
       "type",
       "typedef",
       "uevent.ev",
+      "under",
       "uniqu",
       "updat",
       "updatedirect",
       "updatemark",
-      "updateposit",
       "us",
       "us/docs/web/css/background",
+      "user",
       "util",
       "valu",
       "vector",
       "vector3tosphericalcoord",
       "vector3toviewercoord",
+      "view",
       "viewer",
       "viewer.js.org/#opt",
       "viewercoordstovector3",
@@ -29310,12 +29921,10 @@ window.lunrData = {
       "webglrenderingcontext",
       "weight",
       "wheel",
-      "whether",
       "width",
       "window",
       "without",
       "x",
-      "x/i",
       "zoom",
       "zoomin",
       "zoomout"
@@ -29400,8 +30009,8 @@ window.lunrData = {
       "longname": "module:components.PSVComponent.className",
       "name": "className",
       "tags": "module:components.PSVComponent.className PSVComponent.className className",
-      "summary": "",
-      "description": "CSS class added to the component's container"
+      "summary": "CSS class added to the component's container",
+      "description": ""
     },
     "module-components.PSVComponent.html#.publicMethods": {
       "id": "module-components.PSVComponent.html#.publicMethods",
@@ -29410,13 +30019,13 @@ window.lunrData = {
       "longname": "module:components.PSVComponent.publicMethods",
       "name": "publicMethods",
       "tags": "module:components.PSVComponent.publicMethods PSVComponent.publicMethods publicMethods",
-      "summary": "",
-      "description": "List of component's methods which are bound the the main viewer"
+      "summary": "List of component's methods which are bound the the main viewer",
+      "description": ""
     },
     "module-components.PSVComponent.html#container": {
       "id": "module-components.PSVComponent.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVComponent#container",
       "name": "container",
       "tags": "module:components.PSVComponent#container PSVComponent#container container",
@@ -29426,7 +30035,7 @@ window.lunrData = {
     "module-components.PSVComponent.html#parent": {
       "id": "module-components.PSVComponent.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVComponent#parent",
       "name": "parent",
       "tags": "module:components.PSVComponent#parent PSVComponent#parent parent",
@@ -29436,7 +30045,7 @@ window.lunrData = {
     "module-components.PSVComponent.html#psv": {
       "id": "module-components.PSVComponent.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVComponent#psv",
       "name": "psv",
       "tags": "module:components.PSVComponent#psv PSVComponent#psv psv",
@@ -29446,42 +30055,42 @@ window.lunrData = {
     "module-components.PSVComponent.html#create": {
       "id": "module-components.PSVComponent.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVComponent#create",
       "name": "create",
       "tags": "module:components.PSVComponent#create PSVComponent#create create",
-      "summary": "",
-      "description": "Creates the component"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVComponent.html#destroy": {
       "id": "module-components.PSVComponent.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVComponent#destroy",
       "name": "destroy",
       "tags": "module:components.PSVComponent#destroy PSVComponent#destroy destroy",
-      "summary": "",
-      "description": "Destroys the component"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVComponent.html#hide": {
       "id": "module-components.PSVComponent.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVComponent#hide",
       "name": "hide",
       "tags": "module:components.PSVComponent#hide PSVComponent#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVComponent.html#show": {
       "id": "module-components.PSVComponent.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVComponent#show",
       "name": "show",
       "tags": "module:components.PSVComponent#show PSVComponent#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVHUD.html": {
       "id": "module-components.PSVHUD.html",
@@ -29494,20 +30103,10 @@ window.lunrData = {
       "description": "HUD class",
       "body": ""
     },
-    "module-components.PSVHUD.html#$svg": {
-      "id": "module-components.PSVHUD.html#$svg",
-      "kind": "member",
-      "title": "&lt;protected&gt; $svg :SVGElement",
-      "longname": "module:components.PSVHUD#$svg",
-      "name": "$svg",
-      "tags": "module:components.PSVHUD#$svg PSVHUD#$svg $svg",
-      "summary": "",
-      "description": "SVG container"
-    },
     "module-components.PSVHUD.html#container": {
       "id": "module-components.PSVHUD.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVHUD#container",
       "name": "container",
       "tags": "module:components.PSVHUD#container PSVHUD#container container",
@@ -29521,7 +30120,7 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#currentMarker",
       "name": "currentMarker",
       "tags": "module:components.PSVHUD#currentMarker PSVHUD#currentMarker currentMarker",
-      "summary": "",
+      "summary": "Last selected marker",
       "description": ""
     },
     "module-components.PSVHUD.html#hoveringMarker": {
@@ -29531,7 +30130,7 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#hoveringMarker",
       "name": "hoveringMarker",
       "tags": "module:components.PSVHUD#hoveringMarker PSVHUD#hoveringMarker hoveringMarker",
-      "summary": "",
+      "summary": "Marker under the cursor",
       "description": ""
     },
     "module-components.PSVHUD.html#markers": {
@@ -29541,13 +30140,13 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#markers",
       "name": "markers",
       "tags": "module:components.PSVHUD#markers PSVHUD#markers markers",
-      "summary": "",
+      "summary": "All registered markers",
       "description": ""
     },
     "module-components.PSVHUD.html#parent": {
       "id": "module-components.PSVHUD.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVHUD#parent",
       "name": "parent",
       "tags": "module:components.PSVHUD#parent PSVHUD#parent parent",
@@ -29557,10 +30156,20 @@ window.lunrData = {
     "module-components.PSVHUD.html#psv": {
       "id": "module-components.PSVHUD.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVHUD#psv",
       "name": "psv",
       "tags": "module:components.PSVHUD#psv PSVHUD#psv psv",
+      "summary": "",
+      "description": ""
+    },
+    "module-components.PSVHUD.html#svgContainer": {
+      "id": "module-components.PSVHUD.html#svgContainer",
+      "kind": "member",
+      "title": "&lt;readonly&gt; svgContainer :SVGElement",
+      "longname": "module:components.PSVHUD#svgContainer",
+      "name": "svgContainer",
+      "tags": "module:components.PSVHUD#svgContainer PSVHUD#svgContainer svgContainer",
       "summary": "",
       "description": ""
     },
@@ -29571,8 +30180,8 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#addMarker",
       "name": "addMarker",
       "tags": "module:components.PSVHUD#addMarker PSVHUD#addMarker addMarker",
-      "summary": "",
-      "description": "Adds a new marker to HUD"
+      "summary": "Adds a new marker to viewer",
+      "description": ""
     },
     "module-components.PSVHUD.html#clearMarkers": {
       "id": "module-components.PSVHUD.html#clearMarkers",
@@ -29581,28 +30190,28 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#clearMarkers",
       "name": "clearMarkers",
       "tags": "module:components.PSVHUD#clearMarkers PSVHUD#clearMarkers clearMarkers",
-      "summary": "",
-      "description": "Removes all markers"
+      "summary": "Removes all markers",
+      "description": ""
     },
     "module-components.PSVHUD.html#create": {
       "id": "module-components.PSVHUD.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVHUD#create",
       "name": "create",
       "tags": "module:components.PSVHUD#create PSVHUD#create create",
-      "summary": "",
-      "description": "Creates the HUD"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVHUD.html#destroy": {
       "id": "module-components.PSVHUD.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVHUD#destroy",
       "name": "destroy",
       "tags": "module:components.PSVHUD#destroy PSVHUD#destroy destroy",
-      "summary": "",
-      "description": "Destroys the HUD"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVHUD.html#getCurrentMarker": {
       "id": "module-components.PSVHUD.html#getCurrentMarker",
@@ -29611,18 +30220,18 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#getCurrentMarker",
       "name": "getCurrentMarker",
       "tags": "module:components.PSVHUD#getCurrentMarker PSVHUD#getCurrentMarker getCurrentMarker",
-      "summary": "",
-      "description": "Gets the current selected marker"
+      "summary": "Returns the last marker selected by the user",
+      "description": ""
     },
     "module-components.PSVHUD.html#getMarker": {
       "id": "module-components.PSVHUD.html#getMarker",
       "kind": "function",
-      "title": "getMarker( marker ) → {PSVMarker}",
+      "title": "getMarker( markerId ) → {PSVMarker}",
       "longname": "module:components.PSVHUD#getMarker",
       "name": "getMarker",
       "tags": "module:components.PSVHUD#getMarker PSVHUD#getMarker getMarker",
-      "summary": "",
-      "description": "Gets a marker by it's id or external object"
+      "summary": "Returns the internal marker object for a marker id",
+      "description": ""
     },
     "module-components.PSVHUD.html#gotoMarker": {
       "id": "module-components.PSVHUD.html#gotoMarker",
@@ -29631,18 +30240,18 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#gotoMarker",
       "name": "gotoMarker",
       "tags": "module:components.PSVHUD#gotoMarker PSVHUD#gotoMarker gotoMarker",
-      "summary": "",
-      "description": "Goes to a specific marker"
+      "summary": "Rotate the view to face the marker",
+      "description": ""
     },
     "module-components.PSVHUD.html#hide": {
       "id": "module-components.PSVHUD.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVHUD#hide",
       "name": "hide",
       "tags": "module:components.PSVHUD#hide PSVHUD#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVHUD.html#hideMarker": {
       "id": "module-components.PSVHUD.html#hideMarker",
@@ -29651,8 +30260,18 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#hideMarker",
       "name": "hideMarker",
       "tags": "module:components.PSVHUD#hideMarker PSVHUD#hideMarker hideMarker",
-      "summary": "",
-      "description": "Hides a marker"
+      "summary": "Hides a marker",
+      "description": ""
+    },
+    "module-components.PSVHUD.html#hideMarkersList": {
+      "id": "module-components.PSVHUD.html#hideMarkersList",
+      "kind": "function",
+      "title": "hideMarkersList()",
+      "longname": "module:components.PSVHUD#hideMarkersList",
+      "name": "hideMarkersList",
+      "tags": "module:components.PSVHUD#hideMarkersList PSVHUD#hideMarkersList hideMarkersList",
+      "summary": "Closes side panel if it contains the list of markers",
+      "description": ""
     },
     "module-components.PSVHUD.html#removeMarker": {
       "id": "module-components.PSVHUD.html#removeMarker",
@@ -29661,18 +30280,28 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#removeMarker",
       "name": "removeMarker",
       "tags": "module:components.PSVHUD#removeMarker PSVHUD#removeMarker removeMarker",
-      "summary": "",
-      "description": "Removes a marker"
+      "summary": "Removes a marker from the viewer",
+      "description": ""
+    },
+    "module-components.PSVHUD.html#renderMarkers": {
+      "id": "module-components.PSVHUD.html#renderMarkers",
+      "kind": "function",
+      "title": "renderMarkers()",
+      "longname": "module:components.PSVHUD#renderMarkers",
+      "name": "renderMarkers",
+      "tags": "module:components.PSVHUD#renderMarkers PSVHUD#renderMarkers renderMarkers",
+      "summary": "Updates the visibility and the position of all markers",
+      "description": ""
     },
     "module-components.PSVHUD.html#show": {
       "id": "module-components.PSVHUD.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVHUD#show",
       "name": "show",
       "tags": "module:components.PSVHUD#show PSVHUD#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVHUD.html#showMarker": {
       "id": "module-components.PSVHUD.html#showMarker",
@@ -29681,8 +30310,18 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#showMarker",
       "name": "showMarker",
       "tags": "module:components.PSVHUD#showMarker PSVHUD#showMarker showMarker",
-      "summary": "",
-      "description": "Shows a marker"
+      "summary": "Shows a marker",
+      "description": ""
+    },
+    "module-components.PSVHUD.html#showMarkersList": {
+      "id": "module-components.PSVHUD.html#showMarkersList",
+      "kind": "function",
+      "title": "showMarkersList()",
+      "longname": "module:components.PSVHUD#showMarkersList",
+      "name": "showMarkersList",
+      "tags": "module:components.PSVHUD#showMarkersList PSVHUD#showMarkersList showMarkersList",
+      "summary": "Opens side panel with list of markers",
+      "description": ""
     },
     "module-components.PSVHUD.html#toggleMarker": {
       "id": "module-components.PSVHUD.html#toggleMarker",
@@ -29691,8 +30330,18 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#toggleMarker",
       "name": "toggleMarker",
       "tags": "module:components.PSVHUD#toggleMarker PSVHUD#toggleMarker toggleMarker",
-      "summary": "",
-      "description": "Toggles a marker"
+      "summary": "Toggles a marker",
+      "description": ""
+    },
+    "module-components.PSVHUD.html#toggleMarkersList": {
+      "id": "module-components.PSVHUD.html#toggleMarkersList",
+      "kind": "function",
+      "title": "toggleMarkersList()",
+      "longname": "module:components.PSVHUD#toggleMarkersList",
+      "name": "toggleMarkersList",
+      "tags": "module:components.PSVHUD#toggleMarkersList PSVHUD#toggleMarkersList toggleMarkersList",
+      "summary": "Toggles the visibility of markers list",
+      "description": ""
     },
     "module-components.PSVHUD.html#updateMarker": {
       "id": "module-components.PSVHUD.html#updateMarker",
@@ -29701,18 +30350,8 @@ window.lunrData = {
       "longname": "module:components.PSVHUD#updateMarker",
       "name": "updateMarker",
       "tags": "module:components.PSVHUD#updateMarker PSVHUD#updateMarker updateMarker",
-      "summary": "",
-      "description": "Updates a marker"
-    },
-    "module-components.PSVHUD.html#updatePositions": {
-      "id": "module-components.PSVHUD.html#updatePositions",
-      "kind": "function",
-      "title": "updatePositions()",
-      "longname": "module:components.PSVHUD#updatePositions",
-      "name": "updatePositions",
-      "tags": "module:components.PSVHUD#updatePositions PSVHUD#updatePositions updatePositions",
-      "summary": "",
-      "description": "Updates the visibility and the position of all markers"
+      "summary": "Updates the existing marker with the same id",
+      "description": "Every property can be changed but you can't change its type (Eg: image to html)."
     },
     "module-components.PSVLoader.html": {
       "id": "module-components.PSVLoader.html",
@@ -29728,7 +30367,7 @@ window.lunrData = {
     "module-components.PSVLoader.html#container": {
       "id": "module-components.PSVLoader.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVLoader#container",
       "name": "container",
       "tags": "module:components.PSVLoader#container PSVLoader#container container",
@@ -29738,7 +30377,7 @@ window.lunrData = {
     "module-components.PSVLoader.html#parent": {
       "id": "module-components.PSVLoader.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVLoader#parent",
       "name": "parent",
       "tags": "module:components.PSVLoader#parent PSVLoader#parent parent",
@@ -29748,7 +30387,7 @@ window.lunrData = {
     "module-components.PSVLoader.html#psv": {
       "id": "module-components.PSVLoader.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVLoader#psv",
       "name": "psv",
       "tags": "module:components.PSVLoader#psv PSVLoader#psv psv",
@@ -29758,32 +30397,32 @@ window.lunrData = {
     "module-components.PSVLoader.html#create": {
       "id": "module-components.PSVLoader.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVLoader#create",
       "name": "create",
       "tags": "module:components.PSVLoader#create PSVLoader#create create",
-      "summary": "",
-      "description": "Creates the loader"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVLoader.html#destroy": {
       "id": "module-components.PSVLoader.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVLoader#destroy",
       "name": "destroy",
       "tags": "module:components.PSVLoader#destroy PSVLoader#destroy destroy",
-      "summary": "",
-      "description": "Destroys the loader"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVLoader.html#hide": {
       "id": "module-components.PSVLoader.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVLoader#hide",
       "name": "hide",
       "tags": "module:components.PSVLoader#hide PSVLoader#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVLoader.html#setProgress": {
       "id": "module-components.PSVLoader.html#setProgress",
@@ -29792,18 +30431,18 @@ window.lunrData = {
       "longname": "module:components.PSVLoader#setProgress",
       "name": "setProgress",
       "tags": "module:components.PSVLoader#setProgress PSVLoader#setProgress setProgress",
-      "summary": "",
-      "description": "Sets the loader progression"
+      "summary": "Sets the loader progression",
+      "description": ""
     },
     "module-components.PSVLoader.html#show": {
       "id": "module-components.PSVLoader.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVLoader#show",
       "name": "show",
       "tags": "module:components.PSVLoader#show PSVLoader#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVNavBar.html": {
       "id": "module-components.PSVNavBar.html",
@@ -29819,7 +30458,7 @@ window.lunrData = {
     "module-components.PSVNavBar.html#container": {
       "id": "module-components.PSVNavBar.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVNavBar#container",
       "name": "container",
       "tags": "module:components.PSVNavBar#container PSVNavBar#container container",
@@ -29829,17 +30468,17 @@ window.lunrData = {
     "module-components.PSVNavBar.html#items": {
       "id": "module-components.PSVNavBar.html#items",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; items :Array.&lt;module:components/buttons.PSVNavBarButton&gt;",
+      "title": "&lt;readonly&gt; items :Array.&lt;module:components/buttons.PSVNavBarButton&gt;",
       "longname": "module:components.PSVNavBar#items",
       "name": "items",
       "tags": "module:components.PSVNavBar#items PSVNavBar#items items",
-      "summary": "",
+      "summary": "List of buttons of the navbar",
       "description": ""
     },
     "module-components.PSVNavBar.html#parent": {
       "id": "module-components.PSVNavBar.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVNavBar#parent",
       "name": "parent",
       "tags": "module:components.PSVNavBar#parent PSVNavBar#parent parent",
@@ -29849,7 +30488,7 @@ window.lunrData = {
     "module-components.PSVNavBar.html#psv": {
       "id": "module-components.PSVNavBar.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVNavBar#psv",
       "name": "psv",
       "tags": "module:components.PSVNavBar#psv PSVNavBar#psv psv",
@@ -29859,22 +30498,22 @@ window.lunrData = {
     "module-components.PSVNavBar.html#create": {
       "id": "module-components.PSVNavBar.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVNavBar#create",
       "name": "create",
       "tags": "module:components.PSVNavBar#create PSVNavBar#create create",
-      "summary": "",
-      "description": "Creates the navbar"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVNavBar.html#destroy": {
       "id": "module-components.PSVNavBar.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVNavBar#destroy",
       "name": "destroy",
       "tags": "module:components.PSVNavBar#destroy PSVNavBar#destroy destroy",
-      "summary": "",
-      "description": "Destroys the navbar"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVNavBar.html#getNavbarButton": {
       "id": "module-components.PSVNavBar.html#getNavbarButton",
@@ -29883,18 +30522,18 @@ window.lunrData = {
       "longname": "module:components.PSVNavBar#getNavbarButton",
       "name": "getNavbarButton",
       "tags": "module:components.PSVNavBar#getNavbarButton PSVNavBar#getNavbarButton getNavbarButton",
-      "summary": "",
-      "description": "Returns a button by its identifier"
+      "summary": "Returns a button by its identifier",
+      "description": ""
     },
     "module-components.PSVNavBar.html#hide": {
       "id": "module-components.PSVNavBar.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVNavBar#hide",
       "name": "hide",
       "tags": "module:components.PSVNavBar#hide PSVNavBar#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVNavBar.html#hideNavbar": {
       "id": "module-components.PSVNavBar.html#hideNavbar",
@@ -29903,18 +30542,18 @@ window.lunrData = {
       "longname": "module:components.PSVNavBar#hideNavbar",
       "name": "hideNavbar",
       "tags": "module:components.PSVNavBar#hideNavbar PSVNavBar#hideNavbar hideNavbar",
-      "summary": "",
-      "description": "Hides the navbar"
+      "summary": "Hides the navbar",
+      "description": ""
     },
     "module-components.PSVNavBar.html#show": {
       "id": "module-components.PSVNavBar.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVNavBar#show",
       "name": "show",
       "tags": "module:components.PSVNavBar#show PSVNavBar#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVNavBar.html#showNavbar": {
       "id": "module-components.PSVNavBar.html#showNavbar",
@@ -29923,8 +30562,8 @@ window.lunrData = {
       "longname": "module:components.PSVNavBar#showNavbar",
       "name": "showNavbar",
       "tags": "module:components.PSVNavBar#showNavbar PSVNavBar#showNavbar showNavbar",
-      "summary": "",
-      "description": "Shows the navbar"
+      "summary": "Shows the navbar",
+      "description": ""
     },
     "module-components.PSVNavBar.html#toggleNavbar": {
       "id": "module-components.PSVNavBar.html#toggleNavbar",
@@ -29933,8 +30572,8 @@ window.lunrData = {
       "longname": "module:components.PSVNavBar#toggleNavbar",
       "name": "toggleNavbar",
       "tags": "module:components.PSVNavBar#toggleNavbar PSVNavBar#toggleNavbar toggleNavbar",
-      "summary": "",
-      "description": "Toggles the navbar"
+      "summary": "Toggles the navbar",
+      "description": ""
     },
     "module-components.PSVNavBarCaption.html": {
       "id": "module-components.PSVNavBarCaption.html",
@@ -29950,7 +30589,7 @@ window.lunrData = {
     "module-components.PSVNavBarCaption.html#container": {
       "id": "module-components.PSVNavBarCaption.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVNavBarCaption#container",
       "name": "container",
       "tags": "module:components.PSVNavBarCaption#container PSVNavBarCaption#container container",
@@ -29960,7 +30599,7 @@ window.lunrData = {
     "module-components.PSVNavBarCaption.html#parent": {
       "id": "module-components.PSVNavBarCaption.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVNavBarCaption#parent",
       "name": "parent",
       "tags": "module:components.PSVNavBarCaption#parent PSVNavBarCaption#parent parent",
@@ -29970,7 +30609,7 @@ window.lunrData = {
     "module-components.PSVNavBarCaption.html#psv": {
       "id": "module-components.PSVNavBarCaption.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVNavBarCaption#psv",
       "name": "psv",
       "tags": "module:components.PSVNavBarCaption#psv PSVNavBarCaption#psv psv",
@@ -29980,32 +30619,32 @@ window.lunrData = {
     "module-components.PSVNavBarCaption.html#create": {
       "id": "module-components.PSVNavBarCaption.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVNavBarCaption#create",
       "name": "create",
       "tags": "module:components.PSVNavBarCaption#create PSVNavBarCaption#create create",
-      "summary": "",
-      "description": "Creates the component"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVNavBarCaption.html#destroy": {
       "id": "module-components.PSVNavBarCaption.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVNavBarCaption#destroy",
       "name": "destroy",
       "tags": "module:components.PSVNavBarCaption#destroy PSVNavBarCaption#destroy destroy",
-      "summary": "",
-      "description": "Destroys the component"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVNavBarCaption.html#hide": {
       "id": "module-components.PSVNavBarCaption.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVNavBarCaption#hide",
       "name": "hide",
       "tags": "module:components.PSVNavBarCaption#hide PSVNavBarCaption#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVNavBarCaption.html#setCaption": {
       "id": "module-components.PSVNavBarCaption.html#setCaption",
@@ -30014,18 +30653,18 @@ window.lunrData = {
       "longname": "module:components.PSVNavBarCaption#setCaption",
       "name": "setCaption",
       "tags": "module:components.PSVNavBarCaption#setCaption PSVNavBarCaption#setCaption setCaption",
-      "summary": "",
-      "description": "Sets the bar caption"
+      "summary": "Sets the bar caption",
+      "description": ""
     },
     "module-components.PSVNavBarCaption.html#show": {
       "id": "module-components.PSVNavBarCaption.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVNavBarCaption#show",
       "name": "show",
       "tags": "module:components.PSVNavBarCaption#show PSVNavBarCaption#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVNavBarSpacer.html": {
       "id": "module-components.PSVNavBarSpacer.html",
@@ -30041,7 +30680,7 @@ window.lunrData = {
     "module-components.PSVNavBarSpacer.html#container": {
       "id": "module-components.PSVNavBarSpacer.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVNavBarSpacer#container",
       "name": "container",
       "tags": "module:components.PSVNavBarSpacer#container PSVNavBarSpacer#container container",
@@ -30051,7 +30690,7 @@ window.lunrData = {
     "module-components.PSVNavBarSpacer.html#parent": {
       "id": "module-components.PSVNavBarSpacer.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVNavBarSpacer#parent",
       "name": "parent",
       "tags": "module:components.PSVNavBarSpacer#parent PSVNavBarSpacer#parent parent",
@@ -30061,7 +30700,7 @@ window.lunrData = {
     "module-components.PSVNavBarSpacer.html#psv": {
       "id": "module-components.PSVNavBarSpacer.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVNavBarSpacer#psv",
       "name": "psv",
       "tags": "module:components.PSVNavBarSpacer#psv PSVNavBarSpacer#psv psv",
@@ -30081,42 +30720,42 @@ window.lunrData = {
     "module-components.PSVNavBarSpacer.html#create": {
       "id": "module-components.PSVNavBarSpacer.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVNavBarSpacer#create",
       "name": "create",
       "tags": "module:components.PSVNavBarSpacer#create PSVNavBarSpacer#create create",
-      "summary": "",
-      "description": "Creates the component"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVNavBarSpacer.html#destroy": {
       "id": "module-components.PSVNavBarSpacer.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVNavBarSpacer#destroy",
       "name": "destroy",
       "tags": "module:components.PSVNavBarSpacer#destroy PSVNavBarSpacer#destroy destroy",
-      "summary": "",
-      "description": "Destroys the component"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVNavBarSpacer.html#hide": {
       "id": "module-components.PSVNavBarSpacer.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVNavBarSpacer#hide",
       "name": "hide",
       "tags": "module:components.PSVNavBarSpacer#hide PSVNavBarSpacer#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVNavBarSpacer.html#show": {
       "id": "module-components.PSVNavBarSpacer.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVNavBarSpacer#show",
       "name": "show",
       "tags": "module:components.PSVNavBarSpacer#show PSVNavBarSpacer#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVPanel.html": {
       "id": "module-components.PSVPanel.html",
@@ -30132,27 +30771,17 @@ window.lunrData = {
     "module-components.PSVPanel.html#container": {
       "id": "module-components.PSVPanel.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVPanel#container",
       "name": "container",
       "tags": "module:components.PSVPanel#container PSVPanel#container container",
       "summary": "",
       "description": ""
     },
-    "module-components.PSVPanel.html#content": {
-      "id": "module-components.PSVPanel.html#content",
-      "kind": "member",
-      "title": "&lt;protected, readonly&gt; content :HTMLElement",
-      "longname": "module:components.PSVPanel#content",
-      "name": "content",
-      "tags": "module:components.PSVPanel#content PSVPanel#content content",
-      "summary": "",
-      "description": "Content container"
-    },
     "module-components.PSVPanel.html#parent": {
       "id": "module-components.PSVPanel.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVPanel#parent",
       "name": "parent",
       "tags": "module:components.PSVPanel#parent PSVPanel#parent parent",
@@ -30162,7 +30791,7 @@ window.lunrData = {
     "module-components.PSVPanel.html#psv": {
       "id": "module-components.PSVPanel.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVPanel#psv",
       "name": "psv",
       "tags": "module:components.PSVPanel#psv PSVPanel#psv psv",
@@ -30172,32 +30801,32 @@ window.lunrData = {
     "module-components.PSVPanel.html#create": {
       "id": "module-components.PSVPanel.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVPanel#create",
       "name": "create",
       "tags": "module:components.PSVPanel#create PSVPanel#create create",
-      "summary": "",
-      "description": "Creates the panel"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVPanel.html#destroy": {
       "id": "module-components.PSVPanel.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVPanel#destroy",
       "name": "destroy",
       "tags": "module:components.PSVPanel#destroy PSVPanel#destroy destroy",
-      "summary": "",
-      "description": "Destroys the panel"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVPanel.html#hide": {
       "id": "module-components.PSVPanel.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVPanel#hide",
       "name": "hide",
       "tags": "module:components.PSVPanel#hide PSVPanel#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVPanel.html#hidePanel": {
       "id": "module-components.PSVPanel.html#hidePanel",
@@ -30206,18 +30835,18 @@ window.lunrData = {
       "longname": "module:components.PSVPanel#hidePanel",
       "name": "hidePanel",
       "tags": "module:components.PSVPanel#hidePanel PSVPanel#hidePanel hidePanel",
-      "summary": "",
-      "description": "Hides the panel"
+      "summary": "Hides the panel",
+      "description": ""
     },
     "module-components.PSVPanel.html#show": {
       "id": "module-components.PSVPanel.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVPanel#show",
       "name": "show",
       "tags": "module:components.PSVPanel#show PSVPanel#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVPanel.html#showPanel": {
       "id": "module-components.PSVPanel.html#showPanel",
@@ -30226,8 +30855,8 @@ window.lunrData = {
       "longname": "module:components.PSVPanel#showPanel",
       "name": "showPanel",
       "tags": "module:components.PSVPanel#showPanel PSVPanel#showPanel showPanel",
-      "summary": "",
-      "description": "Shows the panel"
+      "summary": "Shows the panel",
+      "description": ""
     },
     "module-components.PSVTooltip.html": {
       "id": "module-components.PSVTooltip.html",
@@ -30243,7 +30872,7 @@ window.lunrData = {
     "module-components.PSVTooltip.html#container": {
       "id": "module-components.PSVTooltip.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components.PSVTooltip#container",
       "name": "container",
       "tags": "module:components.PSVTooltip#container PSVTooltip#container container",
@@ -30253,7 +30882,7 @@ window.lunrData = {
     "module-components.PSVTooltip.html#parent": {
       "id": "module-components.PSVTooltip.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components.PSVTooltip#parent",
       "name": "parent",
       "tags": "module:components.PSVTooltip#parent PSVTooltip#parent parent",
@@ -30263,7 +30892,7 @@ window.lunrData = {
     "module-components.PSVTooltip.html#psv": {
       "id": "module-components.PSVTooltip.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components.PSVTooltip#psv",
       "name": "psv",
       "tags": "module:components.PSVTooltip#psv PSVTooltip#psv psv",
@@ -30273,32 +30902,32 @@ window.lunrData = {
     "module-components.PSVTooltip.html#create": {
       "id": "module-components.PSVTooltip.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components.PSVTooltip#create",
       "name": "create",
       "tags": "module:components.PSVTooltip#create PSVTooltip#create create",
-      "summary": "",
-      "description": "Creates the tooltip"
+      "summary": "Creates the component",
+      "description": ""
     },
     "module-components.PSVTooltip.html#destroy": {
       "id": "module-components.PSVTooltip.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components.PSVTooltip#destroy",
       "name": "destroy",
       "tags": "module:components.PSVTooltip#destroy PSVTooltip#destroy destroy",
-      "summary": "",
-      "description": "Destroys the tooltip"
+      "summary": "Destroys the component",
+      "description": ""
     },
     "module-components.PSVTooltip.html#hide": {
       "id": "module-components.PSVTooltip.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components.PSVTooltip#hide",
       "name": "hide",
       "tags": "module:components.PSVTooltip#hide PSVTooltip#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components.PSVTooltip.html#hideTooltip": {
       "id": "module-components.PSVTooltip.html#hideTooltip",
@@ -30307,8 +30936,8 @@ window.lunrData = {
       "longname": "module:components.PSVTooltip#hideTooltip",
       "name": "hideTooltip",
       "tags": "module:components.PSVTooltip#hideTooltip PSVTooltip#hideTooltip hideTooltip",
-      "summary": "",
-      "description": "Hides the tooltip"
+      "summary": "Hides the tooltip",
+      "description": ""
     },
     "module-components.PSVTooltip.html#isTooltipVisible": {
       "id": "module-components.PSVTooltip.html#isTooltipVisible",
@@ -30317,18 +30946,18 @@ window.lunrData = {
       "longname": "module:components.PSVTooltip#isTooltipVisible",
       "name": "isTooltipVisible",
       "tags": "module:components.PSVTooltip#isTooltipVisible PSVTooltip#isTooltipVisible isTooltipVisible",
-      "summary": "",
-      "description": "Checks if the tooltip is visible"
+      "summary": "Checks if the tooltip is visible",
+      "description": ""
     },
     "module-components.PSVTooltip.html#show": {
       "id": "module-components.PSVTooltip.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components.PSVTooltip#show",
       "name": "show",
       "tags": "module:components.PSVTooltip#show PSVTooltip#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components.PSVTooltip.html#showTooltip": {
       "id": "module-components.PSVTooltip.html#showTooltip",
@@ -30337,8 +30966,8 @@ window.lunrData = {
       "longname": "module:components.PSVTooltip#showTooltip",
       "name": "showTooltip",
       "tags": "module:components.PSVTooltip#showTooltip PSVTooltip#showTooltip showTooltip",
-      "summary": "",
-      "description": "Shows the tooltip"
+      "summary": "Displays a tooltip on the viewer",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html",
@@ -30354,7 +30983,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarAutorotateButton.html#container": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#container PSVNavBarAutorotateButton#container container",
@@ -30368,7 +30997,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#enabled PSVNavBarAutorotateButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#id": {
@@ -30378,13 +31007,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#id PSVNavBarAutorotateButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#parent PSVNavBarAutorotateButton#parent parent",
@@ -30394,7 +31023,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarAutorotateButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#psv PSVNavBarAutorotateButton#psv psv",
@@ -30404,22 +31033,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarAutorotateButton.html#create": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#create PSVNavBarAutorotateButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#destroy PSVNavBarAutorotateButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the button"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#disable",
@@ -30428,8 +31057,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#disable PSVNavBarAutorotateButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#enable",
@@ -30438,28 +31067,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#enable PSVNavBarAutorotateButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#hide PSVNavBarAutorotateButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#show": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#show PSVNavBarAutorotateButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarAutorotateButton.html#toggleActive",
@@ -30468,8 +31097,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarAutorotateButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarAutorotateButton#toggleActive PSVNavBarAutorotateButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html": {
       "id": "module-components_buttons.PSVNavBarButton.html",
@@ -30485,37 +31114,37 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarButton.html#.icon": {
       "id": "module-components_buttons.PSVNavBarButton.html#.icon",
       "kind": "member",
-      "title": "&lt;static&gt; icon :string",
+      "title": "&lt;static, readonly&gt; icon :string",
       "longname": "module:components/buttons.PSVNavBarButton.icon",
       "name": "icon",
       "tags": "module:components/buttons.PSVNavBarButton.icon PSVNavBarButton.icon icon",
-      "summary": "",
-      "description": "SVG icon name injected in the button"
+      "summary": "SVG icon name injected in the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#.iconActive": {
       "id": "module-components_buttons.PSVNavBarButton.html#.iconActive",
       "kind": "member",
-      "title": "&lt;static&gt; iconActive :string",
+      "title": "&lt;static, readonly&gt; iconActive :string",
       "longname": "module:components/buttons.PSVNavBarButton.iconActive",
       "name": "iconActive",
       "tags": "module:components/buttons.PSVNavBarButton.iconActive PSVNavBarButton.iconActive iconActive",
-      "summary": "",
-      "description": "SVG icon name injected in the button when it is active"
+      "summary": "SVG icon name injected in the button when it is active",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#.id": {
       "id": "module-components_buttons.PSVNavBarButton.html#.id",
       "kind": "member",
-      "title": "&lt;static&gt; id :string",
+      "title": "&lt;static, readonly&gt; id :string",
       "longname": "module:components/buttons.PSVNavBarButton.id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarButton.id PSVNavBarButton.id id",
-      "summary": "",
-      "description": "Unique identifier of the button"
+      "summary": "Unique identifier of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#container": {
       "id": "module-components_buttons.PSVNavBarButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarButton#container PSVNavBarButton#container container",
@@ -30529,7 +31158,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarButton#enabled PSVNavBarButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#id": {
@@ -30539,13 +31168,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarButton#id PSVNavBarButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarButton#parent PSVNavBarButton#parent parent",
@@ -30555,7 +31184,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarButton#psv PSVNavBarButton#psv psv",
@@ -30565,22 +31194,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarButton.html#create": {
       "id": "module-components_buttons.PSVNavBarButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarButton#create PSVNavBarButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarButton#destroy PSVNavBarButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the component"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarButton.html#disable",
@@ -30589,8 +31218,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarButton#disable PSVNavBarButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarButton.html#enable",
@@ -30599,28 +31228,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarButton#enable PSVNavBarButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarButton#hide PSVNavBarButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#show": {
       "id": "module-components_buttons.PSVNavBarButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarButton#show PSVNavBarButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarButton.html#toggleActive",
@@ -30629,8 +31258,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarButton#toggleActive PSVNavBarButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html",
@@ -30646,7 +31275,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarCustomButton.html#container": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarCustomButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarCustomButton#container PSVNavBarCustomButton#container container",
@@ -30660,7 +31289,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarCustomButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarCustomButton#enabled PSVNavBarCustomButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#id": {
@@ -30670,13 +31299,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarCustomButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarCustomButton#id PSVNavBarCustomButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarCustomButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarCustomButton#parent PSVNavBarCustomButton#parent parent",
@@ -30686,7 +31315,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarCustomButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarCustomButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarCustomButton#psv PSVNavBarCustomButton#psv psv",
@@ -30696,22 +31325,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarCustomButton.html#create": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarCustomButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarCustomButton#create PSVNavBarCustomButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarCustomButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarCustomButton#destroy PSVNavBarCustomButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the button"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#disable",
@@ -30720,8 +31349,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarCustomButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarCustomButton#disable PSVNavBarCustomButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#enable",
@@ -30730,28 +31359,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarCustomButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarCustomButton#enable PSVNavBarCustomButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarCustomButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarCustomButton#hide PSVNavBarCustomButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#show": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarCustomButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarCustomButton#show PSVNavBarCustomButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarCustomButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarCustomButton.html#toggleActive",
@@ -30760,8 +31389,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarCustomButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarCustomButton#toggleActive PSVNavBarCustomButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html",
@@ -30777,7 +31406,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarDownloadButton.html#container": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#container PSVNavBarDownloadButton#container container",
@@ -30791,7 +31420,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarDownloadButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#enabled PSVNavBarDownloadButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#id": {
@@ -30801,13 +31430,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarDownloadButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#id PSVNavBarDownloadButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#parent PSVNavBarDownloadButton#parent parent",
@@ -30817,7 +31446,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarDownloadButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#psv PSVNavBarDownloadButton#psv psv",
@@ -30827,22 +31456,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarDownloadButton.html#create": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#create PSVNavBarDownloadButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#destroy PSVNavBarDownloadButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the component"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#disable",
@@ -30851,8 +31480,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarDownloadButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#disable PSVNavBarDownloadButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#enable",
@@ -30861,28 +31490,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarDownloadButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#enable PSVNavBarDownloadButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#hide PSVNavBarDownloadButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#show": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarDownloadButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#show PSVNavBarDownloadButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarDownloadButton.html#toggleActive",
@@ -30891,8 +31520,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarDownloadButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarDownloadButton#toggleActive PSVNavBarDownloadButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html",
@@ -30908,7 +31537,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarFullscreenButton.html#container": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#container PSVNavBarFullscreenButton#container container",
@@ -30922,7 +31551,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#enabled PSVNavBarFullscreenButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#id": {
@@ -30932,13 +31561,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#id PSVNavBarFullscreenButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#parent PSVNavBarFullscreenButton#parent parent",
@@ -30948,7 +31577,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarFullscreenButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#psv PSVNavBarFullscreenButton#psv psv",
@@ -30958,22 +31587,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarFullscreenButton.html#create": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#create PSVNavBarFullscreenButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#destroy PSVNavBarFullscreenButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the button"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#disable",
@@ -30982,8 +31611,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#disable PSVNavBarFullscreenButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#enable",
@@ -30992,28 +31621,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#enable PSVNavBarFullscreenButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#hide PSVNavBarFullscreenButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#show": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#show PSVNavBarFullscreenButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarFullscreenButton.html#toggleActive",
@@ -31022,8 +31651,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarFullscreenButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarFullscreenButton#toggleActive PSVNavBarFullscreenButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html",
@@ -31039,7 +31668,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarGyroscopeButton.html#container": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#container PSVNavBarGyroscopeButton#container container",
@@ -31053,7 +31682,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#enabled PSVNavBarGyroscopeButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#id": {
@@ -31063,13 +31692,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#id PSVNavBarGyroscopeButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#parent PSVNavBarGyroscopeButton#parent parent",
@@ -31079,7 +31708,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarGyroscopeButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#psv PSVNavBarGyroscopeButton#psv psv",
@@ -31089,22 +31718,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarGyroscopeButton.html#create": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#create PSVNavBarGyroscopeButton#create create",
-      "summary": "",
-      "description": "Creates the button The buttons get visible once the gyroscope API is ready"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#destroy PSVNavBarGyroscopeButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the button"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#disable",
@@ -31113,8 +31742,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#disable PSVNavBarGyroscopeButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#enable",
@@ -31123,28 +31752,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#enable PSVNavBarGyroscopeButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#hide PSVNavBarGyroscopeButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#show": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#show PSVNavBarGyroscopeButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarGyroscopeButton.html#toggleActive",
@@ -31153,8 +31782,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarGyroscopeButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarGyroscopeButton#toggleActive PSVNavBarGyroscopeButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html",
@@ -31170,7 +31799,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarMarkersButton.html#container": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#container PSVNavBarMarkersButton#container container",
@@ -31184,7 +31813,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarMarkersButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#enabled PSVNavBarMarkersButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#id": {
@@ -31194,13 +31823,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarMarkersButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#id PSVNavBarMarkersButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#parent PSVNavBarMarkersButton#parent parent",
@@ -31210,7 +31839,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarMarkersButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#psv PSVNavBarMarkersButton#psv psv",
@@ -31220,22 +31849,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarMarkersButton.html#create": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#create PSVNavBarMarkersButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#destroy PSVNavBarMarkersButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the button"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#disable",
@@ -31244,8 +31873,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarMarkersButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#disable PSVNavBarMarkersButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#enable",
@@ -31254,48 +31883,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarMarkersButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#enable PSVNavBarMarkersButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#hide PSVNavBarMarkersButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
-    },
-    "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList": {
-      "id": "module-components_buttons.PSVNavBarMarkersButton.html#hideMarkersList",
-      "kind": "function",
-      "title": "hideMarkersList()",
-      "longname": "module:components/buttons.PSVNavBarMarkersButton#hideMarkersList",
-      "name": "hideMarkersList",
-      "tags": "module:components/buttons.PSVNavBarMarkersButton#hideMarkersList PSVNavBarMarkersButton#hideMarkersList hideMarkersList",
-      "summary": "",
-      "description": "Close side panel"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#show": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarMarkersButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#show PSVNavBarMarkersButton#show show",
-      "summary": "",
-      "description": "Displays the component"
-    },
-    "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList": {
-      "id": "module-components_buttons.PSVNavBarMarkersButton.html#showMarkersList",
-      "kind": "function",
-      "title": "showMarkersList()",
-      "longname": "module:components/buttons.PSVNavBarMarkersButton#showMarkersList",
-      "name": "showMarkersList",
-      "tags": "module:components/buttons.PSVNavBarMarkersButton#showMarkersList PSVNavBarMarkersButton#showMarkersList showMarkersList",
-      "summary": "",
-      "description": "Open side panel with list of markers"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarMarkersButton.html#toggleActive",
@@ -31304,18 +31913,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarMarkersButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarMarkersButton#toggleActive PSVNavBarMarkersButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
-    },
-    "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList": {
-      "id": "module-components_buttons.PSVNavBarMarkersButton.html#toggleMarkersList",
-      "kind": "function",
-      "title": "toggleMarkersList()",
-      "longname": "module:components/buttons.PSVNavBarMarkersButton#toggleMarkersList",
-      "name": "toggleMarkersList",
-      "tags": "module:components/buttons.PSVNavBarMarkersButton#toggleMarkersList PSVNavBarMarkersButton#toggleMarkersList toggleMarkersList",
-      "summary": "",
-      "description": "Toggle the visibility of markers list"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html",
@@ -31331,7 +31930,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarZoomButton.html#container": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#container",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; container :HTMLElement",
+      "title": "&lt;readonly&gt; container :HTMLElement",
       "longname": "module:components/buttons.PSVNavBarZoomButton#container",
       "name": "container",
       "tags": "module:components/buttons.PSVNavBarZoomButton#container PSVNavBarZoomButton#container container",
@@ -31345,7 +31944,7 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarZoomButton#enabled",
       "name": "enabled",
       "tags": "module:components/buttons.PSVNavBarZoomButton#enabled PSVNavBarZoomButton#enabled enabled",
-      "summary": "",
+      "summary": "State of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#id": {
@@ -31355,13 +31954,13 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarZoomButton#id",
       "name": "id",
       "tags": "module:components/buttons.PSVNavBarZoomButton#id PSVNavBarZoomButton#id id",
-      "summary": "",
+      "summary": "Unique identifier of the button",
       "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#parent": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#parent",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
+      "title": "&lt;readonly&gt; parent :PhotoSphereViewer|module:components.PSVComponent",
       "longname": "module:components/buttons.PSVNavBarZoomButton#parent",
       "name": "parent",
       "tags": "module:components/buttons.PSVNavBarZoomButton#parent PSVNavBarZoomButton#parent parent",
@@ -31371,7 +31970,7 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarZoomButton.html#psv": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#psv",
       "kind": "member",
-      "title": "&lt;protected, readonly&gt; psv :PhotoSphereViewer",
+      "title": "&lt;readonly&gt; psv :PhotoSphereViewer",
       "longname": "module:components/buttons.PSVNavBarZoomButton#psv",
       "name": "psv",
       "tags": "module:components/buttons.PSVNavBarZoomButton#psv PSVNavBarZoomButton#psv psv",
@@ -31381,22 +31980,22 @@ window.lunrData = {
     "module-components_buttons.PSVNavBarZoomButton.html#create": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#create",
       "kind": "function",
-      "title": "create()",
+      "title": "&lt;protected&gt; create()",
       "longname": "module:components/buttons.PSVNavBarZoomButton#create",
       "name": "create",
       "tags": "module:components/buttons.PSVNavBarZoomButton#create PSVNavBarZoomButton#create create",
-      "summary": "",
-      "description": "Creates the button"
+      "summary": "Creates the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#destroy": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#destroy",
       "kind": "function",
-      "title": "destroy()",
+      "title": "&lt;protected&gt; destroy()",
       "longname": "module:components/buttons.PSVNavBarZoomButton#destroy",
       "name": "destroy",
       "tags": "module:components/buttons.PSVNavBarZoomButton#destroy PSVNavBarZoomButton#destroy destroy",
-      "summary": "",
-      "description": "Destroys the button"
+      "summary": "Destroys the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#disable": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#disable",
@@ -31405,8 +32004,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarZoomButton#disable",
       "name": "disable",
       "tags": "module:components/buttons.PSVNavBarZoomButton#disable PSVNavBarZoomButton#disable disable",
-      "summary": "",
-      "description": "Disables the button"
+      "summary": "Disables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#enable": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#enable",
@@ -31415,28 +32014,28 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarZoomButton#enable",
       "name": "enable",
       "tags": "module:components/buttons.PSVNavBarZoomButton#enable PSVNavBarZoomButton#enable enable",
-      "summary": "",
-      "description": "Enables the button"
+      "summary": "Enables the button",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#hide": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#hide",
       "kind": "function",
-      "title": "hide()",
+      "title": "&lt;protected&gt; hide()",
       "longname": "module:components/buttons.PSVNavBarZoomButton#hide",
       "name": "hide",
       "tags": "module:components/buttons.PSVNavBarZoomButton#hide PSVNavBarZoomButton#hide hide",
-      "summary": "",
-      "description": "Hides the component"
+      "summary": "Hides the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#show": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#show",
       "kind": "function",
-      "title": "show()",
+      "title": "&lt;protected&gt; show()",
       "longname": "module:components/buttons.PSVNavBarZoomButton#show",
       "name": "show",
       "tags": "module:components/buttons.PSVNavBarZoomButton#show PSVNavBarZoomButton#show show",
-      "summary": "",
-      "description": "Displays the component"
+      "summary": "Displays the component",
+      "description": ""
     },
     "module-components_buttons.PSVNavBarZoomButton.html#toggleActive": {
       "id": "module-components_buttons.PSVNavBarZoomButton.html#toggleActive",
@@ -31445,8 +32044,8 @@ window.lunrData = {
       "longname": "module:components/buttons.PSVNavBarZoomButton#toggleActive",
       "name": "toggleActive",
       "tags": "module:components/buttons.PSVNavBarZoomButton#toggleActive PSVNavBarZoomButton#toggleActive toggleActive",
-      "summary": "",
-      "description": "Changes the active state of the button"
+      "summary": "Changes the active state of the button",
+      "description": ""
     },
     "PhotoSphereViewer.html": {
       "id": "PhotoSphereViewer.html",
@@ -31466,17 +32065,17 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.DEFAULTS",
       "name": "DEFAULTS",
       "tags": "PhotoSphereViewer.DEFAULTS DEFAULTS",
-      "summary": "",
-      "description": "Default options, see http://photo-sphere-viewer.js.org/#options"
+      "summary": "Default options, see http://photo-sphere-viewer.js.org/#options",
+      "description": ""
     },
     "PhotoSphereViewer.html#.Error": {
       "id": "PhotoSphereViewer.html#.Error",
       "kind": "member",
-      "title": "&lt;static&gt; Error :object",
+      "title": "&lt;static, readonly&gt; Error",
       "longname": "PhotoSphereViewer.Error",
       "name": "Error",
       "tags": "PhotoSphereViewer.Error Error",
-      "summary": "",
+      "summary": "exposes PSVError",
       "description": ""
     },
     "PhotoSphereViewer.html#.ICONS": {
@@ -31486,8 +32085,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.ICONS",
       "name": "ICONS",
       "tags": "PhotoSphereViewer.ICONS ICONS",
-      "summary": "",
-      "description": "SVG icons sources"
+      "summary": "SVG icons sources",
+      "description": ""
     },
     "PhotoSphereViewer.html#.TEMPLATES": {
       "id": "PhotoSphereViewer.html#.TEMPLATES",
@@ -31496,17 +32095,17 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.TEMPLATES",
       "name": "TEMPLATES",
       "tags": "PhotoSphereViewer.TEMPLATES TEMPLATES",
-      "summary": "",
-      "description": "doT.js templates"
+      "summary": "doT.js templates",
+      "description": ""
     },
     "PhotoSphereViewer.html#.Utils": {
       "id": "PhotoSphereViewer.html#.Utils",
       "kind": "member",
-      "title": "&lt;static&gt; Utils :object",
+      "title": "&lt;static, readonly&gt; Utils :object",
       "longname": "PhotoSphereViewer.Utils",
       "name": "Utils",
       "tags": "PhotoSphereViewer.Utils Utils",
-      "summary": "",
+      "summary": "exposes PSVUtils",
       "description": ""
     },
     "PhotoSphereViewer.html#config": {
@@ -31516,8 +32115,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#config",
       "name": "config",
       "tags": "PhotoSphereViewer#config config",
-      "summary": "",
-      "description": "Configuration object"
+      "summary": "Configuration object",
+      "description": ""
     },
     "PhotoSphereViewer.html#container": {
       "id": "PhotoSphereViewer.html#container",
@@ -31526,8 +32125,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#container",
       "name": "container",
       "tags": "PhotoSphereViewer#container container",
-      "summary": "",
-      "description": "Main container"
+      "summary": "Main container",
+      "description": ""
     },
     "PhotoSphereViewer.html#hud": {
       "id": "PhotoSphereViewer.html#hud",
@@ -31576,8 +32175,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#parent",
       "name": "parent",
       "tags": "PhotoSphereViewer#parent parent",
-      "summary": "",
-      "description": "Top most parent"
+      "summary": "Top most parent",
+      "description": ""
     },
     "PhotoSphereViewer.html#prop": {
       "id": "PhotoSphereViewer.html#prop",
@@ -31586,8 +32185,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#prop",
       "name": "prop",
       "tags": "PhotoSphereViewer#prop prop",
-      "summary": "",
-      "description": "Internal properties, must not be modified externally"
+      "summary": "Internal properties",
+      "description": ""
     },
     "PhotoSphereViewer.html#tooltip": {
       "id": "PhotoSphereViewer.html#tooltip",
@@ -31606,18 +32205,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#animate",
       "name": "animate",
       "tags": "PhotoSphereViewer#animate animate",
-      "summary": "",
-      "description": "Rotates the camera with animation"
-    },
-    "PhotoSphereViewer.html#applyRanges": {
-      "id": "PhotoSphereViewer.html#applyRanges",
-      "kind": "function",
-      "title": "applyRanges( position ) → {Array.&lt;string&gt;}",
-      "longname": "PhotoSphereViewer#applyRanges",
-      "name": "applyRanges",
-      "tags": "PhotoSphereViewer#applyRanges applyRanges",
-      "summary": "",
-      "description": "Apply &quot;longitude_range&quot; and &quot;latitude_range&quot;"
+      "summary": "Rotates the view to specific longitude and latitude with a smooth animation",
+      "description": ""
     },
     "PhotoSphereViewer.html#change": {
       "id": "PhotoSphereViewer.html#change",
@@ -31626,18 +32215,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#change",
       "name": "change",
       "tags": "PhotoSphereViewer#change change",
-      "summary": "",
-      "description": "Triggers an event on the viewer and returns the modified value"
-    },
-    "PhotoSphereViewer.html#cleanPosition": {
-      "id": "PhotoSphereViewer.html#cleanPosition",
-      "kind": "function",
-      "title": "cleanPosition( position )",
-      "longname": "PhotoSphereViewer#cleanPosition",
-      "name": "cleanPosition",
-      "tags": "PhotoSphereViewer#cleanPosition cleanPosition",
-      "summary": "",
-      "description": "Converts x/y to latitude/longitude if present and ensure boundaries"
+      "summary": "Triggers an event on the viewer and returns the modified value",
+      "description": ""
     },
     "PhotoSphereViewer.html#clearPanoramaCache": {
       "id": "PhotoSphereViewer.html#clearPanoramaCache",
@@ -31646,8 +32225,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#clearPanoramaCache",
       "name": "clearPanoramaCache",
       "tags": "PhotoSphereViewer#clearPanoramaCache clearPanoramaCache",
-      "summary": "",
-      "description": "Removes a specific panorama from the cache or clear the entire cache"
+      "summary": "Removes a panorama from the cache or clears the entire cache",
+      "description": ""
     },
     "PhotoSphereViewer.html#destroy": {
       "id": "PhotoSphereViewer.html#destroy",
@@ -31656,8 +32235,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#destroy",
       "name": "destroy",
       "tags": "PhotoSphereViewer#destroy destroy",
-      "summary": "",
-      "description": "Destroys the viewer"
+      "summary": "Destroys the viewer",
+      "description": "The memory used by the ThreeJS context is not totally cleared. This will be fixed as soon as possible."
     },
     "PhotoSphereViewer.html#getPanoramaCache": {
       "id": "PhotoSphereViewer.html#getPanoramaCache",
@@ -31666,8 +32245,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#getPanoramaCache",
       "name": "getPanoramaCache",
       "tags": "PhotoSphereViewer#getPanoramaCache getPanoramaCache",
-      "summary": "",
-      "description": "Retrieves the cache for a panorama"
+      "summary": "Retrieves the cache for a panorama",
+      "description": ""
     },
     "PhotoSphereViewer.html#getPosition": {
       "id": "PhotoSphereViewer.html#getPosition",
@@ -31676,8 +32255,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#getPosition",
       "name": "getPosition",
       "tags": "PhotoSphereViewer#getPosition getPosition",
-      "summary": "",
-      "description": "Returns the current position of the camera"
+      "summary": "Returns the current position of the camera",
+      "description": ""
     },
     "PhotoSphereViewer.html#getSize": {
       "id": "PhotoSphereViewer.html#getSize",
@@ -31686,8 +32265,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#getSize",
       "name": "getSize",
       "tags": "PhotoSphereViewer#getSize getSize",
-      "summary": "",
-      "description": "Returns the current viewer size"
+      "summary": "Returns the current viewer size",
+      "description": ""
     },
     "PhotoSphereViewer.html#getZoomLevel": {
       "id": "PhotoSphereViewer.html#getZoomLevel",
@@ -31696,8 +32275,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#getZoomLevel",
       "name": "getZoomLevel",
       "tags": "PhotoSphereViewer#getZoomLevel getZoomLevel",
-      "summary": "",
-      "description": "Returns the current zoom level"
+      "summary": "Returns the current zoom level",
+      "description": ""
     },
     "PhotoSphereViewer.html#isAutorotateEnabled": {
       "id": "PhotoSphereViewer.html#isAutorotateEnabled",
@@ -31706,8 +32285,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#isAutorotateEnabled",
       "name": "isAutorotateEnabled",
       "tags": "PhotoSphereViewer#isAutorotateEnabled isAutorotateEnabled",
-      "summary": "",
-      "description": "Checks if the automatic rotation is enabled"
+      "summary": "Checks if the automatic rotation is enabled",
+      "description": ""
     },
     "PhotoSphereViewer.html#isFullscreenEnabled": {
       "id": "PhotoSphereViewer.html#isFullscreenEnabled",
@@ -31716,8 +32295,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#isFullscreenEnabled",
       "name": "isFullscreenEnabled",
       "tags": "PhotoSphereViewer#isFullscreenEnabled isFullscreenEnabled",
-      "summary": "",
-      "description": "Checks if the viewer is in fullscreen"
+      "summary": "Checks if the viewer is in fullscreen",
+      "description": ""
     },
     "PhotoSphereViewer.html#isGyroscopeEnabled": {
       "id": "PhotoSphereViewer.html#isGyroscopeEnabled",
@@ -31726,8 +32305,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#isGyroscopeEnabled",
       "name": "isGyroscopeEnabled",
       "tags": "PhotoSphereViewer#isGyroscopeEnabled isGyroscopeEnabled",
-      "summary": "",
-      "description": "Checks if the gyroscope is enabled"
+      "summary": "Checks if the gyroscope is enabled",
+      "description": ""
     },
     "PhotoSphereViewer.html#load": {
       "id": "PhotoSphereViewer.html#load",
@@ -31736,8 +32315,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#load",
       "name": "load",
       "tags": "PhotoSphereViewer#load load",
-      "summary": "",
-      "description": "Starts to load the panorama"
+      "summary": "Starts to load the panorama",
+      "description": ""
     },
     "PhotoSphereViewer.html#off": {
       "id": "PhotoSphereViewer.html#off",
@@ -31746,8 +32325,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#off",
       "name": "off",
       "tags": "PhotoSphereViewer#off off",
-      "summary": "",
-      "description": "Removes an event listener from the viewer"
+      "summary": "Removes an event listener from the viewer",
+      "description": ""
     },
     "PhotoSphereViewer.html#on": {
       "id": "PhotoSphereViewer.html#on",
@@ -31756,8 +32335,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#on",
       "name": "on",
       "tags": "PhotoSphereViewer#on on",
-      "summary": "",
-      "description": "Attaches an event listener on the viewer"
+      "summary": "Attaches an event listener on the viewer",
+      "description": ""
     },
     "PhotoSphereViewer.html#once": {
       "id": "PhotoSphereViewer.html#once",
@@ -31766,8 +32345,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#once",
       "name": "once",
       "tags": "PhotoSphereViewer#once once",
-      "summary": "",
-      "description": "Attaches an event listener called once on the viewer"
+      "summary": "Attaches an event listener called once on the viewer",
+      "description": ""
     },
     "PhotoSphereViewer.html#preloadPanorama": {
       "id": "PhotoSphereViewer.html#preloadPanorama",
@@ -31776,8 +32355,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#preloadPanorama",
       "name": "preloadPanorama",
       "tags": "PhotoSphereViewer#preloadPanorama preloadPanorama",
-      "summary": "",
-      "description": "Preload a panorama file without displaying it"
+      "summary": "Preload a panorama file without displaying it",
+      "description": ""
     },
     "PhotoSphereViewer.html#render": {
       "id": "PhotoSphereViewer.html#render",
@@ -31786,8 +32365,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#render",
       "name": "render",
       "tags": "PhotoSphereViewer#render render",
-      "summary": "",
-      "description": "Performs a render"
+      "summary": "Performs a render",
+      "description": ""
     },
     "PhotoSphereViewer.html#rotate": {
       "id": "PhotoSphereViewer.html#rotate",
@@ -31796,8 +32375,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#rotate",
       "name": "rotate",
       "tags": "PhotoSphereViewer#rotate rotate",
-      "summary": "",
-      "description": "Rotates the camera"
+      "summary": "Rotates the view to specific longitude and latitude",
+      "description": ""
     },
     "PhotoSphereViewer.html#setPanorama": {
       "id": "PhotoSphereViewer.html#setPanorama",
@@ -31806,8 +32385,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#setPanorama",
       "name": "setPanorama",
       "tags": "PhotoSphereViewer#setPanorama setPanorama",
-      "summary": "",
-      "description": "Loads a panorama file If the &quot;position&quot; is not defined, the camera will not move and the ongoing animation will continue &quot;config.transition&quot; must be configured for &quot;transition&quot; to be taken in account"
+      "summary": "Loads a new panorama file",
+      "description": "Loads a new panorama file, optionally changing the camera position and activating the transition animation. If the &quot;position&quot; is not defined, the camera will not move and the ongoing animation will continue &quot;config.transition&quot; must be configured for &quot;transition&quot; to be taken in account"
     },
     "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
       "id": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
@@ -31816,8 +32395,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#sphericalCoordsToTextureCoords",
       "name": "sphericalCoordsToTextureCoords",
       "tags": "PhotoSphereViewer#sphericalCoordsToTextureCoords sphericalCoordsToTextureCoords",
-      "summary": "",
-      "description": "Converts spherical radians coordinates to pixel texture coordinates"
+      "summary": "Converts spherical radians coordinates to pixel texture coordinates",
+      "description": ""
     },
     "PhotoSphereViewer.html#sphericalCoordsToVector3": {
       "id": "PhotoSphereViewer.html#sphericalCoordsToVector3",
@@ -31826,8 +32405,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#sphericalCoordsToVector3",
       "name": "sphericalCoordsToVector3",
       "tags": "PhotoSphereViewer#sphericalCoordsToVector3 sphericalCoordsToVector3",
-      "summary": "",
-      "description": "Converts spherical radians coordinates to a THREE.Vector3"
+      "summary": "Converts spherical radians coordinates to a THREE.Vector3",
+      "description": ""
     },
     "PhotoSphereViewer.html#startAutorotate": {
       "id": "PhotoSphereViewer.html#startAutorotate",
@@ -31836,8 +32415,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#startAutorotate",
       "name": "startAutorotate",
       "tags": "PhotoSphereViewer#startAutorotate startAutorotate",
-      "summary": "",
-      "description": "Starts the autorotate animation"
+      "summary": "Starts the automatic rotation",
+      "description": ""
     },
     "PhotoSphereViewer.html#startGyroscopeControl": {
       "id": "PhotoSphereViewer.html#startGyroscopeControl",
@@ -31846,8 +32425,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#startGyroscopeControl",
       "name": "startGyroscopeControl",
       "tags": "PhotoSphereViewer#startGyroscopeControl startGyroscopeControl",
-      "summary": "",
-      "description": "Starts the gyroscope interaction"
+      "summary": "Enables the gyroscope navigation",
+      "description": ""
     },
     "PhotoSphereViewer.html#startKeyboardControl": {
       "id": "PhotoSphereViewer.html#startKeyboardControl",
@@ -31856,18 +32435,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#startKeyboardControl",
       "name": "startKeyboardControl",
       "tags": "PhotoSphereViewer#startKeyboardControl startKeyboardControl",
-      "summary": "",
-      "description": "Starts listening keyboard events"
-    },
-    "PhotoSphereViewer.html#stopAll": {
-      "id": "PhotoSphereViewer.html#stopAll",
-      "kind": "function",
-      "title": "stopAll()",
-      "longname": "PhotoSphereViewer#stopAll",
-      "name": "stopAll",
-      "tags": "PhotoSphereViewer#stopAll stopAll",
-      "summary": "",
-      "description": "Stops all current animations"
+      "summary": "Enables the keyboard controls (done automatically when entering fullscreen)",
+      "description": ""
     },
     "PhotoSphereViewer.html#stopAnimation": {
       "id": "PhotoSphereViewer.html#stopAnimation",
@@ -31876,8 +32445,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#stopAnimation",
       "name": "stopAnimation",
       "tags": "PhotoSphereViewer#stopAnimation stopAnimation",
-      "summary": "",
-      "description": "Stops the ongoing animation"
+      "summary": "Stops the ongoing animation",
+      "description": ""
     },
     "PhotoSphereViewer.html#stopAutorotate": {
       "id": "PhotoSphereViewer.html#stopAutorotate",
@@ -31886,8 +32455,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#stopAutorotate",
       "name": "stopAutorotate",
       "tags": "PhotoSphereViewer#stopAutorotate stopAutorotate",
-      "summary": "",
-      "description": "Stops the autorotate animation"
+      "summary": "Stops the automatic rotation",
+      "description": ""
     },
     "PhotoSphereViewer.html#stopGyroscopeControl": {
       "id": "PhotoSphereViewer.html#stopGyroscopeControl",
@@ -31896,8 +32465,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#stopGyroscopeControl",
       "name": "stopGyroscopeControl",
       "tags": "PhotoSphereViewer#stopGyroscopeControl stopGyroscopeControl",
-      "summary": "",
-      "description": "Stops the gyroscope interaction"
+      "summary": "Disables the gyroscope navigation",
+      "description": ""
     },
     "PhotoSphereViewer.html#stopKeyboardControl": {
       "id": "PhotoSphereViewer.html#stopKeyboardControl",
@@ -31906,8 +32475,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#stopKeyboardControl",
       "name": "stopKeyboardControl",
       "tags": "PhotoSphereViewer#stopKeyboardControl stopKeyboardControl",
-      "summary": "",
-      "description": "Stops listening keyboard events"
+      "summary": "Disables the keyboard controls (done automatically when exiting fullscreen)",
+      "description": ""
     },
     "PhotoSphereViewer.html#textureCoordsToSphericalCoords": {
       "id": "PhotoSphereViewer.html#textureCoordsToSphericalCoords",
@@ -31916,8 +32485,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#textureCoordsToSphericalCoords",
       "name": "textureCoordsToSphericalCoords",
       "tags": "PhotoSphereViewer#textureCoordsToSphericalCoords textureCoordsToSphericalCoords",
-      "summary": "",
-      "description": "Converts pixel texture coordinates to spherical radians coordinates"
+      "summary": "Converts pixel texture coordinates to spherical radians coordinates",
+      "description": ""
     },
     "PhotoSphereViewer.html#toggleAutorotate": {
       "id": "PhotoSphereViewer.html#toggleAutorotate",
@@ -31926,8 +32495,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#toggleAutorotate",
       "name": "toggleAutorotate",
       "tags": "PhotoSphereViewer#toggleAutorotate toggleAutorotate",
-      "summary": "",
-      "description": "Toggles the autorotate animation"
+      "summary": "Starts or stops the automatic rotation",
+      "description": ""
     },
     "PhotoSphereViewer.html#toggleFullscreen": {
       "id": "PhotoSphereViewer.html#toggleFullscreen",
@@ -31936,8 +32505,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#toggleFullscreen",
       "name": "toggleFullscreen",
       "tags": "PhotoSphereViewer#toggleFullscreen toggleFullscreen",
-      "summary": "",
-      "description": "Toggles fullscreen"
+      "summary": "Enters or exits the fullscreen mode",
+      "description": ""
     },
     "PhotoSphereViewer.html#toggleGyroscopeControl": {
       "id": "PhotoSphereViewer.html#toggleGyroscopeControl",
@@ -31946,8 +32515,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#toggleGyroscopeControl",
       "name": "toggleGyroscopeControl",
       "tags": "PhotoSphereViewer#toggleGyroscopeControl toggleGyroscopeControl",
-      "summary": "",
-      "description": "Toggles the gyroscope interaction"
+      "summary": "Enables or disables the gyroscope navigation",
+      "description": ""
     },
     "PhotoSphereViewer.html#trigger": {
       "id": "PhotoSphereViewer.html#trigger",
@@ -31956,8 +32525,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#trigger",
       "name": "trigger",
       "tags": "PhotoSphereViewer#trigger trigger",
-      "summary": "",
-      "description": "Triggers an event on the viewer"
+      "summary": "Triggers an event on the viewer",
+      "description": ""
     },
     "PhotoSphereViewer.html#vector3ToSphericalCoords": {
       "id": "PhotoSphereViewer.html#vector3ToSphericalCoords",
@@ -31966,8 +32535,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#vector3ToSphericalCoords",
       "name": "vector3ToSphericalCoords",
       "tags": "PhotoSphereViewer#vector3ToSphericalCoords vector3ToSphericalCoords",
-      "summary": "",
-      "description": "Converts a THREE.Vector3 to spherical radians coordinates"
+      "summary": "Converts a THREE.Vector3 to spherical radians coordinates",
+      "description": ""
     },
     "PhotoSphereViewer.html#vector3ToViewerCoords": {
       "id": "PhotoSphereViewer.html#vector3ToViewerCoords",
@@ -31976,8 +32545,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#vector3ToViewerCoords",
       "name": "vector3ToViewerCoords",
       "tags": "PhotoSphereViewer#vector3ToViewerCoords vector3ToViewerCoords",
-      "summary": "",
-      "description": "Converts a THREE.Vector3 to position on the viewer"
+      "summary": "Converts a THREE.Vector3 to position on the viewer",
+      "description": ""
     },
     "PhotoSphereViewer.html#viewerCoordsToVector3": {
       "id": "PhotoSphereViewer.html#viewerCoordsToVector3",
@@ -31986,8 +32555,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#viewerCoordsToVector3",
       "name": "viewerCoordsToVector3",
       "tags": "PhotoSphereViewer#viewerCoordsToVector3 viewerCoordsToVector3",
-      "summary": "",
-      "description": "Converts position on the viewer to a THREE.Vector3"
+      "summary": "Converts position on the viewer to a THREE.Vector3",
+      "description": ""
     },
     "PhotoSphereViewer.html#zoom": {
       "id": "PhotoSphereViewer.html#zoom",
@@ -31996,8 +32565,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#zoom",
       "name": "zoom",
       "tags": "PhotoSphereViewer#zoom zoom",
-      "summary": "",
-      "description": "Zooms"
+      "summary": "Zooms to a specific level between max_fov and min_fov",
+      "description": ""
     },
     "PhotoSphereViewer.html#zoomIn": {
       "id": "PhotoSphereViewer.html#zoomIn",
@@ -32006,8 +32575,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#zoomIn",
       "name": "zoomIn",
       "tags": "PhotoSphereViewer#zoomIn zoomIn",
-      "summary": "",
-      "description": "Zooms in"
+      "summary": "Increases the zoom level by 1",
+      "description": ""
     },
     "PhotoSphereViewer.html#zoomOut": {
       "id": "PhotoSphereViewer.html#zoomOut",
@@ -32016,8 +32585,8 @@ window.lunrData = {
       "longname": "PhotoSphereViewer#zoomOut",
       "name": "zoomOut",
       "tags": "PhotoSphereViewer#zoomOut zoomOut",
-      "summary": "",
-      "description": "Zooms out"
+      "summary": "Decreases the zoom level by 1",
+      "description": ""
     },
     "PhotoSphereViewer.html#.CacheItem": {
       "id": "PhotoSphereViewer.html#.CacheItem",
@@ -32026,7 +32595,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.CacheItem",
       "name": "CacheItem",
       "tags": "PhotoSphereViewer.CacheItem CacheItem",
-      "summary": "",
+      "summary": "An entry in the memory cache",
       "description": ""
     },
     "PhotoSphereViewer.html#.ClickData": {
@@ -32036,7 +32605,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.ClickData",
       "name": "ClickData",
       "tags": "PhotoSphereViewer.ClickData ClickData",
-      "summary": "",
+      "summary": "Data of the click event",
       "description": ""
     },
     "PhotoSphereViewer.html#.ExtendedPosition": {
@@ -32046,7 +32615,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.ExtendedPosition",
       "name": "ExtendedPosition",
       "tags": "PhotoSphereViewer.ExtendedPosition ExtendedPosition",
-      "summary": "",
+      "summary": "Object defining a spherical or texture position",
       "description": "A position that can be expressed either in spherical coordinates (radians or degrees) or in texture coordinates (pixels)"
     },
     "PhotoSphereViewer.html#.PanoData": {
@@ -32056,7 +32625,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.PanoData",
       "name": "PanoData",
       "tags": "PhotoSphereViewer.PanoData PanoData",
-      "summary": "",
+      "summary": "Crop information of the panorama",
       "description": ""
     },
     "PhotoSphereViewer.html#.Point": {
@@ -32066,7 +32635,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.Point",
       "name": "Point",
       "tags": "PhotoSphereViewer.Point Point",
-      "summary": "",
+      "summary": "Object defining a point",
       "description": ""
     },
     "PhotoSphereViewer.html#.Position": {
@@ -32076,7 +32645,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.Position",
       "name": "Position",
       "tags": "PhotoSphereViewer.Position Position",
-      "summary": "",
+      "summary": "Object defining a spherical position",
       "description": ""
     },
     "PhotoSphereViewer.html#.Size": {
@@ -32086,7 +32655,7 @@ window.lunrData = {
       "longname": "PhotoSphereViewer.Size",
       "name": "Size",
       "tags": "PhotoSphereViewer.Size Size",
-      "summary": "",
+      "summary": "Object defining a size",
       "description": ""
     },
     "PSVError.html": {
@@ -32148,8 +32717,8 @@ window.lunrData = {
       "longname": "PSVMarker.types",
       "name": "types",
       "tags": "PSVMarker.types types",
-      "summary": "",
-      "description": "Types of markers"
+      "summary": "Types of markers",
+      "description": ""
     },
     "PSVMarker.html#psv": {
       "id": "PSVMarker.html#psv",
@@ -32178,8 +32747,8 @@ window.lunrData = {
       "longname": "PSVMarker.getType",
       "name": "getType",
       "tags": "PSVMarker.getType getType",
-      "summary": "",
-      "description": "Determines the type of a marker by the available properties"
+      "summary": "Determines the type of a marker by the available properties",
+      "description": ""
     },
     "PSVMarker.html#destroy": {
       "id": "PSVMarker.html#destroy",
@@ -32188,8 +32757,8 @@ window.lunrData = {
       "longname": "PSVMarker#destroy",
       "name": "destroy",
       "tags": "PSVMarker#destroy destroy",
-      "summary": "",
-      "description": "Destroys the marker"
+      "summary": "Destroys the marker",
+      "description": ""
     },
     "PSVMarker.html#isNormal": {
       "id": "PSVMarker.html#isNormal",
@@ -32198,8 +32767,8 @@ window.lunrData = {
       "longname": "PSVMarker#isNormal",
       "name": "isNormal",
       "tags": "PSVMarker#isNormal isNormal",
-      "summary": "",
-      "description": "Checks if it is a normal marker (image or html)"
+      "summary": "Checks if it is a normal marker (image or html)",
+      "description": ""
     },
     "PSVMarker.html#isPolygon": {
       "id": "PSVMarker.html#isPolygon",
@@ -32208,8 +32777,8 @@ window.lunrData = {
       "longname": "PSVMarker#isPolygon",
       "name": "isPolygon",
       "tags": "PSVMarker#isPolygon isPolygon",
-      "summary": "",
-      "description": "Checks if it is a polygon marker"
+      "summary": "Checks if it is a polygon marker",
+      "description": ""
     },
     "PSVMarker.html#isSvg": {
       "id": "PSVMarker.html#isSvg",
@@ -32218,8 +32787,8 @@ window.lunrData = {
       "longname": "PSVMarker#isSvg",
       "name": "isSvg",
       "tags": "PSVMarker#isSvg isSvg",
-      "summary": "",
-      "description": "Checks if it is an SVG marker"
+      "summary": "Checks if it is an SVG marker",
+      "description": ""
     },
     "PSVMarker.html#update": {
       "id": "PSVMarker.html#update",
@@ -32228,8 +32797,8 @@ window.lunrData = {
       "longname": "PSVMarker#update",
       "name": "update",
       "tags": "PSVMarker#update update",
-      "summary": "",
-      "description": "Updates the marker with new properties"
+      "summary": "Updates the marker with new properties",
+      "description": ""
     },
     "module-components.html": {
       "id": "module-components.html",
@@ -32271,8 +32840,8 @@ window.lunrData = {
       "longname": "PSVUtils.HalfPI",
       "name": "HalfPI",
       "tags": "PSVUtils.HalfPI HalfPI",
-      "summary": "",
-      "description": "Short-Hand for PI/2"
+      "summary": "Short-Hand for PI/2",
+      "description": ""
     },
     "PSVUtils.html#.svgNS": {
       "id": "PSVUtils.html#.svgNS",
@@ -32281,8 +32850,8 @@ window.lunrData = {
       "longname": "PSVUtils.svgNS",
       "name": "svgNS",
       "tags": "PSVUtils.svgNS svgNS",
-      "summary": "",
-      "description": "Namespace for SVG creation"
+      "summary": "Namespace for SVG creation",
+      "description": ""
     },
     "PSVUtils.html#.TwoPI": {
       "id": "PSVUtils.html#.TwoPI",
@@ -32291,8 +32860,8 @@ window.lunrData = {
       "longname": "PSVUtils.TwoPI",
       "name": "TwoPI",
       "tags": "PSVUtils.TwoPI TwoPI",
-      "summary": "",
-      "description": "Short-Hand for PI*2"
+      "summary": "Short-Hand for PI*2",
+      "description": ""
     },
     "PSVUtils.html#.addClasses": {
       "id": "PSVUtils.html#.addClasses",
@@ -32301,8 +32870,8 @@ window.lunrData = {
       "longname": "PSVUtils.addClasses",
       "name": "addClasses",
       "tags": "PSVUtils.addClasses addClasses",
-      "summary": "",
-      "description": "Adds one or several CSS classes to an element"
+      "summary": "Adds one or several CSS classes to an element",
+      "description": ""
     },
     "PSVUtils.html#.animation": {
       "id": "PSVUtils.html#.animation",
@@ -32311,8 +32880,8 @@ window.lunrData = {
       "longname": "PSVUtils.animation",
       "name": "animation",
       "tags": "PSVUtils.animation animation",
-      "summary": "",
-      "description": "Utility for animations, interpolates each property with an easing and optional delay"
+      "summary": "Interpolates each property with an easing and optional delay",
+      "description": ""
     },
     "PSVUtils.html#.bound": {
       "id": "PSVUtils.html#.bound",
@@ -32321,8 +32890,8 @@ window.lunrData = {
       "longname": "PSVUtils.bound",
       "name": "bound",
       "tags": "PSVUtils.bound bound",
-      "summary": "",
-      "description": "Ensures that a number is in a given interval"
+      "summary": "Ensures that a number is in a given interval",
+      "description": ""
     },
     "PSVUtils.html#.checkTHREE": {
       "id": "PSVUtils.html#.checkTHREE",
@@ -32331,8 +32900,18 @@ window.lunrData = {
       "longname": "PSVUtils.checkTHREE",
       "name": "checkTHREE",
       "tags": "PSVUtils.checkTHREE checkTHREE",
-      "summary": "",
-      "description": "Checks if some Three.js components are loaded"
+      "summary": "Checks if some three.js components are loaded",
+      "description": ""
+    },
+    "PSVUtils.html#.cleanTHREEScene": {
+      "id": "PSVUtils.html#.cleanTHREEScene",
+      "kind": "function",
+      "title": "&lt;static&gt; cleanTHREEScene( scene )",
+      "longname": "PSVUtils.cleanTHREEScene",
+      "name": "cleanTHREEScene",
+      "tags": "PSVUtils.cleanTHREEScene cleanTHREEScene",
+      "summary": "Removes all children of a three.js scene and dispose all textures",
+      "description": ""
     },
     "PSVUtils.html#.clone": {
       "id": "PSVUtils.html#.clone",
@@ -32341,8 +32920,8 @@ window.lunrData = {
       "longname": "PSVUtils.clone",
       "name": "clone",
       "tags": "PSVUtils.clone clone",
-      "summary": "",
-      "description": "Clones an object"
+      "summary": "Clones an object",
+      "description": ""
     },
     "PSVUtils.html#.deepmerge": {
       "id": "PSVUtils.html#.deepmerge",
@@ -32351,8 +32930,8 @@ window.lunrData = {
       "longname": "PSVUtils.deepmerge",
       "name": "deepmerge",
       "tags": "PSVUtils.deepmerge deepmerge",
-      "summary": "",
-      "description": "Merges the enumerable attributes of two objects. Modified to replace arrays instead of merge and alter the target object."
+      "summary": "Merges the enumerable attributes of two objects",
+      "description": "Replaces arrays and alters the target object."
     },
     "PSVUtils.html#.exitFullscreen": {
       "id": "PSVUtils.html#.exitFullscreen",
@@ -32361,8 +32940,8 @@ window.lunrData = {
       "longname": "PSVUtils.exitFullscreen",
       "name": "exitFullscreen",
       "tags": "PSVUtils.exitFullscreen exitFullscreen",
-      "summary": "",
-      "description": "Exits fullscreen mode"
+      "summary": "Exits fullscreen mode",
+      "description": ""
     },
     "PSVUtils.html#.fullscreenEvent": {
       "id": "PSVUtils.html#.fullscreenEvent",
@@ -32371,8 +32950,8 @@ window.lunrData = {
       "longname": "PSVUtils.fullscreenEvent",
       "name": "fullscreenEvent",
       "tags": "PSVUtils.fullscreenEvent fullscreenEvent",
-      "summary": "",
-      "description": "Gets the event name for fullscreen event"
+      "summary": "Gets the event name for fullscreen",
+      "description": ""
     },
     "PSVUtils.html#.getClosest": {
       "id": "PSVUtils.html#.getClosest",
@@ -32381,8 +32960,8 @@ window.lunrData = {
       "longname": "PSVUtils.getClosest",
       "name": "getClosest",
       "tags": "PSVUtils.getClosest getClosest",
-      "summary": "",
-      "description": "Gets the closest parent (can by itself)"
+      "summary": "Gets the closest parent (can by itself)",
+      "description": ""
     },
     "PSVUtils.html#.getMaxTextureWidth": {
       "id": "PSVUtils.html#.getMaxTextureWidth",
@@ -32391,8 +32970,8 @@ window.lunrData = {
       "longname": "PSVUtils.getMaxTextureWidth",
       "name": "getMaxTextureWidth",
       "tags": "PSVUtils.getMaxTextureWidth getMaxTextureWidth",
-      "summary": "",
-      "description": "Gets max texture width in WebGL context"
+      "summary": "Gets max texture width in WebGL context",
+      "description": ""
     },
     "PSVUtils.html#.getShortestArc": {
       "id": "PSVUtils.html#.getShortestArc",
@@ -32401,8 +32980,8 @@ window.lunrData = {
       "longname": "PSVUtils.getShortestArc",
       "name": "getShortestArc",
       "tags": "PSVUtils.getShortestArc getShortestArc",
-      "summary": "",
-      "description": "Compute the shortest offset between two longitudes"
+      "summary": "Compute the shortest offset between two longitudes",
+      "description": ""
     },
     "PSVUtils.html#.getStyle": {
       "id": "PSVUtils.html#.getStyle",
@@ -32411,8 +32990,8 @@ window.lunrData = {
       "longname": "PSVUtils.getStyle",
       "name": "getStyle",
       "tags": "PSVUtils.getStyle getStyle",
-      "summary": "",
-      "description": "Gets an element style"
+      "summary": "Gets an element style",
+      "description": ""
     },
     "PSVUtils.html#.getWebGLCtx": {
       "id": "PSVUtils.html#.getWebGLCtx",
@@ -32421,8 +33000,8 @@ window.lunrData = {
       "longname": "PSVUtils.getWebGLCtx",
       "name": "getWebGLCtx",
       "tags": "PSVUtils.getWebGLCtx getWebGLCtx",
-      "summary": "",
-      "description": "Tries to return a canvas webgl context"
+      "summary": "Tries to return a canvas webgl context",
+      "description": ""
     },
     "PSVUtils.html#.getXMPValue": {
       "id": "PSVUtils.html#.getXMPValue",
@@ -32431,8 +33010,8 @@ window.lunrData = {
       "longname": "PSVUtils.getXMPValue",
       "name": "getXMPValue",
       "tags": "PSVUtils.getXMPValue getXMPValue",
-      "summary": "",
-      "description": "Returns the value of a given attribute in the panorama metadata"
+      "summary": "Returns the value of a given attribute in the panorama metadata",
+      "description": ""
     },
     "PSVUtils.html#.hasParent": {
       "id": "PSVUtils.html#.hasParent",
@@ -32441,8 +33020,8 @@ window.lunrData = {
       "longname": "PSVUtils.hasParent",
       "name": "hasParent",
       "tags": "PSVUtils.hasParent hasParent",
-      "summary": "",
-      "description": "Searches if an element has a particular parent at any level including itself"
+      "summary": "Searches if an element has a particular parent at any level including itself",
+      "description": ""
     },
     "PSVUtils.html#.isCanvasSupported": {
       "id": "PSVUtils.html#.isCanvasSupported",
@@ -32451,8 +33030,8 @@ window.lunrData = {
       "longname": "PSVUtils.isCanvasSupported",
       "name": "isCanvasSupported",
       "tags": "PSVUtils.isCanvasSupported isCanvasSupported",
-      "summary": "",
-      "description": "Detects whether canvas is supported"
+      "summary": "Detects if canvas is supported",
+      "description": ""
     },
     "PSVUtils.html#.isFullscreenEnabled": {
       "id": "PSVUtils.html#.isFullscreenEnabled",
@@ -32461,8 +33040,8 @@ window.lunrData = {
       "longname": "PSVUtils.isFullscreenEnabled",
       "name": "isFullscreenEnabled",
       "tags": "PSVUtils.isFullscreenEnabled isFullscreenEnabled",
-      "summary": "",
-      "description": "Detects whether fullscreen is enabled"
+      "summary": "Detects if fullscreen is enabled",
+      "description": ""
     },
     "PSVUtils.html#.isInteger": {
       "id": "PSVUtils.html#.isInteger",
@@ -32471,8 +33050,8 @@ window.lunrData = {
       "longname": "PSVUtils.isInteger",
       "name": "isInteger",
       "tags": "PSVUtils.isInteger isInteger",
-      "summary": "",
-      "description": "Checks if a value is an integer"
+      "summary": "Checks if a value is an integer",
+      "description": ""
     },
     "PSVUtils.html#.isPlainObject": {
       "id": "PSVUtils.html#.isPlainObject",
@@ -32481,8 +33060,8 @@ window.lunrData = {
       "longname": "PSVUtils.isPlainObject",
       "name": "isPlainObject",
       "tags": "PSVUtils.isPlainObject isPlainObject",
-      "summary": "",
-      "description": "Function to test if an object is a plain object, i.e. is constructed by the built-in Object constructor and inherits directly from Object.prototype or null. Some built-in objects pass the test, e.g. Math which is a plain object and some host or exotic objects may pass also. http://stackoverflow.com/a/5878101/1207670"
+      "summary": "Test if an object is a plain object",
+      "description": "Test if an object is a plain object, i.e. is constructed by the built-in Object constructor and inherits directly from Object.prototype or null. Some built-in objects pass the test, e.g. Math which is a plain object and some host or exotic objects may pass also. http://stackoverflow.com/a/5878101/1207670"
     },
     "PSVUtils.html#.isWebGLSupported": {
       "id": "PSVUtils.html#.isWebGLSupported",
@@ -32491,8 +33070,8 @@ window.lunrData = {
       "longname": "PSVUtils.isWebGLSupported",
       "name": "isWebGLSupported",
       "tags": "PSVUtils.isWebGLSupported isWebGLSupported",
-      "summary": "",
-      "description": "Detects whether WebGL is supported"
+      "summary": "Detects if WebGL is supported",
+      "description": ""
     },
     "PSVUtils.html#.mouseWheelEvent": {
       "id": "PSVUtils.html#.mouseWheelEvent",
@@ -32501,8 +33080,8 @@ window.lunrData = {
       "longname": "PSVUtils.mouseWheelEvent",
       "name": "mouseWheelEvent",
       "tags": "PSVUtils.mouseWheelEvent mouseWheelEvent",
-      "summary": "",
-      "description": "Gets the event name for mouse wheel"
+      "summary": "Gets the event name for mouse wheel",
+      "description": ""
     },
     "PSVUtils.html#.parseAngle": {
       "id": "PSVUtils.html#.parseAngle",
@@ -32511,8 +33090,8 @@ window.lunrData = {
       "longname": "PSVUtils.parseAngle",
       "name": "parseAngle",
       "tags": "PSVUtils.parseAngle parseAngle",
-      "summary": "",
-      "description": "Parses an angle value in radians or degrees and returns a normalized value in radians"
+      "summary": "Parses an angle value in radians or degrees and returns a normalized value in radians",
+      "description": ""
     },
     "PSVUtils.html#.parsePosition": {
       "id": "PSVUtils.html#.parsePosition",
@@ -32521,8 +33100,8 @@ window.lunrData = {
       "longname": "PSVUtils.parsePosition",
       "name": "parsePosition",
       "tags": "PSVUtils.parsePosition parsePosition",
-      "summary": "",
-      "description": "Translate CSS values like &quot;top center&quot; or &quot;10% 50%&quot; as top and left positions The implementation is as close as possible to the &quot;background-position&quot; specification https://developer.mozilla.org/en-US/docs/Web/CSS/background-position"
+      "summary": "Translate CSS values like &quot;top center&quot; or &quot;10% 50%&quot; as top and left positions",
+      "description": "The implementation is as close as possible to the &quot;background-position&quot; specification https://developer.mozilla.org/en-US/docs/Web/CSS/background-position"
     },
     "PSVUtils.html#.parseSpeed": {
       "id": "PSVUtils.html#.parseSpeed",
@@ -32531,8 +33110,8 @@ window.lunrData = {
       "longname": "PSVUtils.parseSpeed",
       "name": "parseSpeed",
       "tags": "PSVUtils.parseSpeed parseSpeed",
-      "summary": "",
-      "description": "Parses an speed"
+      "summary": "Parses an speed",
+      "description": ""
     },
     "PSVUtils.html#.removeClasses": {
       "id": "PSVUtils.html#.removeClasses",
@@ -32541,8 +33120,8 @@ window.lunrData = {
       "longname": "PSVUtils.removeClasses",
       "name": "removeClasses",
       "tags": "PSVUtils.removeClasses removeClasses",
-      "summary": "",
-      "description": "Removes one or several CSS classes to an element"
+      "summary": "Removes one or several CSS classes to an element",
+      "description": ""
     },
     "PSVUtils.html#.requestFullscreen": {
       "id": "PSVUtils.html#.requestFullscreen",
@@ -32551,8 +33130,18 @@ window.lunrData = {
       "longname": "PSVUtils.requestFullscreen",
       "name": "requestFullscreen",
       "tags": "PSVUtils.requestFullscreen requestFullscreen",
-      "summary": "",
-      "description": "Enters fullscreen mode"
+      "summary": "Enters fullscreen mode",
+      "description": ""
+    },
+    "PSVUtils.html#.sum": {
+      "id": "PSVUtils.html#.sum",
+      "kind": "function",
+      "title": "&lt;static&gt; sum( array ) → {number}",
+      "longname": "PSVUtils.sum",
+      "name": "sum",
+      "tags": "PSVUtils.sum sum",
+      "summary": "Computes the sum of an array",
+      "description": ""
     },
     "PSVUtils.html#.throttle": {
       "id": "PSVUtils.html#.throttle",
@@ -32561,18 +33150,18 @@ window.lunrData = {
       "longname": "PSVUtils.throttle",
       "name": "throttle",
       "tags": "PSVUtils.throttle throttle",
-      "summary": "",
-      "description": "Returns a function, that, when invoked, will only be triggered at most once during a given window of time."
+      "summary": "Returns a function, that, when invoked, will only be triggered at most once during a given window of time.",
+      "description": ""
     },
     "PSVUtils.html#.toggleClass": {
       "id": "PSVUtils.html#.toggleClass",
       "kind": "function",
-      "title": "&lt;static&gt; toggleClass( element, className [, active ] ) → {boolean}",
+      "title": "&lt;static&gt; toggleClass( element, className [, active ] )",
       "longname": "PSVUtils.toggleClass",
       "name": "toggleClass",
       "tags": "PSVUtils.toggleClass toggleClass",
-      "summary": "",
-      "description": "Toggles a CSS class"
+      "summary": "Toggles a CSS class",
+      "description": ""
     }
   }
 };

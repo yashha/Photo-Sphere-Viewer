@@ -10,7 +10,7 @@ isHome: true
 
   <blockquote style="text-align:justify">
     Photo Sphere Viewer is a JavaScript library which renders 360° panoramas shots with Photo Sphere, the new camera
-    mode of Android 4.2 Jelly Bean and above.<br><br>
+    mode of Android 4.2 Jelly Bean and above. It also supports cube panoramas.<br><br>
     Photo Sphere Viewer is pure JS and based on <a href="http://threejs.org/">Three.js</a>, allowing very good
     performances on WebGL enabled systems (most recent browsers) and reasonably good performances on other systems
     supporting HTML Canvas.<br><br>
@@ -34,8 +34,8 @@ isHome: true
 
   <h3>Dependencies</h3>
   <ul>
-    <li><a href="http://threejs.org">three.js</a></li>
-    <li><a href="http://olado.github.io/doT">doT.js</a> (@master)</li>
+    <li><a href="http://threejs.org">three.js</a> + examples files</li>
+    <li><a href="http://olado.github.io/doT">doT.js</a></li>
     <li><a href="https://github.com/mistic100/uEvent">uEvent</a></li>
     <li><a href="http://malko.github.io/D.js">D.js</a></li>
   </ul>
@@ -54,7 +54,10 @@ isHome: true
 <script src="Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
 
 <script>
-  var viewer = PhotoSphereViewer({ /* ... */});
+  var viewer = PhotoSphereViewer({
+    container: 'container-id',
+    panorama: 'path/to/panorama.jpg'
+  });
 </script>
 {% endhighlight %}
 <!-- @formatter:on -->
@@ -63,7 +66,10 @@ isHome: true
   <!-- @formatter:off -->
 {% highlight javascript %}
 require(['photo-sphere-viewer'], function(PhotoSphereViewer) {
-  var viewer = PhotoSphereViewer({ /* ... */});
+  var viewer = PhotoSphereViewer({
+    container: 'container-id',
+    panorama: 'path/to/panorama.jpg'
+  });
 });
 {% endhighlight %}
 <!-- @formatter:on -->
@@ -77,24 +83,6 @@ require(['photo-sphere-viewer'], function(PhotoSphereViewer) {
       <!-- @formatter:off -->
       <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CanvasRenderer.js">CanvasRenderer.js</a></li>
       <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/Projector.js">Projector.js</a></li>
-      <!-- @formatter:on -->
-    </ul>
-  </div>
-
-  <div class="bs-callout bs-callout-warning">
-    <h4>Transition effect</h4>
-
-    <p>In order to perform the transition effect between two panoramas (<code>transition.blur</code> option), Photo
-      Sphere Viewer requires the following files from Three.js examples (also available in
-      <code>three.js-examples</code>
-      Bower package) :</p>
-    <ul>
-      <!-- @formatter:off -->
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/postprocessing/EffectComposer.js">EffectComposer.js</a></li>
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/postprocessing/RenderPass.js">RenderPass.js</a></li>
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/postprocessing/ShaderPass.js">ShaderPass.js</a></li>
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/postprocessing/MaskPass.js">MaskPass.js</a></li>
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/shaders/CopyShader.js">CopyShader.js</a></li>
       <!-- @formatter:on -->
     </ul>
   </div>
@@ -144,15 +132,54 @@ require(['photo-sphere-viewer'], function(PhotoSphereViewer) {
       <tbody>
       <tr>
         <td>container</td>
-        <td>HTMLElement|string</td>
+        <td>HTMLElement<br>String</td>
         <td><span class="label label-danger">required</span></td>
         <td>HTML element which will contain the panorama, or identifier of the element.</td>
       </tr>
       <tr>
         <td>panorama</td>
-        <td>String</td>
+        <td>String<br>String[]<br>Object&lt;String,&nbsp;String&gt;</td>
         <td><span class="label label-danger">required</span></td>
-        <td>Path to the panorama image.</td>
+        <td>Path to the panorama image(s). It must be a single string for equirectangular panoramas and an array or an
+          object for cubemaps.
+          <button class="btn btn-primary btn-xs" data-bootbox="opt_panorama">More</button>
+          <div id="opt_panorama" title="Panorama URL" class="hidden">
+            <p>Equirectangular panorama :</p>
+            <!-- @formatter:off -->
+{% highlight javascript %}
+panorama: 'path/to/panorama.jpg'
+{% endhighlight %}
+<!-- @formatter:on -->
+
+            <p>Cubemap as array :</p>
+            <!-- @formatter:off -->
+{% highlight javascript %}
+panorama: [
+  'path/to/left.jpg',
+  'path/to/front.jpg',
+  'path/to/right.jpg',
+  'path/to/back.jpg',
+  'path/to/top.jpg',
+  'path/to/bottom.jpg'
+]
+{% endhighlight %}
+<!-- @formatter:on -->
+
+            <p>Cubemap as object :</p>
+            <!-- @formatter:off -->
+{% highlight javascript %}
+panorama: {
+  left:   'path/to/left.jpg',
+  front:  'path/to/front.jpg',
+  right:  'path/to/right.jpg',
+  back:   'path/to/back.jpg',
+  top:    'path/to/top.jpg',
+  bottom: 'path/to/bottom.jpg'
+}
+{% endhighlight %}
+<!-- @formatter:on -->
+          </div>
+        </td>
       </tr>
       <tr>
         <td>caption</td>
@@ -229,7 +256,7 @@ require(['photo-sphere-viewer'], function(PhotoSphereViewer) {
       </tr>
       <tr>
         <td>time_anim</td>
-        <td>integer|boolean</td>
+        <td>integer<br>boolean</td>
         <td>2000</td>
         <td>Idle time (milliseconds) before the panorama automatically starts rotating. <code>false</code> to
           deactivate.
@@ -345,9 +372,8 @@ lang: {
             <!-- @formatter:off -->
 {% highlight javascript %}
 transition: {
-    duration: 1500,
-    loader: true,
-    blur: false
+    duration: 1500, // duration of transition in milliseconds
+    loader: true // should display the loader ?
 }
 {% endhighlight %}
 <!-- @formatter:on -->
@@ -377,14 +403,6 @@ transition: {
         <td>double</td>
         <td>1</td>
         <td>Speed multiplicator for manual moves.</td>
-      </tr>
-      <tr>
-        <td>sphere_segments</td>
-        <td>integer (multiple of 2)</td>
-        <td>64</td>
-        <td>Number of horizontal and vertical segments used to render the sphere, decrease if you encounter performance
-          issues.
-        </td>
       </tr>
       <tr>
         <td>usexmpdata</td>
@@ -443,7 +461,7 @@ tooltip: {
 <!-- @formatter:on -->
           </div>
         </td>
-        <td>Configuration of the tooltip. This only needs to be changes of the CSS is modified.</td>
+        <td>Configuration of the tooltip. This only needs to be changed if the CSS is modified.</td>
       </tr>
       <tr>
         <td>move_inertia</td>
@@ -464,289 +482,27 @@ tooltip: {
 
   <h2 id="methods">Methods</h2>
 
-  <p>The <code>PhotoSphereViewer</code> function returns an object with the following methods:</p>
+  <p>All useful methods are documented in the
+    <a class="btn btn-outline" href="{{site.github.url}}/api/PhotoSphereViewer.html#methods">API documentation</a></p>
 
-  <h3 id="actions" data-no-menu>Actions</h3>
-
-  <h4><code>.destroy()</code></h4>
-  <p>Destroy the viewer.</p>
-  <div class="bs-callout bs-callout-danger">
-    <p>The memory used by the ThreeJS context is not totally cleared. This will be fixed as soon as possible.</p>
-  </div>
-
-  <h4><code>.load() -> Promise</code></h4>
-  <p>Inits panorama loading if <code>autoload</code> was false.</p>
-
-  <h4><code>.render()</code></h4>
-  <p>Performs a full render of the viewer, useful if you manually modified some properties or updated the markers.</p>
-
-  <h4><code>.setPanorama(path [, position] [, transition]) -> Promise</code></h4>
-  <p>Loads a new panorama image, optionnally changing the camera position and activating or not the transition
-    animation.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.setPanorama(
-  'panorama-2.jpg',
-  {
-    longitude: Math.PI,
-    latitude: 0
-  },
-  true
-);
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.rotate(position [, render])</code></h4>
-  <p>Rotates the view to specific longitude and latitude. By default this triggers and render.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.rotate({
-  longitude: Math.PI,
-  latitude: - Math.PI / 4
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.animate(position, duration | speed) -> Promise</code></h4>
-  <p>Rotates the view to specific longitude and latitude with a smooth animation. The last param can be a duration in
-    milliseconds or a speed with the same format as <code>anim_speed</code> parameter.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.animate({
-  x: 1200,
-  y: 500
-}, 2000);
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.zoom(level)</code></h4>
-  <p>Zooms to a specific level between <code>max_fov</code> (default: 0) and <code>min_fov</code> (default: 100).</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.zoom(45);
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.zoomIn()</code> / <code>.zoomOut()</code></h4>
-  <p>Increases or decreases to zoom level by <code>1</code>.</p>
-
-  <h4><code>.showPanel(content [, noMargin])</code> / <code>.hidePanel()</code></h4>
-  <p>Opens the right panel with the specified HTML content.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.showPanel(html);
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>.showTooltip(config)</code> / <code>.hideTooltip()</code></h4>
-  <p>Displays a tooltip on the viewer.</p>
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th style="width: 130px;">Name</th>
-        <th style="width: 100px;">type</th>
-        <th style="width: 150px;">default</th>
-        <th>description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>content</td>
-        <td>string</td>
-        <td><span class="label label-danger">required</span></td>
-        <td>HTML content of the tootlip</td>
-      </tr>
-      <tr>
-        <td>top & left</td>
-        <td>int</td>
-        <td><span class="label label-danger">required</span></td>
-        <td>Position of the tip of the arrow of the tooltip, in pixels.</td>
-      </tr>
-      <tr>
-        <td>position</td>
-        <td>string</td>
-        <td>'top center'</td>
-        <td>Tooltip position toward it's arrow tip. Accepted values are combinations of <code>top, center, bottom</code>
-          and
-          <code>left, center, right</code> with the exception of <code>center center</code>.
-        </td>
-      </tr>
-      <tr>
-        <td>className</td>
-        <td>string</td>
-        <td></td>
-        <td>Additional CSS class added to the tooltip.</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h4><code>.toggleFullscreen()</code></h4>
-  <p>Enters or exits the fullscreen mode.</p>
-
-  <h4><code>.startAutorotate()</code> / <code>.stopAutorotate()</code> / <code>.toggleAutorotate()</code></h4>
-  <p>Enables or disables the automatic rotation.</p>
-
-  <h4><code>.startGyroscopeControl()</code> / <code>.stopGyroscopeControl()</code> /
-    <code>.toggleGyroscopeControl()</code></h4>
-  <p>Enables or disables the gyroscope navigation.</p>
-
-  <h4><code>.startKeyboardControl()</code> / <code>.stopKeyboardControl()</code></h4>
-  <p>Enables or disables the keyboard controls (done automatically when entering fullscreen).</p>
-
-  <h4><code>.hideNavbar()</code> / <code>.showNavbar()</code> / <code>.toggleNavbar()</code></h4>
-  <p>Hides or show the navbar.</p>
-
-  <h4><code>.preloadPanorama(panorama) -> Promise</code></h4>
-  <p>Put a panorama image in the cache for future use with <code>.setPanorama</code>.</p>
-
-  <h4><code>.clearPanoramaCache([panorama])</code></h4>
-  <p>Removes an image from the cache or clears the entire cache.</p>
-
-  <h3 id="getters-setters" data-no-menu>Getters &amp; setters</h3>
-
-  <h4><code>.setCaption(html)</code></h4>
-  <p>Changes the content of the navbar caption.</p>
-
-  <h4><code>.getNavbarButton(id)</code></h4>
-  <p>Returns an existing navbar button by its identifier. <a href="#navbar"><i
-    class="glyphicon glyphicon-info-sign"></i> See below</a>.</p>
-
-  <h4><code>.getPosition()</code></h4>
-
-  <h4><code>.getZoomLevel()</code></h4>
-
-  <h4><code>.getSize()</code></h4>
-
-  <h4><code>.isAutorotateEnabled()</code></h4>
-
-  <h4><code>.isGyroscopeEnabled()</code></h4>
-
-  <h4><code>.isFullscreenEnabled()</code></h4>
-
-  <h2 id="events">Events</h2>
-
-  <p>On the same viewer object you can use the <code>on</code> method to listen to various events.</p>
-
-  <h4><code>ready</code></h4>
-  <p>Triggered when the panorama image has been loaded and the viewer is ready to perform the first render.</p>
+  <p>To call a method you need to keep a reference to the viewer (created with <code>new</code> keyword). It's good
+    practice to wait for the <code>ready</code> event before doing anything.</p>
   <!-- @formatter:off -->
 {% highlight javascript %}
 viewer.on('ready', function() {
-  // do something when the viewer is ready to render
+  viewer.rotate({
+    x: 1500,
+    y: 1000
+  });
 });
 {% endhighlight %}
 <!-- @formatter:on -->
 
-  <h4><code>render</code></h4>
-  <p>Triggered on each viewer render <b>which happens A LOT when rotating, zooming, etc.</b></p>
+  <h2 id="events">Events</h2>
 
-  <h4><code>click [data]</code></h4>
-  <p>Triggered when the user click on the viewer on a "free space" (everywhere excluding the navbar, the side panel or
-    an existing marker). The <code>data</code> contains info about the clicked point :</p>
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th style="width: 250px;">Name</th>
-        <th>description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>target</td>
-        <td>Original target of the click event.</td>
-      </tr>
-      <tr>
-        <td>client_x &amp; client_y</td>
-        <td>Position in pixels from the top-left corner of the viewer.</td>
-      </tr>
-      <tr>
-        <td>latitude &amp; longitude</td>
-        <td>Corresponding spherical coordinates in radians.</td>
-      </tr>
-      <tr>
-        <td>texture_x &amp; texture_y</td>
-        <td>Corresponding position on the panorama image in pixels.</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+  <p>On the viewer you can also use the <code>on</code> method to listen to
+    <a class="btn btn-outline" href="{{site.github.url}}/api/PhotoSphereViewer.html#events">various events</a>.</p>
 
-  <h4><code>autorotate [enabled]</code></h4>
-  <p>Triggered when the automatic rotation is enabled/disabled.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('autorotate', function(enabled) {
-  // enabled is true or false
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>zoom-updated [level]</code></h4>
-  <p>Triggered when the zoom level changes.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('zoom-updated', function(level) {
-  // level is from 0 to 100
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>fullscreen-updated [enabled]</code></h4>
-  <p>Triggered when the fullscreen mode is enabled or disabled.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('fullscreen-updated', function(enabled) {
-  // enabled is true or false
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>gyroscope-updated [enabled]</code></h4>
-  <p>Triggered when the gyroscope mode is enabled or disabled.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('gyroscope-updated', function(enabled) {
-  // enabled is true or false
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>position-updated [position]</code></h4>
-  <p>Triggered when the view longitude and/or latitude changes.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('position-updated', function(position) {
-  // position has longitude and latitude
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>size-updated [size]</code></h4>
-  <p>Triggered when the viewer size changes.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('size-updated', function(size) {
-  // size has width and height
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>panorama-load-progress [panorama, progress]</code></h4>
-  <p>Triggered while a panorama image is loading, with loading progression.</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-viewer.on('panorama-load-progress', function(panorama, progress) {
-  // progress goes from 0 to 100
-});
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <h4><code>open-panel</code> / <code>close-panel</code></h4>
-
-  <h4><code>show-tooltip</code> / <code>hide-tooltip</code></h4>
 
   <h2 id="navbar">Navbar customization</h2>
 
@@ -799,7 +555,8 @@ viewer.on('panorama-load-progress', function(panorama, progress) {
   <!-- @formatter:off -->
 {% highlight javascript %}
 new PhotoSphereViewer({
-  /* ..... */,
+  container: 'container-id',
+  panorama: 'path/to/panorama.jpg',
   navbar: [
     'autorotate',
     'zoom',
@@ -810,7 +567,7 @@ new PhotoSphereViewer({
       className: 'custom-button',
       content: 'Custom',
       onClick: function() {
-       alert('Hello from custom button');
+        alert('Hello from custom button');
       }
     },
     'caption',
