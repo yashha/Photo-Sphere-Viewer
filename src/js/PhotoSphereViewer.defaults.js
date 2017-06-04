@@ -1,24 +1,73 @@
 /**
- * Number of pixels bellow which a mouse move will be considered as a click
+ * @summary Number of pixels bellow which a mouse move will be considered as a click
  * @type {int}
+ * @readonly
+ * @private
  */
 PhotoSphereViewer.MOVE_THRESHOLD = 4;
 
 /**
- * Time size of the mouse position history used to compute inertia
+ * @summary Delay in milliseconds between two clicks to consider a double click
  * @type {int}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.DBLCLICK_DELAY = 300;
+
+/**
+ * @summary Time size of the mouse position history used to compute inertia
+ * @type {int}
+ * @readonly
+ * @private
  */
 PhotoSphereViewer.INERTIA_WINDOW = 300;
 
 /**
- * Radius of the THREE.Sphere
+ * @summary Radius of the THREE.SphereGeometry
+ * Half-length of the THREE.BoxGeometry
  * @type {int}
+ * @readonly
+ * @private
  */
 PhotoSphereViewer.SPHERE_RADIUS = 100;
 
 /**
- * Map between keyboard events "keyCode|which" and "key"
+ * @summary Number of vertice of the THREE.SphereGeometry
+ * @type {int}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.SPHERE_VERTICES = 64;
+
+/**
+ * @summary Number of vertices of each side of the THREE.BoxGeometry
+ * @type {int}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.CUBE_VERTICES = 8;
+
+/**
+ * @summary Order of cube textures for arrays
+ * @type {int[]}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
+
+/**
+ * @summary Order of cube textures for maps
+ * @type {string[]}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
+
+/**
+ * @summary Map between keyboard events `keyCode|which` and `key`
  * @type {Object.<int, string>}
+ * @readonly
+ * @private
  */
 PhotoSphereViewer.KEYMAP = {
   33: 'PageUp',
@@ -32,14 +81,10 @@ PhotoSphereViewer.KEYMAP = {
 };
 
 /**
- * SVG icons sources
- * @type {Object.<string, string>}
- */
-PhotoSphereViewer.ICONS = {};
-
-/**
- * System properties
+ * @summary System properties
  * @type {Object}
+ * @readonly
+ * @private
  */
 PhotoSphereViewer.SYSTEM = {
   loaded: false,
@@ -53,8 +98,16 @@ PhotoSphereViewer.SYSTEM = {
 };
 
 /**
- * PhotoSphereViewer defaults
+ * @summary SVG icons sources
+ * @type {Object.<string, string>}
+ * @readonly
+ */
+PhotoSphereViewer.ICONS = {};
+
+/**
+ * @summary Default options, see {@link http://photo-sphere-viewer.js.org/#options}
  * @type {Object}
+ * @readonly
  */
 PhotoSphereViewer.DEFAULTS = {
   panorama: null,
@@ -64,7 +117,6 @@ PhotoSphereViewer.DEFAULTS = {
   usexmpdata: true,
   pano_data: null,
   webgl: true,
-  sphere_segments: 64,
   min_fov: 30,
   max_fov: 90,
   default_fov: null,
@@ -109,8 +161,7 @@ PhotoSphereViewer.DEFAULTS = {
   click_event_on_marker: false,
   transition: {
     duration: 1500,
-    loader: true,
-    blur: false
+    loader: true
   },
   loading_img: null,
   loading_txt: 'Loading...',
@@ -121,8 +172,9 @@ PhotoSphereViewer.DEFAULTS = {
 };
 
 /**
- * doT.js templates
+ * @summary doT.js templates
  * @type {Object.<string, string>}
+ * @readonly
  */
 PhotoSphereViewer.TEMPLATES = {
   markersList: '\

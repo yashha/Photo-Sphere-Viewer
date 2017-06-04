@@ -2,11 +2,26 @@
  * Loader class
  * @param {PhotoSphereViewer} psv
  * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
  */
 function PSVLoader(psv) {
   PSVComponent.call(this, psv);
 
+  /**
+   * @summary Animation canvas
+   * @member {HTMLCanvasElement}
+   * @readonly
+   * @private
+   */
   this.canvas = null;
+
+  /**
+   * @summary Inner container for vertical center
+   * @member {HTMLElement}
+   * @readonly
+   * @private
+   */
   this.loader = null;
 
   this.create();
@@ -18,7 +33,7 @@ PSVLoader.prototype.constructor = PSVLoader;
 PSVLoader.className = 'psv-loader-container';
 
 /**
- * Creates the loader content
+ * @override
  */
 PSVLoader.prototype.create = function() {
   PSVComponent.prototype.create.call(this);
@@ -56,7 +71,7 @@ PSVLoader.prototype.create = function() {
 };
 
 /**
- * Destroys the loader
+ * @override
  */
 PSVLoader.prototype.destroy = function() {
   delete this.loader;
@@ -66,7 +81,7 @@ PSVLoader.prototype.destroy = function() {
 };
 
 /**
- * Sets the loader progression
+ * @summary Sets the loader progression
  * @param {int} value - from 0 to 100
  */
 PSVLoader.prototype.setProgress = function(value) {

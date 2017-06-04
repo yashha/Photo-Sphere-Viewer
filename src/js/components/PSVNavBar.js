@@ -2,11 +2,24 @@
  * Navigation bar class
  * @param {PhotoSphereViewer} psv
  * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
  */
 function PSVNavBar(psv) {
   PSVComponent.call(this, psv);
 
+  /**
+   * @member {Object}
+   * @readonly
+   * @private
+   */
   this.config = this.psv.config.navbar;
+
+  /**
+   * @summary List of buttons of the navbar
+   * @member {Array.<module:components/buttons.PSVNavBarButton>}
+   * @readonly
+   */
   this.items = [];
 
   // all buttons
@@ -44,7 +57,8 @@ PSVNavBar.className = 'psv-navbar psv-navbar--open';
 PSVNavBar.publicMethods = ['showNavbar', 'hideNavbar', 'toggleNavbar', 'getNavbarButton'];
 
 /**
- * Creates the navbar
+ * @override
+ * @throws {PSVError} when the configuration is incorrect
  */
 PSVNavBar.prototype.create = function() {
   PSVComponent.prototype.create.call(this);
@@ -103,7 +117,7 @@ PSVNavBar.prototype.create = function() {
 };
 
 /**
- * Destroys the navbar
+ * @override
  */
 PSVNavBar.prototype.destroy = function() {
   this.items.forEach(function(item) {
@@ -117,9 +131,9 @@ PSVNavBar.prototype.destroy = function() {
 };
 
 /**
- * Returns a button by it's identifier
- * @param {string|number} id
- * @returns {PSVNavBarButton}
+ * @summary Returns a button by its identifier
+ * @param {string} id
+ * @returns {module:components/buttons.PSVNavBarButton}
  */
 PSVNavBar.prototype.getNavbarButton = function(id) {
   var button = null;
@@ -139,22 +153,22 @@ PSVNavBar.prototype.getNavbarButton = function(id) {
 };
 
 /**
- * Show the navbar
+ * @summary Shows the navbar
  */
 PSVNavBar.prototype.showNavbar = function() {
   this.toggleNavbar(true);
 };
 
 /**
- * Hides the navbar
+ * @summary Hides the navbar
  */
 PSVNavBar.prototype.hideNavbar = function() {
   this.toggleNavbar(false);
 };
 
 /**
- * Toggles the navbar
- * @param active
+ * @summary Toggles the navbar
+ * @param {boolean} active
  */
 PSVNavBar.prototype.toggleNavbar = function(active) {
   PSVUtils.toggleClass(this.container, 'psv-navbar--open', active);

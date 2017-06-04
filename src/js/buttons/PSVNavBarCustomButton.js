@@ -1,12 +1,26 @@
 /**
  * Navigation bar custom button class
- * @param {PSVNavBar} navbar
- * @param config {Object}
+ * @param {module:components.PSVNavBar} navbar
+ * @param {Object} config
+ * @param {string} [config.id]
+ * @param {string} [config.className]
+ * @param {string} [config.title]
+ * @param {string} [config.content]
+ * @param {function} [config.onClick]
+ * @param {boolean} [config.enabled=true]
+ * @param {boolean} [config.visible=true]
  * @constructor
+ * @extends module:components/buttons.PSVNavBarButton
+ * @memberof module:components/buttons
  */
 function PSVNavBarCustomButton(navbar, config) {
   PSVNavBarButton.call(this, navbar);
 
+  /**
+   * @member {Object}
+   * @readonly
+   * @private
+   */
   this.config = config;
 
   if (this.config.id) {
@@ -22,7 +36,7 @@ PSVNavBarCustomButton.prototype.constructor = PSVNavBarCustomButton;
 PSVNavBarCustomButton.className = 'psv-button psv-custom-button';
 
 /**
- * Creates the button
+ * @override
  */
 PSVNavBarCustomButton.prototype.create = function() {
   PSVNavBarButton.prototype.create.call(this);
@@ -49,7 +63,7 @@ PSVNavBarCustomButton.prototype.create = function() {
 };
 
 /**
- * Destroys the button
+ * @override
  */
 PSVNavBarCustomButton.prototype.destroy = function() {
   delete this.config;
@@ -58,8 +72,8 @@ PSVNavBarCustomButton.prototype.destroy = function() {
 };
 
 /**
- * Calls user method on click
- * @private
+ * @override
+ * @description Calls user method
  */
 PSVNavBarCustomButton.prototype._onClick = function() {
   if (this.config.onClick) {

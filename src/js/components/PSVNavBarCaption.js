@@ -1,8 +1,10 @@
 /**
  * Navbar caption class
  * @param {PSVNavBar} navbar
- * @param caption (String)
+ * @param {string} caption
  * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
  */
 function PSVNavBarCaption(navbar, caption) {
   PSVComponent.call(this, navbar);
@@ -19,7 +21,7 @@ PSVNavBarCaption.className = 'psv-caption';
 PSVNavBarCaption.publicMethods = ['setCaption'];
 
 /**
- * Sets the bar caption
+ * @summary Sets the bar caption
  * @param {string} html
  */
 PSVNavBarCaption.prototype.setCaption = function(html) {

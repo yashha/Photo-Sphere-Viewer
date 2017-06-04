@@ -2,12 +2,24 @@
  * Panel class
  * @param {PhotoSphereViewer} psv
  * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
  */
 function PSVPanel(psv) {
   PSVComponent.call(this, psv);
 
+  /**
+   * @summary Content container
+   * @member {HTMLElement}
+   * @readonly
+   * @private
+   */
   this.content = null;
 
+  /**
+   * @member {Object}
+   * @private
+   */
   this.prop = {
     mouse_x: 0,
     mouse_y: 0,
@@ -25,7 +37,7 @@ PSVPanel.className = 'psv-panel';
 PSVPanel.publicMethods = ['showPanel', 'hidePanel'];
 
 /**
- * Creates the panel
+ * @override
  */
 PSVPanel.prototype.create = function() {
   PSVComponent.prototype.create.call(this);
@@ -58,7 +70,7 @@ PSVPanel.prototype.create = function() {
 };
 
 /**
- * Destroys the panel
+ * @override
  */
 PSVPanel.prototype.destroy = function() {
   this.psv.container.removeEventListener('mousemove', this);
@@ -73,7 +85,7 @@ PSVPanel.prototype.destroy = function() {
 };
 
 /**
- * Handle events
+ * @summary Handles events
  * @param {Event} e
  * @private
  */
@@ -91,9 +103,10 @@ PSVPanel.prototype.handleEvent = function(e) {
 };
 
 /**
- * Shows the panel
+ * @summary Shows the panel
  * @param {string} content
- * @param {boolean} noMargin
+ * @param {boolean} [noMargin=false]
+ * @fires module:components.PSVPanel.open-panel
  */
 PSVPanel.prototype.showPanel = function(content, noMargin) {
   this.content.innerHTML = content;
@@ -103,22 +116,34 @@ PSVPanel.prototype.showPanel = function(content, noMargin) {
   PSVUtils.toggleClass(this.content, 'psv-panel-content--no-margin', !!noMargin);
 
   this.prop.opened = true;
+
+  /**
+   * @event open-panel
+   * @memberof module:components.PSVPanel
+   * @summary Triggered when the panel is opened
+   */
   this.psv.trigger('open-panel');
 };
 
-
 /**
- * Hides the panel
+ * @summary Hides the panel
+ * @fires module:components.PSVPanel.close-panel
  */
 PSVPanel.prototype.hidePanel = function() {
   this.content.innerHTML = null;
   this.prop.opened = false;
   this.container.classList.remove('psv-panel--open');
+
+  /**
+   * @event close-panel
+   * @memberof module:components.PSVPanel
+   * @summary Trigered when the panel is closed
+   */
   this.psv.trigger('close-panel');
 };
 
 /**
- * The user wants to move
+ * @summary Handles mouse down events
  * @param {MouseEvent} evt
  * @private
  */
@@ -128,7 +153,7 @@ PSVPanel.prototype._onMouseDown = function(evt) {
 };
 
 /**
- * The user wants to move (mobile version)
+ * @summary Handles touch events
  * @param {TouchEvent} evt
  * @private
  */
@@ -138,19 +163,7 @@ PSVPanel.prototype._onTouchStart = function(evt) {
 };
 
 /**
- * Initializes the movement
- * @param {MouseEvent|Touch} evt
- * @private
- */
-PSVPanel.prototype._startResize = function(evt) {
-  this.prop.mouse_x = parseInt(evt.clientX);
-  this.prop.mouse_y = parseInt(evt.clientY);
-  this.prop.mousedown = true;
-  this.content.classList.add('psv-panel-content--no-interaction');
-};
-
-/**
- * The user wants to stop moving
+ * @summary Handles mouse up events
  * @param {MouseEvent} evt
  * @private
  */
@@ -163,7 +176,7 @@ PSVPanel.prototype._onMouseUp = function(evt) {
 };
 
 /**
- * The user resizes the panel
+ * @summary Handles mouse move events
  * @param {MouseEvent} evt
  * @private
  */
@@ -175,7 +188,7 @@ PSVPanel.prototype._onMouseMove = function(evt) {
 };
 
 /**
- * The user resizes the panel (mobile version)
+ * @summary Handles touch move events
  * @param {TouchEvent} evt
  * @private
  */
@@ -187,7 +200,19 @@ PSVPanel.prototype._onTouchMove = function(evt) {
 };
 
 /**
- * Panel resizing
+ * @summary Initializes the panel resize
+ * @param {MouseEvent|Touch} evt
+ * @private
+ */
+PSVPanel.prototype._startResize = function(evt) {
+  this.prop.mouse_x = parseInt(evt.clientX);
+  this.prop.mouse_y = parseInt(evt.clientY);
+  this.prop.mousedown = true;
+  this.content.classList.add('psv-panel-content--no-interaction');
+};
+
+/**
+ * @summary Resizes the panel
  * @param {MouseEvent|Touch} evt
  * @private
  */

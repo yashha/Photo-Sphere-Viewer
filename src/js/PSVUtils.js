@@ -1,23 +1,40 @@
 /**
  * Static utilities for PSV
- * @type {object}
+ * @namespace
  */
 var PSVUtils = {};
 
 /**
- * Short-Hand for PI*2
+ * @summary exposes {@link PSVUtils}
+ * @member {object}
+ * @memberof PhotoSphereViewer
+ * @readonly
+ */
+PhotoSphereViewer.Utils = PSVUtils;
+
+/**
+ * @summary Short-Hand for PI*2
  * @type {float}
+ * @readonly
  */
 PSVUtils.TwoPI = Math.PI * 2.0;
 
 /**
- * Short-Hand for PI/2
+ * @summary Short-Hand for PI/2
  * @type {float}
+ * @readonly
  */
 PSVUtils.HalfPI = Math.PI / 2.0;
 
 /**
- * Check if some Three.js components are loaded
+ * @summary Namespace for SVG creation
+ * @type {string}
+ * @readonly
+ */
+PSVUtils.svgNS = 'http://www.w3.org/2000/svg';
+
+/**
+ * @summary Checks if some three.js components are loaded
  * @param {...string} components
  * @returns {boolean}
  */
@@ -32,7 +49,7 @@ PSVUtils.checkTHREE = function(components) {
 };
 
 /**
- * Detects whether canvas is supported
+ * @summary Detects if canvas is supported
  * @returns {boolean}
  */
 PSVUtils.isCanvasSupported = function() {
@@ -41,7 +58,7 @@ PSVUtils.isCanvasSupported = function() {
 };
 
 /**
- * Tries to return a canvas webgl context
+ * @summary Tries to return a canvas webgl context
  * @returns {WebGLRenderingContext}
  */
 PSVUtils.getWebGLCtx = function() {
@@ -69,7 +86,7 @@ PSVUtils.getWebGLCtx = function() {
 };
 
 /**
- * Detects whether WebGL is supported
+ * @summary Detects if WebGL is supported
  * @returns {boolean}
  */
 PSVUtils.isWebGLSupported = function() {
@@ -77,7 +94,7 @@ PSVUtils.isWebGLSupported = function() {
 };
 
 /**
- * Gets max texture width in WebGL context
+ * @summary Gets max texture width in WebGL context
  * @returns {int}
  */
 PSVUtils.getMaxTextureWidth = function() {
@@ -88,28 +105,42 @@ PSVUtils.getMaxTextureWidth = function() {
 };
 
 /**
- * Toggles a CSS class
- * @param {HTMLElement} element
+ * @summary Toggles a CSS class
+ * @param {HTMLElement|SVGElement} element
  * @param {string} className
  * @param {boolean} [active] - forced state
- * @return {boolean} new state
  */
 PSVUtils.toggleClass = function(element, className, active) {
-  if (active === undefined) {
-    return element.classList.toggle(className);
+  // manual implementation for IE11 and SVGElement
+  if (!element.classList) {
+    var currentClassName = element.getAttribute('class') || '';
+    var currentActive = currentClassName.indexOf(className) !== -1;
+    var regex = new RegExp('(?:^|\\s)' + className + '(?:\\s|$)');
+
+    if ((active === undefined || active) && !currentActive) {
+      currentClassName += currentClassName.length > 0 ? ' ' + className : className;
+    }
+    else if (!active) {
+      currentClassName = currentClassName.replace(regex, ' ');
+    }
+
+    element.setAttribute('class', currentClassName);
   }
-  else if (active && !element.classList.contains(className)) {
-    element.classList.add(className);
-    return true;
-  }
-  else if (!active) {
-    element.classList.remove(className);
-    return false;
+  else {
+    if (active === undefined) {
+      element.classList.toggle(className);
+    }
+    else if (active && !element.classList.contains(className)) {
+      element.classList.add(className);
+    }
+    else if (!active) {
+      element.classList.remove(className);
+    }
   }
 };
 
 /**
- * Adds one or several CSS classes to an element
+ * @summary Adds one or several CSS classes to an element
  * @param {HTMLElement} element
  * @param {string} className
  */
@@ -118,12 +149,12 @@ PSVUtils.addClasses = function(element, className) {
     return;
   }
   className.split(' ').forEach(function(name) {
-    element.classList.add(name);
+    PSVUtils.toggleClass(element, name, true);
   });
 };
 
 /**
- * Removes one or several CSS classes to an element
+ * @summary Removes one or several CSS classes to an element
  * @param {HTMLElement} element
  * @param {string} className
  */
@@ -132,12 +163,12 @@ PSVUtils.removeClasses = function(element, className) {
     return;
   }
   className.split(' ').forEach(function(name) {
-    element.classList.remove(name);
+    PSVUtils.toggleClass(element, name, false);
   });
 };
 
 /**
- * Search if an element has a particular, at any level including itself
+ * @summary Searches if an element has a particular parent at any level including itself
  * @param {HTMLElement} el
  * @param {HTMLElement} parent
  * @returns {boolean}
@@ -153,7 +184,7 @@ PSVUtils.hasParent = function(el, parent) {
 };
 
 /**
- * Get closest parent (can by itself)
+ * @summary Gets the closest parent (can by itself)
  * @param {HTMLElement} el (HTMLElement)
  * @param {string} selector
  * @returns {HTMLElement}
@@ -171,7 +202,7 @@ PSVUtils.getClosest = function(el, selector) {
 };
 
 /**
- * Get the event name for mouse wheel
+ * @summary Gets the event name for mouse wheel
  * @returns {string}
  */
 PSVUtils.mouseWheelEvent = function() {
@@ -181,7 +212,7 @@ PSVUtils.mouseWheelEvent = function() {
 };
 
 /**
- * Get the event name for fullscreen event
+ *@summary  Gets the event name for fullscreen
  * @returns {string}
  */
 PSVUtils.fullscreenEvent = function() {
@@ -195,23 +226,22 @@ PSVUtils.fullscreenEvent = function() {
   for (var exit in map) {
     if (exit in document) return map[exit];
   }
-
-  return 'fullscreenchange';
 };
 
 /**
- * Ensures that a number is in a given interval
+ * @summary Ensures that a number is in a given interval
  * @param {number} x
  * @param {number} min
  * @param {number} max
  * @returns {number}
  */
-PSVUtils.stayBetween = function(x, min, max) {
+PSVUtils.bound = function(x, min, max) {
   return Math.max(min, Math.min(max, x));
 };
 
 /**
- * Checks if a value is an integer
+ * @summary Checks if a value is an integer
+ * @function
  * @param {*} value
  * @returns {boolean}
  */
@@ -220,7 +250,18 @@ PSVUtils.isInteger = Number.isInteger || function(value) {
   };
 
 /**
- * Returns the value of a given attribute in the panorama metadata
+ * @summary Computes the sum of an array
+ * @param {number[]} array
+ * @returns {number}
+ */
+PSVUtils.sum = function(array) {
+  return array.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+};
+
+/**
+ * @summary Returns the value of a given attribute in the panorama metadata
  * @param {string} data
  * @param {string} attr
  * @returns (string)
@@ -241,7 +282,7 @@ PSVUtils.getXMPValue = function(data, attr) {
 };
 
 /**
- * Detects whether fullscreen is enabled or not
+ * @summary Detects if fullscreen is enabled
  * @param {HTMLElement} elt
  * @returns {boolean}
  */
@@ -250,7 +291,7 @@ PSVUtils.isFullscreenEnabled = function(elt) {
 };
 
 /**
- * Enters fullscreen mode
+ * @summary Enters fullscreen mode
  * @param {HTMLElement} elt
  */
 PSVUtils.requestFullscreen = function(elt) {
@@ -258,14 +299,14 @@ PSVUtils.requestFullscreen = function(elt) {
 };
 
 /**
- * Exits fullscreen mode
+ * @summary Exits fullscreen mode
  */
 PSVUtils.exitFullscreen = function() {
   (document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen).call(document);
 };
 
 /**
- * Gets an element style
+ * @summary Gets an element style
  * @param {HTMLElement} elt
  * @param {string} prop
  * @returns {*}
@@ -275,8 +316,27 @@ PSVUtils.getStyle = function(elt, prop) {
 };
 
 /**
- * Translate CSS values like "top center" or "10% 50%" as top and left positions
- * The implementation is as close as possible to the "background-position" specification
+ * @summary Compute the shortest offset between two longitudes
+ * @param {float} from
+ * @param {float} to
+ * @returns {float}
+ */
+PSVUtils.getShortestArc = function(from, to) {
+  var tCandidates = [
+    0, // direct
+    PSVUtils.TwoPI, // clock-wise cross zero
+    -PSVUtils.TwoPI // counter-clock-wise cross zero
+  ];
+
+  return tCandidates.reduce(function(value, candidate) {
+    candidate = to - from + candidate;
+    return Math.abs(candidate) < Math.abs(value) ? candidate : value;
+  }, Infinity);
+};
+
+/**
+ * @summary Translate CSS values like "top center" or "10% 50%" as top and left positions
+ * @description The implementation is as close as possible to the "background-position" specification
  * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/background-position}
  * @param {string} value
  * @returns {{top: float, left: float}}
@@ -327,9 +387,10 @@ PSVUtils.parsePosition = function(value) {
 PSVUtils.parsePosition.positions = { 'top': '0%', 'bottom': '100%', 'left': '0%', 'right': '100%', 'center': '50%' };
 
 /**
- * Parse an speed
+ * @summary Parses an speed
  * @param {string} speed - The speed, in radians/degrees/revolutions per second/minute
  * @returns {float} radians per second
+ * @throws {PSVError} when the speed cannot be parsed
  */
 PSVUtils.parseSpeed = function(speed) {
   if (typeof speed == 'string') {
@@ -351,7 +412,7 @@ PSVUtils.parseSpeed = function(speed) {
       case 'degrees per minute':
       case 'dps':
       case 'degrees per second':
-        speed = speed_value * Math.PI / 180;
+        speed = THREE.Math.degToRad(speed_value);
         break;
 
       // Radians per minute / second
@@ -378,10 +439,11 @@ PSVUtils.parseSpeed = function(speed) {
 };
 
 /**
- * Parses an angle value in radians or degrees and return a normalized value in radians
+ * @summary Parses an angle value in radians or degrees and returns a normalized value in radians
  * @param {string|number} angle - eg: 3.14, 3.14rad, 180deg
- * @param {float|boolean} [reference =0] - base value for normalization, false to disable
- * @returns (double)
+ * @param {float|boolean} [reference=0] - base value for normalization, false to disable
+ * @returns {float}
+ * @throws {PSVError} when the angle cannot be parsed
  */
 PSVUtils.parseAngle = function(angle, reference) {
   if (typeof angle == 'string') {
@@ -398,7 +460,7 @@ PSVUtils.parseAngle = function(angle, reference) {
       switch (unit) {
         case 'deg':
         case 'degs':
-          angle = value / 180 * Math.PI;
+          angle = THREE.Math.degToRad(value);
           break;
         case 'rad':
         case 'rads':
@@ -428,21 +490,66 @@ PSVUtils.parseAngle = function(angle, reference) {
 };
 
 /**
- * Utility for animations, interpolates each property with an easing and optional delay
+ * @summary Removes all children of a three.js scene and dispose all textures
+ * @param {THREE.Scene} scene
+ */
+PSVUtils.cleanTHREEScene = function(scene) {
+  scene.children.forEach(function(item) {
+    if (item instanceof THREE.Mesh) {
+      if (item.geometry) {
+        item.geometry.dispose();
+        item.geometry = null;
+      }
+
+      if (item.material) {
+        if (item.material.materials) {
+          item.material.materials.forEach(function(material) {
+            if (material.map) {
+              material.map.dispose();
+              material.map = null;
+            }
+
+            material.dispose();
+          });
+
+          item.material.materials.length = 0;
+        }
+        else {
+          if (item.material.map) {
+            item.material.map.dispose();
+            item.material.map = null;
+          }
+
+          item.material.dispose();
+        }
+
+        item.material = null;
+      }
+    }
+  });
+  scene.children.length = 0;
+};
+
+/**
+ * @callback AnimationOnTick
+ * @param {Object} properties - current values
+ * @param {float} progress - 0 to 1
+ */
+
+/**
+ * @summary Interpolates each property with an easing and optional delay
  * @param {Object} options
  * @param {Object[]} options.properties
  * @param {number} options.properties[].start
  * @param {number} options.properties[].end
  * @param {int} options.duration
- * @param {int} [options.delay]
+ * @param {int} [options.delay=0]
  * @param {string} [options.easing='linear']
- * @param {Function} options.onTick - called with interpolated properties and progression (0 to 1)
- * @param {Function} [options.onDone]
- * @param {Function} [options.onCancel]
- * @returns {promise} with an additional "cancel" method
+ * @param {AnimationOnTick} options.onTick - called on each frame
+ * @returns {Promise} Promise with an additional "cancel" method
  */
 PSVUtils.animation = function(options) {
-  var defer = D();
+  var defer = D(false); // alwaysAsync = false to allow immediate resolution of "cancel"
   var start = null;
 
   if (!options.easing || typeof options.easing == 'string') {
@@ -483,11 +590,9 @@ PSVUtils.animation = function(options) {
 
       options.onTick(current, 1.0);
 
-      if (options.onDone) {
-        options.onDone();
-      }
-
-      defer.resolve();
+      window.requestAnimationFrame(function() {
+        defer.resolve();
+      });
     }
   }
 
@@ -503,16 +608,13 @@ PSVUtils.animation = function(options) {
   // add a "cancel" to the promise
   var promise = defer.promise;
   promise.cancel = function() {
-    if (options.onCancel) {
-      options.onCancel();
-    }
     defer.reject();
   };
   return promise;
 };
 
 /**
- * Collection of easing functions
+ * @summary Collection of easing functions
  * {@link https://gist.github.com/frederickk/6165768}
  * @type {Object.<string, Function>}
  */
@@ -555,7 +657,7 @@ PSVUtils.animation.easings = {
 // @formatter:off
 
 /**
- * Returns a function, that, when invoked, will only be triggered at most once during a given window of time.
+ * @summary Returns a function, that, when invoked, will only be triggered at most once during a given window of time.
  * @copyright underscore.js - modified by Clément Prévost {@link http://stackoverflow.com/a/27078401}
  * @param {Function} func
  * @param {int} wait
@@ -594,13 +696,14 @@ PSVUtils.throttle = function(func, wait) {
 };
 
 /**
- *  Function to test if an object is a plain object, i.e. is constructed
- *  by the built-in Object constructor and inherits directly from Object.prototype
- *  or null. Some built-in objects pass the test, e.g. Math which is a plain object
- *  and some host or exotic objects may pass also.
- *  {@link http://stackoverflow.com/a/5878101/1207670}
- *  @param {*} obj
- *  @returns {boolean}
+ * @summary Test if an object is a plain object
+ * @description Test if an object is a plain object, i.e. is constructed
+ * by the built-in Object constructor and inherits directly from Object.prototype
+ * or null. Some built-in objects pass the test, e.g. Math which is a plain object
+ * and some host or exotic objects may pass also.
+ * {@link http://stackoverflow.com/a/5878101/1207670}
+ * @param {*} obj
+ * @returns {boolean}
  */
 PSVUtils.isPlainObject = function(obj) {
   // Basic check for Type object that's not null
@@ -621,10 +724,9 @@ PSVUtils.isPlainObject = function(obj) {
 };
 
 /**
- * Merge the enumerable attributes of two objects.
- * Modified to replace arrays instead of merge.
- * Modified to alter the target object.
- * @copyright Nicholas Fisher {@link mailto:nfisher110@gmail.com} - modified by Damien "Mistic" Sorel
+ * @summary Merges the enumerable attributes of two objects
+ * @description Replaces arrays and alters the target object.
+ * @copyright Nicholas Fisher <nfisher110@gmail.com>
  * @param {Object} target
  * @param {Object} src
  * @returns {Object} target
@@ -671,7 +773,7 @@ PSVUtils.deepmerge = function(target, src) {
 };
 
 /**
- * Clone an object
+ * @summary Clones an object
  * @param {Object} src
  * @returns {Object}
  */
