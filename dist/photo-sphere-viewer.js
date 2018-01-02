@@ -1,15 +1,15 @@
 /*!
- * Photo Sphere Viewer 3.2.3
+ * Photo Sphere Viewer 3.2.4
  * Copyright (c) 2014-2015 Jérémy Heleine
- * Copyright (c) 2015-2017 Damien "Mistic" Sorel
+ * Copyright (c) 2015-2018 Damien "Mistic" Sorel
  * Licensed under MIT (http://opensource.org/licenses/MIT)
  */
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['three', 'D.js', 'uevent', 'doT'], factory);
+    define(['three', 'd.js', 'uevent', 'dot/doT'], factory);
   }
   else if (typeof module === 'object' && module.exports) {
-    module.exports = factory(require('three'), require('d.js'), require('uevent'), require('dot'));
+    module.exports = factory(require('three'), require('d.js'), require('uevent'), require('dot/doT'));
   }
   else {
     root.PhotoSphereViewer = factory(root.THREE, root.D, root.uEvent, root.doT);
@@ -29,6 +29,13 @@
  * @summary Object defining a size
  * @property {int} width
  * @property {int} height
+ */
+
+/**
+ * @typedef {Object} PhotoSphereViewer.CssSize
+ * @summary Object defining a size in CSS (px, % or auto)
+ * @property {string} [width]
+ * @property {string} [height]
  */
 
 /**
@@ -179,8 +186,10 @@ function PhotoSphereViewer(options) {
   this.config.default_long = PSVUtils.parseAngle(this.config.default_long);
 
   // parse default_lat, is between -PI/2 and PI/2
-  this.config.default_lat = PSVUtils.parseAngle(this.config.default_lat, -Math.PI);
-  this.config.default_lat = PSVUtils.bound(this.config.default_lat, -PSVUtils.HalfPI, PSVUtils.HalfPI);
+  this.config.default_lat = PSVUtils.parseAngle(this.config.default_lat, true);
+
+  // parse panorama_roll, is between -PI/2 and PI/2
+  this.config.panorama_roll = PSVUtils.parseAngle(this.config.panorama_roll, true);
 
   // default anim_lat is default_lat
   if (this.config.anim_lat === null) {
@@ -188,8 +197,7 @@ function PhotoSphereViewer(options) {
   }
   // parse anim_lat, is between -PI/2 and PI/2
   else {
-    this.config.anim_lat = PSVUtils.parseAngle(this.config.anim_lat, -Math.PI);
-    this.config.anim_lat = PSVUtils.bound(this.config.anim_lat, -PSVUtils.HalfPI, PSVUtils.HalfPI);
+    this.config.anim_lat = PSVUtils.parseAngle(this.config.anim_lat, true);
   }
 
   // parse longitude_range, between 0 and 2*PI
@@ -202,8 +210,7 @@ function PhotoSphereViewer(options) {
   // parse latitude_range, between -PI/2 and PI/2
   if (this.config.latitude_range) {
     this.config.latitude_range = this.config.latitude_range.map(function(angle) {
-      angle = PSVUtils.parseAngle(angle, -Math.PI);
-      return PSVUtils.bound(angle, -PSVUtils.HalfPI, PSVUtils.HalfPI);
+      return PSVUtils.parseAngle(angle, true);
     });
   }
 
@@ -1018,6 +1025,7 @@ PhotoSphereViewer.prototype._createSphere = function() {
 
   this.mesh = new THREE.Mesh(geometry, material);
   this.mesh.scale.x = -1;
+  this.mesh.rotation.z = this.config.panorama_roll;
 
   this.scene.add(this.mesh);
 };
@@ -1348,6 +1356,7 @@ PhotoSphereViewer.DEFAULTS = {
   default_fov: null,
   default_long: 0,
   default_lat: 0,
+  panorama_roll: 0,
   longitude_range: null,
   latitude_range: null,
   move_speed: 1,
@@ -2412,6 +2421,21 @@ PhotoSphereViewer.prototype.zoomOut = function() {
 };
 
 /**
+ * @summary Resizes the viewer
+ * @param {PhotoSphereViewer.CssSize} size
+ */
+PhotoSphereViewer.prototype.resize = function(size) {
+  if (size.width) {
+    this.container.style.width = size.width;
+  }
+  if (size.height) {
+    this.container.style.height = size.height;
+  }
+
+  this._onResize();
+};
+
+/**
  * @summary Enters or exits the fullscreen mode
  */
 PhotoSphereViewer.prototype.toggleFullscreen = function() {
@@ -2660,7 +2684,7 @@ PhotoSphereViewer.prototype.cleanPosition = function(position) {
   }
 
   position.longitude = PSVUtils.parseAngle(position.longitude);
-  position.latitude = PSVUtils.bound(PSVUtils.parseAngle(position.latitude, -Math.PI), -PSVUtils.HalfPI, PSVUtils.HalfPI);
+  position.latitude = PSVUtils.parseAngle(position.latitude, true);
 };
 
 /**
@@ -2707,8 +2731,8 @@ PhotoSphereViewer.prototype.applyRanges = function(position) {
     range = PSVUtils.clone(this.config.latitude_range);
     offset = THREE.Math.degToRad(this.prop.vFov) / 2;
 
-    range[0] = PSVUtils.parseAngle(Math.min(range[0] + offset, range[1]), -Math.PI);
-    range[1] = PSVUtils.parseAngle(Math.max(range[1] - offset, range[0]), -Math.PI);
+    range[0] = PSVUtils.parseAngle(Math.min(range[0] + offset, range[1]), true);
+    range[1] = PSVUtils.parseAngle(Math.max(range[1] - offset, range[0]), true);
 
     if (position.latitude < range[0]) {
       position.latitude = range[0];
@@ -2867,7 +2891,7 @@ function PSVHUD(psv) {
   this.prop = {
     panelOpened: false,
     panelOpening: false,
-    markersButton: this.psv.navbar.getNavbarButton('markers')
+    markersButton: this.psv.navbar.getNavbarButton('markers', true)
   };
 
   this.create();
@@ -3801,9 +3825,10 @@ PSVNavBar.prototype.destroy = function() {
 /**
  * @summary Returns a button by its identifier
  * @param {string} id
+ * @param {boolean} [silent=false]
  * @returns {module:components/buttons.PSVNavBarButton}
  */
-PSVNavBar.prototype.getNavbarButton = function(id) {
+PSVNavBar.prototype.getNavbarButton = function(id, silent) {
   var button = null;
 
   this.items.some(function(item) {
@@ -3813,7 +3838,7 @@ PSVNavBar.prototype.getNavbarButton = function(id) {
     }
   });
 
-  if (!button) {
+  if (!button && !silent) {
     console.warn('PhotoSphereViewer: button "' + id + '" not found in the navbar.');
   }
 
@@ -5663,7 +5688,7 @@ PSVMarker.prototype._updatePolygon = function() {
     this.polygon_rad = this.polygon_rad.map(function(coord) {
       return [
         PSVUtils.parseAngle(coord[0]),
-        PSVUtils.bound(PSVUtils.parseAngle(coord[1], -Math.PI), -PSVUtils.HalfPI, PSVUtils.HalfPI)
+        PSVUtils.parseAngle(coord[1], true)
       ];
     });
   }
@@ -6122,12 +6147,12 @@ PSVUtils.parseSpeed = function(speed) {
 /**
  * @summary Parses an angle value in radians or degrees and returns a normalized value in radians
  * @param {string|number} angle - eg: 3.14, 3.14rad, 180deg
- * @param {float|boolean} [reference=0] - base value for normalization, false to disable
+ * @param {boolean} [zeroCenter=false] - normalize between -Pi/2 - Pi/2 instead of 0 - 2*Pi
  * @returns {float}
  * @throws {PSVError} when the angle cannot be parsed
  */
-PSVUtils.parseAngle = function(angle, reference) {
-  if (typeof angle == 'string') {
+PSVUtils.parseAngle = function(angle, zeroCenter) {
+  if (typeof angle === 'string') {
     var match = angle.toLowerCase().trim().match(/^(-?[0-9]+(?:\.[0-9]*)?)(.*)$/);
 
     if (!match) {
@@ -6151,23 +6176,18 @@ PSVUtils.parseAngle = function(angle, reference) {
           throw new PSVError('unknown angle unit "' + unit + '"');
       }
     }
+    else {
+      angle = value;
+    }
   }
 
-  if (reference !== false) {
-    if (reference === undefined) {
-      reference = 0;
-    }
+  angle = (zeroCenter ? angle + Math.PI : angle) % PSVUtils.TwoPI;
 
-    angle = (angle - reference) % PSVUtils.TwoPI;
-
-    if (angle < 0) {
-      angle = PSVUtils.TwoPI + angle;
-    }
-
-    angle += reference;
+  if (angle < 0) {
+    angle = PSVUtils.TwoPI + angle;
   }
 
-  return angle;
+  return zeroCenter ? PSVUtils.bound(angle - Math.PI, -PSVUtils.HalfPI, PSVUtils.HalfPI) : angle;
 };
 
 /**
