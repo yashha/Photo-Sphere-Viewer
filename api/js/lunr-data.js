@@ -571,7 +571,8 @@ window.lunrData = {
           "module:components.psvnavbar#getnavbarbutton",
           "module:components/buttons.psvnavbarbutton",
           "psvnavbar#getnavbarbutton",
-          "return"
+          "return",
+          "silent"
         ],
         "module-components.PSVNavBar.html#hide": [
           "compon",
@@ -2178,6 +2179,13 @@ window.lunrData = {
           "render",
           "updatedirect"
         ],
+        "PhotoSphereViewer.html#resize": [
+          "function",
+          "photosphereviewer#res",
+          "resiz",
+          "size",
+          "viewer"
+        ],
         "PhotoSphereViewer.html#rotate": [
           "function",
           "latitud",
@@ -2431,6 +2439,17 @@ window.lunrData = {
           "data",
           "event",
           "photosphereviewer.clickdata",
+          "typedef"
+        ],
+        "PhotoSphereViewer.html#.CssSize": [
+          "auto",
+          "css",
+          "csssize",
+          "defin",
+          "object",
+          "photosphereviewer.csss",
+          "px",
+          "size",
           "typedef"
         ],
         "PhotoSphereViewer.html#.ExtendedPosition": [
@@ -2932,9 +2951,9 @@ window.lunrData = {
           "parseangl",
           "psvutils.parseangl",
           "radian",
-          "refer",
           "return",
-          "valu"
+          "valu",
+          "zerocent"
         ],
         "PSVUtils.html#.parsePosition": [
           "50%&quot",
@@ -3031,7 +3050,7 @@ window.lunrData = {
           "toggleclass"
         ]
       },
-      "length": 320
+      "length": 322
     },
     "tokenStore": {
       "root": {
@@ -3469,7 +3488,12 @@ window.lunrData = {
             "t": {
               "docs": {},
               "o": {
-                "docs": {},
+                "docs": {
+                  "PhotoSphereViewer.html#.CssSize": {
+                    "ref": "PhotoSphereViewer.html#.CssSize",
+                    "tf": 11.666666666666666
+                  }
+                },
                 "r": {
                   "docs": {},
                   "o": {
@@ -4061,6 +4085,10 @@ window.lunrData = {
                       "ref": "PhotoSphereViewer.html#setPanorama",
                       "tf": 2.1739130434782608
                     },
+                    "PhotoSphereViewer.html#.CssSize": {
+                      "ref": "PhotoSphereViewer.html#.CssSize",
+                      "tf": 11.666666666666666
+                    },
                     "PhotoSphereViewer.html#.ExtendedPosition": {
                       "ref": "PhotoSphereViewer.html#.ExtendedPosition",
                       "tf": 14
@@ -4448,7 +4476,7 @@ window.lunrData = {
               },
               "module-components.PSVNavBar.html#getNavbarButton": {
                 "ref": "module-components.PSVNavBar.html#getNavbarButton",
-                "tf": 33.33333333333333
+                "tf": 25
               },
               "module-components_buttons.PSVNavBarAutorotateButton.html#id": {
                 "ref": "module-components_buttons.PSVNavBarAutorotateButton.html#id",
@@ -7058,6 +7086,20 @@ window.lunrData = {
                                                     }
                                                   }
                                                 }
+                                              },
+                                              "s": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "s": {
+                                                    "docs": {
+                                                      "PhotoSphereViewer.html#.CssSize": {
+                                                        "ref": "PhotoSphereViewer.html#.CssSize",
+                                                        "tf": 1150
+                                                      }
+                                                    }
+                                                  }
+                                                }
                                               }
                                             },
                                             "p": {
@@ -7985,6 +8027,14 @@ window.lunrData = {
                                                         "ref": "PhotoSphereViewer.html#render",
                                                         "tf": 1150
                                                       }
+                                                    }
+                                                  }
+                                                },
+                                                "s": {
+                                                  "docs": {
+                                                    "PhotoSphereViewer.html#resize": {
+                                                      "ref": "PhotoSphereViewer.html#resize",
+                                                      "tf": 1150
                                                     }
                                                   }
                                                 }
@@ -14482,6 +14532,14 @@ window.lunrData = {
               "docs": {}
             }
           },
+          "x": {
+            "docs": {
+              "PhotoSphereViewer.html#.CssSize": {
+                "ref": "PhotoSphereViewer.html#.CssSize",
+                "tf": 11.666666666666666
+              }
+            }
+          },
           "l": {
             "docs": {},
             "a": {
@@ -14835,6 +14893,20 @@ window.lunrData = {
                 }
               }
             },
+            "s": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "z": {
+                  "docs": {
+                    "PhotoSphereViewer.html#resize": {
+                      "ref": "PhotoSphereViewer.html#resize",
+                      "tf": 735
+                    }
+                  }
+                }
+              }
+            },
             "p": {
               "docs": {},
               "r": {
@@ -14861,20 +14933,6 @@ window.lunrData = {
                         "ref": "PSVUtils.html#.deepmerge",
                         "tf": 10
                       }
-                    }
-                  }
-                }
-              }
-            },
-            "f": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "PSVUtils.html#.parseAngle": {
-                      "ref": "PSVUtils.html#.parseAngle",
-                      "tf": 20
                     }
                   }
                 }
@@ -16275,6 +16333,23 @@ window.lunrData = {
                 }
               }
             },
+            "l": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "module-components.PSVNavBar.html#getNavbarButton": {
+                        "ref": "module-components.PSVNavBar.html#getNavbarButton",
+                        "tf": 25
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "z": {
               "docs": {},
               "e": {
@@ -16282,6 +16357,14 @@ window.lunrData = {
                   "PhotoSphereViewer.html#getSize": {
                     "ref": "PhotoSphereViewer.html#getSize",
                     "tf": 17.5
+                  },
+                  "PhotoSphereViewer.html#resize": {
+                    "ref": "PhotoSphereViewer.html#resize",
+                    "tf": 50
+                  },
+                  "PhotoSphereViewer.html#.CssSize": {
+                    "ref": "PhotoSphereViewer.html#.CssSize",
+                    "tf": 11.666666666666666
                   },
                   "PhotoSphereViewer.html#.Size": {
                     "ref": "PhotoSphereViewer.html#.Size",
@@ -16462,6 +16545,10 @@ window.lunrData = {
                       "PhotoSphereViewer.html#once": {
                         "ref": "PhotoSphereViewer.html#once",
                         "tf": 11.666666666666666
+                      },
+                      "PhotoSphereViewer.html#resize": {
+                        "ref": "PhotoSphereViewer.html#resize",
+                        "tf": 35
                       },
                       "PhotoSphereViewer.html#trigger": {
                         "ref": "PhotoSphereViewer.html#trigger",
@@ -18235,6 +18322,10 @@ window.lunrData = {
                   "ref": "module-components.PSVComponent.html#.className",
                   "tf": 14
                 },
+                "PhotoSphereViewer.html#.CssSize": {
+                  "ref": "PhotoSphereViewer.html#.CssSize",
+                  "tf": 11.666666666666666
+                },
                 "PSVUtils.html#.addClasses": {
                   "ref": "PSVUtils.html#.addClasses",
                   "tf": 11.666666666666666
@@ -18250,6 +18341,23 @@ window.lunrData = {
                 "PSVUtils.html#.toggleClass": {
                   "ref": "PSVUtils.html#.toggleClass",
                   "tf": 23.333333333333332
+                }
+              },
+              "s": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "z": {
+                    "docs": {},
+                    "e": {
+                      "docs": {
+                        "PhotoSphereViewer.html#.CssSize": {
+                          "ref": "PhotoSphereViewer.html#.CssSize",
+                          "tf": 750
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -22314,7 +22422,7 @@ window.lunrData = {
                                                                                           "docs": {
                                                                                             "module-components.PSVNavBar.html#getNavbarButton": {
                                                                                               "ref": "module-components.PSVNavBar.html#getNavbarButton",
-                                                                                              "tf": 33.33333333333333
+                                                                                              "tf": 25
                                                                                             },
                                                                                             "module-components_buttons.PSVNavBarButton.html": {
                                                                                               "ref": "module-components_buttons.PSVNavBarButton.html",
@@ -26269,6 +26377,10 @@ window.lunrData = {
                             "ref": "PhotoSphereViewer.html#render",
                             "tf": 110
                           },
+                          "PhotoSphereViewer.html#resize": {
+                            "ref": "PhotoSphereViewer.html#resize",
+                            "tf": 110
+                          },
                           "PhotoSphereViewer.html#rotate": {
                             "ref": "PhotoSphereViewer.html#rotate",
                             "tf": 110
@@ -26973,6 +27085,10 @@ window.lunrData = {
                         "ref": "PhotoSphereViewer.html#prop",
                         "tf": 33.33333333333333
                       },
+                      "PhotoSphereViewer.html#.CssSize": {
+                        "ref": "PhotoSphereViewer.html#.CssSize",
+                        "tf": 11.666666666666666
+                      },
                       "PhotoSphereViewer.html#.ExtendedPosition": {
                         "ref": "PhotoSphereViewer.html#.ExtendedPosition",
                         "tf": 14
@@ -27355,7 +27471,7 @@ window.lunrData = {
                                       "docs": {
                                         "module-components.PSVNavBar.html#getNavbarButton": {
                                           "ref": "module-components.PSVNavBar.html#getNavbarButton",
-                                          "tf": 633.3333333333334
+                                          "tf": 625
                                         }
                                       }
                                     }
@@ -28060,6 +28176,10 @@ window.lunrData = {
                           "ref": "PhotoSphereViewer.html#.ClickData",
                           "tf": 110
                         },
+                        "PhotoSphereViewer.html#.CssSize": {
+                          "ref": "PhotoSphereViewer.html#.CssSize",
+                          "tf": 110
+                        },
                         "PhotoSphereViewer.html#.ExtendedPosition": {
                           "ref": "PhotoSphereViewer.html#.ExtendedPosition",
                           "tf": 110
@@ -28702,6 +28822,32 @@ window.lunrData = {
                 }
               }
             }
+          },
+          "e": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "t": {
+                        "docs": {
+                          "PSVUtils.html#.parseAngle": {
+                            "ref": "PSVUtils.html#.parseAngle",
+                            "tf": 20
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "q": {
@@ -28983,7 +29129,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2351
+      "length": 2366
     },
     "corpusTokens": [
       "1",
@@ -29006,6 +29152,7 @@ window.lunrData = {
       "attach",
       "attr",
       "attribut",
+      "auto",
       "automat",
       "autorot",
       "avail",
@@ -29075,6 +29222,7 @@ window.lunrData = {
       "creation",
       "crop",
       "css",
+      "csssize",
       "current",
       "currentmark",
       "cursor",
@@ -29493,6 +29641,7 @@ window.lunrData = {
       "photosphereviewer#preloadpanorama",
       "photosphereviewer#prop",
       "photosphereviewer#rend",
+      "photosphereviewer#res",
       "photosphereviewer#rot",
       "photosphereviewer#setpanorama",
       "photosphereviewer#sphericalcoordstotexturecoord",
@@ -29518,6 +29667,7 @@ window.lunrData = {
       "photosphereviewer#zoomout",
       "photosphereviewer.cacheitem",
       "photosphereviewer.clickdata",
+      "photosphereviewer.csss",
       "photosphereviewer.default",
       "photosphereviewer.error",
       "photosphereviewer.extendedposit",
@@ -29790,6 +29940,7 @@ window.lunrData = {
       "psvutils.toggleclass",
       "psvutils.twopi",
       "publicmethod",
+      "px",
       "quot;10",
       "quot;background",
       "quot;config.transition&quot",
@@ -29799,7 +29950,6 @@ window.lunrData = {
       "radian",
       "readm",
       "readonly&gt",
-      "refer",
       "regist",
       "remov",
       "removeclass",
@@ -29809,6 +29959,7 @@ window.lunrData = {
       "replac",
       "repres",
       "requestfullscreen",
+      "resiz",
       "retriev",
       "return",
       "rotat",
@@ -29832,6 +29983,7 @@ window.lunrData = {
       "showpanel",
       "showtooltip",
       "side",
+      "silent",
       "size",
       "smooth",
       "soon",
@@ -29925,6 +30077,7 @@ window.lunrData = {
       "window",
       "without",
       "x",
+      "zerocent",
       "zoom",
       "zoomin",
       "zoomout"
@@ -30518,7 +30671,7 @@ window.lunrData = {
     "module-components.PSVNavBar.html#getNavbarButton": {
       "id": "module-components.PSVNavBar.html#getNavbarButton",
       "kind": "function",
-      "title": "getNavbarButton( id ) → {module:components/buttons.PSVNavBarButton}",
+      "title": "getNavbarButton( id [, silent ] ) → {module:components/buttons.PSVNavBarButton}",
       "longname": "module:components.PSVNavBar#getNavbarButton",
       "name": "getNavbarButton",
       "tags": "module:components.PSVNavBar#getNavbarButton PSVNavBar#getNavbarButton getNavbarButton",
@@ -32368,6 +32521,16 @@ window.lunrData = {
       "summary": "Performs a render",
       "description": ""
     },
+    "PhotoSphereViewer.html#resize": {
+      "id": "PhotoSphereViewer.html#resize",
+      "kind": "function",
+      "title": "resize( size )",
+      "longname": "PhotoSphereViewer#resize",
+      "name": "resize",
+      "tags": "PhotoSphereViewer#resize resize",
+      "summary": "Resizes the viewer",
+      "description": ""
+    },
     "PhotoSphereViewer.html#rotate": {
       "id": "PhotoSphereViewer.html#rotate",
       "kind": "function",
@@ -32606,6 +32769,16 @@ window.lunrData = {
       "name": "ClickData",
       "tags": "PhotoSphereViewer.ClickData ClickData",
       "summary": "Data of the click event",
+      "description": ""
+    },
+    "PhotoSphereViewer.html#.CssSize": {
+      "id": "PhotoSphereViewer.html#.CssSize",
+      "kind": "typedef",
+      "title": "CssSize",
+      "longname": "PhotoSphereViewer.CssSize",
+      "name": "CssSize",
+      "tags": "PhotoSphereViewer.CssSize CssSize",
+      "summary": "Object defining a size in CSS (px, % or auto)",
       "description": ""
     },
     "PhotoSphereViewer.html#.ExtendedPosition": {
@@ -33086,7 +33259,7 @@ window.lunrData = {
     "PSVUtils.html#.parseAngle": {
       "id": "PSVUtils.html#.parseAngle",
       "kind": "function",
-      "title": "&lt;static&gt; parseAngle( angle [, reference ] ) → {float}",
+      "title": "&lt;static&gt; parseAngle( angle [, zeroCenter ] ) → {float}",
       "longname": "PSVUtils.parseAngle",
       "name": "parseAngle",
       "tags": "PSVUtils.parseAngle parseAngle",
