@@ -20,7 +20,7 @@ var PSV = new PhotoSphereViewer({
     {
       // image marker that opens the panel when clicked
       id: 'image',
-      longitude: 5.69810,
+      longitude: 0.2,
       latitude: -0.13770,
       image: rootURL + '/assets/pin-blue.png',
       width: 32,
@@ -36,6 +36,7 @@ var PSV = new PhotoSphereViewer({
       latitude: 0,
       html: 'HTML <b>marker</b> &hearts;',
       anchor: 'bottom right',
+      scale: [0.5, 1.5],
       style: {
         maxWidth: '100px',
         color: 'white',
@@ -51,7 +52,10 @@ var PSV = new PhotoSphereViewer({
     {
       // polygon marker
       id: 'polygon',
-      polygon_px: [3184, 794, 3268, 841, 3367, 1194, 3327, 1307, 3065, 1221, 3097, 847],
+      polygon_px: [
+        [3184, 794], [3268, 841], [3367, 1194],
+        [3327, 1307], [3065, 1221], [3097, 847]
+      ],
       svgStyle: {
         fill: 'rgba(200, 0, 0, 0.2)',
         stroke: 'rgba(200, 0, 50, 0.8)',
@@ -61,6 +65,21 @@ var PSV = new PhotoSphereViewer({
         content: 'A dynamic polygon marker',
         position: 'right bottom'
       }
+    },
+    {
+      // polyline marker
+      id: 'polyline',
+      polyline_rad: [
+        [5.924, 0.064], [5.859, -0.061], [5.710, -0.132],
+        [5.410, -0.287], [4.329, -0.490], [3.838, -0.370], [3.725, -0.241]
+      ],
+      svgStyle: {
+        stroke: 'rgba(140, 190, 10, 0.8)',
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round',
+        'stroke-width': '10px'
+      },
+      tooltip: 'A dynamic polyline marker'
     },
     {
       // circle marker

@@ -42,8 +42,9 @@
 				}
 			</style>
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
 			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -90,9 +91,11 @@
 							<li class="dropdown">
 								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
@@ -375,7 +378,7 @@ PSVUtils.fullscreenEvent = function() {
     'exitFullscreen': 'fullscreenchange',
     'webkitExitFullscreen': 'webkitfullscreenchange',
     'mozCancelFullScreen': 'mozfullscreenchange',
-    'msExitFullscreen': 'msFullscreenEnabled'
+    'msExitFullscreen': 'MSFullscreenChange'
   };
 
   for (var exit in map) {
@@ -930,6 +933,63 @@ PSVUtils.deepmerge = function(target, src) {
 PSVUtils.clone = function(src) {
   return PSVUtils.deepmerge(null, src);
 };
+
+/**
+ * @summary Normalize mousewheel values accross browsers
+ * @description From Facebook's Fixed Data Table
+ * {@link https://github.com/facebookarchive/fixed-data-table/blob/master/src/vendor_upstream/dom/normalizeWheel.js}
+ * @copyright Facebook
+ * @param {MouseWheelEvent} event
+ * @returns {{spinX: number, spinY: number, pixelX: number, pixelY: number}}
+ */
+PSVUtils.normalizeWheel = function(event) {
+  var PIXEL_STEP  = 10;
+  var LINE_HEIGHT = 40;
+  var PAGE_HEIGHT = 800;
+
+  var sX = 0, sY = 0; // spinX, spinY
+  var pX = 0, pY = 0; // pixelX, pixelY
+
+  // Legacy
+  if ('detail'      in event) { sY = event.detail; }
+  if ('wheelDelta'  in event) { sY = -event.wheelDelta / 120; }
+  if ('wheelDeltaY' in event) { sY = -event.wheelDeltaY / 120; }
+  if ('wheelDeltaX' in event) { sX = -event.wheelDeltaX / 120; }
+
+  // side scrolling on FF with DOMMouseScroll
+  if ('axis' in event &amp;&amp; event.axis === event.HORIZONTAL_AXIS) {
+    sX = sY;
+    sY = 0;
+  }
+
+  pX = sX * PIXEL_STEP;
+  pY = sY * PIXEL_STEP;
+
+  if ('deltaY' in event) { pY = event.deltaY; }
+  if ('deltaX' in event) { pX = event.deltaX; }
+
+  if ((pX || pY) &amp;&amp; event.deltaMode) {
+    if (event.deltaMode == 1) { // delta in LINE units
+      pX *= LINE_HEIGHT;
+      pY *= LINE_HEIGHT;
+    }
+    else {                      // delta in PAGE units
+      pX *= PAGE_HEIGHT;
+      pY *= PAGE_HEIGHT;
+    }
+  }
+
+  // Fall-back if spin cannot be determined
+  if (pX &amp;&amp; !sX) { sX = (pX &lt; 1) ? -1 : 1; }
+  if (pY &amp;&amp; !sY) { sY = (pY &lt; 1) ? -1 : 1; }
+
+  return {
+    spinX: sX,
+    spinY: sY,
+    pixelX: pX,
+    pixelY: pY
+  };
+};
 </code></pre>
 		</section>
 			</div>
@@ -937,7 +997,7 @@ PSVUtils.clone = function(src) {
 	</div>
 	<footer>
 				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

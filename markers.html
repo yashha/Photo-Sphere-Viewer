@@ -15,7 +15,9 @@ title: Markers
     <li><b>SVGs</b> defined with the <code>rect</code>, <code>circle</code>, <code>ellipse</code> or <code>path</code>
       attribute
     </li>
-    <li><b>Dynamic polygons</b> defined with the <code>polygon_px</code> or <code>polygon_rad</code> attribute</li>
+    <li><b>Dynamic polygons & polylines</b> defined with the
+      <code>polygon_px</code>/<code>polygon_rad</code>/<code>polyline_px</code>/<code>polyline_rad</code> attribute
+    </li>
   </ul>
 
   <h1 id="demo" class="page-header">Demo</h1>
@@ -54,7 +56,7 @@ title: Markers
       <thead>
       <tr>
         <th style="width: 130px;">Name</th>
-        <th style="width: 100px;">type</th>
+        <th style="width: 130px;">type</th>
         <th style="width: 150px;">default</th>
         <th>description</th>
       </tr>
@@ -110,6 +112,18 @@ title: Markers
         <td>Same as above but coordinates are in longitude and latitude.<br>
           Eg: <code>[[0.2, 0.4], [0.9, 1.1], [1.5, 0.7]]</code></td>
       </tr>
+      <tr class="grey">
+        <td>polyline_px</td>
+        <td>int[][]</td>
+        <td>Array of points defining the polyline in pixel coordinates on the panorama image.<br>
+          Eg: <code>[[100, 200], [150, 300]]</code></td>
+      </tr>
+      <tr class="grey">
+        <td>polyline_rad</td>
+        <td>double[][]</td>
+        <td>Same as above but coordinates are in longitude and latitude.<br>
+          Eg: <code>[[0.2, 0.4], [0.9, 1.1]]</code></td>
+      </tr>
       <tr>
         <td>width & height</td>
         <td>int</td>
@@ -131,6 +145,12 @@ title: Markers
         <td>double</td>
         <td>Position of the marker <b>in spherical coordinates</b> (radians).<br>
           <i>Ignored for polygons</i></td>
+      </tr>
+      <tr>
+        <td>scale</td>
+        <td>double | double[2]</td>
+        <td>1 <i>(constant)</i></td>
+        <td>Scale factor multiplied by the zoom level. Provide an array of two values for min and max.</td>
       </tr>
       <tr>
         <td>className</td>
@@ -157,7 +177,7 @@ title: Markers
       </tr>
       <tr>
         <td>tooltip</td>
-        <td>string|Object</td>
+        <td>string | Object</td>
         <td></td>
         <td>Tooltip content of the marker or object defining the tooltip.</td>
       </tr>
@@ -193,6 +213,12 @@ title: Markers
         <td>string</td>
         <td></td>
         <td>HTML content that will be displayed on the side panel when the marker is clicked.</td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td>Object</td>
+        <td></td>
+        <td>Any custom data you want to attach to the marker.</td>
       </tr>
       </tbody>
     </table>

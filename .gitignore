@@ -6,8 +6,6 @@ Gemfile.lock
 /dist/doT/*
 !/dist/doT/doT.min.js
 /dist/D.js/*
-!/dist/D.js/lib
-/dist/D.js/lib/*
 !/dist/D.js/lib/D.min.js
 /dist/uevent/*
 !/dist/uevent/uevent.min.js
@@ -16,4 +14,5 @@ Gemfile.lock
 /dist/Photo-Sphere-Viewer/*
 !/dist/Photo-Sphere-Viewer/dist
 /dist/three.js-examples/*
-!/dist/three.js-examples/examples
+!/dist/three.js-examples/examples/js/renderers/CanvasRenderer.js
+!/dist/three.js-examples/examples/js/renderers/Projector.js

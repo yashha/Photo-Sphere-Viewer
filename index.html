@@ -34,7 +34,7 @@ isHome: true
 
   <h3>Dependencies</h3>
   <ul>
-    <li><a href="http://threejs.org">three.js</a> + examples files</li>
+    <li><a href="http://threejs.org">three.js &gt;= 0.85</a> + examples files</li>
     <li><a href="http://olado.github.io/doT">doT.js</a></li>
     <li><a href="https://github.com/mistic100/uEvent">uEvent</a></li>
     <li><a href="http://malko.github.io/D.js">D.js</a></li>
@@ -241,10 +241,15 @@ panorama: {
         <td>Initial latitude, between -&pi;/2 and &pi;/2.</td>
       </tr>
       <tr>
-        <td>panorama_roll</td>
-        <td>double</td>
-        <td>0</td>
-        <td>Sphere angle from the horizon, between -&pi;/2 and &pi;/2.</td>
+        <td>sphere_correction</td>
+        <td>object</td>
+        <td>{pan:0, tilt:0, roll: 0}</td>
+        <td>Sphere rotation angles, in radians.
+          <button class="btn btn-primary btn-xs" data-bootbox="sphere_correction_example">More</button>
+          <div id="sphere_correction_example" title="Sphere correction diagram" class="hidden">
+            <img src="https://answers.unity.com/storage/temp/85429-pan-tilt-roll1.png"/>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>longitude_range</td>
@@ -445,7 +450,7 @@ pano_data: {
       <tr>
         <td>cache_texture</td>
         <td>integer</td>
-        <td>5</td>
+        <td>0</td>
         <td>Number of texture objects to cache into memory, this is to prevent network overload when calling
           <code>setPanorama</code> multiple times.
         </td>
@@ -480,6 +485,12 @@ tooltip: {
         <td>boolean</td>
         <td>false</td>
         <td>A click on a marker will trigger a <code>click</code> event as well as <code>select-marker</code>.</td>
+      </tr>
+      <tr>
+        <td>mousewheel_factor</td>
+        <td>double</td>
+        <td>1</td>
+        <td>Zoom speed multiplicator when using the mouse wheel.</td>
       </tr>
       </tbody>
     </table>

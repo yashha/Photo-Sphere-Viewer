@@ -41,8 +41,9 @@
 				}
 			</style>
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
 			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -89,9 +90,11 @@
 							<li class="dropdown">
 								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
@@ -188,7 +191,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label fires-event"><a href="PhotoSphereViewer.html#.event:ready">PhotoSphereViewer.ready</a></label>
 								<div class="col-sm-9">
-									<div class="form-control-static fires-summary">Triggered when the panorama image has been loaded and the viewer is ready to perform the first render</div>
+									<div class="form-control-static fires-summary"><p>Triggered when the panorama image has been loaded and the viewer is ready to perform the first render</p></div>
 								</div>
 							</div>
 					</form>
@@ -235,10 +238,10 @@
 									<h3>Members</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".DEFAULTS" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">DEFAULTS</span><span class="signature-type"> :Object</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".DEFAULTS" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">DEFAULTS</span><span class="signature-type"> :Object</span></h4>
 				<div class="summary"><p>Default options, see <a href="http://photo-sphere-viewer.js.org/#options">http://photo-sphere-viewer.js.org/#options</a></p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -267,7 +270,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.defaults.js.html">PhotoSphereViewer.defaults.js</a>, <a href="PhotoSphereViewer.defaults.js.html#line-112">line 112</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.defaults.js.html">PhotoSphereViewer.defaults.js</a>, <a href="PhotoSphereViewer.defaults.js.html#line-120">line 120</a></p>
 								</div>
 							</div>
 			
@@ -278,10 +281,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".Error" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">Error</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".Error" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">Error</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>exposes <a href="PSVError.html"><code>PSVError</code></a></p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -314,10 +317,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".ICONS" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">ICONS</span><span class="signature-type"> :Object.&lt;string, string></span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".ICONS" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">ICONS</span><span class="signature-type"> :Object.&lt;string, string></span></h4>
 				<div class="summary"><p>SVG icons sources</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -346,7 +349,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.defaults.js.html">PhotoSphereViewer.defaults.js</a>, <a href="PhotoSphereViewer.defaults.js.html#line-105">line 105</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.defaults.js.html">PhotoSphereViewer.defaults.js</a>, <a href="PhotoSphereViewer.defaults.js.html#line-113">line 113</a></p>
 								</div>
 							</div>
 			
@@ -357,10 +360,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".TEMPLATES" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">TEMPLATES</span><span class="signature-type"> :Object.&lt;string, string></span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".TEMPLATES" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">TEMPLATES</span><span class="signature-type"> :Object.&lt;string, string></span></h4>
 				<div class="summary"><p>doT.js templates</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -389,7 +392,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.defaults.js.html">PhotoSphereViewer.defaults.js</a>, <a href="PhotoSphereViewer.defaults.js.html#line-180">line 180</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.defaults.js.html">PhotoSphereViewer.defaults.js</a>, <a href="PhotoSphereViewer.defaults.js.html#line-193">line 193</a></p>
 								</div>
 							</div>
 			
@@ -400,10 +403,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".Utils" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">Utils</span><span class="signature-type"> :object</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".Utils" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">Utils</span><span class="signature-type"> :object</span></h4>
 				<div class="summary"><p>exposes <a href="PSVUtils.html"><code>PSVUtils</code></a></p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -443,10 +446,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="config" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">config</span><span class="signature-type"> :Object</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="config" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">config</span><span class="signature-type"> :Object</span></h4>
 				<div class="summary"><p>Configuration object</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -486,10 +489,225 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="container" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">container</span><span class="signature-type"> :HTMLElement</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="container" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">container</span><span class="signature-type"> :HTMLElement</span></h4>
 				<div class="summary"><p>Main container</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">HTMLElement</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-233">line 233</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="hud" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">hud</span><span class="signature-type"> :<a href="module-components.PSVHUD.html">module:components.PSVHUD</a></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVHUD.html">module:components.PSVHUD</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-251">line 251</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="loader" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">loader</span><span class="signature-type"> :<a href="module-components.PSVLoader.html">module:components.PSVLoader</a></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVLoader.html">module:components.PSVLoader</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-239">line 239</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="navbar" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">navbar</span><span class="signature-type"> :<a href="module-components.PSVNavBar.html">module:components.PSVNavBar</a></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVNavBar.html">module:components.PSVNavBar</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-245">line 245</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="panel" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">panel</span><span class="signature-type"> :<a href="module-components.PSVPanel.html">module:components.PSVPanel</a></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVPanel.html">module:components.PSVPanel</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-257">line 257</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="parent" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">parent</span><span class="signature-type"> :HTMLElement</span></h4>
+				<div class="summary"><p>Top most parent</p></div></dt>
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -529,225 +747,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="hud" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">hud</span><span class="signature-type"> :<a href="module-components.PSVHUD.html">module:components.PSVHUD</a></span></h4>
-		</dt>
-<dd class="symbol-details member  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVHUD.html">module:components.PSVHUD</a></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-244">line 244</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="loader" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">loader</span><span class="signature-type"> :<a href="module-components.PSVLoader.html">module:components.PSVLoader</a></span></h4>
-		</dt>
-<dd class="symbol-details member  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVLoader.html">module:components.PSVLoader</a></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-232">line 232</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="navbar" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">navbar</span><span class="signature-type"> :<a href="module-components.PSVNavBar.html">module:components.PSVNavBar</a></span></h4>
-		</dt>
-<dd class="symbol-details member  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVNavBar.html">module:components.PSVNavBar</a></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-238">line 238</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="panel" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">panel</span><span class="signature-type"> :<a href="module-components.PSVPanel.html">module:components.PSVPanel</a></span></h4>
-		</dt>
-<dd class="symbol-details member  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="module-components.PSVPanel.html">module:components.PSVPanel</a></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-250">line 250</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="parent" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">parent</span><span class="signature-type"> :HTMLElement</span></h4>
-				<div class="summary"><p>Top most parent</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">HTMLElement</span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-219">line 219</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="prop" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">prop</span><span class="signature-type"> :Object</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="prop" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">prop</span><span class="signature-type"> :Object</span></h4>
 				<div class="summary"><p>Internal properties</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -986,7 +989,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-340">line 340</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-347">line 347</a></p>
 								</div>
 							</div>
 			
@@ -997,10 +1000,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="tooltip" class="member"><span class="signature-attribs">&lt;readonly> </span><span class="name">tooltip</span><span class="signature-type"> :<a href="module-components.PSVTooltip.html">module:components.PSVTooltip</a></span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="tooltip" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">tooltip</span><span class="signature-type"> :<a href="module-components.PSVTooltip.html">module:components.PSVTooltip</a></span></h4>
 		</dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -1029,7 +1032,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-256">line 256</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-263">line 263</a></p>
 								</div>
 							</div>
 			
@@ -1043,10 +1046,10 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="animate" class="function"><span class="name">animate</span><span class="signature-params">( <span class="signature-param">position</span>, <span class="signature-param">duration</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="animate" class="function public"><span class="name">animate</span><span class="signature-params">( <span class="signature-param">position</span>, <span class="signature-param">duration</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Rotates the view to specific longitude and latitude with a smooth animation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1114,10 +1117,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="change" class="function"><span class="name">change</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">value</span> [,&nbsp;<span class="signature-param">...arguments</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{*}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="change" class="function public"><span class="name">change</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">value</span> [,&nbsp;<span class="signature-param">...arguments</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{*}</span></h4>
 				<div class="summary"><p>Triggers an event on the viewer and returns the modified value</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1183,7 +1186,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-485">line 485</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-492">line 492</a></p>
 								</div>
 							</div>
 			
@@ -1194,10 +1197,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="clearPanoramaCache" class="function"><span class="name">clearPanoramaCache</span><span class="signature-params">( [&nbsp;<span class="signature-param">panorama</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="clearPanoramaCache" class="function public"><span class="name">clearPanoramaCache</span><span class="signature-params">( [&nbsp;<span class="signature-param">panorama</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Removes a panorama from the cache or clears the entire cache</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1249,7 +1252,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-580">line 580</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-581">line 581</a></p>
 								</div>
 							</div>
 			
@@ -1260,10 +1263,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="destroy" class="function"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="destroy" class="function public"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Destroys the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The memory used by the ThreeJS context is not totally cleared. This will be fixed as soon as possible.</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
@@ -1297,10 +1300,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="getPanoramaCache" class="function"><span class="name">getPanoramaCache</span><span class="signature-params">( <span class="signature-param">panorama</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.CacheItem">PhotoSphereViewer.CacheItem</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getPanoramaCache" class="function public"><span class="name">getPanoramaCache</span><span class="signature-params">( <span class="signature-param">panorama</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.CacheItem">PhotoSphereViewer.CacheItem</a>}</span></h4>
 				<div class="summary"><p>Retrieves the cache for a panorama</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1358,7 +1361,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-604">line 604</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-605">line 605</a></p>
 								</div>
 							</div>
 			
@@ -1369,10 +1372,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="getPosition" class="function"><span class="name">getPosition</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Position">PhotoSphereViewer.Position</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getPosition" class="function public"><span class="name">getPosition</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Position">PhotoSphereViewer.Position</a>}</span></h4>
 				<div class="summary"><p>Returns the current position of the camera</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1413,10 +1416,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="getSize" class="function"><span class="name">getSize</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Size">PhotoSphereViewer.Size</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getSize" class="function public"><span class="name">getSize</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Size">PhotoSphereViewer.Size</a>}</span></h4>
 				<div class="summary"><p>Returns the current viewer size</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1457,10 +1460,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="getZoomLevel" class="function"><span class="name">getZoomLevel</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{int}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getZoomLevel" class="function public"><span class="name">getZoomLevel</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{int}</span></h4>
 				<div class="summary"><p>Returns the current zoom level</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1501,10 +1504,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="isAutorotateEnabled" class="function"><span class="name">isAutorotateEnabled</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isAutorotateEnabled" class="function public"><span class="name">isAutorotateEnabled</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the automatic rotation is enabled</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1545,10 +1548,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="isFullscreenEnabled" class="function"><span class="name">isFullscreenEnabled</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isFullscreenEnabled" class="function public"><span class="name">isFullscreenEnabled</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the viewer is in fullscreen</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1589,10 +1592,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="isGyroscopeEnabled" class="function"><span class="name">isGyroscopeEnabled</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isGyroscopeEnabled" class="function public"><span class="name">isGyroscopeEnabled</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the gyroscope is enabled</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1633,10 +1636,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="load" class="function"><span class="name">load</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="load" class="function public"><span class="name">load</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Starts to load the panorama</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -1685,10 +1688,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="off" class="function"><span class="name">off</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">callback</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="off" class="function public"><span class="name">off</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">callback</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>}</span></h4>
 				<div class="summary"><p>Removes an event listener from the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1748,7 +1751,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-506">line 506</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-513">line 513</a></p>
 								</div>
 							</div>
 			
@@ -1759,10 +1762,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="on" class="function"><span class="name">on</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">callback</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="on" class="function public"><span class="name">on</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">callback</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>}</span></h4>
 				<div class="summary"><p>Attaches an event listener on the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1822,7 +1825,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-496">line 496</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-503">line 503</a></p>
 								</div>
 							</div>
 			
@@ -1833,10 +1836,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="once" class="function"><span class="name">once</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">callback</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="once" class="function public"><span class="name">once</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">callback</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>}</span></h4>
 				<div class="summary"><p>Attaches an event listener called once on the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1896,7 +1899,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-516">line 516</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-523">line 523</a></p>
 								</div>
 							</div>
 			
@@ -1907,10 +1910,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="preloadPanorama" class="function"><span class="name">preloadPanorama</span><span class="signature-params">( <span class="signature-param">panorama</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="preloadPanorama" class="function public"><span class="name">preloadPanorama</span><span class="signature-params">( <span class="signature-param">panorama</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Preload a panorama file without displaying it</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1968,7 +1971,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-567">line 567</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-568">line 568</a></p>
 								</div>
 							</div>
 			
@@ -1979,10 +1982,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="render" class="function"><span class="name">render</span><span class="signature-params">( [&nbsp;<span class="signature-param">updateDirection</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="render" class="function public"><span class="name">render</span><span class="signature-params">( [&nbsp;<span class="signature-param">updateDirection</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Performs a render</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2048,10 +2051,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="resize" class="function"><span class="name">resize</span><span class="signature-params">( <span class="signature-param">size</span>&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="resize" class="function public"><span class="name">resize</span><span class="signature-params">( <span class="signature-param">size</span>&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Resizes the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2093,7 +2096,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-524">line 524</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-525">line 525</a></p>
 								</div>
 							</div>
 			
@@ -2104,10 +2107,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="rotate" class="function"><span class="name">rotate</span><span class="signature-params">( <span class="signature-param">position</span> [,&nbsp;<span class="signature-param">render</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="rotate" class="function public"><span class="name">rotate</span><span class="signature-params">( <span class="signature-param">position</span> [,&nbsp;<span class="signature-param">render</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Rotates the view to specific longitude and latitude</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2186,10 +2189,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="setPanorama" class="function"><span class="name">setPanorama</span><span class="signature-params">( <span class="signature-param">path</span> [,&nbsp;<span class="signature-param">position</span> [,&nbsp;<span class="signature-param">transition</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="setPanorama" class="function public"><span class="name">setPanorama</span><span class="signature-params">( <span class="signature-param">path</span> [,&nbsp;<span class="signature-param">position</span> [,&nbsp;<span class="signature-param">transition</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Loads a new panorama file</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Loads a new panorama file, optionally changing the camera position and activating the transition animation.<br>
 			If the &quot;position&quot; is not defined, the camera will not move and the ongoing animation will continue<br>
@@ -2282,10 +2285,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="sphericalCoordsToTextureCoords" class="function"><span class="name">sphericalCoordsToTextureCoords</span><span class="signature-params">( <span class="signature-param">position</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Point">PhotoSphereViewer.Point</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="sphericalCoordsToTextureCoords" class="function public"><span class="name">sphericalCoordsToTextureCoords</span><span class="signature-params">( <span class="signature-param">position</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Point">PhotoSphereViewer.Point</a>}</span></h4>
 				<div class="summary"><p>Converts spherical radians coordinates to pixel texture coordinates</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2346,10 +2349,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="sphericalCoordsToVector3" class="function"><span class="name">sphericalCoordsToVector3</span><span class="signature-params">( <span class="signature-param">position</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{THREE.Vector3}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="sphericalCoordsToVector3" class="function public"><span class="name">sphericalCoordsToVector3</span><span class="signature-params">( <span class="signature-param">position</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{THREE.Vector3}</span></h4>
 				<div class="summary"><p>Converts spherical radians coordinates to a THREE.Vector3</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2410,10 +2413,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="startAutorotate" class="function"><span class="name">startAutorotate</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="startAutorotate" class="function public"><span class="name">startAutorotate</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Starts the automatic rotation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
 							<div class="form-group">
@@ -2454,10 +2457,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="startGyroscopeControl" class="function"><span class="name">startGyroscopeControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="startGyroscopeControl" class="function public"><span class="name">startGyroscopeControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Enables the gyroscope navigation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
 							<div class="form-group">
@@ -2498,10 +2501,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="startKeyboardControl" class="function"><span class="name">startKeyboardControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="startKeyboardControl" class="function public"><span class="name">startKeyboardControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Enables the keyboard controls (done automatically when entering fullscreen)</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -2523,7 +2526,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-550">line 550</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-551">line 551</a></p>
 								</div>
 							</div>
 			
@@ -2534,10 +2537,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="stopAnimation" class="function"><span class="name">stopAnimation</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="stopAnimation" class="function public"><span class="name">stopAnimation</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Stops the ongoing animation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -2559,7 +2562,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-471">line 471</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-472">line 472</a></p>
 								</div>
 							</div>
 			
@@ -2570,10 +2573,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="stopAutorotate" class="function"><span class="name">stopAutorotate</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="stopAutorotate" class="function public"><span class="name">stopAutorotate</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Stops the automatic rotation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
 							<div class="form-group">
@@ -2614,10 +2617,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="stopGyroscopeControl" class="function"><span class="name">stopGyroscopeControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="stopGyroscopeControl" class="function public"><span class="name">stopGyroscopeControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Disables the gyroscope navigation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
 							<div class="form-group">
@@ -2658,10 +2661,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="stopKeyboardControl" class="function"><span class="name">stopKeyboardControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="stopKeyboardControl" class="function public"><span class="name">stopKeyboardControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Disables the keyboard controls (done automatically when exiting fullscreen)</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -2683,7 +2686,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-557">line 557</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-558">line 558</a></p>
 								</div>
 							</div>
 			
@@ -2694,10 +2697,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="textureCoordsToSphericalCoords" class="function"><span class="name">textureCoordsToSphericalCoords</span><span class="signature-params">( <span class="signature-param">point</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Position">PhotoSphereViewer.Position</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="textureCoordsToSphericalCoords" class="function public"><span class="name">textureCoordsToSphericalCoords</span><span class="signature-params">( <span class="signature-param">point</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Position">PhotoSphereViewer.Position</a>}</span></h4>
 				<div class="summary"><p>Converts pixel texture coordinates to spherical radians coordinates</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2758,10 +2761,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="toggleAutorotate" class="function"><span class="name">toggleAutorotate</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="toggleAutorotate" class="function public"><span class="name">toggleAutorotate</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Starts or stops the automatic rotation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -2794,10 +2797,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="toggleFullscreen" class="function"><span class="name">toggleFullscreen</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="toggleFullscreen" class="function public"><span class="name">toggleFullscreen</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Enters or exits the fullscreen mode</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -2819,7 +2822,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-538">line 538</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-539">line 539</a></p>
 								</div>
 							</div>
 			
@@ -2830,10 +2833,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="toggleGyroscopeControl" class="function"><span class="name">toggleGyroscopeControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="toggleGyroscopeControl" class="function public"><span class="name">toggleGyroscopeControl</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Enables or disables the gyroscope navigation</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -2866,10 +2869,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="trigger" class="function"><span class="name">trigger</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">...arguments</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{uEvent.Event}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="trigger" class="function public"><span class="name">trigger</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">...arguments</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{uEvent.Event}</span></h4>
 				<div class="summary"><p>Triggers an event on the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -2928,7 +2931,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-475">line 475</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-482">line 482</a></p>
 								</div>
 							</div>
 			
@@ -2939,10 +2942,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="vector3ToSphericalCoords" class="function"><span class="name">vector3ToSphericalCoords</span><span class="signature-params">( <span class="signature-param">vector</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Position">PhotoSphereViewer.Position</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="vector3ToSphericalCoords" class="function public"><span class="name">vector3ToSphericalCoords</span><span class="signature-params">( <span class="signature-param">vector</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Position">PhotoSphereViewer.Position</a>}</span></h4>
 				<div class="summary"><p>Converts a THREE.Vector3 to spherical radians coordinates</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -3003,10 +3006,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="vector3ToViewerCoords" class="function"><span class="name">vector3ToViewerCoords</span><span class="signature-params">( <span class="signature-param">vector</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Point">PhotoSphereViewer.Point</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="vector3ToViewerCoords" class="function public"><span class="name">vector3ToViewerCoords</span><span class="signature-params">( <span class="signature-param">vector</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PhotoSphereViewer.html#.Point">PhotoSphereViewer.Point</a>}</span></h4>
 				<div class="summary"><p>Converts a THREE.Vector3 to position on the viewer</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -3067,10 +3070,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="viewerCoordsToVector3" class="function"><span class="name">viewerCoordsToVector3</span><span class="signature-params">( <span class="signature-param">viewerPoint</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{THREE.Vector3}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="viewerCoordsToVector3" class="function public"><span class="name">viewerCoordsToVector3</span><span class="signature-params">( <span class="signature-param">viewerPoint</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{THREE.Vector3}</span></h4>
 				<div class="summary"><p>Converts position on the viewer to a THREE.Vector3</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -3131,10 +3134,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="zoom" class="function"><span class="name">zoom</span><span class="signature-params">( <span class="signature-param">level</span> [,&nbsp;<span class="signature-param">render</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="zoom" class="function public"><span class="name">zoom</span><span class="signature-params">( <span class="signature-param">level</span> [,&nbsp;<span class="signature-param">render</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Zooms to a specific level between <code>max_fov</code> and <code>min_fov</code></p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -3197,7 +3200,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-484">line 484</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-485">line 485</a></p>
 								</div>
 							</div>
 			
@@ -3208,10 +3211,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="zoomIn" class="function"><span class="name">zoomIn</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="zoomIn" class="function public"><span class="name">zoomIn</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Increases the zoom level by 1</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -3233,7 +3236,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-505">line 505</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-506">line 506</a></p>
 								</div>
 							</div>
 			
@@ -3244,10 +3247,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="zoomOut" class="function"><span class="name">zoomOut</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="zoomOut" class="function public"><span class="name">zoomOut</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Decreases the zoom level by 1</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -3269,7 +3272,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-514">line 514</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-515">line 515</a></p>
 								</div>
 							</div>
 			
@@ -3283,10 +3286,10 @@
 									<h3>Type Definitions</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".CacheItem" class="typedef"><span class="name">CacheItem</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".CacheItem" class="typedef public"><span class="name">CacheItem</span></h4>
 				<div class="summary"><p>An entry in the memory cache</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3358,10 +3361,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".ClickData" class="typedef"><span class="name">ClickData</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".ClickData" class="typedef public"><span class="name">ClickData</span></h4>
 				<div class="summary"><p>Data of the <code>click</code> event</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3488,10 +3491,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".CssSize" class="typedef"><span class="name">CssSize</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".CssSize" class="typedef public"><span class="name">CssSize</span></h4>
 				<div class="summary"><p>Object defining a size in CSS (px, % or auto)</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3560,10 +3563,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".ExtendedPosition" class="typedef"><span class="name">ExtendedPosition</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".ExtendedPosition" class="typedef public"><span class="name">ExtendedPosition</span></h4>
 				<div class="summary"><p>Object defining a spherical or texture position</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>A position that can be expressed either in spherical coordinates (radians or degrees) or in texture coordinates (pixels)</p></div>
 			</div>			<div class="callout callout-info">
@@ -3642,10 +3645,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".PanoData" class="typedef"><span class="name">PanoData</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".PanoData" class="typedef public"><span class="name">PanoData</span></h4>
 				<div class="summary"><p>Crop information of the panorama</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3735,10 +3738,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".Point" class="typedef"><span class="name">Point</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".Point" class="typedef public"><span class="name">Point</span></h4>
 				<div class="summary"><p>Object defining a point</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3804,10 +3807,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".Position" class="typedef"><span class="name">Position</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".Position" class="typedef public"><span class="name">Position</span></h4>
 				<div class="summary"><p>Object defining a spherical position</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3873,10 +3876,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id=".Size" class="typedef"><span class="name">Size</span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".Size" class="typedef public"><span class="name">Size</span></h4>
 				<div class="summary"><p>Object defining a size</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Properties</h5>
@@ -3945,10 +3948,10 @@
 									<h3>Events</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:autorotate" class="event"><span class="name">autorotate</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:autorotate" class="event public"><span class="name">autorotate</span></h4>
 				<div class="summary"><p>Triggered when the automatic rotation is enabled/disabled</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4001,10 +4004,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:click" class="event"><span class="name">click</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:click" class="event public"><span class="name">click</span></h4>
 				<div class="summary"><p>Triggered when the user clicks on the viewer (everywhere excluding the navbar and the side panel)</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4046,7 +4049,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.events.js.html">PhotoSphereViewer.events.js</a>, <a href="PhotoSphereViewer.events.js.html#line-323">line 323</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.events.js.html">PhotoSphereViewer.events.js</a>, <a href="PhotoSphereViewer.events.js.html#line-328">line 328</a></p>
 								</div>
 							</div>
 			
@@ -4057,10 +4060,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:dblclick" class="event"><span class="name">dblclick</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:dblclick" class="event public"><span class="name">dblclick</span></h4>
 				<div class="summary"><p>Triggered when the user double clicks on the viewer. The simple <code>click</code> event is always fired before <code>dblclick</code></p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4102,7 +4105,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.events.js.html">PhotoSphereViewer.events.js</a>, <a href="PhotoSphereViewer.events.js.html#line-340">line 340</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.events.js.html">PhotoSphereViewer.events.js</a>, <a href="PhotoSphereViewer.events.js.html#line-345">line 345</a></p>
 								</div>
 							</div>
 			
@@ -4113,10 +4116,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:fullscreen-updated" class="event"><span class="name">fullscreen-updated</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:fullscreen-updated" class="event public"><span class="name">fullscreen-updated</span></h4>
 				<div class="summary"><p>Triggered when the fullscreen mode is enabled/disabled</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4158,7 +4161,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.events.js.html">PhotoSphereViewer.events.js</a>, <a href="PhotoSphereViewer.events.js.html#line-436">line 436</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.events.js.html">PhotoSphereViewer.events.js</a>, <a href="PhotoSphereViewer.events.js.html#line-440">line 440</a></p>
 								</div>
 							</div>
 			
@@ -4169,10 +4172,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:gyroscope-updated" class="event"><span class="name">gyroscope-updated</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:gyroscope-updated" class="event public"><span class="name">gyroscope-updated</span></h4>
 				<div class="summary"><p>Triggered when the gyroscope mode is enabled/disabled</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4225,10 +4228,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:panorama-cached" class="event"><span class="name">panorama-cached</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:panorama-cached" class="event public"><span class="name">panorama-cached</span></h4>
 				<div class="summary"><p>Triggered when a panorama is stored in the cache</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4270,7 +4273,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.core.js.html">PhotoSphereViewer.core.js</a>, <a href="PhotoSphereViewer.core.js.html#line-668">line 668</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.core.js.html">PhotoSphereViewer.core.js</a>, <a href="PhotoSphereViewer.core.js.html#line-664">line 664</a></p>
 								</div>
 							</div>
 			
@@ -4281,10 +4284,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:panorama-load-progress" class="event"><span class="name">panorama-load-progress</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:panorama-load-progress" class="event public"><span class="name">panorama-load-progress</span></h4>
 				<div class="summary"><p>Triggered while a panorama image is loading</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4343,10 +4346,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:panorama-loaded" class="event"><span class="name">panorama-loaded</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:panorama-loaded" class="event public"><span class="name">panorama-loaded</span></h4>
 				<div class="summary"><p>Triggered when a panorama image has been loaded</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -4379,10 +4382,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:position-updated" class="event"><span class="name">position-updated</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:position-updated" class="event public"><span class="name">position-updated</span></h4>
 				<div class="summary"><p>Triggered when the view longitude and/or latitude changes</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4435,10 +4438,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:ready" class="event"><span class="name">ready</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:ready" class="event public"><span class="name">ready</span></h4>
 				<div class="summary"><p>Triggered when the panorama image has been loaded and the viewer is ready to perform the first render</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -4460,7 +4463,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-466">line 466</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.js.html">PhotoSphereViewer.js</a>, <a href="PhotoSphereViewer.js.html#line-473">line 473</a></p>
 								</div>
 							</div>
 			
@@ -4471,10 +4474,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:render" class="event"><span class="name">render</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:render" class="event public"><span class="name">render</span></h4>
 				<div class="summary"><p>Triggered on each viewer render, <strong>this event is triggered very often</strong></p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -4507,10 +4510,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:size-updated" class="event"><span class="name">size-updated</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:size-updated" class="event public"><span class="name">size-updated</span></h4>
 				<div class="summary"><p>Triggered when the viewer size changes</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4563,10 +4566,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title event">
-			<h4 id=".event:zoom-updated" class="event"><span class="name">zoom-updated</span></h4>
+											<dt class="symbol-title event public">
+			<h4 id=".event:zoom-updated" class="event public"><span class="name">zoom-updated</span></h4>
 				<div class="summary"><p>Triggered when the zoom level changes</p></div></dt>
-<dd class="symbol-details event">
+<dd class="symbol-details event public">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -4608,7 +4611,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-492">line 492</a></p>
+									<p class="form-control-static"><a href="PhotoSphereViewer.public.js.html">PhotoSphereViewer.public.js</a>, <a href="PhotoSphereViewer.public.js.html#line-493">line 493</a></p>
 								</div>
 							</div>
 			
@@ -4629,7 +4632,7 @@
 	</div>
 	<footer>
 				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

@@ -2578,6 +2578,18 @@ window.lunrData = {
           "marker",
           "psvmarker#destroy"
         ],
+        "PSVMarker.html#getScale": [
+          "comput",
+          "float",
+          "function",
+          "getscal",
+          "level",
+          "marker",
+          "psvmarker#getscal",
+          "scale",
+          "zoom",
+          "zoomlevel"
+        ],
         "PSVMarker.html#isNormal": [
           "boolean",
           "check",
@@ -2589,6 +2601,15 @@ window.lunrData = {
           "normal",
           "psvmarker#isnorm"
         ],
+        "PSVMarker.html#isPoly": [
+          "boolean",
+          "check",
+          "function",
+          "ispoli",
+          "marker",
+          "polygon/polylin",
+          "psvmarker#ispoli"
+        ],
         "PSVMarker.html#isPolygon": [
           "boolean",
           "check",
@@ -2597,6 +2618,15 @@ window.lunrData = {
           "marker",
           "polygon",
           "psvmarker#ispolygon"
+        ],
+        "PSVMarker.html#isPolyline": [
+          "boolean",
+          "check",
+          "function",
+          "ispolylin",
+          "marker",
+          "polylin",
+          "psvmarker#ispolylin"
         ],
         "PSVMarker.html#isSvg": [
           "boolean",
@@ -2940,6 +2970,25 @@ window.lunrData = {
           "string",
           "wheel"
         ],
+        "PSVUtils.html#.normalizeWheel": [
+          "accross",
+          "browser",
+          "data",
+          "event",
+          "facebook'",
+          "fix",
+          "function",
+          "https://github.com/facebookarchive/fix",
+          "lt;static&gt",
+          "mousewheel",
+          "normal",
+          "normalizewheel",
+          "object",
+          "psvutils.normalizewheel",
+          "tabl",
+          "table/blob/master/src/vendor_upstream/dom/normalizewheel.j",
+          "valu"
+        ],
         "PSVUtils.html#.parseAngle": [
           "angl",
           "degre",
@@ -3050,7 +3099,7 @@ window.lunrData = {
           "toggleclass"
         ]
       },
-      "length": 322
+      "length": 326
     },
     "tokenStore": {
       "root": {
@@ -3475,6 +3524,23 @@ window.lunrData = {
                         "PhotoSphereViewer.html#setPanorama": {
                           "ref": "PhotoSphereViewer.html#setPanorama",
                           "tf": 2.1739130434782608
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "r": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "s": {
+                    "docs": {},
+                    "s": {
+                      "docs": {
+                        "PSVUtils.html#.normalizeWheel": {
+                          "ref": "PSVUtils.html#.normalizeWheel",
+                          "tf": 14
                         }
                       }
                     }
@@ -4269,6 +4335,10 @@ window.lunrData = {
                   "PSVUtils.html#.getXMPValue": {
                     "ref": "PSVUtils.html#.getXMPValue",
                     "tf": 25
+                  },
+                  "PSVUtils.html#.normalizeWheel": {
+                    "ref": "PSVUtils.html#.normalizeWheel",
+                    "tf": 14.285714285714285
                   }
                 }
               }
@@ -4842,6 +4912,14 @@ window.lunrData = {
                 "docs": {},
                 "l": {
                   "docs": {},
+                  "i": {
+                    "docs": {
+                      "PSVMarker.html#isPoly": {
+                        "ref": "PSVMarker.html#isPoly",
+                        "tf": 700
+                      }
+                    }
+                  },
                   "y": {
                     "docs": {},
                     "g": {
@@ -4852,6 +4930,20 @@ window.lunrData = {
                           "docs": {
                             "PSVMarker.html#isPolygon": {
                               "ref": "PSVMarker.html#isPolygon",
+                              "tf": 700
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "l": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "n": {
+                          "docs": {
+                            "PSVMarker.html#isPolyline": {
+                              "ref": "PSVMarker.html#isPolyline",
                               "tf": 700
                             }
                           }
@@ -5454,6 +5546,10 @@ window.lunrData = {
                                   "PSVUtils.html#.mouseWheelEvent": {
                                     "ref": "PSVUtils.html#.mouseWheelEvent",
                                     "tf": 33.33333333333333
+                                  },
+                                  "PSVUtils.html#.normalizeWheel": {
+                                    "ref": "PSVUtils.html#.normalizeWheel",
+                                    "tf": 25
                                   },
                                   "PSVUtils.html#.parseAngle": {
                                     "ref": "PSVUtils.html#.parseAngle",
@@ -6280,6 +6376,10 @@ window.lunrData = {
                     "PhotoSphereViewer.html#zoomOut": {
                       "ref": "PhotoSphereViewer.html#zoomOut",
                       "tf": 17.5
+                    },
+                    "PSVMarker.html#getScale": {
+                      "ref": "PSVMarker.html#getScale",
+                      "tf": 14
                     },
                     "PSVUtils.html#.hasParent": {
                       "ref": "PSVUtils.html#.hasParent",
@@ -9869,6 +9969,32 @@ window.lunrData = {
                                 }
                               }
                             },
+                            "g": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "l": {
+                                          "docs": {
+                                            "PSVMarker.html#getScale": {
+                                              "ref": "PSVMarker.html#getScale",
+                                              "tf": 1150
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             "i": {
                               "docs": {},
                               "s": {
@@ -9896,6 +10022,14 @@ window.lunrData = {
                                     "docs": {},
                                     "l": {
                                       "docs": {},
+                                      "i": {
+                                        "docs": {
+                                          "PSVMarker.html#isPoly": {
+                                            "ref": "PSVMarker.html#isPoly",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      },
                                       "y": {
                                         "docs": {},
                                         "g": {
@@ -9906,6 +10040,20 @@ window.lunrData = {
                                               "docs": {
                                                 "PSVMarker.html#isPolygon": {
                                                   "ref": "PSVMarker.html#isPolygon",
+                                                  "tf": 1150
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "l": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "n": {
+                                              "docs": {
+                                                "PSVMarker.html#isPolyline": {
+                                                  "ref": "PSVMarker.html#isPolyline",
                                                   "tf": 1150
                                                 }
                                               }
@@ -13955,6 +14103,53 @@ window.lunrData = {
                               }
                             }
                           },
+                          "n": {
+                            "docs": {},
+                            "o": {
+                              "docs": {},
+                              "r": {
+                                "docs": {},
+                                "m": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "l": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "z": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "w": {
+                                              "docs": {},
+                                              "h": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {
+                                                        "PSVUtils.html#.normalizeWheel": {
+                                                          "ref": "PSVUtils.html#.normalizeWheel",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
                           "p": {
                             "docs": {},
                             "a": {
@@ -14453,6 +14648,49 @@ window.lunrData = {
                       "docs": {
                         "PSVMarker.html#isPolygon": {
                           "ref": "PSVMarker.html#isPolygon",
+                          "tf": 23.333333333333332
+                        }
+                      },
+                      "/": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "y": {
+                                "docs": {},
+                                "l": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {
+                                        "PSVMarker.html#isPoly": {
+                                          "ref": "PSVMarker.html#isPoly",
+                                          "tf": 23.333333333333332
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "l": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "PSVMarker.html#isPolyline": {
+                          "ref": "PSVMarker.html#isPolyline",
                           "tf": 23.333333333333332
                         }
                       }
@@ -16438,6 +16676,20 @@ window.lunrData = {
           },
           "c": {
             "docs": {},
+            "a": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "e": {
+                  "docs": {
+                    "PSVMarker.html#getScale": {
+                      "ref": "PSVMarker.html#getScale",
+                      "tf": 14
+                    }
+                  }
+                }
+              }
+            },
             "e": {
               "docs": {},
               "n": {
@@ -16729,6 +16981,10 @@ window.lunrData = {
                   "PSVUtils.html#.isInteger": {
                     "ref": "PSVUtils.html#.isInteger",
                     "tf": 48.33333333333333
+                  },
+                  "PSVUtils.html#.normalizeWheel": {
+                    "ref": "PSVUtils.html#.normalizeWheel",
+                    "tf": 14
                   },
                   "PSVUtils.html#.parseAngle": {
                     "ref": "PSVUtils.html#.parseAngle",
@@ -18003,6 +18259,10 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
+                      "PSVMarker.html#getScale": {
+                        "ref": "PSVMarker.html#getScale",
+                        "tf": 14
+                      },
                       "PSVUtils.html#.getShortestArc": {
                         "ref": "PSVUtils.html#.getShortestArc",
                         "tf": 11.666666666666666
@@ -18781,8 +19041,16 @@ window.lunrData = {
                       "ref": "PSVMarker.html#isNormal",
                       "tf": 14
                     },
+                    "PSVMarker.html#isPoly": {
+                      "ref": "PSVMarker.html#isPoly",
+                      "tf": 23.333333333333332
+                    },
                     "PSVMarker.html#isPolygon": {
                       "ref": "PSVMarker.html#isPolygon",
+                      "tf": 23.333333333333332
+                    },
+                    "PSVMarker.html#isPolyline": {
+                      "ref": "PSVMarker.html#isPolyline",
                       "tf": 23.333333333333332
                     },
                     "PSVMarker.html#isSvg": {
@@ -18923,6 +19191,10 @@ window.lunrData = {
                     "PSVUtils.html#.mouseWheelEvent": {
                       "ref": "PSVUtils.html#.mouseWheelEvent",
                       "tf": 14
+                    },
+                    "PSVUtils.html#.normalizeWheel": {
+                      "ref": "PSVUtils.html#.normalizeWheel",
+                      "tf": 25
                     }
                   }
                 }
@@ -19613,9 +19885,42 @@ window.lunrData = {
                         "ref": "PSVMarker.html#isNormal",
                         "tf": 14
                       },
+                      "PSVUtils.html#.normalizeWheel": {
+                        "ref": "PSVUtils.html#.normalizeWheel",
+                        "tf": 14
+                      },
                       "PSVUtils.html#.parseAngle": {
                         "ref": "PSVUtils.html#.parseAngle",
                         "tf": 7.777777777777778
+                      }
+                    },
+                    "i": {
+                      "docs": {},
+                      "z": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "w": {
+                            "docs": {},
+                            "h": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {
+                                      "PSVUtils.html#.normalizeWheel": {
+                                        "ref": "PSVUtils.html#.normalizeWheel",
+                                        "tf": 675
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -19805,8 +20110,16 @@ window.lunrData = {
                           "ref": "PSVMarker.html#isNormal",
                           "tf": 50
                         },
+                        "PSVMarker.html#isPoly": {
+                          "ref": "PSVMarker.html#isPoly",
+                          "tf": 50
+                        },
                         "PSVMarker.html#isPolygon": {
                           "ref": "PSVMarker.html#isPolygon",
+                          "tf": 50
+                        },
+                        "PSVMarker.html#isPolyline": {
+                          "ref": "PSVMarker.html#isPolyline",
                           "tf": 50
                         },
                         "PSVMarker.html#isSvg": {
@@ -20173,6 +20486,29 @@ window.lunrData = {
                         "PSVUtils.html#.getShortestArc": {
                           "ref": "PSVUtils.html#.getShortestArc",
                           "tf": 11.666666666666666
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "w": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "PSVUtils.html#.normalizeWheel": {
+                          "ref": "PSVUtils.html#.normalizeWheel",
+                          "tf": 14
                         }
                       }
                     }
@@ -24398,7 +24734,12 @@ window.lunrData = {
                         "e": {
                           "docs": {},
                           "l": {
-                            "docs": {},
+                            "docs": {
+                              "PSVUtils.html#.normalizeWheel": {
+                                "ref": "PSVUtils.html#.normalizeWheel",
+                                "tf": 14
+                              }
+                            },
                             "e": {
                               "docs": {},
                               "v": {
@@ -25006,12 +25347,24 @@ window.lunrData = {
                         "ref": "PSVMarker.html#destroy",
                         "tf": 35
                       },
+                      "PSVMarker.html#getScale": {
+                        "ref": "PSVMarker.html#getScale",
+                        "tf": 14
+                      },
                       "PSVMarker.html#isNormal": {
                         "ref": "PSVMarker.html#isNormal",
                         "tf": 14
                       },
+                      "PSVMarker.html#isPoly": {
+                        "ref": "PSVMarker.html#isPoly",
+                        "tf": 23.333333333333332
+                      },
                       "PSVMarker.html#isPolygon": {
                         "ref": "PSVMarker.html#isPolygon",
+                        "tf": 23.333333333333332
+                      },
+                      "PSVMarker.html#isPolyline": {
+                        "ref": "PSVMarker.html#isPolyline",
                         "tf": 23.333333333333332
                       },
                       "PSVMarker.html#isSvg": {
@@ -25433,6 +25786,101 @@ window.lunrData = {
                       "docs": {},
                       "/": {
                         "docs": {},
+                        "g": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "h": {
+                                "docs": {},
+                                "u": {
+                                  "docs": {},
+                                  "b": {
+                                    "docs": {},
+                                    ".": {
+                                      "docs": {},
+                                      "c": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "m": {
+                                            "docs": {},
+                                            "/": {
+                                              "docs": {},
+                                              "f": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "c": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "k": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "r": {
+                                                                  "docs": {},
+                                                                  "c": {
+                                                                    "docs": {},
+                                                                    "h": {
+                                                                      "docs": {},
+                                                                      "i": {
+                                                                        "docs": {},
+                                                                        "v": {
+                                                                          "docs": {},
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "/": {
+                                                                              "docs": {},
+                                                                              "f": {
+                                                                                "docs": {},
+                                                                                "i": {
+                                                                                  "docs": {},
+                                                                                  "x": {
+                                                                                    "docs": {
+                                                                                      "PSVUtils.html#.normalizeWheel": {
+                                                                                        "ref": "PSVUtils.html#.normalizeWheel",
+                                                                                        "tf": 7.142857142857142
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
                         "d": {
                           "docs": {},
                           "e": {
@@ -26477,12 +26925,24 @@ window.lunrData = {
                             "ref": "PSVMarker.html#destroy",
                             "tf": 110
                           },
+                          "PSVMarker.html#getScale": {
+                            "ref": "PSVMarker.html#getScale",
+                            "tf": 110
+                          },
                           "PSVMarker.html#isNormal": {
                             "ref": "PSVMarker.html#isNormal",
                             "tf": 110
                           },
+                          "PSVMarker.html#isPoly": {
+                            "ref": "PSVMarker.html#isPoly",
+                            "tf": 110
+                          },
                           "PSVMarker.html#isPolygon": {
                             "ref": "PSVMarker.html#isPolygon",
+                            "tf": 110
+                          },
+                          "PSVMarker.html#isPolyline": {
+                            "ref": "PSVMarker.html#isPolyline",
                             "tf": 110
                           },
                           "PSVMarker.html#isSvg": {
@@ -26579,6 +27039,10 @@ window.lunrData = {
                           },
                           "PSVUtils.html#.mouseWheelEvent": {
                             "ref": "PSVUtils.html#.mouseWheelEvent",
+                            "tf": 110
+                          },
+                          "PSVUtils.html#.normalizeWheel": {
+                            "ref": "PSVUtils.html#.normalizeWheel",
                             "tf": 110
                           },
                           "PSVUtils.html#.parseAngle": {
@@ -26703,6 +27167,26 @@ window.lunrData = {
                     "ref": "module-components.PSVHUD.html#gotoMarker",
                     "tf": 17.5
                   }
+                },
+                "b": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "k": {
+                        "docs": {},
+                        "'": {
+                          "docs": {
+                            "PSVUtils.html#.normalizeWheel": {
+                              "ref": "PSVUtils.html#.normalizeWheel",
+                              "tf": 7.142857142857142
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -26714,6 +27198,10 @@ window.lunrData = {
                 "PhotoSphereViewer.html#destroy": {
                   "ref": "PhotoSphereViewer.html#destroy",
                   "tf": 5.555555555555555
+                },
+                "PSVUtils.html#.normalizeWheel": {
+                  "ref": "PSVUtils.html#.normalizeWheel",
+                  "tf": 7.142857142857142
                 }
               }
             },
@@ -26741,6 +27229,10 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
+                    "PSVMarker.html#getScale": {
+                      "ref": "PSVMarker.html#getScale",
+                      "tf": 33.33333333333333
+                    },
                     "PSVUtils.html#.HalfPI": {
                       "ref": "PSVUtils.html#.HalfPI",
                       "tf": 25
@@ -27120,6 +27612,10 @@ window.lunrData = {
                       "PSVUtils.html#.isPlainObject": {
                         "ref": "PSVUtils.html#.isPlainObject",
                         "tf": 46.53846153846154
+                      },
+                      "PSVUtils.html#.normalizeWheel": {
+                        "ref": "PSVUtils.html#.normalizeWheel",
+                        "tf": 25
                       },
                       "PSVUtils.html#.parsePosition": {
                         "ref": "PSVUtils.html#.parsePosition",
@@ -27553,6 +28049,20 @@ window.lunrData = {
                       "PhotoSphereViewer.html#getSize": {
                         "ref": "PhotoSphereViewer.html#getSize",
                         "tf": 700
+                      }
+                    }
+                  }
+                },
+                "c": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "PSVMarker.html#getScale": {
+                          "ref": "PSVMarker.html#getScale",
+                          "tf": 683.3333333333334
+                        }
                       }
                     }
                   }
@@ -28540,6 +29050,184 @@ window.lunrData = {
                   }
                 }
               }
+            },
+            "b": {
+              "docs": {},
+              "l": {
+                "docs": {
+                  "PSVUtils.html#.normalizeWheel": {
+                    "ref": "PSVUtils.html#.normalizeWheel",
+                    "tf": 7.142857142857142
+                  }
+                },
+                "e": {
+                  "docs": {},
+                  "/": {
+                    "docs": {},
+                    "b": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "b": {
+                            "docs": {},
+                            "/": {
+                              "docs": {},
+                              "m": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "/": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "r": {
+                                                "docs": {},
+                                                "c": {
+                                                  "docs": {},
+                                                  "/": {
+                                                    "docs": {},
+                                                    "v": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "d": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "_": {
+                                                                  "docs": {},
+                                                                  "u": {
+                                                                    "docs": {},
+                                                                    "p": {
+                                                                      "docs": {},
+                                                                      "s": {
+                                                                        "docs": {},
+                                                                        "t": {
+                                                                          "docs": {},
+                                                                          "r": {
+                                                                            "docs": {},
+                                                                            "e": {
+                                                                              "docs": {},
+                                                                              "a": {
+                                                                                "docs": {},
+                                                                                "m": {
+                                                                                  "docs": {},
+                                                                                  "/": {
+                                                                                    "docs": {},
+                                                                                    "d": {
+                                                                                      "docs": {},
+                                                                                      "o": {
+                                                                                        "docs": {},
+                                                                                        "m": {
+                                                                                          "docs": {},
+                                                                                          "/": {
+                                                                                            "docs": {},
+                                                                                            "n": {
+                                                                                              "docs": {},
+                                                                                              "o": {
+                                                                                                "docs": {},
+                                                                                                "r": {
+                                                                                                  "docs": {},
+                                                                                                  "m": {
+                                                                                                    "docs": {},
+                                                                                                    "a": {
+                                                                                                      "docs": {},
+                                                                                                      "l": {
+                                                                                                        "docs": {},
+                                                                                                        "i": {
+                                                                                                          "docs": {},
+                                                                                                          "z": {
+                                                                                                            "docs": {},
+                                                                                                            "e": {
+                                                                                                              "docs": {},
+                                                                                                              "w": {
+                                                                                                                "docs": {},
+                                                                                                                "h": {
+                                                                                                                  "docs": {},
+                                                                                                                  "e": {
+                                                                                                                    "docs": {},
+                                                                                                                    "e": {
+                                                                                                                      "docs": {},
+                                                                                                                      "l": {
+                                                                                                                        "docs": {},
+                                                                                                                        ".": {
+                                                                                                                          "docs": {},
+                                                                                                                          "j": {
+                                                                                                                            "docs": {
+                                                                                                                              "PSVUtils.html#.normalizeWheel": {
+                                                                                                                                "ref": "PSVUtils.html#.normalizeWheel",
+                                                                                                                                "tf": 7.142857142857142
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "w": {
@@ -28793,6 +29481,10 @@ window.lunrData = {
                   "PhotoSphereViewer.html#zoomOut": {
                     "ref": "PhotoSphereViewer.html#zoomOut",
                     "tf": 17.5
+                  },
+                  "PSVMarker.html#getScale": {
+                    "ref": "PSVMarker.html#getScale",
+                    "tf": 14
                   }
                 },
                 "i": {
@@ -28815,6 +29507,26 @@ window.lunrData = {
                         "PhotoSphereViewer.html#zoomOut": {
                           "ref": "PhotoSphereViewer.html#zoomOut",
                           "tf": 750
+                        }
+                      }
+                    }
+                  }
+                },
+                "l": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "v": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "l": {
+                          "docs": {
+                            "PSVMarker.html#getScale": {
+                              "ref": "PSVMarker.html#getScale",
+                              "tf": 33.33333333333333
+                            }
+                          }
                         }
                       }
                     }
@@ -29129,12 +29841,13 @@ window.lunrData = {
           }
         }
       },
-      "length": 2366
+      "length": 2407
     },
     "corpusTokens": [
       "1",
       "50%&quot",
       "account",
+      "accross",
       "activ",
       "ad",
       "add",
@@ -29161,6 +29874,7 @@ window.lunrData = {
       "between",
       "boolean",
       "bound",
+      "browser",
       "built",
       "button",
       "cach",
@@ -29270,6 +29984,7 @@ window.lunrData = {
       "express",
       "extendedposit",
       "face",
+      "facebook'",
       "file",
       "fix",
       "float",
@@ -29285,6 +30000,7 @@ window.lunrData = {
       "getnavbarbutton",
       "getpanoramacach",
       "getposit",
+      "getscal",
       "getshortestarc",
       "getsiz",
       "getstyl",
@@ -29312,6 +30028,7 @@ window.lunrData = {
       "http://photo",
       "http://stackoverflow.com/a/5878101/1207670",
       "https://developer.mozilla.org/en",
+      "https://github.com/facebookarchive/fix",
       "hud",
       "i.",
       "icon",
@@ -29339,7 +30056,9 @@ window.lunrData = {
       "isinteg",
       "isnorm",
       "isplainobject",
+      "ispoli",
       "ispolygon",
+      "ispolylin",
       "issvg",
       "istooltipvis",
       "iswebglsupport",
@@ -29582,6 +30301,7 @@ window.lunrData = {
       "module:components/buttons.psvnavbarzoombutton#show",
       "module:components/buttons.psvnavbarzoombutton#toggleact",
       "mous",
+      "mousewheel",
       "mousewheelev",
       "move",
       "name",
@@ -29591,6 +30311,7 @@ window.lunrData = {
       "new",
       "nomargin",
       "normal",
+      "normalizewheel",
       "null",
       "number",
       "obj",
@@ -29685,6 +30406,8 @@ window.lunrData = {
       "plain",
       "point",
       "polygon",
+      "polygon/polylin",
+      "polylin",
       "posit",
       "position&quot",
       "possibl",
@@ -29743,8 +30466,11 @@ window.lunrData = {
       "psvloader#show",
       "psvmarker",
       "psvmarker#destroy",
+      "psvmarker#getscal",
       "psvmarker#isnorm",
+      "psvmarker#ispoli",
       "psvmarker#ispolygon",
+      "psvmarker#ispolylin",
       "psvmarker#issvg",
       "psvmarker#psv",
       "psvmarker#upd",
@@ -29929,6 +30655,7 @@ window.lunrData = {
       "psvutils.isplainobject",
       "psvutils.iswebglsupport",
       "psvutils.mousewheelev",
+      "psvutils.normalizewheel",
       "psvutils.parseangl",
       "psvutils.parseposit",
       "psvutils.parsespe",
@@ -29964,6 +30691,7 @@ window.lunrData = {
       "return",
       "rotat",
       "same",
+      "scale",
       "scene",
       "search",
       "see",
@@ -30017,6 +30745,8 @@ window.lunrData = {
       "svgcontain",
       "svgelement",
       "svgn",
+      "tabl",
+      "table/blob/master/src/vendor_upstream/dom/normalizewheel.j",
       "taken",
       "target",
       "templat",
@@ -30080,6 +30810,7 @@ window.lunrData = {
       "zerocent",
       "zoom",
       "zoomin",
+      "zoomlevel",
       "zoomout"
     ],
     "pipeline": [
@@ -32933,6 +33664,16 @@ window.lunrData = {
       "summary": "Destroys the marker",
       "description": ""
     },
+    "PSVMarker.html#getScale": {
+      "id": "PSVMarker.html#getScale",
+      "kind": "function",
+      "title": "getScale( zoomLevel ) → {float}",
+      "longname": "PSVMarker#getScale",
+      "name": "getScale",
+      "tags": "PSVMarker#getScale getScale",
+      "summary": "Computes marker scale from zoom level",
+      "description": ""
+    },
     "PSVMarker.html#isNormal": {
       "id": "PSVMarker.html#isNormal",
       "kind": "function",
@@ -32943,6 +33684,16 @@ window.lunrData = {
       "summary": "Checks if it is a normal marker (image or html)",
       "description": ""
     },
+    "PSVMarker.html#isPoly": {
+      "id": "PSVMarker.html#isPoly",
+      "kind": "function",
+      "title": "isPoly() → {boolean}",
+      "longname": "PSVMarker#isPoly",
+      "name": "isPoly",
+      "tags": "PSVMarker#isPoly isPoly",
+      "summary": "Checks if it is a polygon/polyline marker",
+      "description": ""
+    },
     "PSVMarker.html#isPolygon": {
       "id": "PSVMarker.html#isPolygon",
       "kind": "function",
@@ -32951,6 +33702,16 @@ window.lunrData = {
       "name": "isPolygon",
       "tags": "PSVMarker#isPolygon isPolygon",
       "summary": "Checks if it is a polygon marker",
+      "description": ""
+    },
+    "PSVMarker.html#isPolyline": {
+      "id": "PSVMarker.html#isPolyline",
+      "kind": "function",
+      "title": "isPolyline() → {boolean}",
+      "longname": "PSVMarker#isPolyline",
+      "name": "isPolyline",
+      "tags": "PSVMarker#isPolyline isPolyline",
+      "summary": "Checks if it is a polyline marker",
       "description": ""
     },
     "PSVMarker.html#isSvg": {
@@ -33255,6 +34016,16 @@ window.lunrData = {
       "tags": "PSVUtils.mouseWheelEvent mouseWheelEvent",
       "summary": "Gets the event name for mouse wheel",
       "description": ""
+    },
+    "PSVUtils.html#.normalizeWheel": {
+      "id": "PSVUtils.html#.normalizeWheel",
+      "kind": "function",
+      "title": "&lt;static&gt; normalizeWheel( event ) → {Object}",
+      "longname": "PSVUtils.normalizeWheel",
+      "name": "normalizeWheel",
+      "tags": "PSVUtils.normalizeWheel normalizeWheel",
+      "summary": "Normalize mousewheel values accross browsers",
+      "description": "From Facebook's Fixed Data Table https://github.com/facebookarchive/fixed-data-table/blob/master/src/vendor_upstream/dom/normalizeWheel.js"
     },
     "PSVUtils.html#.parseAngle": {
       "id": "PSVUtils.html#.parseAngle",

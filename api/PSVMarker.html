@@ -41,8 +41,9 @@
 				}
 			</style>
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
 			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = true;
 		</script>
 </head>
 <body>
@@ -89,9 +90,11 @@
 							<li class="dropdown">
 								<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+										<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
 										<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 										<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
@@ -155,6 +158,16 @@
 							<li><a href="list_class.html">Classes</a></li>
 							<li class="active">PSVMarker</li>
 						</ol>
+						<div class="access-filter">
+								<label class="checkbox-inline">
+									<input class="toggle-public" type="checkbox" value="" checked>
+									Public
+								</label>
+								<label class="checkbox-inline">
+									<input class="toggle-protected" type="checkbox" value="" checked>
+									Protected
+								</label>
+						</div>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
@@ -233,10 +246,10 @@
 									<h3>Members</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".$el" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">$el</span><span class="signature-type"> :HTMLDivElement|SVGElement</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".$el" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">$el</span><span class="signature-type"> :HTMLDivElement|SVGElement</span></h4>
 		</dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -276,10 +289,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".id" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">id</span><span class="signature-type"> :string</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".id" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">id</span><span class="signature-type"> :string</span></h4>
 		</dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -319,10 +332,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".type" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">type</span><span class="signature-type"> :string</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".type" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">type</span><span class="signature-type"> :string</span></h4>
 		</dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -369,10 +382,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".types" class="member"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">types</span><span class="signature-type"> :Array.&lt;string></span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".types" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">types</span><span class="signature-type"> :Array.&lt;string></span></h4>
 				<div class="summary"><p>Types of markers</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -401,7 +414,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-132">line 132</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-135">line 135</a></p>
 								</div>
 							</div>
 			
@@ -412,10 +425,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="psv" class="member"><span class="signature-attribs">&lt;protected, readonly> </span><span class="name">psv</span><span class="signature-type"> :<a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></h4>
+											<dt class="symbol-title member protected collapsible-symbol">
+			<h4 id="psv" class="member protected"><span class="signature-attribs">&lt;protected, readonly> </span><span class="name">psv</span><span class="signature-type"> :<a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></h4>
 		</dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member protected  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -455,10 +468,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id="visible" class="member"><span class="name">visible</span><span class="signature-type"> :boolean</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="visible" class="member public"><span class="name">visible</span><span class="signature-type"> :boolean</span></h4>
 		</dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -501,10 +514,10 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".getType" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">getType</span><span class="signature-params">( <span class="signature-param">properties</span> [,&nbsp;<span class="signature-param">allowNone</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".getType" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getType</span><span class="signature-params">( <span class="signature-param">properties</span> [,&nbsp;<span class="signature-param">allowNone</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
 				<div class="summary"><p>Determines the type of a marker by the available properties</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -574,7 +587,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-141">line 141</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-144">line 144</a></p>
 								</div>
 							</div>
 			
@@ -585,10 +598,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="destroy" class="function"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="destroy" class="function public"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Destroys the marker</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -610,7 +623,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-163">line 163</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-166">line 166</a></p>
 								</div>
 							</div>
 			
@@ -621,10 +634,74 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="isNormal" class="function"><span class="name">isNormal</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getScale" class="function public"><span class="name">getScale</span><span class="signature-params">( <span class="signature-param">zoomLevel</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{float}</span></h4>
+				<div class="summary"><p>Computes marker scale from zoom level</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>zoomLevel</code></td>
+							<td><span class="param-type">float</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">float</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-215">line 215</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isNormal" class="function public"><span class="name">isNormal</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if it is a normal marker (image or html)</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -654,7 +731,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-171">line 171</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-174">line 174</a></p>
 								</div>
 							</div>
 			
@@ -665,10 +742,54 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="isPolygon" class="function"><span class="name">isPolygon</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isPoly" class="function public"><span class="name">isPoly</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Checks if it is a polygon/polyline marker</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-182">line 182</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isPolygon" class="function public"><span class="name">isPolygon</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if it is a polygon marker</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -698,7 +819,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-179">line 179</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-190">line 190</a></p>
 								</div>
 							</div>
 			
@@ -709,10 +830,54 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="isSvg" class="function"><span class="name">isSvg</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isPolyline" class="function public"><span class="name">isPolyline</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Checks if it is a polyline marker</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-198">line 198</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="isSvg" class="function public"><span class="name">isSvg</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if it is an SVG marker</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
@@ -742,7 +907,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-187">line 187</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-206">line 206</a></p>
 								</div>
 							</div>
 			
@@ -753,10 +918,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="update" class="function"><span class="name">update</span><span class="signature-params">( [&nbsp;<span class="signature-param">properties</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="update" class="function public"><span class="name">update</span><span class="signature-params">( [&nbsp;<span class="signature-param">properties</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Updates the marker with new properties</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -808,7 +973,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-196">line 196</a></p>
+									<p class="form-control-static"><a href="PSVMarker.js.html">PSVMarker.js</a>, <a href="PSVMarker.js.html#line-235">line 235</a></p>
 								</div>
 							</div>
 			
@@ -829,7 +994,7 @@
 	</div>
 	<footer>
 				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
