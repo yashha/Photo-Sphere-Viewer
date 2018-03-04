@@ -253,11 +253,22 @@ PSVHUD.prototype.clearMarkers = function(render) {
  * @summary Rotate the view to face the marker
  * @param {*} marker
  * @param {string|int} [duration] - rotates smoothy, see {@link PhotoSphereViewer#animate}
+ * @fires module:components.PSVHUD.goto-marker-done
  * @return {Promise}  A promise that will be resolved when the animation finishes
  */
 PSVHUD.prototype.gotoMarker = function(marker, duration) {
   marker = this.getMarker(marker);
-  return this.psv.animate(marker, duration);
+
+  return this.psv.animate(marker, duration)
+    .then(function() {
+      /**
+       * @event goto-marker-done
+       * @memberof module:components.PSVHUD
+       * @summary Triggered when the animation to a marker is done
+       * @param {PSVMarker} marker
+       */
+      this.psv.trigger('goto-marker-done', marker);
+    }.bind(this));
 };
 
 /**
@@ -346,12 +357,12 @@ PSVHUD.prototype.renderMarkers = function() {
     var marker = this.markers[id];
     var isVisible = marker.visible;
 
-    if (isVisible && marker.isPolygon()) {
-      var positions = this._getPolygonPositions(marker);
-      isVisible = positions.length > 2;
+    if (isVisible && marker.isPoly()) {
+      var positions = this._getPolyPositions(marker);
+      isVisible = positions.length > (marker.isPolygon() ? 2 : 1);
 
       if (isVisible) {
-        marker.position2D = this._getPolygonDimensions(marker, positions);
+        marker.position2D = this._getPolyDimensions(marker, positions);
 
         var points = '';
         positions.forEach(function(pos) {
@@ -368,14 +379,19 @@ PSVHUD.prototype.renderMarkers = function() {
       if (isVisible) {
         marker.position2D = position;
 
-        if (marker.$el instanceof SVGElement) {
-          marker.$el.setAttribute('transform', 'translate(' + position.x + ' ' + position.y + ')' +
-            (!marker.lockRotation && rotation ? ' rotate(' + rotation + ' ' + (marker.anchor.left * marker.width) + ' ' + (marker.anchor.top * marker.height) + ')' : ''));
+        var scale = marker.getScale(this.psv.getZoomLevel());
+
+        if (marker.isSvg()) {
+          marker.$el.setAttributeNS(null, 'transform',
+            'translate(' + position.x + ', ' + position.y + ')' +
+            (scale !== 1 ? ' scale(' + scale + ', ' + scale + ')' : '') +
+            (!marker.lockRotation && rotation ? ' rotate(' + rotation + ')' : '')
+          );
         }
         else {
-          marker.$el.style.transform = 'translate3D(' + position.x + 'px, ' + position.y + 'px, ' + '0px)' +
+          marker.$el.style.transform = 'translate3D(' + position.x + 'px, ' + position.y + 'px, 0px)' +
+            (scale !== 1 ? ' scale(' + scale + ', ' + scale + ')' : '') +
             (!marker.lockRotation && rotation ? ' rotateZ(' + rotation + 'deg)' : '');
-          marker.$el.style.transformOrigin = marker.anchor.left * 100 + '% ' + marker.anchor.top * 100 + '%';
         }
       }
     }
@@ -410,7 +426,12 @@ PSVHUD.prototype._getMarkerPosition = function(marker) {
   if (marker._dynamicSize) {
     // make the marker visible to get it's size
     PSVUtils.toggleClass(marker.$el, 'psv-marker--transparent', true);
+    var transform = marker.$el.style.transform;
+    marker.$el.style.transform = null;
+
     var rect = marker.$el.getBoundingClientRect();
+
+    marker.$el.style.transform = transform;
     PSVUtils.toggleClass(marker.$el, 'psv-marker--transparent', false);
 
     marker.width = rect.right - rect.left;
@@ -426,13 +447,13 @@ PSVHUD.prototype._getMarkerPosition = function(marker) {
 };
 
 /**
- * @summary Computes HUD coordinates of each point of a polygon<br>
+ * @summary Computes HUD coordinates of each point of a polygon/polyline<br>
  * It handles points behind the camera by creating intermediary points suitable for the projector
  * @param {PSVMarker} marker
  * @returns {PhotoSphereViewer.Point[]}
  * @private
  */
-PSVHUD.prototype._getPolygonPositions = function(marker) {
+PSVHUD.prototype._getPolyPositions = function(marker) {
   var nbVectors = marker.positions3D.length;
 
   // compute if each vector is visible
@@ -467,7 +488,7 @@ PSVHUD.prototype._getPolygonPositions = function(marker) {
   // compute intermediary vector for each pair (the loop is reversed for splice to insert at the right place)
   toBeComputed.reverse().forEach(function(pair) {
     positions3D.splice(pair.index, 0, {
-      vector: this._getPolygonIntermediaryPoint(pair.visible.vector, pair.invisible.vector),
+      vector: this._getPolyIntermediaryPoint(pair.visible.vector, pair.invisible.vector),
       visible: true
     });
   }, this);
@@ -492,7 +513,7 @@ PSVHUD.prototype._getPolygonPositions = function(marker) {
  * @returns {THREE.Vector3}
  * @private
  */
-PSVHUD.prototype._getPolygonIntermediaryPoint = function(P1, P2) {
+PSVHUD.prototype._getPolyIntermediaryPoint = function(P1, P2) {
   var C = this.psv.prop.direction.clone().normalize();
   var N = new THREE.Vector3().crossVectors(P1, P2).normalize();
   var V = new THREE.Vector3().crossVectors(N, P1).normalize();
@@ -502,13 +523,13 @@ PSVHUD.prototype._getPolygonIntermediaryPoint = function(P1, P2) {
 };
 
 /**
- * @summary Computes the boundaries positions of a polygon marker
+ * @summary Computes the boundaries positions of a polygon/polyline marker
  * @param {PSVMarker} marker - alters width and height
  * @param {PhotoSphereViewer.Point[]} positions
  * @returns {PhotoSphereViewer.Point}
  * @private
  */
-PSVHUD.prototype._getPolygonDimensions = function(marker, positions) {
+PSVHUD.prototype._getPolyDimensions = function(marker, positions) {
   var minX = +Infinity;
   var minY = +Infinity;
   var maxX = -Infinity;
@@ -538,7 +559,7 @@ PSVHUD.prototype._getPolygonDimensions = function(marker, positions) {
  */
 PSVHUD.prototype._onMouseEnter = function(e) {
   var marker;
-  if (e.target && (marker = e.target.psvMarker) && !marker.isPolygon()) {
+  if (e.target && (marker = e.target.psvMarker) && !marker.isPoly()) {
     this.hoveringMarker = marker;
 
     /**
@@ -574,7 +595,7 @@ PSVHUD.prototype._onMouseLeave = function(e) {
   var marker;
   if (e.target && (marker = e.target.psvMarker)) {
     // do not hide if we enter the tooltip itself while hovering a polygon
-    if (marker.isPolygon() && e.relatedTarget && PSVUtils.hasParent(e.relatedTarget, this.psv.tooltip.container)) {
+    if (marker.isPoly() && e.relatedTarget && PSVUtils.hasParent(e.relatedTarget, this.psv.tooltip.container)) {
       return;
     }
 
@@ -604,7 +625,7 @@ PSVHUD.prototype._onMouseMove = function(e) {
     var marker;
 
     // do not hide if we enter the tooltip itself while hovering a polygon
-    if (e.target && (marker = e.target.psvMarker) && marker.isPolygon() ||
+    if (e.target && (marker = e.target.psvMarker) && marker.isPoly() ||
       e.target && PSVUtils.hasParent(e.target, this.psv.tooltip.container) && (marker = this.hoveringMarker)) {
 
       if (!this.hoveringMarker) {
@@ -628,7 +649,7 @@ PSVHUD.prototype._onMouseMove = function(e) {
         });
       }
     }
-    else if (this.hoveringMarker && this.hoveringMarker.isPolygon()) {
+    else if (this.hoveringMarker && this.hoveringMarker.isPoly()) {
       this.psv.trigger('leave-marker', marker);
 
       this.hoveringMarker = null;
@@ -694,12 +715,23 @@ PSVHUD.prototype._onClick = function(data, e, dblclick) {
 /**
  * @summary Clicks on an item
  * @param {MouseEvent} e
+ * @fires module:components.PSVHUD.select-marker-list
  * @private
  */
 PSVHUD.prototype._onClickItem = function(e) {
   var li;
   if (e.target && (li = PSVUtils.getClosest(e.target, 'li')) && li.dataset.psvMarker) {
-    this.gotoMarker(li.dataset.psvMarker, 1000);
+    var marker = this.getMarker(li.dataset.psvMarker);
+
+    /**
+     * @event select-marker-list
+     * @memberof module:components.PSVHUD
+     * @summary Triggered when a marker is selected from the side panel
+     * @param {PSVMarker} marker
+     */
+    this.psv.trigger('select-marker-list', marker);
+
+    this.gotoMarker(marker, 1000);
     this.psv.panel.hidePanel();
   }
 };

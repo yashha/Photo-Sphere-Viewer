@@ -231,6 +231,10 @@ PhotoSphereViewer.prototype._startZoom = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._stopMove = function(evt) {
+  if (!PSVUtils.getClosest(evt.target, '.psv-hud')) {
+    return;
+  }
+
   if (this.isGyroscopeEnabled()) {
     this._click(evt);
     return;
@@ -250,9 +254,10 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
     else {
       this.prop.moving = false;
     }
+
+    this.prop.mouse_history.length = 0;
   }
 
-  this.prop.mouse_history.length = 0;
   this.prop.zooming = false;
 };
 
@@ -408,11 +413,10 @@ PhotoSphereViewer.prototype._onMouseWheel = function(evt) {
   evt.preventDefault();
   evt.stopPropagation();
 
-  var delta = evt.deltaY !== undefined ? -evt.deltaY : (evt.wheelDelta !== undefined ? evt.wheelDelta : -evt.detail);
+  var delta = PSVUtils.normalizeWheel(evt).spinY * 5;
 
   if (delta !== 0) {
-    var direction = parseInt(delta / Math.abs(delta));
-    this.zoom(this.prop.zoom_lvl + direction);
+    this.zoom(this.prop.zoom_lvl - delta * this.config.mousewheel_factor);
   }
 };
 

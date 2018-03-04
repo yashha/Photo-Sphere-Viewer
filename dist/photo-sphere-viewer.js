@@ -1,5 +1,5 @@
 /*!
- * Photo Sphere Viewer 3.2.4
+ * Photo Sphere Viewer 3.3.0
  * Copyright (c) 2014-2015 Jérémy Heleine
  * Copyright (c) 2015-2018 Damien "Mistic" Sorel
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -166,7 +166,12 @@ function PhotoSphereViewer(options) {
 
   if (this.config.cache_texture && (!PSVUtils.isInteger(this.config.cache_texture) || this.config.cache_texture < 0)) {
     this.config.cache_texture = PhotoSphereViewer.DEFAULTS.cache_texture;
-    console.warn('PhotoSphreViewer: invalid valud for cache_texture');
+    console.warn('PhotoSphereViewer: invalid value for cache_texture');
+  }
+
+  if ('panorama_roll' in this.config) {
+    this.config.sphere_correction.roll = this.config.panorama_roll;
+    console.warn('PhotoSphereViewer: panorama_roll is deprecated, use sphere_correction.roll instead');
   }
 
   // min_fov/max_fov between 1 and 179
@@ -188,8 +193,10 @@ function PhotoSphereViewer(options) {
   // parse default_lat, is between -PI/2 and PI/2
   this.config.default_lat = PSVUtils.parseAngle(this.config.default_lat, true);
 
-  // parse panorama_roll, is between -PI/2 and PI/2
-  this.config.panorama_roll = PSVUtils.parseAngle(this.config.panorama_roll, true);
+  // parse camera_correction, is between -PI/2 and PI/2
+  this.config.sphere_correction.pan = PSVUtils.parseAngle(this.config.sphere_correction.pan, true);
+  this.config.sphere_correction.tilt = PSVUtils.parseAngle(this.config.sphere_correction.tilt, true);
+  this.config.sphere_correction.roll = PSVUtils.parseAngle(this.config.sphere_correction.roll, true);
 
   // default anim_lat is default_lat
   if (this.config.anim_lat === null) {
@@ -936,11 +943,11 @@ PhotoSphereViewer.prototype._setTexture = function(texture) {
 
   if (this.prop.isCubemap) {
     for (var i = 0; i < 6; i++) {
-      if (this.mesh.material.materials[i].map) {
-        this.mesh.material.materials[i].map.dispose();
+      if (this.mesh.material[i].map) {
+        this.mesh.material[i].map.dispose();
       }
 
-      this.mesh.material.materials[i].map = texture[i];
+      this.mesh.material[i].map = texture[i];
     }
   }
   else {
@@ -1019,13 +1026,15 @@ PhotoSphereViewer.prototype._createSphere = function() {
   );
 
   var material = new THREE.MeshBasicMaterial({
-    side: THREE.DoubleSide,
+    side: THREE.BackSide,
     overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1
   });
 
   this.mesh = new THREE.Mesh(geometry, material);
   this.mesh.scale.x = -1;
-  this.mesh.rotation.z = this.config.panorama_roll;
+  this.mesh.rotation.x = this.config.sphere_correction.tilt;
+  this.mesh.rotation.y = this.config.sphere_correction.pan;
+  this.mesh.rotation.z = this.config.sphere_correction.roll;
 
   this.scene.add(this.mesh);
 };
@@ -1043,24 +1052,18 @@ PhotoSphereViewer.prototype._createCubemap = function() {
   var materials = [];
   for (var i = 0; i < 6; i++) {
     materials.push(new THREE.MeshBasicMaterial({
+      side: THREE.BackSide,
       overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1
     }));
   }
 
-  this.mesh = new THREE.Mesh(geometry, new THREE.MultiMaterial(materials));
+  this.mesh = new THREE.Mesh(geometry, materials);
   this.mesh.position.x -= PhotoSphereViewer.SPHERE_RADIUS;
   this.mesh.position.y -= PhotoSphereViewer.SPHERE_RADIUS;
   this.mesh.position.z -= PhotoSphereViewer.SPHERE_RADIUS;
   this.mesh.applyMatrix(new THREE.Matrix4().makeScale(1, 1, -1));
 
   this.scene.add(this.mesh);
-
-  // because Raycaster does not support MultiMaterial, add another cube with no texture
-  // {@link https://github.com/mrdoob/three.js/issues/10734}
-  var hiddenMaterial = new THREE.MeshBasicMaterial({ side: THREE.BackSide, visible: false });
-  var hiddenMesh = new THREE.Mesh(geometry, hiddenMaterial);
-
-  this.scene.add(hiddenMesh);
 };
 
 /**
@@ -1241,6 +1244,14 @@ PhotoSphereViewer.prototype._stopAll = function() {
 PhotoSphereViewer.MOVE_THRESHOLD = 4;
 
 /**
+ * @summary Angle in radians bellow which two angles are considered identical
+ * @type {float}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.ANGLE_THRESHOLD = 0.003;
+
+/**
  * @summary Delay in milliseconds between two clicks to consider a double click
  * @type {int}
  * @readonly
@@ -1356,7 +1367,11 @@ PhotoSphereViewer.DEFAULTS = {
   default_fov: null,
   default_long: 0,
   default_lat: 0,
-  panorama_roll: 0,
+  sphere_correction: {
+    pan: 0,
+    tilt: 0,
+    roll: 0
+  },
   longitude_range: null,
   latitude_range: null,
   move_speed: 1,
@@ -1389,6 +1404,7 @@ PhotoSphereViewer.DEFAULTS = {
     gyroscope: 'Gyroscope'
   },
   mousewheel: true,
+  mousewheel_factor: 1,
   mousemove: true,
   keyboard: true,
   gyroscope: false,
@@ -1401,7 +1417,7 @@ PhotoSphereViewer.DEFAULTS = {
   loading_img: null,
   loading_txt: 'Loading...',
   size: null,
-  cache_texture: 5,
+  cache_texture: 0,
   templates: {},
   markers: []
 };
@@ -1660,6 +1676,10 @@ PhotoSphereViewer.prototype._startZoom = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._stopMove = function(evt) {
+  if (!PSVUtils.getClosest(evt.target, '.psv-hud')) {
+    return;
+  }
+
   if (this.isGyroscopeEnabled()) {
     this._click(evt);
     return;
@@ -1679,9 +1699,10 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
     else {
       this.prop.moving = false;
     }
+
+    this.prop.mouse_history.length = 0;
   }
 
-  this.prop.mouse_history.length = 0;
   this.prop.zooming = false;
 };
 
@@ -1837,11 +1858,10 @@ PhotoSphereViewer.prototype._onMouseWheel = function(evt) {
   evt.preventDefault();
   evt.stopPropagation();
 
-  var delta = evt.deltaY !== undefined ? -evt.deltaY : (evt.wheelDelta !== undefined ? evt.wheelDelta : -evt.detail);
+  var delta = PSVUtils.normalizeWheel(evt).spinY * 5;
 
   if (delta !== 0) {
-    var direction = parseInt(delta / Math.abs(delta));
-    this.zoom(this.prop.zoom_lvl + direction);
+    this.zoom(this.prop.zoom_lvl - delta * this.config.mousewheel_factor);
   }
 };
 
@@ -2329,13 +2349,14 @@ PhotoSphereViewer.prototype.rotate = function(position, render) {
 PhotoSphereViewer.prototype.animate = function(position, duration) {
   this._stopAll();
 
-  if (!duration) {
+  this.cleanPosition(position);
+
+  if (!duration || Math.abs(position.longitude - this.prop.longitude) < PhotoSphereViewer.ANGLE_THRESHOLD && Math.abs(position.latitude - this.prop.latitude) < PhotoSphereViewer.ANGLE_THRESHOLD) {
     this.rotate(position);
 
     return D.resolved();
   }
 
-  this.cleanPosition(position);
   this.applyRanges(position).forEach(
     this.trigger.bind(this, '_side-reached')
   );
@@ -3103,11 +3124,22 @@ PSVHUD.prototype.clearMarkers = function(render) {
  * @summary Rotate the view to face the marker
  * @param {*} marker
  * @param {string|int} [duration] - rotates smoothy, see {@link PhotoSphereViewer#animate}
+ * @fires module:components.PSVHUD.goto-marker-done
  * @return {Promise}  A promise that will be resolved when the animation finishes
  */
 PSVHUD.prototype.gotoMarker = function(marker, duration) {
   marker = this.getMarker(marker);
-  return this.psv.animate(marker, duration);
+
+  return this.psv.animate(marker, duration)
+    .then(function() {
+      /**
+       * @event goto-marker-done
+       * @memberof module:components.PSVHUD
+       * @summary Triggered when the animation to a marker is done
+       * @param {PSVMarker} marker
+       */
+      this.psv.trigger('goto-marker-done', marker);
+    }.bind(this));
 };
 
 /**
@@ -3196,12 +3228,12 @@ PSVHUD.prototype.renderMarkers = function() {
     var marker = this.markers[id];
     var isVisible = marker.visible;
 
-    if (isVisible && marker.isPolygon()) {
-      var positions = this._getPolygonPositions(marker);
-      isVisible = positions.length > 2;
+    if (isVisible && marker.isPoly()) {
+      var positions = this._getPolyPositions(marker);
+      isVisible = positions.length > (marker.isPolygon() ? 2 : 1);
 
       if (isVisible) {
-        marker.position2D = this._getPolygonDimensions(marker, positions);
+        marker.position2D = this._getPolyDimensions(marker, positions);
 
         var points = '';
         positions.forEach(function(pos) {
@@ -3218,14 +3250,19 @@ PSVHUD.prototype.renderMarkers = function() {
       if (isVisible) {
         marker.position2D = position;
 
-        if (marker.$el instanceof SVGElement) {
-          marker.$el.setAttribute('transform', 'translate(' + position.x + ' ' + position.y + ')' +
-            (!marker.lockRotation && rotation ? ' rotate(' + rotation + ' ' + (marker.anchor.left * marker.width) + ' ' + (marker.anchor.top * marker.height) + ')' : ''));
+        var scale = marker.getScale(this.psv.getZoomLevel());
+
+        if (marker.isSvg()) {
+          marker.$el.setAttributeNS(null, 'transform',
+            'translate(' + position.x + ', ' + position.y + ')' +
+            (scale !== 1 ? ' scale(' + scale + ', ' + scale + ')' : '') +
+            (!marker.lockRotation && rotation ? ' rotate(' + rotation + ')' : '')
+          );
         }
         else {
-          marker.$el.style.transform = 'translate3D(' + position.x + 'px, ' + position.y + 'px, ' + '0px)' +
+          marker.$el.style.transform = 'translate3D(' + position.x + 'px, ' + position.y + 'px, 0px)' +
+            (scale !== 1 ? ' scale(' + scale + ', ' + scale + ')' : '') +
             (!marker.lockRotation && rotation ? ' rotateZ(' + rotation + 'deg)' : '');
-          marker.$el.style.transformOrigin = marker.anchor.left * 100 + '% ' + marker.anchor.top * 100 + '%';
         }
       }
     }
@@ -3260,7 +3297,12 @@ PSVHUD.prototype._getMarkerPosition = function(marker) {
   if (marker._dynamicSize) {
     // make the marker visible to get it's size
     PSVUtils.toggleClass(marker.$el, 'psv-marker--transparent', true);
+    var transform = marker.$el.style.transform;
+    marker.$el.style.transform = null;
+
     var rect = marker.$el.getBoundingClientRect();
+
+    marker.$el.style.transform = transform;
     PSVUtils.toggleClass(marker.$el, 'psv-marker--transparent', false);
 
     marker.width = rect.right - rect.left;
@@ -3276,13 +3318,13 @@ PSVHUD.prototype._getMarkerPosition = function(marker) {
 };
 
 /**
- * @summary Computes HUD coordinates of each point of a polygon<br>
+ * @summary Computes HUD coordinates of each point of a polygon/polyline<br>
  * It handles points behind the camera by creating intermediary points suitable for the projector
  * @param {PSVMarker} marker
  * @returns {PhotoSphereViewer.Point[]}
  * @private
  */
-PSVHUD.prototype._getPolygonPositions = function(marker) {
+PSVHUD.prototype._getPolyPositions = function(marker) {
   var nbVectors = marker.positions3D.length;
 
   // compute if each vector is visible
@@ -3317,7 +3359,7 @@ PSVHUD.prototype._getPolygonPositions = function(marker) {
   // compute intermediary vector for each pair (the loop is reversed for splice to insert at the right place)
   toBeComputed.reverse().forEach(function(pair) {
     positions3D.splice(pair.index, 0, {
-      vector: this._getPolygonIntermediaryPoint(pair.visible.vector, pair.invisible.vector),
+      vector: this._getPolyIntermediaryPoint(pair.visible.vector, pair.invisible.vector),
       visible: true
     });
   }, this);
@@ -3342,7 +3384,7 @@ PSVHUD.prototype._getPolygonPositions = function(marker) {
  * @returns {THREE.Vector3}
  * @private
  */
-PSVHUD.prototype._getPolygonIntermediaryPoint = function(P1, P2) {
+PSVHUD.prototype._getPolyIntermediaryPoint = function(P1, P2) {
   var C = this.psv.prop.direction.clone().normalize();
   var N = new THREE.Vector3().crossVectors(P1, P2).normalize();
   var V = new THREE.Vector3().crossVectors(N, P1).normalize();
@@ -3352,13 +3394,13 @@ PSVHUD.prototype._getPolygonIntermediaryPoint = function(P1, P2) {
 };
 
 /**
- * @summary Computes the boundaries positions of a polygon marker
+ * @summary Computes the boundaries positions of a polygon/polyline marker
  * @param {PSVMarker} marker - alters width and height
  * @param {PhotoSphereViewer.Point[]} positions
  * @returns {PhotoSphereViewer.Point}
  * @private
  */
-PSVHUD.prototype._getPolygonDimensions = function(marker, positions) {
+PSVHUD.prototype._getPolyDimensions = function(marker, positions) {
   var minX = +Infinity;
   var minY = +Infinity;
   var maxX = -Infinity;
@@ -3388,7 +3430,7 @@ PSVHUD.prototype._getPolygonDimensions = function(marker, positions) {
  */
 PSVHUD.prototype._onMouseEnter = function(e) {
   var marker;
-  if (e.target && (marker = e.target.psvMarker) && !marker.isPolygon()) {
+  if (e.target && (marker = e.target.psvMarker) && !marker.isPoly()) {
     this.hoveringMarker = marker;
 
     /**
@@ -3424,7 +3466,7 @@ PSVHUD.prototype._onMouseLeave = function(e) {
   var marker;
   if (e.target && (marker = e.target.psvMarker)) {
     // do not hide if we enter the tooltip itself while hovering a polygon
-    if (marker.isPolygon() && e.relatedTarget && PSVUtils.hasParent(e.relatedTarget, this.psv.tooltip.container)) {
+    if (marker.isPoly() && e.relatedTarget && PSVUtils.hasParent(e.relatedTarget, this.psv.tooltip.container)) {
       return;
     }
 
@@ -3454,7 +3496,7 @@ PSVHUD.prototype._onMouseMove = function(e) {
     var marker;
 
     // do not hide if we enter the tooltip itself while hovering a polygon
-    if (e.target && (marker = e.target.psvMarker) && marker.isPolygon() ||
+    if (e.target && (marker = e.target.psvMarker) && marker.isPoly() ||
       e.target && PSVUtils.hasParent(e.target, this.psv.tooltip.container) && (marker = this.hoveringMarker)) {
 
       if (!this.hoveringMarker) {
@@ -3478,7 +3520,7 @@ PSVHUD.prototype._onMouseMove = function(e) {
         });
       }
     }
-    else if (this.hoveringMarker && this.hoveringMarker.isPolygon()) {
+    else if (this.hoveringMarker && this.hoveringMarker.isPoly()) {
       this.psv.trigger('leave-marker', marker);
 
       this.hoveringMarker = null;
@@ -3544,12 +3586,23 @@ PSVHUD.prototype._onClick = function(data, e, dblclick) {
 /**
  * @summary Clicks on an item
  * @param {MouseEvent} e
+ * @fires module:components.PSVHUD.select-marker-list
  * @private
  */
 PSVHUD.prototype._onClickItem = function(e) {
   var li;
   if (e.target && (li = PSVUtils.getClosest(e.target, 'li')) && li.dataset.psvMarker) {
-    this.gotoMarker(li.dataset.psvMarker, 1000);
+    var marker = this.getMarker(li.dataset.psvMarker);
+
+    /**
+     * @event select-marker-list
+     * @memberof module:components.PSVHUD
+     * @summary Triggered when a marker is selected from the side panel
+     * @param {PSVMarker} marker
+     */
+    this.psv.trigger('select-marker-list', marker);
+
+    this.gotoMarker(marker, 1000);
     this.psv.panel.hidePanel();
   }
 };
@@ -5013,7 +5066,8 @@ function PSVNavBarZoomButton(navbar) {
   this.prop = {
     mousedown: false,
     buttondown: false,
-    longPressInterval: null
+    longPressInterval: null,
+    longPressTimeout: null
   };
 
   this.create();
@@ -5075,6 +5129,8 @@ PSVNavBarZoomButton.prototype.create = function() {
  * @override
  */
 PSVNavBarZoomButton.prototype.destroy = function() {
+  this._stopZoomChange();
+
   this.psv.container.removeEventListener('mousemove', this);
   this.psv.container.removeEventListener('touchmove', this);
   this.psv.container.removeEventListener('mouseup', this);
@@ -5156,7 +5212,7 @@ PSVNavBarZoomButton.prototype._zoomIn = function() {
 
   this.prop.buttondown = true;
   this.psv.zoomIn();
-  window.setTimeout(this._startLongPressInterval.bind(this, 1), 200);
+  this.prop.longPressTimeout = window.setTimeout(this._startLongPressInterval.bind(this, 1), 200);
 };
 
 /**
@@ -5171,7 +5227,7 @@ PSVNavBarZoomButton.prototype._zoomOut = function() {
 
   this.prop.buttondown = true;
   this.psv.zoomOut();
-  window.setTimeout(this._startLongPressInterval.bind(this, -1), 200);
+  this.prop.longPressTimeout = window.setTimeout(this._startLongPressInterval.bind(this, -1), 200);
 };
 
 /**
@@ -5197,6 +5253,7 @@ PSVNavBarZoomButton.prototype._stopZoomChange = function() {
   }
 
   window.clearInterval(this.prop.longPressInterval);
+  window.clearTimeout(this.prop.longPressTimeout);
   this.prop.longPressInterval = null;
   this.prop.mousedown = false;
   this.prop.buttondown = false;
@@ -5389,6 +5446,9 @@ function PSVMarker(properties, psv) {
   else if (this.isPolygon()) {
     $el = document.createElementNS(PSVUtils.svgNS, 'polygon');
   }
+  else if (this.isPolyline()) {
+    $el = document.createElementNS(PSVUtils.svgNS, 'polyline');
+  }
   else {
     $el = document.createElementNS(PSVUtils.svgNS, this.type);
   }
@@ -5404,7 +5464,7 @@ function PSVMarker(properties, psv) {
  * @type {string[]}
  * @readonly
  */
-PSVMarker.types = ['image', 'html', 'polygon_px', 'polygon_rad', 'rect', 'circle', 'ellipse', 'path'];
+PSVMarker.types = ['image', 'html', 'polygon_px', 'polygon_rad', 'polyline_px', 'polyline_rad', 'rect', 'circle', 'ellipse', 'path'];
 
 /**
  * @summary Determines the type of a marker by the available properties
@@ -5448,6 +5508,14 @@ PSVMarker.prototype.isNormal = function() {
 };
 
 /**
+ * @summary Checks if it is a polygon/polyline marker
+ * @returns {boolean}
+ */
+PSVMarker.prototype.isPoly = function() {
+  return this.isPolygon() || this.isPolyline();
+};
+
+/**
  * @summary Checks if it is a polygon marker
  * @returns {boolean}
  */
@@ -5456,11 +5524,39 @@ PSVMarker.prototype.isPolygon = function() {
 };
 
 /**
+ * @summary Checks if it is a polyline marker
+ * @returns {boolean}
+ */
+PSVMarker.prototype.isPolyline = function() {
+  return this.type == 'polyline_px' || this.type == 'polyline_rad';
+};
+
+/**
  * @summary Checks if it is an SVG marker
  * @returns {boolean}
  */
 PSVMarker.prototype.isSvg = function() {
   return this.type == 'rect' || this.type == 'circle' || this.type == 'ellipse' || this.type == 'path';
+};
+
+/**
+ * @summary Computes marker scale from zoom level
+ * @param {float} zoomLevel
+ * @returns {float}
+ */
+PSVMarker.prototype.getScale = function(zoomLevel) {
+  if (Array.isArray(this.scale)) {
+    return this.scale[0] + (this.scale[1] - this.scale[0]) * PSVUtils.animation.easings.inQuad(zoomLevel / 100);
+  }
+  else if (typeof this.scale == 'function') {
+    return this.scale(zoomLevel);
+  }
+  else if (typeof this.scale == 'number') {
+    return this.scale * PSVUtils.animation.easings.inQuad(zoomLevel / 100);
+  }
+  else {
+    return 1;
+  }
 };
 
 /**
@@ -5511,7 +5607,10 @@ PSVMarker.prototype.update = function(properties) {
     this._updateNormal();
   }
   else if (this.isPolygon()) {
-    this._updatePolygon();
+    this._updatePoly('polygon_rad', 'polygon_px');
+  }
+  else if (this.isPolyline()) {
+    this._updatePoly('polyline_rad', 'polyline_px');
   }
   else {
     this._updateSvg();
@@ -5538,6 +5637,9 @@ PSVMarker.prototype._updateNormal = function() {
   else {
     this.$el.innerHTML = this.html;
   }
+
+  // set anchor
+  this.$el.style.transformOrigin = this.anchor.left * 100 + '% ' + this.anchor.top * 100 + '%';
 
   // convert texture coordinates to spherical coordinates
   this.psv.cleanPosition(this);
@@ -5652,9 +5754,11 @@ PSVMarker.prototype._updateSvg = function() {
 
 /**
  * @summary Updates a polygon marker
+ * @param {'polygon_rad'|'polyline_rad'} key_rad
+ * @param {'polygon_px'|'polyline_px'} key_px
  * @private
  */
-PSVMarker.prototype._updatePolygon = function() {
+PSVMarker.prototype._updatePoly = function(key_rad, key_px) {
   this._dynamicSize = true;
 
   // set style
@@ -5662,13 +5766,21 @@ PSVMarker.prototype._updatePolygon = function() {
     Object.getOwnPropertyNames(this.svgStyle).forEach(function(prop) {
       this.$el.setAttributeNS(null, prop, this.svgStyle[prop]);
     }, this);
+
+    if (this.isPolyline() && !this.svgStyle.fill) {
+      this.$el.setAttributeNS(null, 'fill', 'none');
+    }
   }
-  else {
+  else if (this.isPolygon()) {
     this.$el.setAttributeNS(null, 'fill', 'rgba(0,0,0,0.5)');
+  }
+  else if (this.isPolyline()) {
+    this.$el.setAttributeNS(null, 'fill', 'none');
+    this.$el.setAttributeNS(null, 'stroke', 'rgb(0,0,0)');
   }
 
   // fold arrays: [1,2,3,4] => [[1,2],[3,4]]
-  [this.polygon_rad, this.polygon_px].forEach(function(polygon) {
+  [this[key_rad], this[key_px]].forEach(function(polygon) {
     if (polygon && typeof polygon[0] != 'object') {
       for (var i = 0; i < polygon.length; i++) {
         polygon.splice(i, 2, [polygon[i], polygon[i + 1]]);
@@ -5677,15 +5789,15 @@ PSVMarker.prototype._updatePolygon = function() {
   });
 
   // convert texture coordinates to spherical coordinates
-  if (this.polygon_px) {
-    this.polygon_rad = this.polygon_px.map(function(coord) {
+  if (this[key_px]) {
+    this[key_rad] = this[key_px].map(function(coord) {
       var sphericalCoords = this.psv.textureCoordsToSphericalCoords({ x: coord[0], y: coord[1] });
       return [sphericalCoords.longitude, sphericalCoords.latitude];
     }, this);
   }
   // clean angles
   else {
-    this.polygon_rad = this.polygon_rad.map(function(coord) {
+    this[key_rad] = this[key_rad].map(function(coord) {
       return [
         PSVUtils.parseAngle(coord[0]),
         PSVUtils.parseAngle(coord[1], true)
@@ -5694,11 +5806,11 @@ PSVMarker.prototype._updatePolygon = function() {
   }
 
   // TODO : compute the center of the polygon
-  this.longitude = this.polygon_rad[0][0];
-  this.latitude = this.polygon_rad[0][1];
+  this.longitude = this[key_rad][0][0];
+  this.latitude = this[key_rad][0][1];
 
   // compute x/y/z positions
-  this.positions3D = this.polygon_rad.map(function(coord) {
+  this.positions3D = this[key_rad].map(function(coord) {
     return this.psv.sphericalCoordsToVector3({ longitude: coord[0], latitude: coord[1] });
   }, this);
 };
@@ -5926,7 +6038,7 @@ PSVUtils.fullscreenEvent = function() {
     'exitFullscreen': 'fullscreenchange',
     'webkitExitFullscreen': 'webkitfullscreenchange',
     'mozCancelFullScreen': 'mozfullscreenchange',
-    'msExitFullscreen': 'msFullscreenEnabled'
+    'msExitFullscreen': 'MSFullscreenChange'
   };
 
   for (var exit in map) {
@@ -6480,6 +6592,63 @@ PSVUtils.deepmerge = function(target, src) {
  */
 PSVUtils.clone = function(src) {
   return PSVUtils.deepmerge(null, src);
+};
+
+/**
+ * @summary Normalize mousewheel values accross browsers
+ * @description From Facebook's Fixed Data Table
+ * {@link https://github.com/facebookarchive/fixed-data-table/blob/master/src/vendor_upstream/dom/normalizeWheel.js}
+ * @copyright Facebook
+ * @param {MouseWheelEvent} event
+ * @returns {{spinX: number, spinY: number, pixelX: number, pixelY: number}}
+ */
+PSVUtils.normalizeWheel = function(event) {
+  var PIXEL_STEP  = 10;
+  var LINE_HEIGHT = 40;
+  var PAGE_HEIGHT = 800;
+
+  var sX = 0, sY = 0; // spinX, spinY
+  var pX = 0, pY = 0; // pixelX, pixelY
+
+  // Legacy
+  if ('detail'      in event) { sY = event.detail; }
+  if ('wheelDelta'  in event) { sY = -event.wheelDelta / 120; }
+  if ('wheelDeltaY' in event) { sY = -event.wheelDeltaY / 120; }
+  if ('wheelDeltaX' in event) { sX = -event.wheelDeltaX / 120; }
+
+  // side scrolling on FF with DOMMouseScroll
+  if ('axis' in event && event.axis === event.HORIZONTAL_AXIS) {
+    sX = sY;
+    sY = 0;
+  }
+
+  pX = sX * PIXEL_STEP;
+  pY = sY * PIXEL_STEP;
+
+  if ('deltaY' in event) { pY = event.deltaY; }
+  if ('deltaX' in event) { pX = event.deltaX; }
+
+  if ((pX || pY) && event.deltaMode) {
+    if (event.deltaMode == 1) { // delta in LINE units
+      pX *= LINE_HEIGHT;
+      pY *= LINE_HEIGHT;
+    }
+    else {                      // delta in PAGE units
+      pX *= PAGE_HEIGHT;
+      pY *= PAGE_HEIGHT;
+    }
+  }
+
+  // Fall-back if spin cannot be determined
+  if (pX && !sX) { sX = (pX < 1) ? -1 : 1; }
+  if (pY && !sY) { sY = (pY < 1) ? -1 : 1; }
+
+  return {
+    spinX: sX,
+    spinY: sY,
+    pixelX: pX,
+    pixelY: pY
+  };
 };
 
 

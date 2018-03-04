@@ -389,11 +389,11 @@ PhotoSphereViewer.prototype._setTexture = function(texture) {
 
   if (this.prop.isCubemap) {
     for (var i = 0; i < 6; i++) {
-      if (this.mesh.material.materials[i].map) {
-        this.mesh.material.materials[i].map.dispose();
+      if (this.mesh.material[i].map) {
+        this.mesh.material[i].map.dispose();
       }
 
-      this.mesh.material.materials[i].map = texture[i];
+      this.mesh.material[i].map = texture[i];
     }
   }
   else {
@@ -472,13 +472,15 @@ PhotoSphereViewer.prototype._createSphere = function() {
   );
 
   var material = new THREE.MeshBasicMaterial({
-    side: THREE.DoubleSide,
+    side: THREE.BackSide,
     overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1
   });
 
   this.mesh = new THREE.Mesh(geometry, material);
   this.mesh.scale.x = -1;
-  this.mesh.rotation.z = this.config.panorama_roll;
+  this.mesh.rotation.x = this.config.sphere_correction.tilt;
+  this.mesh.rotation.y = this.config.sphere_correction.pan;
+  this.mesh.rotation.z = this.config.sphere_correction.roll;
 
   this.scene.add(this.mesh);
 };
@@ -496,24 +498,18 @@ PhotoSphereViewer.prototype._createCubemap = function() {
   var materials = [];
   for (var i = 0; i < 6; i++) {
     materials.push(new THREE.MeshBasicMaterial({
+      side: THREE.BackSide,
       overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1
     }));
   }
 
-  this.mesh = new THREE.Mesh(geometry, new THREE.MultiMaterial(materials));
+  this.mesh = new THREE.Mesh(geometry, materials);
   this.mesh.position.x -= PhotoSphereViewer.SPHERE_RADIUS;
   this.mesh.position.y -= PhotoSphereViewer.SPHERE_RADIUS;
   this.mesh.position.z -= PhotoSphereViewer.SPHERE_RADIUS;
   this.mesh.applyMatrix(new THREE.Matrix4().makeScale(1, 1, -1));
 
   this.scene.add(this.mesh);
-
-  // because Raycaster does not support MultiMaterial, add another cube with no texture
-  // {@link https://github.com/mrdoob/three.js/issues/10734}
-  var hiddenMaterial = new THREE.MeshBasicMaterial({ side: THREE.BackSide, visible: false });
-  var hiddenMesh = new THREE.Mesh(geometry, hiddenMaterial);
-
-  this.scene.add(hiddenMesh);
 };
 
 /**

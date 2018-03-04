@@ -7,6 +7,14 @@
 PhotoSphereViewer.MOVE_THRESHOLD = 4;
 
 /**
+ * @summary Angle in radians bellow which two angles are considered identical
+ * @type {float}
+ * @readonly
+ * @private
+ */
+PhotoSphereViewer.ANGLE_THRESHOLD = 0.003;
+
+/**
  * @summary Delay in milliseconds between two clicks to consider a double click
  * @type {int}
  * @readonly
@@ -122,7 +130,11 @@ PhotoSphereViewer.DEFAULTS = {
   default_fov: null,
   default_long: 0,
   default_lat: 0,
-  panorama_roll: 0,
+  sphere_correction: {
+    pan: 0,
+    tilt: 0,
+    roll: 0
+  },
   longitude_range: null,
   latitude_range: null,
   move_speed: 1,
@@ -155,6 +167,7 @@ PhotoSphereViewer.DEFAULTS = {
     gyroscope: 'Gyroscope'
   },
   mousewheel: true,
+  mousewheel_factor: 1,
   mousemove: true,
   keyboard: true,
   gyroscope: false,
@@ -167,7 +180,7 @@ PhotoSphereViewer.DEFAULTS = {
   loading_img: null,
   loading_txt: 'Loading...',
   size: null,
-  cache_texture: 5,
+  cache_texture: 0,
   templates: {},
   markers: []
 };

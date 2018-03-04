@@ -1,6 +1,6 @@
 {
   "name": "photo-sphere-viewer",
-  "version": "3.2.4",
+  "version": "3.3.0",
   "authors": [
     {
       "name": "Jérémy Heleine",
@@ -16,7 +16,7 @@
   "description": "A JavaScript library to display Photo Sphere panoramas",
   "homepage": "http://mistic100.github.io/Photo-Sphere-Viewer",
   "dependencies": {
-    "three": ">= 0.70.0",
+    "three": ">= 0.85.0",
     "d.js": "~0.7.3",
     "uevent": "~1.0.0",
     "dot": ">=1.0.3"
@@ -41,8 +41,8 @@
     "grunt-sass-lint": "^0.2.2",
     "grunt-wrap": "^0.3.0",
     "jit-grunt": "^0.10.0",
-    "mocha": "^4.0.0",
-    "simple-cli": "^4.0.0",
+    "mocha": "^5.0.0",
+    "simple-cli": "^5.0.0",
     "time-grunt": "^1.3.0"
   },
   "keywords": [
@@ -51,11 +51,14 @@
     "threejs"
   ],
   "license": "MIT",
+  "main": "dist/photo-sphere-viewer.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/mistic100/Photo-Sphere-Viewer.git"
   },
   "scripts": {
-    "test": "grunt test"
+    "postinstall": "bower install",
+    "test": "grunt test",
+    "start": "grunt serve"
   }
 }
