@@ -1,5 +1,5 @@
 /*!
- * Photo Sphere Viewer 3.3.0
+ * Photo Sphere Viewer 3.3.1
  * Copyright (c) 2014-2015 Jérémy Heleine
  * Copyright (c) 2015-2018 Damien "Mistic" Sorel
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -463,7 +463,7 @@ function PhotoSphereViewer(options) {
   this._bindEvents();
 
   // load panorama
-  if (this.config.autoload) {
+  if (this.config.panorama) {
     this.load();
   }
 
@@ -1358,7 +1358,6 @@ PhotoSphereViewer.DEFAULTS = {
   panorama: null,
   container: null,
   caption: null,
-  autoload: true,
   usexmpdata: true,
   pano_data: null,
   webgl: true,
