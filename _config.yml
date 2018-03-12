@@ -1,5 +1,7 @@
 # name of the software
 name: Photo Sphere Viewer
+# username/repository
+id: mistic100/Photo-Sphere-Viewer
 # current version of the software
 version: 3.3.1
 # licence of the software
