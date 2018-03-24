@@ -1,5 +1,5 @@
 /*!
- * Photo Sphere Viewer 3.3.1
+ * Photo Sphere Viewer 3.3.2
  * Copyright (c) 2014-2015 Jérémy Heleine
  * Copyright (c) 2015-2018 Damien "Mistic" Sorel
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -1026,7 +1026,7 @@ PhotoSphereViewer.prototype._createSphere = function() {
   );
 
   var material = new THREE.MeshBasicMaterial({
-    side: THREE.BackSide,
+    side: THREE.DoubleSide, // needs to be DoubleSide for CanvasRenderer
     overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1
   });
 
