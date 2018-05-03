@@ -1,11 +1,11 @@
 <li {% if page.title == 'Markers' %}class="active"{% endif %}>
-  <a href="{{site.github.url}}/markers.html">Markers</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}/markers.html">Markers</a>
 </li>
 
 <li>
-  <a href="{{site.github.url}}/api/">API documentation</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}/api/">API documentation</a>
 </li>
 
 <li {% if page.title == 'Changelog' %}class="active"{% endif %}>
-  <a href="{{site.github.url}}/changelog.html">Changelog</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}/changelog.html">Changelog</a>
 </li>

@@ -11,7 +11,7 @@ isHome: true
   <blockquote style="text-align:justify">
     Photo Sphere Viewer is a JavaScript library which renders 360° panoramas shots with Photo Sphere, the new camera
     mode of Android 4.2 Jelly Bean and above. It also supports cube panoramas.<br><br>
-    Photo Sphere Viewer is pure JS and based on <a href="http://threejs.org/">Three.js</a>, allowing very good
+    Photo Sphere Viewer is pure JS and based on <a href="https://threejs.org/">Three.js</a>, allowing very good
     performances on WebGL enabled systems (most recent browsers) and reasonably good performances on other systems
     supporting HTML Canvas.<br><br>
     And it works with touch screens too !
@@ -34,10 +34,10 @@ isHome: true
 
   <h3>Dependencies</h3>
   <ul>
-    <li><a href="http://threejs.org">three.js &gt;= 0.85</a> + examples files</li>
-    <li><a href="http://olado.github.io/doT">doT.js</a></li>
+    <li><a href="https://threejs.org">three.js &gt;= 0.85</a> + examples files</li>
+    <li><a href="https://olado.github.io/doT">doT.js</a></li>
     <li><a href="https://github.com/mistic100/uEvent">uEvent</a></li>
-    <li><a href="http://malko.github.io/D.js">D.js</a></li>
+    <li><a href="https://malko.github.io/D.js">D.js</a></li>
   </ul>
 
   <h3>Markup</h3>
@@ -193,7 +193,7 @@ panorama: {
         <td>markers</td>
         <td>Array</td>
         <td>[]</td>
-        <td>List of <a href="{{site.github.url}}/markers.html">markers</a>.</td>
+        <td>List of <a href="{{ site.github.url | replace: 'http://', '//' }}/markers.html">markers</a>.</td>
       </tr>
       <tr>
         <td>min_fov</td>
@@ -494,7 +494,7 @@ tooltip: {
   <h2 id="methods">Methods</h2>
 
   <p>All useful methods are documented in the
-    <a class="btn btn-outline" href="{{site.github.url}}/api/PhotoSphereViewer.html#methods">API documentation</a></p>
+    <a class="btn btn-outline" href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#methods">API documentation</a></p>
 
   <p>To call a method you need to keep a reference to the viewer (created with <code>new</code> keyword). It's good
     practice to wait for the <code>ready</code> event before doing anything.</p>
@@ -512,7 +512,7 @@ viewer.on('ready', function() {
   <h2 id="events">Events</h2>
 
   <p>On the viewer you can also use the <code>on</code> method to listen to
-    <a class="btn btn-outline" href="{{site.github.url}}/api/PhotoSphereViewer.html#events">various events</a>.</p>
+    <a class="btn btn-outline" href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#events">various events</a>.</p>
 
 
   <h2 id="navbar">Navbar customization</h2>
@@ -607,21 +607,21 @@ viewer.getNavbarButton('my-button').hide();
   }
 </style>
 
-<link rel="stylesheet" href="{{site.github.url}}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.css">
-<script src="{{site.github.url}}/dist/three.js/three.min.js"></script>
-<script src="{{site.github.url}}/dist/D.js/lib/D.min.js"></script>
-<script src="{{site.github.url}}/dist/doT/doT.min.js"></script>
-<script src="{{site.github.url}}/dist/uevent/uevent.min.js"></script>
-<script src="{{site.github.url}}/dist/three.js-examples/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="{{site.github.url}}/dist/three.js-examples/examples/js/renderers/Projector.js"></script>
-<script src="{{site.github.url}}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
+<link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.css">
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js/three.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/D.js/lib/D.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/doT/doT.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/uevent/uevent.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js-examples/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js-examples/examples/js/renderers/Projector.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
 
 <script>
   var PSV = new PhotoSphereViewer({
-    panorama: '{{site.github.url}}/assets/Bryce-Canyon-National-Park-Mark-Doliner.jpg',
+    panorama: '{{ site.github.url | replace: 'http://', '//' }}/assets/Bryce-Canyon-National-Park-Mark-Doliner.jpg',
     container: 'photosphere',
     caption: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
-    loading_img: '{{site.github.url}}/assets/photosphere-logo.gif',
+    loading_img: '{{ site.github.url | replace: 'http://', '//' }}/assets/photosphere-logo.gif',
     navbar: 'autorotate zoom download caption fullscreen',
     default_fov: 70,
     mousewheel: false,
