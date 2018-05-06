@@ -73,7 +73,7 @@ PSVUtils.getWebGLCtx = function() {
   if (names.some(function(name) {
       try {
         context = canvas.getContext(name);
-        return (context && typeof context.getParameter == 'function');
+        return (context && typeof context.getParameter === 'function');
       } catch (e) {
         return false;
       }
@@ -94,6 +94,41 @@ PSVUtils.isWebGLSupported = function() {
 };
 
 /**
+ * @summary Detects if device orientation is supported
+ * @description We can only be sure device orientation is supported once received an event with coherent data
+ * @returns {Promise}
+ */
+PSVUtils.isDeviceOrientationSupported = function() {
+  var defer = D();
+
+  if ('DeviceOrientationEvent' in window) {
+    var listener = function(event) {
+      if (event && event.alpha !== null && !isNaN(event.alpha)) {
+        defer.resolve();
+      }
+      else {
+        defer.reject();
+      }
+
+      window.removeEventListener('deviceorientation', listener);
+    };
+
+    window.addEventListener('deviceorientation', listener, false);
+
+    setTimeout(function() {
+      if (defer.promise.isPending()) {
+        listener(null);
+      }
+    }, 2000);
+  }
+  else {
+    defer.reject();
+  }
+
+  return defer.promise;
+};
+
+/**
  * @summary Gets max texture width in WebGL context
  * @returns {int}
  */
@@ -101,6 +136,9 @@ PSVUtils.getMaxTextureWidth = function() {
   var ctx = PSVUtils.getWebGLCtx();
   if (ctx !== null) {
     return ctx.getParameter(ctx.MAX_TEXTURE_SIZE);
+  }
+  else {
+    return 0;
   }
 };
 
@@ -212,7 +250,7 @@ PSVUtils.mouseWheelEvent = function() {
 };
 
 /**
- *@summary  Gets the event name for fullscreen
+ * @summary  Gets the event name for fullscreen
  * @returns {string}
  */
 PSVUtils.fullscreenEvent = function() {
@@ -224,8 +262,12 @@ PSVUtils.fullscreenEvent = function() {
   };
 
   for (var exit in map) {
-    if (exit in document) return map[exit];
+    if (map.hasOwnProperty(exit) && exit in document) {
+      return map[exit];
+    }
   }
+
+  return null;
 };
 
 /**
@@ -258,6 +300,18 @@ PSVUtils.sum = function(array) {
   return array.reduce(function(a, b) {
     return a + b;
   }, 0);
+};
+
+/**
+ * @summary Transforms a string to dash-case
+ * {@link https://github.com/shahata/dasherize}
+ * @param {string} str
+ * @returns {string}
+ */
+PSVUtils.dasherize = function(str) {
+  return str.replace(/[A-Z](?:(?=[^A-Z])|[A-Z]*(?=[A-Z][^A-Z]|$))/g, function(s, i) {
+    return (i > 0 ? '-' : '') + s.toLowerCase();
+  });
 };
 
 /**
@@ -361,7 +415,7 @@ PSVUtils.parsePosition = function(value) {
     }
   }
 
-  var xFirst = tokens[1] != 'left' && tokens[1] != 'right' && tokens[0] != 'top' && tokens[0] != 'bottom';
+  var xFirst = tokens[1] !== 'left' && tokens[1] !== 'right' && tokens[0] !== 'top' && tokens[0] !== 'bottom';
 
   tokens = tokens.map(function(token) {
     return PSVUtils.parsePosition.positions[token] || token;
@@ -393,7 +447,7 @@ PSVUtils.parsePosition.positions = { 'top': '0%', 'bottom': '100%', 'left': '0%'
  * @throws {PSVError} when the speed cannot be parsed
  */
 PSVUtils.parseSpeed = function(speed) {
-  if (typeof speed == 'string') {
+  if (typeof speed === 'string') {
     speed = speed.toString().trim();
 
     // Speed extraction
@@ -547,7 +601,7 @@ PSVUtils.animation = function(options) {
   var defer = D(false); // alwaysAsync = false to allow immediate resolution of "cancel"
   var start = null;
 
-  if (!options.easing || typeof options.easing == 'string') {
+  if (!options.easing || typeof options.easing === 'string') {
     options.easing = PSVUtils.animation.easings[options.easing || 'linear'];
   }
 
@@ -666,11 +720,15 @@ PSVUtils.throttle = function(func, wait) {
     previous = Date.now();
     timeout = null;
     result = func.apply(self, args);
-    if (!timeout) self = args = null;
+    if (!timeout) {
+      self = args = null;
+    }
   };
   return function() {
     var now = Date.now();
-    if (!previous) previous = now;
+    if (!previous) {
+      previous = now;
+    }
     var remaining = wait - (now - previous);
     self = this;
     args = arguments;
@@ -681,7 +739,9 @@ PSVUtils.throttle = function(func, wait) {
       }
       previous = now;
       result = func.apply(self, args);
-      if (!timeout) self = args = null;
+      if (!timeout) {
+        self = args = null;
+      }
     }
     else if (!timeout) {
       timeout = setTimeout(later, remaining);
@@ -702,16 +762,16 @@ PSVUtils.throttle = function(func, wait) {
  */
 PSVUtils.isPlainObject = function(obj) {
   // Basic check for Type object that's not null
-  if (typeof obj == 'object' && obj !== null) {
+  if (typeof obj === 'object' && obj !== null) {
     // If Object.getPrototypeOf supported, use it
-    if (typeof Object.getPrototypeOf == 'function') {
+    if (typeof Object.getPrototypeOf === 'function') {
       var proto = Object.getPrototypeOf(obj);
       return proto === Object.prototype || proto === null;
     }
 
     // Otherwise, use internal class
     // This should be reliable as if getPrototypeOf not supported, is pre-ES5
-    return Object.prototype.toString.call(obj) == '[object Object]';
+    return Object.prototype.toString.call(obj) === '[object Object]';
   }
 
   // Not an object
@@ -741,12 +801,12 @@ PSVUtils.deepmerge = function(target, src) {
         target[i] = merge(null, e);
       });
     }
-    else if (typeof src == 'object') {
+    else if (typeof src === 'object') {
       if (!target || Array.isArray(target)) {
         target = {};
       }
       Object.keys(src).forEach(function(key) {
-        if (typeof src[key] != 'object' || !src[key] || !PSVUtils.isPlainObject(src[key])) {
+        if (typeof src[key] !== 'object' || !src[key] || !PSVUtils.isPlainObject(src[key])) {
           target[key] = src[key];
         }
         else if (src[key] != first) {
@@ -811,7 +871,7 @@ PSVUtils.normalizeWheel = function(event) {
   if ('deltaX' in event) { pX = event.deltaX; }
 
   if ((pX || pY) && event.deltaMode) {
-    if (event.deltaMode == 1) { // delta in LINE units
+    if (event.deltaMode === 1) { // delta in LINE units
       pX *= LINE_HEIGHT;
       pY *= LINE_HEIGHT;
     }
@@ -831,4 +891,23 @@ PSVUtils.normalizeWheel = function(event) {
     pixelX: pX,
     pixelY: pY
   };
+};
+
+/**
+ * @callback ForEach
+ * @param {*} value
+ * @param {string} key
+ */
+
+/**
+ * Loops over enumerable properties of an object
+ * @param {object} object
+ * @param {ForEach} callback
+ */
+PSVUtils.forEach = function(object, callback) {
+  for (var key in object) {
+    if (object.hasOwnProperty(key)) {
+      callback(object[key], key);
+    }
+  }
 };

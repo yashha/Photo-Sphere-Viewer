@@ -113,7 +113,7 @@ PSVPanel.prototype.showPanel = function(content, noMargin) {
   this.content.scrollTop = 0;
   this.container.classList.add('psv-panel--open');
 
-  PSVUtils.toggleClass(this.content, 'psv-panel-content--no-margin', !!noMargin);
+  PSVUtils.toggleClass(this.content, 'psv-panel-content--no-margin', noMargin === true);
 
   this.prop.opened = true;
 
@@ -194,7 +194,6 @@ PSVPanel.prototype._onMouseMove = function(evt) {
  */
 PSVPanel.prototype._onTouchMove = function(evt) {
   if (this.prop.mousedown) {
-    evt.stopPropagation();
     this._resize(evt.touches[0]);
   }
 };

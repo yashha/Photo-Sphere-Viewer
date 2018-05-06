@@ -8,10 +8,19 @@ PhotoSphereViewer.prototype._bindEvents = function() {
   // all interation events are binded to the HUD only
   if (this.config.mousemove) {
     this.hud.container.style.cursor = 'move';
-    this.hud.container.addEventListener('mousedown', this);
+
+    if (this.config.mousemove_hover) {
+      this.hud.container.addEventListener('mouseenter', this);
+      this.hud.container.addEventListener('mouseleave', this);
+    }
+    else {
+      this.hud.container.addEventListener('mousedown', this);
+      window.addEventListener('mouseup', this);
+    }
+
     this.hud.container.addEventListener('touchstart', this);
-    window.addEventListener('mouseup', this);
     window.addEventListener('touchend', this);
+
     this.hud.container.addEventListener('mousemove', this);
     this.hud.container.addEventListener('touchmove', this);
   }
@@ -34,6 +43,35 @@ PhotoSphereViewer.prototype._bindEvents = function() {
 };
 
 /**
+ * @summary Removes all event listeners
+ * @private
+ */
+PhotoSphereViewer.prototype._unbindEvents = function() {
+  window.removeEventListener('resize', this);
+
+  if (this.config.mousemove) {
+    this.hud.container.removeEventListener('mousedown', this);
+    this.hud.container.removeEventListener('mouseenter', this);
+    this.hud.container.removeEventListener('touchstart', this);
+    window.removeEventListener('mouseup', this);
+    window.removeEventListener('touchend', this);
+    this.hud.container.removeEventListener('mouseleave', this);
+    this.hud.container.removeEventListener('mousemove', this);
+    this.hud.container.removeEventListener('touchmove', this);
+  }
+
+  if (PhotoSphereViewer.SYSTEM.fullscreenEvent) {
+    document.removeEventListener(PhotoSphereViewer.SYSTEM.fullscreenEvent, this);
+  }
+
+  if (this.config.mousewheel) {
+    this.hud.container.removeEventListener(PhotoSphereViewer.SYSTEM.mouseWheelEvent, this);
+  }
+
+  this.off('_side-reached');
+};
+
+/**
  * @summary Handles events
  * @param {Event} evt
  * @private
@@ -44,8 +82,10 @@ PhotoSphereViewer.prototype.handleEvent = function(evt) {
     case 'resize': PSVUtils.throttle(this._onResize(), 50); break;
     case 'keydown':     this._onKeyDown(evt);     break;
     case 'mousedown':   this._onMouseDown(evt);   break;
+    case 'mouseenter':  this._onMouseDown(evt);   break;
     case 'touchstart':  this._onTouchStart(evt);  break;
     case 'mouseup':     this._onMouseUp(evt);     break;
+    case 'mouseleave':  this._onMouseUp(evt);     break;
     case 'touchend':    this._onTouchEnd(evt);    break;
     case 'mousemove':   this._onMouseMove(evt);   break;
     case 'touchmove':   this._onTouchMove(evt);   break;
@@ -61,16 +101,13 @@ PhotoSphereViewer.prototype.handleEvent = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._onResize = function() {
-  if (this.container.clientWidth != this.prop.size.width || this.container.clientHeight != this.prop.size.height) {
+  if (this.container.clientWidth !== this.prop.size.width || this.container.clientHeight !== this.prop.size.height) {
     this.prop.size.width = parseInt(this.container.clientWidth);
     this.prop.size.height = parseInt(this.container.clientHeight);
     this.prop.aspect = this.prop.size.width / this.prop.size.height;
 
     if (this.renderer) {
       this.renderer.setSize(this.prop.size.width, this.prop.size.height);
-      if (this.composer) {
-        this.composer.reset(new THREE.WebGLRenderTarget(this.prop.size.width, this.prop.size.height));
-      }
       this.render();
     }
 
@@ -146,6 +183,9 @@ PhotoSphereViewer.prototype._onMouseMove = function(evt) {
     evt.preventDefault();
     this._move(evt);
   }
+  else if (this.config.mousemove_hover) {
+    this._moveAbsolute(evt);
+  }
 };
 
 /**
@@ -193,11 +233,8 @@ PhotoSphereViewer.prototype._onTouchMove = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._startMove = function(evt) {
-  if (this.isGyroscopeEnabled()) {
-    return;
-  }
-
-  this._stopAll();
+  this.stopAutorotate();
+  this.stopAnimation();
 
   this.prop.mouse_x = this.prop.start_mouse_x = parseInt(evt.clientX);
   this.prop.mouse_y = this.prop.start_mouse_y = parseInt(evt.clientY);
@@ -235,11 +272,6 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
     return;
   }
 
-  if (this.isGyroscopeEnabled()) {
-    this._click(evt);
-    return;
-  }
-
   if (this.prop.moving) {
     // move threshold to trigger a click
     if (Math.abs(evt.clientX - this.prop.start_mouse_x) < PhotoSphereViewer.MOVE_THRESHOLD && Math.abs(evt.clientY - this.prop.start_mouse_y) < PhotoSphereViewer.MOVE_THRESHOLD) {
@@ -247,7 +279,7 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
       this.prop.moving = false;
     }
     // inertia animation
-    else if (this.config.move_inertia) {
+    else if (this.config.move_inertia && !this.isGyroscopeEnabled()) {
       this._logMouseMove(evt);
       this._stopMoveInertia(evt);
     }
@@ -267,8 +299,6 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._stopMoveInertia = function(evt) {
-  var self = this;
-
   var direction = {
     x: evt.clientX - this.prop.mouse_history[0][1],
     y: evt.clientY - this.prop.mouse_history[0][2]
@@ -284,12 +314,12 @@ PhotoSphereViewer.prototype._stopMoveInertia = function(evt) {
     duration: norm * PhotoSphereViewer.INERTIA_WINDOW / 100,
     easing: 'outCirc',
     onTick: function(properties) {
-      self._move(properties, false);
-    }
+      this._move(properties, false);
+    }.bind(this)
   })
     .ensure(function() {
-      self.prop.moving = false;
-    });
+      this.prop.moving = false;
+    }.bind(this));
 };
 
 /**
@@ -369,10 +399,20 @@ PhotoSphereViewer.prototype._move = function(evt, log) {
     var x = parseInt(evt.clientX);
     var y = parseInt(evt.clientY);
 
-    this.rotate({
-      longitude: this.prop.longitude - (x - this.prop.mouse_x) / this.prop.size.width * this.prop.move_speed * this.prop.hFov,
-      latitude: this.prop.latitude + (y - this.prop.mouse_y) / this.prop.size.height * this.prop.move_speed * this.prop.vFov
-    });
+    var rotation = {
+      longitude: (x - this.prop.mouse_x) / this.prop.size.width * this.prop.move_speed * this.prop.hFov * PhotoSphereViewer.SYSTEM.pixelRatio,
+      latitude: (y - this.prop.mouse_y) / this.prop.size.height * this.prop.move_speed * this.prop.vFov * PhotoSphereViewer.SYSTEM.pixelRatio
+    };
+
+    if (this.isGyroscopeEnabled()) {
+      this.prop.gyro_alpha_offset += rotation.longitude;
+    }
+    else {
+      this.rotate({
+        longitude: this.prop.longitude - rotation.longitude,
+        latitude: this.prop.latitude + rotation.latitude
+      });
+    }
 
     this.prop.mouse_x = x;
     this.prop.mouse_y = y;
@@ -380,6 +420,20 @@ PhotoSphereViewer.prototype._move = function(evt, log) {
     if (log !== false) {
       this._logMouseMove(evt);
     }
+  }
+};
+
+/**
+ * @summary Performs movement absolute to cursor position in viewer
+ * @param {MouseEvent} evt
+ * @private
+ */
+PhotoSphereViewer.prototype._moveAbsolute = function(evt) {
+  if (this.prop.moving) {
+    this.rotate({
+      longitude: ((evt.clientX - this.container.offsetLeft) / this.container.offsetWidth - 0.5) * PSVUtils.TwoPI,
+      latitude: -((evt.clientY - this.container.offsetTop) / this.container.offsetHeight - 0.5) * Math.PI
+    });
   }
 };
 
