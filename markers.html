@@ -131,20 +131,20 @@ title: Markers
           <span class="label label-danger">required</span> for images
         </td>
         <td>Size of the marker.<br>
-          <i>Ignored for polygons</i></td>
+          <i>Ignored for polygons/polylines</i></td>
       </tr>
       <tr>
         <td>x & y</td>
         <td>int</td>
         <td rowspan="2"><span class="label label-danger">required</span> x/y <b>or</b> latitude/longitude</td>
         <td>Position of the marker <b>in texture coordinates</b> (pixels).<br>
-          <i>Ignored for polygons</i></td>
+          <i>Ignored for polygons/polylines</i></td>
       </tr>
       <tr>
         <td>latitude & longitude</td>
         <td>double</td>
         <td>Position of the marker <b>in spherical coordinates</b> (radians).<br>
-          <i>Ignored for polygons</i></td>
+          <i>Ignored for polygons/polylines</i></td>
       </tr>
       <tr>
         <td>scale</td>
@@ -164,7 +164,7 @@ title: Markers
         <td>'center center'</td>
         <td>Defines where the marker is placed toward its position. Any CSS position is valid like <code>bottom
           center</code> or <code>20% 80%</code><br>
-          <i>Ignored for polygons</i>.
+          <i>Ignored for polygons/polylines</i>.
         </td>
       </tr>
       <tr>
@@ -199,14 +199,39 @@ title: Markers
         <td>style</td>
         <td>Object</td>
         <td></td>
-        <td>CSS properties to set on the marker (background, border, etc.).</td>
+        <td>CSS properties to set on the marker (background, border, etc.).
+          <button class="btn btn-primary btn-xs" data-bootbox="marker-style">Example</button>
+          <div id="marker-style" title="Marker custom style" class="hidden">
+            <!-- @formatter:off -->
+{% highlight javascript %}
+style: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    cursor         : 'help'
+}
+{% endhighlight %}
+<!-- @formatter:on -->
+          </div>
+        </td>
       </tr>
       <tr>
         <td>svgStyle</td>
         <td>Object</td>
         <td></td>
         <td>SVG properties to set on the marker (fill, stroke, etc.).<br>
-          <i>Only for SVG and polygons markers.</i></td>
+          <i>Only for SVG and polygons/polylines markers.</i>
+          <button class="btn btn-primary btn-xs" data-bootbox="marker-svg-style">Example</button>
+          <div id="marker-svg-style" title="SVG marker custom style" class="hidden">
+            <!-- @formatter:off -->
+{% highlight javascript %}
+style: {
+    fill       : 'rgba(0, 0, 0, 0.5)',
+    stroke     : '#ff0000',
+    strokeWidth: '2px'
+}
+{% endhighlight %}
+<!-- @formatter:on -->
+          </div>
+        </td>
       </tr>
       <tr>
         <td>content</td>
@@ -248,14 +273,14 @@ title: Markers
   }
 </style>
 
-<link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.css">
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js/three.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/D.js/lib/D.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/doT/doT.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/uevent/uevent.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js-examples/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js-examples/examples/js/renderers/Projector.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
+<link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/build/three.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/d.js/lib/D.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/dot/doT.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/uevent/uevent.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/Projector.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
 
 <script type="text/template" id="lorem-content">
   <h1>HTML Ipsum Presents</h1>

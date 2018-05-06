@@ -1,8 +1,8 @@
 /*!
- * Photo Sphere Viewer 3.3.2
+ * Photo Sphere Viewer 3.3.3
  * Copyright (c) 2014-2015 Jérémy Heleine
  * Copyright (c) 2015-2018 Damien "Mistic" Sorel
- * Licensed under MIT (http://opensource.org/licenses/MIT)
+ * Licensed under MIT (https://opensource.org/licenses/MIT)
  */
 .psv-container {
   width: 100%;
@@ -56,7 +56,9 @@
   .psv-loader-canvas {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    width: 100%;
+    height: 100%; }
   .psv-loader-text {
     font: 14px sans-serif; }
 

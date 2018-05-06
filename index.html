@@ -40,37 +40,19 @@ isHome: true
     <li><a href="https://malko.github.io/D.js">D.js</a></li>
   </ul>
 
-  <h3>Markup</h3>
+  <h3>Let's go!</h3>
 
-  <p>Include all JS &amp; CSS files in your page and you are ready.</p>
+  <p>Include all JS &amp; CSS files in your page manually or with your favorite bundler and init the viewer.</p>
   <!-- @formatter:off -->
 {% highlight html %}
-<link rel="stylesheet" href="Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.css">
-
-<script src="three.js/three.min.js"></script>
-<script src="D.js/lib/D.min.js"></script>
-<script src="uevent/uevent.min.js"></script>
-<script src="doT/doT.min.js"></script>
-<script src="Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
+<div id="viewer"></div>
 
 <script>
-  var viewer = PhotoSphereViewer({
-    container: 'container-id',
+  var viewer = new PhotoSphereViewer({
+    container: 'viewer',
     panorama: 'path/to/panorama.jpg'
   });
 </script>
-{% endhighlight %}
-<!-- @formatter:on -->
-
-  <p>PSV can also be used with CommonJS :</p>
-  <!-- @formatter:off -->
-{% highlight javascript %}
-require(['photo-sphere-viewer'], function(PhotoSphereViewer) {
-  var viewer = PhotoSphereViewer({
-    container: 'container-id',
-    panorama: 'path/to/panorama.jpg'
-  });
-});
 {% endhighlight %}
 <!-- @formatter:on -->
 
@@ -340,13 +322,19 @@ lang: {
         <td>mousewheel</td>
         <td>boolean</td>
         <td>true</td>
-        <td>Listen to mouse wheel events to zoom in and out.</td>
+        <td>Enables zoom with the mouse wheel.</td>
       </tr>
       <tr>
         <td>mousemove</td>
         <td>boolean</td>
         <td>true</td>
-        <td>Listen to mouse click+move events to rotate the view.</td>
+        <td>Enables panorama rotation with the mouse cursor.</td>
+      </tr>
+      <tr>
+        <td>mousemove_hover</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Rotate the panorama just by moving the cursor above the view instead of click+move.</td>
       </tr>
       <tr>
         <td>keyboard</td>
@@ -607,14 +595,14 @@ viewer.getNavbarButton('my-button').hide();
   }
 </style>
 
-<link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.css">
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js/three.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/D.js/lib/D.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/doT/doT.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/uevent/uevent.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js-examples/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/three.js-examples/examples/js/renderers/Projector.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/dist/Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
+<link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/build/three.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/d.js/lib/D.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/dot/doT.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/uevent/uevent.min.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/Projector.js"></script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
 
 <script>
   var PSV = new PhotoSphereViewer({
@@ -624,6 +612,7 @@ viewer.getNavbarButton('my-button').hide();
     loading_img: '{{ site.github.url | replace: 'http://', '//' }}/assets/photosphere-logo.gif',
     navbar: 'autorotate zoom download caption fullscreen',
     default_fov: 70,
+    default_lat: 0.3,
     mousewheel: false,
     size: {
       height: 500

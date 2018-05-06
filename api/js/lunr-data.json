@@ -2258,6 +2258,7 @@
           "startautorot"
         ],
         "PhotoSphereViewer.html#startGyroscopeControl": [
+          "avail",
           "enabl",
           "function",
           "gyroscop",
@@ -2765,6 +2766,18 @@
           "psvutils.clon",
           "src"
         ],
+        "PSVUtils.html#.dasherize": [
+          "case",
+          "dash",
+          "dasher",
+          "function",
+          "https://github.com/shahata/dasher",
+          "lt;static&gt",
+          "psvutils.dasher",
+          "str",
+          "string",
+          "transform"
+        ],
         "PSVUtils.html#.deepmerge": [
           "alter",
           "array",
@@ -2789,6 +2802,18 @@
           "lt;static&gt",
           "mode",
           "psvutils.exitfullscreen"
+        ],
+        "PSVUtils.html#.forEach": [
+          "callback",
+          "enumer",
+          "foreach",
+          "function",
+          "loop",
+          "lt;static&gt",
+          "object",
+          "over",
+          "properti",
+          "psvutils.foreach"
         ],
         "PSVUtils.html#.fullscreenEvent": [
           "event",
@@ -2901,6 +2926,23 @@
           "lt;static&gt",
           "psvutils.iscanvassupport",
           "support"
+        ],
+        "PSVUtils.html#.isDeviceOrientationSupported": [
+          "coher",
+          "data",
+          "detect",
+          "devic",
+          "event",
+          "function",
+          "isdeviceorientationsupport",
+          "lt;static&gt",
+          "onc",
+          "orient",
+          "promis",
+          "psvutils.isdeviceorientationsupport",
+          "receiv",
+          "support",
+          "sure"
         ],
         "PSVUtils.html#.isFullscreenEnabled": [
           "boolean",
@@ -3099,7 +3141,7 @@
           "toggleclass"
         ]
       },
-      "length": 326
+      "length": 329
     },
     "tokenStore": {
       "root": {
@@ -3701,6 +3743,27 @@
               }
             }
           },
+          "v": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "l": {
+                  "docs": {
+                    "PhotoSphereViewer.html#startGyroscopeControl": {
+                      "ref": "PhotoSphereViewer.html#startGyroscopeControl",
+                      "tf": 17.5
+                    },
+                    "PSVMarker.html#.getType": {
+                      "ref": "PSVMarker.html#.getType",
+                      "tf": 14
+                    }
+                  }
+                }
+              }
+            }
+          },
           "l": {
             "docs": {},
             "l": {
@@ -3735,23 +3798,6 @@
                     "PSVUtils.html#.deepmerge": {
                       "ref": "PSVUtils.html#.deepmerge",
                       "tf": 10
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "v": {
-            "docs": {},
-            "a": {
-              "docs": {},
-              "i": {
-                "docs": {},
-                "l": {
-                  "docs": {
-                    "PSVMarker.html#.getType": {
-                      "ref": "PSVMarker.html#.getType",
-                      "tf": 14
                     }
                   }
                 }
@@ -4242,6 +4288,10 @@
                         "ref": "PSVUtils.html#.isCanvasSupported",
                         "tf": 23.333333333333332
                       },
+                      "PSVUtils.html#.isDeviceOrientationSupported": {
+                        "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                        "tf": 17.5
+                      },
                       "PSVUtils.html#.isFullscreenEnabled": {
                         "ref": "PSVUtils.html#.isFullscreenEnabled",
                         "tf": 23.333333333333332
@@ -4291,6 +4341,20 @@
                   }
                 }
               }
+            },
+            "v": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "c": {
+                  "docs": {
+                    "PSVUtils.html#.isDeviceOrientationSupported": {
+                      "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                      "tf": 23.055555555555557
+                    }
+                  }
+                }
+              }
             }
           },
           "u": {
@@ -4336,9 +4400,35 @@
                     "ref": "PSVUtils.html#.getXMPValue",
                     "tf": 25
                   },
+                  "PSVUtils.html#.isDeviceOrientationSupported": {
+                    "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                    "tf": 5.555555555555555
+                  },
                   "PSVUtils.html#.normalizeWheel": {
                     "ref": "PSVUtils.html#.normalizeWheel",
                     "tf": 14.285714285714285
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "h": {
+                "docs": {
+                  "PSVUtils.html#.dasherize": {
+                    "ref": "PSVUtils.html#.dasherize",
+                    "tf": 14
+                  }
+                },
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "PSVUtils.html#.dasherize": {
+                        "ref": "PSVUtils.html#.dasherize",
+                        "tf": 675
+                      }
+                    }
                   }
                 }
               }
@@ -5047,6 +5137,83 @@
                 }
               }
             },
+            "d": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "v": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "i": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "n": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "n": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "u": {
+                                                  "docs": {},
+                                                  "p": {
+                                                    "docs": {},
+                                                    "p": {
+                                                      "docs": {},
+                                                      "o": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {
+                                                              "PSVUtils.html#.isDeviceOrientationSupported": {
+                                                                "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                                                                "tf": 683.3333333333334
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "i": {
               "docs": {},
               "n": {
@@ -5483,6 +5650,10 @@
                                     "ref": "PSVUtils.html#.clone",
                                     "tf": 25
                                   },
+                                  "PSVUtils.html#.dasherize": {
+                                    "ref": "PSVUtils.html#.dasherize",
+                                    "tf": 25
+                                  },
                                   "PSVUtils.html#.deepmerge": {
                                     "ref": "PSVUtils.html#.deepmerge",
                                     "tf": 20
@@ -5490,6 +5661,10 @@
                                   "PSVUtils.html#.exitFullscreen": {
                                     "ref": "PSVUtils.html#.exitFullscreen",
                                     "tf": 50
+                                  },
+                                  "PSVUtils.html#.forEach": {
+                                    "ref": "PSVUtils.html#.forEach",
+                                    "tf": 25
                                   },
                                   "PSVUtils.html#.fullscreenEvent": {
                                     "ref": "PSVUtils.html#.fullscreenEvent",
@@ -5525,6 +5700,10 @@
                                   },
                                   "PSVUtils.html#.isCanvasSupported": {
                                     "ref": "PSVUtils.html#.isCanvasSupported",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "PSVUtils.html#.isDeviceOrientationSupported": {
+                                    "ref": "PSVUtils.html#.isDeviceOrientationSupported",
                                     "tf": 33.33333333333333
                                   },
                                   "PSVUtils.html#.isFullscreenEnabled": {
@@ -6348,6 +6527,17 @@
                         }
                       }
                     }
+                  }
+                }
+              }
+            },
+            "o": {
+              "docs": {},
+              "p": {
+                "docs": {
+                  "PSVUtils.html#.forEach": {
+                    "ref": "PSVUtils.html#.forEach",
+                    "tf": 10
                   }
                 }
               }
@@ -13565,6 +13755,26 @@
                           },
                           "d": {
                             "docs": {},
+                            "a": {
+                              "docs": {},
+                              "s": {
+                                "docs": {},
+                                "h": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {
+                                        "PSVUtils.html#.dasherize": {
+                                          "ref": "PSVUtils.html#.dasherize",
+                                          "tf": 1150
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             "e": {
                               "docs": {},
                               "e": {
@@ -13641,6 +13851,29 @@
                           },
                           "f": {
                             "docs": {},
+                            "o": {
+                              "docs": {},
+                              "r": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "h": {
+                                        "docs": {
+                                          "PSVUtils.html#.forEach": {
+                                            "ref": "PSVUtils.html#.forEach",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             "u": {
                               "docs": {},
                               "l": {
@@ -13905,6 +14138,83 @@
                                                           "PSVUtils.html#.isCanvasSupported": {
                                                             "ref": "PSVUtils.html#.isCanvasSupported",
                                                             "tf": 1150
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "d": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "v": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "c": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "n": {
+                                                                "docs": {},
+                                                                "s": {
+                                                                  "docs": {},
+                                                                  "u": {
+                                                                    "docs": {},
+                                                                    "p": {
+                                                                      "docs": {},
+                                                                      "p": {
+                                                                        "docs": {},
+                                                                        "o": {
+                                                                          "docs": {},
+                                                                          "r": {
+                                                                            "docs": {},
+                                                                            "t": {
+                                                                              "docs": {
+                                                                                "PSVUtils.html#.isDeviceOrientationSupported": {
+                                                                                  "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                                                                                  "tf": 1150
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -14396,6 +14706,10 @@
                           "PSVUtils.html#.animation": {
                             "ref": "PSVUtils.html#.animation",
                             "tf": 11.666666666666666
+                          },
+                          "PSVUtils.html#.forEach": {
+                            "ref": "PSVUtils.html#.forEach",
+                            "tf": 10
                           }
                         }
                       }
@@ -14432,6 +14746,10 @@
                       "PSVUtils.html#.animation": {
                         "ref": "PSVUtils.html#.animation",
                         "tf": 25
+                      },
+                      "PSVUtils.html#.isDeviceOrientationSupported": {
+                        "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                        "tf": 33.33333333333333
                       }
                     }
                   }
@@ -15176,6 +15494,23 @@
                 }
               }
             },
+            "c": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "v": {
+                    "docs": {
+                      "PSVUtils.html#.isDeviceOrientationSupported": {
+                        "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                        "tf": 5.555555555555555
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "q": {
               "docs": {},
               "u": {
@@ -15544,12 +15879,27 @@
                           "ref": "PSVUtils.html#.isCanvasSupported",
                           "tf": 23.333333333333332
                         },
+                        "PSVUtils.html#.isDeviceOrientationSupported": {
+                          "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                          "tf": 23.055555555555557
+                        },
                         "PSVUtils.html#.isWebGLSupported": {
                           "ref": "PSVUtils.html#.isWebGLSupported",
                           "tf": 23.333333333333332
                         }
                       }
                     }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "PSVUtils.html#.isDeviceOrientationSupported": {
+                    "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                    "tf": 5.555555555555555
                   }
                 }
               }
@@ -15566,7 +15916,12 @@
           "t": {
             "docs": {},
             "r": {
-              "docs": {},
+              "docs": {
+                "PSVUtils.html#.dasherize": {
+                  "ref": "PSVUtils.html#.dasherize",
+                  "tf": 25
+                }
+              },
               "i": {
                 "docs": {},
                 "n": {
@@ -15636,6 +15991,10 @@
                       "PSVUtils.html#.svgNS": {
                         "ref": "PSVUtils.html#.svgNS",
                         "tf": 25
+                      },
+                      "PSVUtils.html#.dasherize": {
+                        "ref": "PSVUtils.html#.dasherize",
+                        "tf": 39
                       },
                       "PSVUtils.html#.fullscreenEvent": {
                         "ref": "PSVUtils.html#.fullscreenEvent",
@@ -18572,6 +18931,20 @@
                   }
                 }
               }
+            },
+            "h": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "PSVUtils.html#.isDeviceOrientationSupported": {
+                      "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                      "tf": 5.555555555555555
+                    }
+                  }
+                }
+              }
             }
           },
           "s": {
@@ -18950,10 +19323,25 @@
                           "PhotoSphereViewer.html#once": {
                             "ref": "PhotoSphereViewer.html#once",
                             "tf": 25
+                          },
+                          "PSVUtils.html#.forEach": {
+                            "ref": "PSVUtils.html#.forEach",
+                            "tf": 25
                           }
                         }
                       }
                     }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "PSVUtils.html#.dasherize": {
+                    "ref": "PSVUtils.html#.dasherize",
+                    "tf": 14
                   }
                 }
               }
@@ -19187,6 +19575,10 @@
                     "PSVUtils.html#.fullscreenEvent": {
                       "ref": "PSVUtils.html#.fullscreenEvent",
                       "tf": 17.5
+                    },
+                    "PSVUtils.html#.isDeviceOrientationSupported": {
+                      "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                      "tf": 5.555555555555555
                     },
                     "PSVUtils.html#.mouseWheelEvent": {
                       "ref": "PSVUtils.html#.mouseWheelEvent",
@@ -19443,7 +19835,7 @@
                     },
                     "PhotoSphereViewer.html#startGyroscopeControl": {
                       "ref": "PhotoSphereViewer.html#startGyroscopeControl",
-                      "tf": 23.333333333333332
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#startKeyboardControl": {
                       "ref": "PhotoSphereViewer.html#startKeyboardControl",
@@ -19530,6 +19922,10 @@
                       "PSVUtils.html#.deepmerge": {
                         "ref": "PSVUtils.html#.deepmerge",
                         "tf": 14
+                      },
+                      "PSVUtils.html#.forEach": {
+                        "ref": "PSVUtils.html#.forEach",
+                        "tf": 10
                       }
                     }
                   }
@@ -19776,7 +20172,7 @@
                     },
                     "PhotoSphereViewer.html#startGyroscopeControl": {
                       "ref": "PhotoSphereViewer.html#startGyroscopeControl",
-                      "tf": 23.333333333333332
+                      "tf": 17.5
                     },
                     "PhotoSphereViewer.html#stopGyroscopeControl": {
                       "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
@@ -25808,6 +26204,53 @@
                                             "docs": {},
                                             "/": {
                                               "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "h": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "h": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "/": {
+                                                              "docs": {},
+                                                              "d": {
+                                                                "docs": {},
+                                                                "a": {
+                                                                  "docs": {},
+                                                                  "s": {
+                                                                    "docs": {},
+                                                                    "h": {
+                                                                      "docs": {},
+                                                                      "e": {
+                                                                        "docs": {},
+                                                                        "r": {
+                                                                          "docs": {
+                                                                            "PSVUtils.html#.dasherize": {
+                                                                              "ref": "PSVUtils.html#.dasherize",
+                                                                              "tf": 14
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
                                               "f": {
                                                 "docs": {},
                                                 "a": {
@@ -26977,12 +27420,20 @@
                             "ref": "PSVUtils.html#.clone",
                             "tf": 110
                           },
+                          "PSVUtils.html#.dasherize": {
+                            "ref": "PSVUtils.html#.dasherize",
+                            "tf": 110
+                          },
                           "PSVUtils.html#.deepmerge": {
                             "ref": "PSVUtils.html#.deepmerge",
                             "tf": 110
                           },
                           "PSVUtils.html#.exitFullscreen": {
                             "ref": "PSVUtils.html#.exitFullscreen",
+                            "tf": 110
+                          },
+                          "PSVUtils.html#.forEach": {
+                            "ref": "PSVUtils.html#.forEach",
                             "tf": 110
                           },
                           "PSVUtils.html#.fullscreenEvent": {
@@ -27019,6 +27470,10 @@
                           },
                           "PSVUtils.html#.isCanvasSupported": {
                             "ref": "PSVUtils.html#.isCanvasSupported",
+                            "tf": 110
+                          },
+                          "PSVUtils.html#.isDeviceOrientationSupported": {
+                            "ref": "PSVUtils.html#.isDeviceOrientationSupported",
                             "tf": 110
                           },
                           "PSVUtils.html#.isFullscreenEnabled": {
@@ -27252,6 +27707,29 @@
                     "PSVUtils.html#.parseSpeed": {
                       "ref": "PSVUtils.html#.parseSpeed",
                       "tf": 25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "c": {
+                    "docs": {},
+                    "h": {
+                      "docs": {
+                        "PSVUtils.html#.forEach": {
+                          "ref": "PSVUtils.html#.forEach",
+                          "tf": 675
+                        }
+                      }
                     }
                   }
                 }
@@ -27609,6 +28087,10 @@
                         "ref": "PSVUtils.html#.deepmerge",
                         "tf": 44
                       },
+                      "PSVUtils.html#.forEach": {
+                        "ref": "PSVUtils.html#.forEach",
+                        "tf": 35
+                      },
                       "PSVUtils.html#.isPlainObject": {
                         "ref": "PSVUtils.html#.isPlainObject",
                         "tf": 46.53846153846154
@@ -27749,6 +28231,10 @@
                   "ref": "PhotoSphereViewer.html#once",
                   "tf": 686.6666666666666
                 },
+                "PSVUtils.html#.isDeviceOrientationSupported": {
+                  "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                  "tf": 5.555555555555555
+                },
                 "PSVUtils.html#.throttle": {
                   "ref": "PSVUtils.html#.throttle",
                   "tf": 7.777777777777778
@@ -27771,6 +28257,20 @@
               }
             }
           },
+          "v": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "r": {
+                "docs": {
+                  "PSVUtils.html#.forEach": {
+                    "ref": "PSVUtils.html#.forEach",
+                    "tf": 10
+                  }
+                }
+              }
+            }
+          },
           "f": {
             "docs": {},
             "f": {
@@ -27784,6 +28284,26 @@
                       "PSVUtils.html#.getShortestArc": {
                         "ref": "PSVUtils.html#.getShortestArc",
                         "tf": 11.666666666666666
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "PSVUtils.html#.isDeviceOrientationSupported": {
+                        "ref": "PSVUtils.html#.isDeviceOrientationSupported",
+                        "tf": 23.055555555555557
                       }
                     }
                   }
@@ -28270,7 +28790,7 @@
                           },
                           "PhotoSphereViewer.html#startGyroscopeControl": {
                             "ref": "PhotoSphereViewer.html#startGyroscopeControl",
-                            "tf": 23.333333333333332
+                            "tf": 17.5
                           },
                           "PhotoSphereViewer.html#stopGyroscopeControl": {
                             "ref": "PhotoSphereViewer.html#stopGyroscopeControl",
@@ -28906,6 +29426,23 @@
                         "PhotoSphereViewer.html#setPanorama": {
                           "ref": "PhotoSphereViewer.html#setPanorama",
                           "tf": 22.17391304347826
+                        }
+                      }
+                    }
+                  },
+                  "f": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "m": {
+                          "docs": {
+                            "PSVUtils.html#.dasherize": {
+                              "ref": "PSVUtils.html#.dasherize",
+                              "tf": 14
+                            }
+                          }
                         }
                       }
                     }
@@ -29841,7 +30378,7 @@
           }
         }
       },
-      "length": 2407
+      "length": 2443
     },
     "corpusTokens": [
       "1",
@@ -29885,6 +30422,7 @@
       "can't",
       "canva",
       "caption",
+      "case",
       "center&quot",
       "chang",
       "check",
@@ -29901,6 +30439,7 @@
       "clone",
       "close",
       "closest",
+      "coher",
       "compon",
       "component'",
       "components.psvcompon",
@@ -29941,6 +30480,8 @@
       "currentmark",
       "cursor",
       "custom",
+      "dash",
+      "dasher",
       "data",
       "decreas",
       "deepmerg",
@@ -29951,6 +30492,7 @@
       "destroy",
       "detect",
       "determin",
+      "devic",
       "directli",
       "disabl",
       "display",
@@ -29988,6 +30530,7 @@
       "file",
       "fix",
       "float",
+      "foreach",
       "fullscreen",
       "fullscreenev",
       "func",
@@ -30029,6 +30572,7 @@
       "http://stackoverflow.com/a/5878101/1207670",
       "https://developer.mozilla.org/en",
       "https://github.com/facebookarchive/fix",
+      "https://github.com/shahata/dasher",
       "hud",
       "i.",
       "icon",
@@ -30051,6 +30595,7 @@
       "invok",
       "isautorotateen",
       "iscanvassupport",
+      "isdeviceorientationsupport",
       "isfullscreenen",
       "isgyroscopeen",
       "isinteg",
@@ -30081,6 +30626,7 @@
       "load",
       "loader",
       "longitud",
+      "loop",
       "lt;protect",
       "lt;protected&gt",
       "lt;readonly&gt",
@@ -30324,6 +30870,8 @@
       "ongo",
       "open",
       "option",
+      "orient",
+      "over",
       "panel",
       "panodata",
       "panorama",
@@ -30638,8 +31186,10 @@
       "psvutils.checkthre",
       "psvutils.cleanthreescen",
       "psvutils.clon",
+      "psvutils.dasher",
       "psvutils.deepmerg",
       "psvutils.exitfullscreen",
+      "psvutils.foreach",
       "psvutils.fullscreenev",
       "psvutils.getclosest",
       "psvutils.getmaxtexturewidth",
@@ -30650,6 +31200,7 @@
       "psvutils.halfpi",
       "psvutils.haspar",
       "psvutils.iscanvassupport",
+      "psvutils.isdeviceorientationsupport",
       "psvutils.isfullscreenen",
       "psvutils.isinteg",
       "psvutils.isplainobject",
@@ -30677,6 +31228,7 @@
       "radian",
       "readm",
       "readonly&gt",
+      "receiv",
       "regist",
       "remov",
       "removeclass",
@@ -30735,12 +31287,14 @@
       "stopautorot",
       "stopgyroscopecontrol",
       "stopkeyboardcontrol",
+      "str",
       "string",
       "string&gt",
       "style",
       "sub",
       "sum",
       "support",
+      "sure",
       "svg",
       "svgcontain",
       "svgelement",
@@ -30770,6 +31324,7 @@
       "tooltip",
       "top",
       "total",
+      "transform",
       "transit",
       "translat",
       "tri",
@@ -33319,7 +33874,7 @@
       "longname": "PhotoSphereViewer#startGyroscopeControl",
       "name": "startGyroscopeControl",
       "tags": "PhotoSphereViewer#startGyroscopeControl startGyroscopeControl",
-      "summary": "Enables the gyroscope navigation",
+      "summary": "Enables the gyroscope navigation if available",
       "description": ""
     },
     "PhotoSphereViewer.html#startKeyboardControl": {
@@ -33857,6 +34412,16 @@
       "summary": "Clones an object",
       "description": ""
     },
+    "PSVUtils.html#.dasherize": {
+      "id": "PSVUtils.html#.dasherize",
+      "kind": "function",
+      "title": "&lt;static&gt; dasherize( str ) → {string}",
+      "longname": "PSVUtils.dasherize",
+      "name": "dasherize",
+      "tags": "PSVUtils.dasherize dasherize",
+      "summary": "Transforms a string to dash-case https://github.com/shahata/dasherize",
+      "description": ""
+    },
     "PSVUtils.html#.deepmerge": {
       "id": "PSVUtils.html#.deepmerge",
       "kind": "function",
@@ -33876,6 +34441,16 @@
       "tags": "PSVUtils.exitFullscreen exitFullscreen",
       "summary": "Exits fullscreen mode",
       "description": ""
+    },
+    "PSVUtils.html#.forEach": {
+      "id": "PSVUtils.html#.forEach",
+      "kind": "function",
+      "title": "&lt;static&gt; forEach( object, callback )",
+      "longname": "PSVUtils.forEach",
+      "name": "forEach",
+      "tags": "PSVUtils.forEach forEach",
+      "summary": "",
+      "description": "Loops over enumerable properties of an object"
     },
     "PSVUtils.html#.fullscreenEvent": {
       "id": "PSVUtils.html#.fullscreenEvent",
@@ -33966,6 +34541,16 @@
       "tags": "PSVUtils.isCanvasSupported isCanvasSupported",
       "summary": "Detects if canvas is supported",
       "description": ""
+    },
+    "PSVUtils.html#.isDeviceOrientationSupported": {
+      "id": "PSVUtils.html#.isDeviceOrientationSupported",
+      "kind": "function",
+      "title": "&lt;static&gt; isDeviceOrientationSupported() → {Promise}",
+      "longname": "PSVUtils.isDeviceOrientationSupported",
+      "name": "isDeviceOrientationSupported",
+      "tags": "PSVUtils.isDeviceOrientationSupported isDeviceOrientationSupported",
+      "summary": "Detects if device orientation is supported",
+      "description": "We can only be sure device orientation is supported once received an event with coherent data"
     },
     "PSVUtils.html#.isFullscreenEnabled": {
       "id": "PSVUtils.html#.isFullscreenEnabled",

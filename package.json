@@ -1,0 +1,15 @@
+{
+  "name": "photo-sphere-viewer-doc",
+  "version": "1.0.0",
+  "description": "PhotoSphereViewer documentation",
+  "author": {
+    "name": "Damien \"Mistic\" Sorel",
+    "email": "contact@git.strangeplanet.fr",
+    "homepage": "https://www.strangeplanet.fr"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "photo-sphere-viewer": "latest"
+  }
+}

@@ -59,7 +59,7 @@ var PSV = new PhotoSphereViewer({
       svgStyle: {
         fill: 'rgba(200, 0, 0, 0.2)',
         stroke: 'rgba(200, 0, 50, 0.8)',
-        'stroke-width': '2px'
+        strokeWidth: '2px'
       },
       tooltip: {
         content: 'A dynamic polygon marker',
@@ -75,9 +75,9 @@ var PSV = new PhotoSphereViewer({
       ],
       svgStyle: {
         stroke: 'rgba(140, 190, 10, 0.8)',
-        'stroke-linecap': 'round',
-        'stroke-linejoin': 'round',
-        'stroke-width': '10px'
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+        strokeWidth: '10px'
       },
       tooltip: 'A dynamic polyline marker'
     },
