@@ -56,6 +56,13 @@ isHome: true
 {% endhighlight %}
 <!-- @formatter:on -->
 
+  <div class="bs-callout bs-callout-info">
+    <h4>Cropped panoramas</h4>
+
+    <p>If your image is not covering a full 360°&times;180° sphere, it will be deformed. You can fix it by providing <a
+      href="{{ site.github.url | replace: 'http://', '//' }}/crop.html">cropping data</a>.</p>
+  </div>
+
   <div class="bs-callout bs-callout-danger">
     <h4>Canvas rendering</h4>
 
@@ -595,6 +602,7 @@ viewer.getNavbarButton('my-button').hide();
   }
 </style>
 
+<!-- @formatter:off -->
 <link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
 <script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/build/three.min.js"></script>
 <script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/d.js/lib/D.min.js"></script>
@@ -603,13 +611,14 @@ viewer.getNavbarButton('my-button').hide();
 <script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
 <script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/Projector.js"></script>
 <script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
+<!-- @formatter:on -->
 
 <script>
   var PSV = new PhotoSphereViewer({
-    panorama: '{{ site.github.url | replace: 'http://', '//' }}/assets/Bryce-Canyon-National-Park-Mark-Doliner.jpg',
+    panorama: "{{ site.github.url | replace: 'http://', '//' }}/assets/Bryce-Canyon-National-Park-Mark-Doliner.jpg",
     container: 'photosphere',
     caption: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
-    loading_img: '{{ site.github.url | replace: 'http://', '//' }}/assets/photosphere-logo.gif',
+    loading_img: "{{ site.github.url | replace: 'http://', '//' }}/assets/photosphere-logo.gif",
     navbar: 'autorotate zoom download caption fullscreen',
     default_fov: 70,
     default_lat: 0.3,
