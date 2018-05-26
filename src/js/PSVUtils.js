@@ -362,8 +362,8 @@ PSVUtils.bound = function(x, min, max) {
  * @returns {boolean}
  */
 PSVUtils.isInteger = Number.isInteger || function(value) {
-    return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
-  };
+  return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
+};
 
 /**
  * @summary Computes the sum of an array
@@ -849,7 +849,7 @@ PSVUtils.normalizeWheel = function(event) {
  */
 
 /**
- * Loops over enumerable properties of an object
+ * @summary Loops over enumerable properties of an object
  * @param {object} object
  * @param {ForEach} callback
  */
@@ -858,5 +858,28 @@ PSVUtils.forEach = function(object, callback) {
     if (object.hasOwnProperty(key)) {
       callback(object[key], key);
     }
+  }
+};
+
+/**
+ * @summary Formats a duration for display
+ * @param {number} duration
+ * @returns {string}
+ */
+PSVUtils.formatDuration = function(duration) {
+  if (!duration && duration !== 0) {
+    return '-';
+  }
+
+  var hours   = Math.floor(duration / 3600);
+  var minutes = Math.floor((duration - (hours * 3600)) / 60);
+  var seconds = Math.round(duration - (hours * 3600) - (minutes * 60));
+  if (seconds < 10) {seconds = '0'+seconds;}
+  if (hours > 0) {
+    if (minutes < 10) {minutes = '0'+minutes;}
+    return hours+':'+minutes+':'+seconds;
+  }
+  else {
+    return minutes+':'+seconds;
   }
 };

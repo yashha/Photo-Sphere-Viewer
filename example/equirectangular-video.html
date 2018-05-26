@@ -39,7 +39,12 @@
 <script>
   var PSV = new PhotoSphereViewer.Video({
     container: 'videosphere',
-    video: 'showreel_equirectangular.mp4',
+    video: [
+      {source: 'showreel_equirectangular.mp4', resolution: 'HD'},
+      {source: 'showreel_equirectangular_sd.mp4', resolution: 'SD'}
+    ],
+    default_resolution: 'SD',
+    muted: true,
     caption: 'Antonio Gutiérrez Showreel',
     loading_img: 'assets/photosphere-logo.gif'
   });

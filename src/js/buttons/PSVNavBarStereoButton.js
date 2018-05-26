@@ -18,6 +18,8 @@ PSVNavBarStereoButton.id = 'stereo';
 PSVNavBarStereoButton.className = 'psv-button psv-button--hover-scale psv-stereo-button';
 PSVNavBarStereoButton.icon = 'stereo.svg';
 
+PSVNavBar.registerButton(PSVNavBarStereoButton);
+
 /**
  * @override
  * @description The button gets visible once the gyroscope API is ready

@@ -18,6 +18,8 @@ PSVNavBarDownloadButton.id = 'download';
 PSVNavBarDownloadButton.className = 'psv-button psv-button--hover-scale psv-download-button';
 PSVNavBarDownloadButton.icon = 'download.svg';
 
+PSVNavBar.registerButton(PSVNavBarDownloadButton);
+
 /**
  * @override
  * @description Asks the browser to download the panorama source file

@@ -3,6 +3,7 @@
  * @param {module:components.PSVNavBar} navbar
  * @constructor
  * @extends module:components/buttons.PSVNavBarButton
+ * @extends PSVUtils.PSVSlider
  * @memberof module:components/buttons
  */
 function PSVNavBarZoomButton(navbar) {
@@ -23,11 +24,17 @@ function PSVNavBarZoomButton(navbar) {
   this.zoom_value = null;
 
   /**
+   * @member {PSVSlider}
+   * @readonly
+   * @private
+   */
+  this.slider = null;
+
+  /**
    * @member {Object}
    * @private
    */
   this.prop = {
-    mousedown: false,
     buttondown: false,
     longPressInterval: null,
     longPressTimeout: null
@@ -41,6 +48,8 @@ PSVNavBarZoomButton.prototype.constructor = PSVNavBarZoomButton;
 
 PSVNavBarZoomButton.id = 'zoom';
 PSVNavBarZoomButton.className = 'psv-button psv-zoom-button';
+
+PSVNavBar.registerButton(PSVNavBarZoomButton);
 
 /**
  * @override
@@ -72,12 +81,13 @@ PSVNavBarZoomButton.prototype.create = function() {
   this._setIcon('zoom-in.svg', zoom_plus);
   this.container.appendChild(zoom_plus);
 
-  this.zoom_range.addEventListener('mousedown', this);
-  this.zoom_range.addEventListener('touchstart', this);
-  this.psv.container.addEventListener('mousemove', this);
-  this.psv.container.addEventListener('touchmove', this);
-  this.psv.container.addEventListener('mouseup', this);
-  this.psv.container.addEventListener('touchend', this);
+  this.slider = new PSVSlider(this, {
+    element: zoom_range_bg,
+    container: this.psv.container
+  });
+
+  window.addEventListener('mouseup', this);
+  window.addEventListener('touchend', this);
   zoom_minus.addEventListener('mousedown', this._zoomOut.bind(this));
   zoom_plus.addEventListener('mousedown', this._zoomIn.bind(this));
 
@@ -94,15 +104,16 @@ PSVNavBarZoomButton.prototype.create = function() {
 PSVNavBarZoomButton.prototype.destroy = function() {
   this._stopZoomChange();
 
-  this.psv.container.removeEventListener('mousemove', this);
-  this.psv.container.removeEventListener('touchmove', this);
-  this.psv.container.removeEventListener('mouseup', this);
-  this.psv.container.removeEventListener('touchend', this);
+  this.slider.destroy();
 
-  delete this.zoom_range;
-  delete this.zoom_value;
+  window.removeEventListener('mouseup', this);
+  window.removeEventListener('touchend', this);
 
   this.psv.off('zoom-updated', this);
+
+  delete this.slider;
+  delete this.zoom_range;
+  delete this.zoom_value;
 
   PSVNavBarButton.prototype.destroy.call(this);
 };
@@ -115,13 +126,10 @@ PSVNavBarZoomButton.prototype.destroy = function() {
 PSVNavBarZoomButton.prototype.handleEvent = function(e) {
   switch (e.type) {
     // @formatter:off
-    case 'mousedown':     this._initZoomChangeWithMouse(e); break;
-    case 'touchstart':    this._initZoomChangeByTouch(e); break;
-    case 'mousemove':     this._changeZoomWithMouse(e); break;
-    case 'touchmove':     this._changeZoomByTouch(e); break;
-    case 'mouseup':       this._stopZoomChange(e); break;
-    case 'touchend':      this._stopZoomChange(e); break;
-    case 'zoom-updated':  this._moveZoomValue(e.args[0]); break;
+    case 'mouseup':      this._stopZoomChange(e); break;
+    case 'touchend':     this._stopZoomChange(e); break;
+    case 'zoom-updated': this._moveZoomValue(e.args[0]); break;
+    case 'slide':        this.psv.zoom(e.value * 100); break;
     // @formatter:on
   }
 };
@@ -132,35 +140,7 @@ PSVNavBarZoomButton.prototype.handleEvent = function(e) {
  * @private
  */
 PSVNavBarZoomButton.prototype._moveZoomValue = function(level) {
-  this.zoom_value.style.left = (level / 100 * this.zoom_range.offsetWidth - this.zoom_value.offsetWidth / 2) + 'px';
-};
-
-/**
- * @summary Handles mouse down events
- * @param {MouseEvent} evt
- * @private
- */
-PSVNavBarZoomButton.prototype._initZoomChangeWithMouse = function(evt) {
-  if (!this.enabled) {
-    return;
-  }
-
-  this.prop.mousedown = true;
-  this._changeZoom(evt.clientX);
-};
-
-/**
- * @summary Handles touch events
- * @param {TouchEvent} evt
- * @private
- */
-PSVNavBarZoomButton.prototype._initZoomChangeByTouch = function(evt) {
-  if (!this.enabled) {
-    return;
-  }
-
-  this.prop.mousedown = true;
-  this._changeZoom(evt.changedTouches[0].clientX);
+  this.zoom_value.style.left = level + '%';
 };
 
 /**
@@ -218,45 +198,6 @@ PSVNavBarZoomButton.prototype._stopZoomChange = function() {
   window.clearInterval(this.prop.longPressInterval);
   window.clearTimeout(this.prop.longPressTimeout);
   this.prop.longPressInterval = null;
-  this.prop.mousedown = false;
+  this.prop.longPressTimeout = null;
   this.prop.buttondown = false;
-};
-
-/**
- * @summary Handles mouse move events
- * @param {MouseEvent} evt
- * @private
- */
-PSVNavBarZoomButton.prototype._changeZoomWithMouse = function(evt) {
-  if (!this.enabled) {
-    return;
-  }
-
-  evt.preventDefault();
-  this._changeZoom(evt.clientX);
-};
-
-/**
- * @summary Handles touch move events
- * @param {TouchEvent} evt
- * @private
- */
-PSVNavBarZoomButton.prototype._changeZoomByTouch = function(evt) {
-  if (!this.enabled) {
-    return;
-  }
-  this._changeZoom(evt.changedTouches[0].clientX);
-};
-
-/**
- * @summary Zoom change
- * @param {int} x - mouse/touch position
- * @private
- */
-PSVNavBarZoomButton.prototype._changeZoom = function(x) {
-  if (this.prop.mousedown) {
-    var user_input = parseInt(x) - this.zoom_range.getBoundingClientRect().left;
-    var zoom_level = user_input / this.zoom_range.offsetWidth * 100;
-    this.psv.zoom(zoom_level);
-  }
 };

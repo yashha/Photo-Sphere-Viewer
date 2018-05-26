@@ -44,12 +44,14 @@ $psv-tooltip-animate-offset: 5px !default;
 $psv-tooltip-animate-delay: 100ms !default;
 $psv-tooltip-radius: 4px !default;
 $psv-tooltip-padding: .5em 1em !default;
+$psv-tooltip-padding-small: .25em .5em !default;
 // set tooltip.arrow_size JS config to the same value
 $psv-tooltip-arrow-size: 7px !default;
 $psv-tooltip-max-width: 200px !default;
 
 $psv-tooltip-text-color: rgb(255, 255, 255) !default;
 $psv-tooltip-font: 14px sans-serif !default;
+$psv-tooltip-font-small: 12px sans-serif !default;
 $psv-tooltip-text-shadow: 0 1px #000 !default;
 
 $psv-tooltip-shadow-color: rgba(90, 90, 90, .7) !default;

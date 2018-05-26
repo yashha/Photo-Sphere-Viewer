@@ -19,6 +19,8 @@ PSVNavBarAutorotateButton.className = 'psv-button psv-button--hover-scale psv-au
 PSVNavBarAutorotateButton.icon = 'play.svg';
 PSVNavBarAutorotateButton.iconActive = 'play-active.svg';
 
+PSVNavBar.registerButton(PSVNavBarAutorotateButton);
+
 /**
  * @override
  */

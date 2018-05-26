@@ -18,6 +18,8 @@ PSVNavBarGyroscopeButton.id = 'gyroscope';
 PSVNavBarGyroscopeButton.className = 'psv-button psv-button--hover-scale psv-gyroscope-button';
 PSVNavBarGyroscopeButton.icon = 'compass.svg';
 
+PSVNavBar.registerButton(PSVNavBarGyroscopeButton);
+
 /**
  * @override
  * @description The button gets visible once the gyroscope API is ready

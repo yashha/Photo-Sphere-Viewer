@@ -24,6 +24,14 @@
     border: $psv-tooltip-arrow-size solid transparent;
   }
 
+  &--small {
+    padding: $psv-tooltip-padding-small;
+  }
+
+  &--small &-content {
+    font: $psv-tooltip-font-small;
+  }
+
   &--bottom-center {
     box-shadow: 0 $psv-tooltip-shadow-offset 0 $psv-tooltip-shadow-color;
     transform: translate3d(0, -$psv-tooltip-animate-offset, 0);

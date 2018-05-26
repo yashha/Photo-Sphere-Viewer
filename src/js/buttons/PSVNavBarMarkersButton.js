@@ -18,6 +18,8 @@ PSVNavBarMarkersButton.id = 'markers';
 PSVNavBarMarkersButton.className = 'psv-button psv-button--hover-scale psv-markers-button';
 PSVNavBarMarkersButton.icon = 'pin.svg';
 
+PSVNavBar.registerButton(PSVNavBarMarkersButton);
+
 /**
  * @override
  * @description Toggles markers list

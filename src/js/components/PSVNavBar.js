@@ -57,6 +57,12 @@ PSVNavBar.prototype.constructor = PSVNavBar;
 PSVNavBar.className = 'psv-navbar psv-navbar--open';
 PSVNavBar.publicMethods = ['showNavbar', 'hideNavbar', 'toggleNavbar', 'getNavbarButton'];
 
+PSVNavBar.buttons = {};
+
+PSVNavBar.registerButton = function(button) {
+  PSVNavBar.buttons[button.id] = button;
+};
+
 /**
  * @override
  * @throws {PSVError} when the configuration is incorrect
@@ -68,36 +74,11 @@ PSVNavBar.prototype.create = function() {
     if (typeof button === 'object') {
       this.items.push(new PSVNavBarCustomButton(this, button));
     }
+    else if (PSVNavBar.buttons[button]) {
+      this.items.push(new PSVNavBar.buttons[button](this));
+    }
     else {
       switch (button) {
-        case PSVNavBarAutorotateButton.id:
-          this.items.push(new PSVNavBarAutorotateButton(this));
-          break;
-
-        case PSVNavBarZoomButton.id:
-          this.items.push(new PSVNavBarZoomButton(this));
-          break;
-
-        case PSVNavBarDownloadButton.id:
-          this.items.push(new PSVNavBarDownloadButton(this));
-          break;
-
-        case PSVNavBarMarkersButton.id:
-          this.items.push(new PSVNavBarMarkersButton(this));
-          break;
-
-        case PSVNavBarFullscreenButton.id:
-          this.items.push(new PSVNavBarFullscreenButton(this));
-          break;
-
-        case PSVNavBarStereoButton.id:
-          this.items.push(new PSVNavBarStereoButton(this));
-          break;
-
-        case PSVNavBarGyroscopeButton.id:
-          this.items.push(new PSVNavBarGyroscopeButton(this));
-          break;
-
         case 'caption':
           this.items.push(new PSVNavBarCaption(this, this.psv.config.caption));
           break;

@@ -19,6 +19,8 @@ PSVNavBarFullscreenButton.className = 'psv-button psv-button--hover-scale psv-fu
 PSVNavBarFullscreenButton.icon = 'fullscreen-in.svg';
 PSVNavBarFullscreenButton.iconActive = 'fullscreen-out.svg';
 
+PSVNavBar.registerButton(PSVNavBarFullscreenButton);
+
 /**
  * @override
  */

@@ -20,7 +20,8 @@ function PSVTooltip(hud) {
    * @private
    */
   this.prop = {
-    timeout: null
+    timeout: null,
+    permanent: false
   };
 
   this.create();
@@ -71,7 +72,7 @@ PSVTooltip.prototype.destroy = function() {
 PSVTooltip.prototype.handleEvent = function(e) {
   switch (e.type) {
     // @formatter:off
-    case 'render': this.hideTooltip(); break;
+    case 'render': if (!this.prop.permanent) this.hideTooltip(); break;
     // @formatter:on
   }
 };
@@ -97,6 +98,8 @@ PSVTooltip.prototype.isTooltipVisible = function() {
  * @param {Object} [config.box] - Used when displaying a tooltip on a marker
  * @param {int} [config.box.width=0]
  * @param {int} [config.box.height=0]
+ * @param {boolean} [config.small=false] - Smaller size
+ * @param {boolean} [config.permanent=false] - The tooltip won't hide on render
  * @fires module:components.PSVTooltip.show-tooltip
  * @throws {PSVError} when the configuration is incorrect
  *
@@ -155,6 +158,9 @@ PSVTooltip.prototype.showTooltip = function(config) {
 
   if (config.className) {
     PSVUtils.addClasses(t, config.className);
+  }
+  if (config.small) {
+    t.classList.add('psv-tooltip--small');
   }
 
   c.innerHTML = config.content;
@@ -221,6 +227,8 @@ PSVTooltip.prototype.showTooltip = function(config) {
       this.psv.trigger('show-tooltip');
     }.bind(this), this.config.delay);
   }
+
+  this.prop.permanent = config.permanent;
 };
 
 /**
