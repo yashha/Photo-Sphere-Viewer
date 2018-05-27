@@ -16,6 +16,7 @@ VideoSphereViewer.DEFAULTS = {
     'duration',
     'caption',
     'volume',
+    'resolution',
     'gyroscope',
     'stereo',
     'fullscreen'

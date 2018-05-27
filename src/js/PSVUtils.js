@@ -259,6 +259,16 @@ PSVUtils.getClosest = function(el, selector) {
 };
 
 /**
+ * @summary Removes all children of an element
+ * @param {HTMLElement} el
+ */
+PSVUtils.emptyElement = function(el) {
+  while (el.hasChildNodes()) {
+    el.removeChild(el.lastChild);
+  }
+};
+
+/**
  * @summary Gets the event name for mouse wheel
  * @returns {string}
  */
@@ -874,12 +884,16 @@ PSVUtils.formatDuration = function(duration) {
   var hours   = Math.floor(duration / 3600);
   var minutes = Math.floor((duration - (hours * 3600)) / 60);
   var seconds = Math.round(duration - (hours * 3600) - (minutes * 60));
-  if (seconds < 10) {seconds = '0'+seconds;}
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
   if (hours > 0) {
-    if (minutes < 10) {minutes = '0'+minutes;}
-    return hours+':'+minutes+':'+seconds;
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
+    return hours + ':' + minutes + ':' + seconds;
   }
   else {
-    return minutes+':'+seconds;
+    return minutes + ':' + seconds;
   }
 };

@@ -141,7 +141,8 @@ VSVProgressbar.prototype._onBuffer = function() {
 VSVProgressbar.prototype._onSlide = function(value, moving) {
   if (moving) {
     this.handle.style.width = (value * 100) + '%';
-  } else {
+  }
+  else {
     this.psv.setProgress(value);
   }
 };

@@ -23,7 +23,8 @@ VideoSphereViewer.prototype.isPlaying = function() {
 VideoSphereViewer.prototype.playPause = function() {
   if (this.video.paused) {
     this.video.play();
-  } else {
+  }
+  else {
     this.video.pause();
   }
 };
@@ -31,7 +32,8 @@ VideoSphereViewer.prototype.playPause = function() {
 VideoSphereViewer.prototype.setVolume = function(volume) {
   if (volume <= 0) {
     this.setMute(true);
-  } else {
+  }
+  else {
     this.video.muted = false;
     this.video.volume = volume;
   }
@@ -93,7 +95,7 @@ VideoSphereViewer.prototype.setVideo = function(path, position) {
 
     var hasResolution = !!video.resolution;
     if (havingResolutions ^ hasResolution) {
-      throw new PSVError('Cannot mix video sources with and without resolution');
+      throw new PSVError('All video sources must have a resolution');
     }
 
     if (!video.type) {
@@ -105,11 +107,23 @@ VideoSphereViewer.prototype.setVideo = function(path, position) {
     }
   }.bind(this));
 
-  if (!this.config.default_resolution) {
-    this.config.default_resolution = path[0].resolution;
+  if (this.prop.resolutions.length) {
+    if (!this.config.default_resolution) {
+      this.config.default_resolution = path[0].resolution;
+    }
+    else if (this.prop.resolutions.indexOf(this.config.default_resolution) === -1) {
+      console.warn('VideoSphereViewer: unknown default_resolution ' + this.config.default_resolution);
+      this.config.default_resolution = path[0].resolution;
+    }
+  }
+  else if (this.config.default_resolution) {
+    console.warn('VideoSphereViewer: unknown default_resolution ' + this.config.default_resolution);
+    this.config.default_resolution = undefined;
   }
 
   this.config.video = path;
+
+  this.trigger('video-change');
 
   this.setVideoResolution(this.config.default_resolution);
 
@@ -126,19 +140,20 @@ VideoSphereViewer.prototype.setVideo = function(path, position) {
 };
 
 VideoSphereViewer.prototype.setVideoResolution = function(resolution) {
-  if (this.prop.resolutions.indexOf(resolution) === -1) {
+  if (resolution && this.prop.resolutions.indexOf(resolution) === -1) {
     throw new PSVError('Resolution ' + resolution + ' unknown');
   }
 
+  var isPlaying = this.isPlaying();
+  var currentTime = this.getTime();
+
   this.video.pause();
 
-  while (this.video.hasChildNodes()) {
-    this.video.removeChild(this.video.lastChild);
-  }
+  PSVUtils.emptyElement(this.video);
 
   this.config.video
     .filter(function(video) {
-      return video.resolution === resolution;
+      return !resolution || video.resolution === resolution;
     })
     .forEach(function(video) {
       var source = document.createElement('source');
@@ -151,9 +166,13 @@ VideoSphereViewer.prototype.setVideoResolution = function(resolution) {
       this.video.appendChild(source);
     }.bind(this));
 
-  if (this.config.autoplay) {
+  if (isPlaying || this.config.autoplay) {
     this.video.load();
     this.video.play();
+  }
+
+  if (!isNaN(currentTime)) {
+    this.setTime(currentTime);
   }
 
   this.trigger('resolution-change', resolution);

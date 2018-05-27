@@ -6,6 +6,7 @@ rules:
     no-important: [0]
     no-qualifying-elements: [0]
     no-transition-all: [0]
+    no-css-comments: [0]
     shorthand-values: [1, {allowed-shorthands: [1, 2, 4]}]
 
 files:
