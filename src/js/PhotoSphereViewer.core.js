@@ -1,4 +1,55 @@
 /**
+ * @summary Main event loop, calls {@link PhotoSphereViewer._render} if `prop.needsUpdate` is true
+ * @param {int} timestamp
+ * @fires PhotoSphereViewer.filter:before-render
+ * @private
+ */
+PhotoSphereViewer.prototype._run = function(timestamp) {
+  /**
+   * @event before-render
+   * @memberof PhotoSphereViewer
+   * @summary Triggered before a render, used to modify the view
+   * @param {int} timestamp - time provided by requestAnimationFrame
+   */
+  this.trigger('before-render', timestamp || +new Date());
+
+  if (this.prop.needsUpdate) {
+    this._render();
+    this.prop.needsUpdate = false;
+  }
+
+  this.prop.main_reqid = window.requestAnimationFrame(this._run.bind(this));
+};
+
+/**
+ * @summary Performs a render
+ * @fires PhotoSphereViewer.render
+ * @private
+ */
+PhotoSphereViewer.prototype._render = function() {
+  this.prop.direction = this.sphericalCoordsToVector3(this.prop.position);
+  this.camera.position.set(0, 0, 0);
+  this.camera.lookAt(this.prop.direction);
+
+  if (this.config.fisheye) {
+    this.camera.position.copy(this.prop.direction).multiplyScalar(this.config.fisheye / 2).negate();
+  }
+
+  this.camera.aspect = this.prop.aspect;
+  this.camera.fov = this.prop.vFov;
+  this.camera.updateProjectionMatrix();
+
+  (this.stereoEffect || this.renderer).render(this.scene, this.camera);
+
+  /**
+   * @event render
+   * @memberof PhotoSphereViewer
+   * @summary Triggered on each viewer render, **this event is triggered very often**
+   */
+  this.trigger('render');
+};
+
+/**
  * @summary Loads the XMP data with AJAX
  * @param {string} panorama
  * @returns {Promise.<PhotoSphereViewer.PanoData>}
@@ -12,6 +63,9 @@ PhotoSphereViewer.prototype._loadXMP = function(panorama) {
 
   var defer = D();
   var xhr = new XMLHttpRequest();
+  if (this.config.with_credentials) {
+    xhr.withCredentials = true;
+  }
   var progress = 0;
 
   xhr.onreadystatechange = function() {
@@ -114,8 +168,6 @@ PhotoSphereViewer.prototype._loadTexture = function(panorama) {
   }
 
   if (Array.isArray(panorama)) {
-
-
     if (this.prop.isCubemap === false) {
       throw new PSVError('The viewer was initialized with an equirectangular panorama, cannot switch to cubemap.');
     }
@@ -167,7 +219,12 @@ PhotoSphereViewer.prototype._loadEquirectangularTexture = function(panorama) {
     var loader = new THREE.ImageLoader();
     var progress = pano_data ? 100 : 0;
 
-    loader.setCrossOrigin('anonymous');
+    if (this.config.with_credentials) {
+      loader.setCrossOrigin('use-credentials');
+    }
+    else {
+      loader.setCrossOrigin('anonymous');
+    }
 
     var onload = function(img) {
       progress = 100;
@@ -287,7 +344,12 @@ PhotoSphereViewer.prototype._loadCubemapTexture = function(panorama) {
   var loaded = [];
   var done = 0;
 
-  loader.setCrossOrigin('anonymous');
+  if (this.config.with_credentials) {
+    loader.setCrossOrigin('use-credentials');
+  }
+  else {
+    loader.setCrossOrigin('anonymous');
+  }
 
   var onend = function() {
     loaded.forEach(function(img) {
@@ -410,7 +472,7 @@ PhotoSphereViewer.prototype._setTexture = function(texture) {
    */
   this.trigger('panorama-loaded');
 
-  this.render();
+  this._render();
 };
 
 /**
@@ -435,19 +497,17 @@ PhotoSphereViewer.prototype._createScene = function() {
   this.camera = new THREE.PerspectiveCamera(this.config.default_fov, this.prop.size.width / this.prop.size.height, 1, cameraDistance);
   this.camera.position.set(0, 0, 0);
 
-  if (this.config.gyroscope && PSVUtils.checkTHREE('DeviceOrientationControls')) {
-    this.doControls = new THREE.DeviceOrientationControls(this.camera);
-  }
-
   this.scene = new THREE.Scene();
   this.scene.add(this.camera);
 
   if (this.prop.isCubemap) {
-    this._createCubemap();
+    this.mesh = this._createCubemap();
   }
   else {
-    this._createSphere();
+    this.mesh = this._createSphere();
   }
+
+  this.scene.add(this.mesh);
 
   // create canvas container
   this.canvas_container = document.createElement('div');
@@ -459,12 +519,16 @@ PhotoSphereViewer.prototype._createScene = function() {
 
 /**
  * @summary Creates the sphere mesh
+ * @param {number} [scale=1]
+ * @returns {THREE.Mesh}
  * @private
  */
-PhotoSphereViewer.prototype._createSphere = function() {
+PhotoSphereViewer.prototype._createSphere = function(scale) {
+  scale = scale || 1;
+
   // The middle of the panorama is placed at longitude=0
   var geometry = new THREE.SphereGeometry(
-    PhotoSphereViewer.SPHERE_RADIUS,
+    PhotoSphereViewer.SPHERE_RADIUS * scale,
     PhotoSphereViewer.SPHERE_VERTICES,
     PhotoSphereViewer.SPHERE_VERTICES,
     -PSVUtils.HalfPI
@@ -475,22 +539,26 @@ PhotoSphereViewer.prototype._createSphere = function() {
     overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1
   });
 
-  this.mesh = new THREE.Mesh(geometry, material);
-  this.mesh.scale.x = -1;
-  this.mesh.rotation.x = this.config.sphere_correction.tilt;
-  this.mesh.rotation.y = this.config.sphere_correction.pan;
-  this.mesh.rotation.z = this.config.sphere_correction.roll;
+  var mesh = new THREE.Mesh(geometry, material);
+  mesh.scale.x = -1;
+  mesh.rotation.x = this.config.sphere_correction.tilt;
+  mesh.rotation.y = this.config.sphere_correction.pan;
+  mesh.rotation.z = this.config.sphere_correction.roll;
 
-  this.scene.add(this.mesh);
+  return mesh;
 };
 
 /**
  * @summary Creates the cube mesh
+ * @param {number} [scale=1]
+ * @returns {THREE.Mesh}
  * @private
  */
-PhotoSphereViewer.prototype._createCubemap = function() {
+PhotoSphereViewer.prototype._createCubemap = function(scale) {
+  scale = scale || 1;
+
   var geometry = new THREE.BoxGeometry(
-    PhotoSphereViewer.SPHERE_RADIUS * 2, PhotoSphereViewer.SPHERE_RADIUS * 2, PhotoSphereViewer.SPHERE_RADIUS * 2,
+    PhotoSphereViewer.SPHERE_RADIUS * 2 * scale, PhotoSphereViewer.SPHERE_RADIUS * 2 * scale, PhotoSphereViewer.SPHERE_RADIUS * 2 * scale,
     PhotoSphereViewer.CUBE_VERTICES, PhotoSphereViewer.CUBE_VERTICES, PhotoSphereViewer.CUBE_VERTICES
   );
 
@@ -502,13 +570,13 @@ PhotoSphereViewer.prototype._createCubemap = function() {
     }));
   }
 
-  this.mesh = new THREE.Mesh(geometry, materials);
-  this.mesh.position.x -= PhotoSphereViewer.SPHERE_RADIUS;
-  this.mesh.position.y -= PhotoSphereViewer.SPHERE_RADIUS;
-  this.mesh.position.z -= PhotoSphereViewer.SPHERE_RADIUS;
-  this.mesh.applyMatrix(new THREE.Matrix4().makeScale(1, 1, -1));
+  var mesh = new THREE.Mesh(geometry, materials);
+  mesh.position.x -= PhotoSphereViewer.SPHERE_RADIUS * scale;
+  mesh.position.y -= PhotoSphereViewer.SPHERE_RADIUS * scale;
+  mesh.position.z -= PhotoSphereViewer.SPHERE_RADIUS * scale;
+  mesh.applyMatrix(new THREE.Matrix4().makeScale(1, 1, -1));
 
-  this.scene.add(this.mesh);
+  return mesh;
 };
 
 /**
@@ -520,42 +588,49 @@ PhotoSphereViewer.prototype._createCubemap = function() {
  * @throws {PSVError} if the panorama is a cubemap
  */
 PhotoSphereViewer.prototype._transition = function(texture, position) {
+  var mesh;
+
   if (this.prop.isCubemap) {
-    throw new PSVError('Transition is not available with cubemap.');
+    if (position) {
+      console.warn('PhotoSphereViewer: cannot perform cubemap transition to different position.');
+      position = undefined;
+    }
+
+    mesh = this._createCubemap(0.9);
+
+    mesh.material.forEach(function(material, i) {
+      material.map = texture[i];
+      material.transparent = true;
+      material.opacity = 0;
+    });
   }
+  else {
+    mesh = this._createSphere(0.9);
 
-  // create a new sphere with the new texture
-  var geometry = new THREE.SphereGeometry(
-    PhotoSphereViewer.SPHERE_RADIUS * 0.9,
-    PhotoSphereViewer.SPHERE_VERTICES,
-    PhotoSphereViewer.SPHERE_VERTICES,
-    -PSVUtils.HalfPI
-  );
-
-  var material = new THREE.MeshBasicMaterial({
-    side: THREE.DoubleSide,
-    overdraw: PhotoSphereViewer.SYSTEM.isWebGLSupported && this.config.webgl ? 0 : 1,
-    map: texture,
-    transparent: true,
-    opacity: 0
-  });
-
-  var mesh = new THREE.Mesh(geometry, material);
-  mesh.scale.x = -1;
+    mesh.material.map = texture;
+    mesh.material.transparent = true;
+    mesh.material.opacity = 0;
+  }
 
   // rotate the new sphere to make the target position face the camera
   if (position) {
     // Longitude rotation along the vertical axis
-    mesh.rotateY(position.longitude - this.prop.longitude);
+    mesh.rotateY(position.longitude - this.prop.position.longitude);
 
     // Latitude rotation along the camera horizontal axis
     var axis = new THREE.Vector3(0, 1, 0).cross(this.camera.getWorldDirection()).normalize();
-    var q = new THREE.Quaternion().setFromAxisAngle(axis, position.latitude - this.prop.latitude);
+    var q = new THREE.Quaternion().setFromAxisAngle(axis, position.latitude - this.prop.position.latitude);
     mesh.quaternion.multiplyQuaternions(q, mesh.quaternion);
+
+    // FIXME: find a better way to handle ranges
+    if (this.config.latitude_range || this.config.longitude_range) {
+      this.config.longitude_range = this.config.latitude_range = null;
+      console.warn('PhotoSphereViewer: trying to perform transition with longitude_range and/or latitude_range, ranges cleared.');
+    }
   }
 
   this.scene.add(mesh);
-  this.render();
+  this.needsUpdate();
 
   return PSVUtils.animation({
     properties: {
@@ -564,35 +639,29 @@ PhotoSphereViewer.prototype._transition = function(texture, position) {
     duration: this.config.transition.duration,
     easing: 'outCubic',
     onTick: function(properties) {
-      material.opacity = properties.opacity;
+      if (this.prop.isCubemap) {
+        for (var i = 0; i < 6; i++) {
+          mesh.material[i].opacity = properties.opacity;
+        }
+      }
+      else {
+        mesh.material.opacity = properties.opacity;
+      }
 
-      this.render();
+      this.needsUpdate();
     }.bind(this)
   })
     .then(function() {
       // remove temp sphere and transfer the texture to the main sphere
-      this.mesh.material.map.dispose();
-      this.mesh.material.map = texture;
-
+      this._setTexture(texture);
       this.scene.remove(mesh);
 
       mesh.geometry.dispose();
       mesh.geometry = null;
-      mesh.material.dispose();
-      mesh.material = null;
 
       // actually rotate the camera
       if (position) {
-        // FIXME: find a better way to handle ranges
-        if (this.config.latitude_range || this.config.longitude_range) {
-          this.config.longitude_range = this.config.latitude_range = null;
-          console.warn('PhotoSphereViewer: trying to perform transition with longitude_range and/or latitude_range, ranges cleared.');
-        }
-
         this.rotate(position);
-      }
-      else {
-        this.render();
       }
     }.bind(this));
 };
@@ -675,4 +744,5 @@ PhotoSphereViewer.prototype._stopAll = function() {
   this.stopAutorotate();
   this.stopAnimation();
   this.stopGyroscopeControl();
+  this.stopStereoView();
 };

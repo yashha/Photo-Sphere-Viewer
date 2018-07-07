@@ -27,7 +27,7 @@
  */
 
 /**
- * @typedef {Object} PhotoSphereViewer.ExtendedPosition
+ * @typedef {PhotoSphereViewer.Position} PhotoSphereViewer.ExtendedPosition
  * @summary Object defining a spherical or texture position
  * @description A position that can be expressed either in spherical coordinates (radians or degrees) or in texture coordinates (pixels)
  * @property {float} longitude
@@ -155,6 +155,10 @@ function PhotoSphereViewer(options) {
     console.warn('PhotoSphereViewer: panorama_roll is deprecated, use sphere_correction.roll instead');
   }
 
+  if ('gyroscope' in this.config) {
+    console.warn('PhotoSphereViewer: gyroscope is deprecated, the control is automatically created if DeviceOrientationControls.js is loaded');
+  }
+
   // min_fov/max_fov between 1 and 179
   this.config.min_fov = PSVUtils.bound(this.config.min_fov, 1, 179);
   this.config.max_fov = PSVUtils.bound(this.config.max_fov, 1, 179);
@@ -263,6 +267,18 @@ function PhotoSphereViewer(options) {
   this.tooltip = null;
 
   /**
+   * @member {module:components.PSVNotification}
+   * @readonly
+   */
+  this.notification = null;
+
+  /**
+   * @member {module:components.PSVPleaseRotate}
+   * @readonly
+   */
+  this.pleaseRotate = null;
+
+  /**
    * @member {HTMLElement}
    * @readonly
    * @private
@@ -275,6 +291,18 @@ function PhotoSphereViewer(options) {
    * @private
    */
   this.renderer = null;
+
+  /**
+   * @member {THREE.StereoEffect}
+   * @private
+   */
+  this.stereoEffect = null;
+
+  /**
+   * @member {NoSleep}
+   * @private
+   */
+  this.noSleep = null;
 
   /**
    * @member {THREE.Scene}
@@ -315,9 +343,9 @@ function PhotoSphereViewer(options) {
    * @summary Internal properties
    * @member {Object}
    * @readonly
+   * @property {boolean} needsUpdate - if the view needs to be renderer
    * @property {boolean} isCubemap - if the panorama is a cubemap
-   * @property {float} longitude - current longitude of the center
-   * @property {float} longitude - current latitude of the center
+   * @property {PhotoSphereViewer.Position} position - current direction of the camera
    * @property {THREE.Vector3} direction - direction of the camera
    * @property {float} anim_speed - parsed animation speed (rad/sec)
    * @property {int} zoom_lvl - current zoom level
@@ -334,21 +362,26 @@ function PhotoSphereViewer(options) {
    * @property {Array[]} mouse_history - list of latest positions of the cursor, [time, x, y]
    * @property {int} gyro_alpha_offset - current alpha offset for gyroscope controls
    * @property {int} pinch_dist - distance between fingers when zooming
-   * @property orientation_reqid - animationRequest id of the device orientation
-   * @property autorotate_reqid - animationRequest id of the automatic rotation
+   * @property main_reqid - animationRequest id of the main event loop
+   * @property {function} orientation_cb - update callback of the device orientation
+   * @property {function} autorotate_cb - update callback of the automatic rotation
    * @property {Promise} animation_promise - promise of the current animation (either go to position or image transition)
    * @property {Promise} loading_promise - promise of the setPanorama method
    * @property start_timeout - timeout id of the automatic rotation delay
    * @property {PhotoSphereViewer.ClickData} dblclick_data - temporary storage of click data between two clicks
    * @property dblclick_timeout - timeout id for double click
    * @property {PhotoSphereViewer.CacheItem[]} cache - cached panoramas
-   * @property {Size} size - size of the container
+   * @property {PhotoSphereViewer.Size} size - size of the container
    * @property {PhotoSphereViewer.PanoData} pano_data - panorama metadata
    */
   this.prop = {
+    needsUpdate: true,
     isCubemap: undefined,
-    longitude: 0,
-    latitude: 0,
+    position: {
+      longitude: 0,
+      latitude: 0
+    },
+    ready: false,
     direction: null,
     anim_speed: 0,
     zoom_lvl: 0,
@@ -365,8 +398,9 @@ function PhotoSphereViewer(options) {
     mouse_history: [],
     gyro_alpha_offset: 0,
     pinch_dist: 0,
-    orientation_reqid: null,
-    autorotate_reqid: null,
+    main_reqid: null,
+    orientation_cb: null,
+    autorotate_cb: null,
     animation_promise: null,
     loading_promise: null,
     start_timeout: null,
@@ -413,7 +447,7 @@ function PhotoSphereViewer(options) {
 
   // apply default zoom level
   var tempZoom = Math.round((this.config.default_fov - this.config.min_fov) / (this.config.max_fov - this.config.min_fov) * 100);
-  this.zoom(tempZoom - 2 * (tempZoom - 50), false);
+  this.zoom(tempZoom - 2 * (tempZoom - 50));
 
   // actual move speed depends on pixel-ratio
   this.prop.move_speed = THREE.Math.degToRad(this.config.move_speed / PhotoSphereViewer.SYSTEM.pixelRatio);
@@ -422,7 +456,7 @@ function PhotoSphereViewer(options) {
   this.rotate({
     longitude: this.config.default_long,
     latitude: this.config.default_lat
-  }, false);
+  });
 
   // load loader (!!)
   this.loader = new PSVLoader(this);
@@ -442,12 +476,15 @@ function PhotoSphereViewer(options) {
   // load hud tooltip
   this.tooltip = new PSVTooltip(this.hud);
 
+  // load notification
+  this.notification = new PSVNotification(this);
+
   // attach event handlers
   this._bindEvents();
 
   // load panorama
   if (this.config.panorama) {
-    this.load();
+    this.setPanorama(this.config.panorama);
   }
 
   // enable GUI after first render
@@ -472,12 +509,21 @@ function PhotoSphereViewer(options) {
       this.prop.start_timeout = window.setTimeout(this.startAutorotate.bind(this), this.config.time_anim);
     }
 
-    /**
-     * @event ready
-     * @memberof PhotoSphereViewer
-     * @summary Triggered when the panorama image has been loaded and the viewer is ready to perform the first render
-     */
-    setTimeout(this.trigger.bind(this, 'ready'), 0);
+    setTimeout(function() {
+      // start render loop
+      this._run();
+
+      /**
+       * @event ready
+       * @memberof PhotoSphereViewer
+       * @summary Triggered when the panorama image has been loaded and the viewer is ready to perform the first render
+       */
+      this.trigger('ready');
+    }.bind(this), 0);
+  }.bind(this));
+
+  PhotoSphereViewer.SYSTEM.touchEnabled.then(function() {
+    this.container.classList.add('psv-is-touch');
   }.bind(this));
 }
 

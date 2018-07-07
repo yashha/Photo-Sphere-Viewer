@@ -137,6 +137,7 @@ PhotoSphereViewer.DEFAULTS = {
   longitude_range: null,
   latitude_range: null,
   move_speed: 1,
+  zoom_speed: 2,
   time_anim: 2000,
   anim_speed: '2rpm',
   anim_lat: null,
@@ -148,6 +149,7 @@ PhotoSphereViewer.DEFAULTS = {
     'markers',
     'caption',
     'gyroscope',
+    'stereo',
     'fullscreen'
   ],
   tooltip: {
@@ -163,14 +165,16 @@ PhotoSphereViewer.DEFAULTS = {
     download: 'Download',
     fullscreen: 'Fullscreen',
     markers: 'Markers',
-    gyroscope: 'Gyroscope'
+    gyroscope: 'Gyroscope',
+    stereo: 'Stereo view',
+    stereo_notification: 'Click anywhere to exit stereo view.',
+    please_rotate: ['Please rotate your device', '(or tap to continue)']
   },
   mousewheel: true,
   mousewheel_factor: 1,
   mousemove: true,
   mousemove_hover: false,
   keyboard: true,
-  gyroscope: false,
   move_inertia: true,
   click_event_on_marker: false,
   transition: {
@@ -182,7 +186,8 @@ PhotoSphereViewer.DEFAULTS = {
   size: null,
   cache_texture: 0,
   templates: {},
-  markers: []
+  markers: [],
+  with_credentials: false
 };
 
 /**

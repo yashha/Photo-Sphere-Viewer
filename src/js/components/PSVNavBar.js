@@ -90,23 +90,22 @@ PSVNavBar.prototype.create = function() {
           this.items.push(new PSVNavBarFullscreenButton(this));
           break;
 
+        case PSVNavBarStereoButton.id:
+          this.items.push(new PSVNavBarStereoButton(this));
+          break;
+
         case PSVNavBarGyroscopeButton.id:
-          if (this.psv.config.gyroscope) {
-            this.items.push(new PSVNavBarGyroscopeButton(this));
-          }
+          this.items.push(new PSVNavBarGyroscopeButton(this));
           break;
 
         case 'caption':
           this.items.push(new PSVNavBarCaption(this, this.psv.config.caption));
           break;
 
-        case 'spacer':
-          button = 'spacer-5';
         /* falls through */
         default:
-          var matches = button.match(/^spacer\-([0-9]+)$/);
-          if (matches !== null) {
-            this.items.push(new PSVNavBarSpacer(this, matches[1]));
+          if (button.indexOf('spacer') === 0) {
+            console.warn('PhotoSphereViewer: navbar spacers have been removed.');
           }
           else {
             throw new PSVError('Unknown button ' + button);
@@ -125,7 +124,7 @@ PSVNavBar.prototype.destroy = function() {
     item.destroy();
   });
 
-  delete this.items;
+  this.items.length = 0;
   delete this.config;
 
   PSVComponent.prototype.destroy.call(this);
