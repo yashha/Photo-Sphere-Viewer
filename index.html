@@ -76,16 +76,34 @@ isHome: true
     </ul>
   </div>
 
-  <div class="bs-callout bs-callout-warning">
-    <h4>Gyroscope support</h4>
+  <div class="container-fluid" style="padding: 0; margin-top: -20px;">
+    <div class="bs-callout bs-callout-warning col-md-6">
+      <h4>Gyroscope support</h4>
 
-    <p>In order to be able to respond to device gyroscope (<code>gyroscope</code> option), Photo Sphere Viewer requires
-      the following files from Three.js examples (also available in <code>three.js-examples</code> Bower package) :</p>
-    <ul>
-      <!-- @formatter:off -->
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/controls/DeviceOrientationControls.js">DeviceOrientationControls.js</a></li>
-      <!-- @formatter:on -->
-    </ul>
+      <p>In order to be able to respond to device gyroscope, Photo Sphere Viewer requires the following file from
+        Three.js examples (also available in <code>three.js-examples</code> Bower package) :</p>
+      <ul>
+        <!-- @formatter:off -->
+        <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/controls/DeviceOrientationControls.js">DeviceOrientationControls.js</a></li>
+        <li style="visibility: hidden">&nbsp;</li>
+        <!-- @formatter:on -->
+      </ul>
+      <p>&nbsp;</p>
+    </div>
+
+    <div class="bs-callout bs-callout-warning col-md-6">
+      <h4>VR support</h4>
+
+      <p>In order to be able to display the panorama in VR mode, Photo Sphere Viewer requires the following files from
+        Three.js examples (also available in <code>three.js-examples</code> Bower package) :</p>
+      <ul>
+        <!-- @formatter:off -->
+        <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/controls/DeviceOrientationControls.js">DeviceOrientationControls.js</a></li>
+        <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/effects/StereoEffect.js">StereoEffect.js</a></li>
+        <!-- @formatter:on -->
+      </ul>
+      <p>As well as the <a href="http://richtr.github.io/NoSleep.js/">NoSleep.js</a> library.</p>
+    </div>
   </div>
 </section>
 
@@ -305,7 +323,10 @@ lang: {
     download: 'Download',
     fullscreen: 'Fullscreen',
     markers: 'Markers',
-    gyroscope: 'Gyroscope'
+    gyroscope: 'Gyroscope',
+    stereo: 'Stereo view',
+    stereo_notification: 'Click anywhere to exit stereo view.',
+    please_rotate: ['Please rotate your device', '(or tap to continue)']
 }
 {% endhighlight %}
 <!-- @formatter:on -->
@@ -350,12 +371,6 @@ lang: {
         <td>Enabled keyboard navigation in fullscreen.</td>
       </tr>
       <tr>
-        <td>gyroscope</td>
-        <td>boolean</td>
-        <td>false</td>
-        <td>Enable gyroscope navigation and add a navbar button when the device supports it.</td>
-      </tr>
-      <tr>
         <td>size</td>
         <td>Object</td>
         <td>null</td>
@@ -381,6 +396,12 @@ transition: {
         </td>
         <td>Configuration of the transition effect between panoramas.</td>
       </tr>
+      <tr>
+        <td>with_credentials</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Set to <code>true</code> to use credentials for HTTP requests.</td>
+      </tr>
       </tbody>
     </table>
   </div>
@@ -403,6 +424,12 @@ transition: {
         <td>double</td>
         <td>1</td>
         <td>Speed multiplicator for manual moves.</td>
+      </tr>
+      <tr>
+        <td>zoom_speed</td>
+        <td>double</td>
+        <td>2</td>
+        <td>Speed multiplicator for zooms (with mouse wheel or fingers pinch).</td>
       </tr>
       <tr>
         <td>usexmpdata</td>
@@ -489,7 +516,9 @@ tooltip: {
   <h2 id="methods">Methods</h2>
 
   <p>All useful methods are documented in the
-    <a class="btn btn-outline" href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#methods">API documentation</a></p>
+    <a class="btn btn-outline"
+       href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#methods">API documentation</a>
+  </p>
 
   <p>To call a method you need to keep a reference to the viewer (created with <code>new</code> keyword). It's good
     practice to wait for the <code>ready</code> event before doing anything.</p>
@@ -507,13 +536,14 @@ viewer.on('ready', function() {
   <h2 id="events">Events</h2>
 
   <p>On the viewer you can also use the <code>on</code> method to listen to
-    <a class="btn btn-outline" href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#events">various events</a>.</p>
+    <a class="btn btn-outline"
+       href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#events">various events</a>.</p>
 
 
   <h2 id="navbar">Navbar customization</h2>
 
   <p><code>navbar</code> is an array which can contain the following core buttons: <code>autorotate</code>,
-    <code>zoom</code>, <code>download</code>, <code>markers</code>, <code>gyroscope</code>, <code>fullscreen</code>, as
+    <code>zoom</code>, <code>download</code>, <code>markers</code>, <code>gyroscope</code>, <code>stereo</code>, <code>fullscreen</code>, as
     well as <code>caption</code> and objects to create custom buttons :</p>
 
   <div class="table-responsive">
@@ -619,7 +649,6 @@ viewer.getNavbarButton('my-button').hide();
     container: 'photosphere',
     caption: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
     loading_img: "{{ site.github.url | replace: 'http://', '//' }}/assets/photosphere-logo.gif",
-    navbar: 'autorotate zoom download caption fullscreen',
     default_fov: 70,
     default_lat: 0.3,
     mousewheel: false,

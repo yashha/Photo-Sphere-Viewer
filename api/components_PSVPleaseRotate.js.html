@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>PhotoSphereViewer.defaults.js</title>
+		<title>components/PSVPleaseRotate.js</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -154,7 +154,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">source</span>
-				<h1><span class="name">PhotoSphereViewer.defaults.js</span></h1>
+				<h1><span class="name">components/PSVPleaseRotate.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -163,216 +163,65 @@
 		<section class="source-section">
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
- * @summary Number of pixels bellow which a mouse move will be considered as a click
- * @type {int}
- * @readonly
- * @private
+ * "Please rotate" class
+ * @param {PhotoSphereViewer} psv
+ * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
  */
-PhotoSphereViewer.MOVE_THRESHOLD = 4;
+function PSVPleaseRotate(psv) {
+  PSVComponent.call(this, psv);
+
+  this.create();
+}
+
+PSVPleaseRotate.prototype = Object.create(PSVComponent.prototype);
+PSVPleaseRotate.prototype.constructor = PSVPleaseRotate;
+
+PSVPleaseRotate.className = 'psv-please-rotate';
 
 /**
- * @summary Angle in radians bellow which two angles are considered identical
- * @type {float}
- * @readonly
- * @private
+ * @override
  */
-PhotoSphereViewer.ANGLE_THRESHOLD = 0.003;
+PSVPleaseRotate.prototype.create = function() {
+  PSVComponent.prototype.create.call(this);
 
-/**
- * @summary Delay in milliseconds between two clicks to consider a double click
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.DBLCLICK_DELAY = 300;
+  this.container.innerHTML =
+    '&lt;div class="psv-please-rotate-image">' + PhotoSphereViewer.ICONS['mobile-rotate.svg'] + '&lt;/div>' +
+    '&lt;div class="psv-please-rotate-text">' + this.psv.config.lang.please_rotate[0] + '&lt;/div>' +
+    '&lt;div class="psv-please-rotate-subtext">' + this.psv.config.lang.please_rotate[1] + '&lt;/div>';
 
-/**
- * @summary Time size of the mouse position history used to compute inertia
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.INERTIA_WINDOW = 300;
-
-/**
- * @summary Radius of the THREE.SphereGeometry
- * Half-length of the THREE.BoxGeometry
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.SPHERE_RADIUS = 100;
-
-/**
- * @summary Number of vertice of the THREE.SphereGeometry
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.SPHERE_VERTICES = 64;
-
-/**
- * @summary Number of vertices of each side of the THREE.BoxGeometry
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.CUBE_VERTICES = 8;
-
-/**
- * @summary Order of cube textures for arrays
- * @type {int[]}
- * @readonly
- * @private
- */
-PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
-
-/**
- * @summary Order of cube textures for maps
- * @type {string[]}
- * @readonly
- * @private
- */
-PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
-
-/**
- * @summary Map between keyboard events `keyCode|which` and `key`
- * @type {Object.&lt;int, string>}
- * @readonly
- * @private
- */
-PhotoSphereViewer.KEYMAP = {
-  33: 'PageUp',
-  34: 'PageDown',
-  37: 'ArrowLeft',
-  38: 'ArrowUp',
-  39: 'ArrowRight',
-  40: 'ArrowDown',
-  107: '+',
-  109: '-'
+  this.container.addEventListener('click', this);
+  window.addEventListener('orientationchange', this);
 };
 
 /**
- * @summary System properties
- * @type {Object}
- * @readonly
+ * @override
+ */
+PSVPleaseRotate.prototype.destroy = function() {
+  window.removeEventListener('orientationchange', this);
+
+  PSVComponent.prototype.destroy.call(this);
+};
+
+/**
+ * @summary Handles events
+ * @param {Event} e
  * @private
  */
-PhotoSphereViewer.SYSTEM = {
-  loaded: false,
-  pixelRatio: 1,
-  isWebGLSupported: false,
-  isCanvasSupported: false,
-  deviceOrientationSupported: null,
-  maxTextureWidth: 0,
-  mouseWheelEvent: null,
-  fullscreenEvent: null
+PSVPleaseRotate.prototype.handleEvent = function(e) {
+  switch (e.type) {
+    // @formatter:off
+    case 'click': this.hide(); break;
+    case 'orientationchange':
+      if (Math.abs(window.orientation) === 90) {
+        this.hide();
+      }
+      break;
+    // @formatter:on
+  }
 };
 
-/**
- * @summary SVG icons sources
- * @type {Object.&lt;string, string>}
- * @readonly
- */
-PhotoSphereViewer.ICONS = {};
-
-/**
- * @summary Default options, see {@link http://photo-sphere-viewer.js.org/#options}
- * @type {Object}
- * @readonly
- */
-PhotoSphereViewer.DEFAULTS = {
-  panorama: null,
-  container: null,
-  caption: null,
-  usexmpdata: true,
-  pano_data: null,
-  webgl: true,
-  min_fov: 30,
-  max_fov: 90,
-  default_fov: null,
-  default_long: 0,
-  default_lat: 0,
-  sphere_correction: {
-    pan: 0,
-    tilt: 0,
-    roll: 0
-  },
-  longitude_range: null,
-  latitude_range: null,
-  move_speed: 1,
-  zoom_speed: 2,
-  time_anim: 2000,
-  anim_speed: '2rpm',
-  anim_lat: null,
-  fisheye: false,
-  navbar: [
-    'autorotate',
-    'zoom',
-    'download',
-    'markers',
-    'caption',
-    'gyroscope',
-    'stereo',
-    'fullscreen'
-  ],
-  tooltip: {
-    offset: 5,
-    arrow_size: 7,
-    delay: 100
-  },
-  lang: {
-    autorotate: 'Automatic rotation',
-    zoom: 'Zoom',
-    zoomOut: 'Zoom out',
-    zoomIn: 'Zoom in',
-    download: 'Download',
-    fullscreen: 'Fullscreen',
-    markers: 'Markers',
-    gyroscope: 'Gyroscope',
-    stereo: 'Stereo view',
-    stereo_notification: 'Click anywhere to exit stereo view.',
-    please_rotate: ['Please rotate your device', '(or tap to continue)']
-  },
-  mousewheel: true,
-  mousewheel_factor: 1,
-  mousemove: true,
-  mousemove_hover: false,
-  keyboard: true,
-  move_inertia: true,
-  click_event_on_marker: false,
-  transition: {
-    duration: 1500,
-    loader: true
-  },
-  loading_img: null,
-  loading_txt: 'Loading...',
-  size: null,
-  cache_texture: 0,
-  templates: {},
-  markers: [],
-  with_credentials: false
-};
-
-/**
- * @summary doT.js templates
- * @type {Object.&lt;string, string>}
- * @readonly
- */
-PhotoSphereViewer.TEMPLATES = {
-  markersList: '\
-&lt;div class="psv-markers-list-container"> \
-  &lt;h1 class="psv-markers-list-title">{{= it.config.lang.markers }}&lt;/h1> \
-  &lt;ul class="psv-markers-list"> \
-  {{~ it.markers: marker }} \
-    &lt;li data-psv-marker="{{= marker.id }}" class="psv-markers-list-item {{? marker.className }}{{= marker.className }}{{?}}"> \
-      {{? marker.image }}&lt;img class="psv-markers-list-image" src="{{= marker.image }}"/>{{?}} \
-      &lt;p class="psv-markers-list-name">{{? marker.tooltip }}{{= marker.tooltip.content }}{{?? marker.html }}{{= marker.html }}{{??}}{{= marker.id }}{{?}}&lt;/p> \
-    &lt;/li> \
-  {{~}} \
-  &lt;/ul> \
-&lt;/div>'
-};
 </code></pre>
 		</section>
 			</div>

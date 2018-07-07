@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>PhotoSphereViewer.defaults.js</title>
+		<title>components/PSVNotification.js</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -154,7 +154,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">source</span>
-				<h1><span class="name">PhotoSphereViewer.defaults.js</span></h1>
+				<h1><span class="name">components/PSVNotification.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -163,215 +163,103 @@
 		<section class="source-section">
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
- * @summary Number of pixels bellow which a mouse move will be considered as a click
- * @type {int}
- * @readonly
- * @private
+ * Notification class
+ * @param {PhotoSphereViewer} psv
+ * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
  */
-PhotoSphereViewer.MOVE_THRESHOLD = 4;
+function PSVNotification(psv) {
+  PSVComponent.call(this, psv);
+
+  this.create();
+}
+
+PSVNotification.prototype = Object.create(PSVComponent.prototype);
+PSVNotification.prototype.constructor = PSVNotification;
+
+PSVNotification.className = 'psv-notification';
+PSVNotification.publicMethods = ['showNotification', 'hideNotification', 'isNotificationVisible'];
 
 /**
- * @summary Angle in radians bellow which two angles are considered identical
- * @type {float}
- * @readonly
- * @private
+ * @override
  */
-PhotoSphereViewer.ANGLE_THRESHOLD = 0.003;
+PSVNotification.prototype.create = function() {
+  PSVComponent.prototype.create.call(this);
 
-/**
- * @summary Delay in milliseconds between two clicks to consider a double click
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.DBLCLICK_DELAY = 300;
+  this.content = document.createElement('div');
+  this.content.className = 'psv-notification-content';
 
-/**
- * @summary Time size of the mouse position history used to compute inertia
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.INERTIA_WINDOW = 300;
+  this.container.appendChild(this.content);
 
-/**
- * @summary Radius of the THREE.SphereGeometry
- * Half-length of the THREE.BoxGeometry
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.SPHERE_RADIUS = 100;
-
-/**
- * @summary Number of vertice of the THREE.SphereGeometry
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.SPHERE_VERTICES = 64;
-
-/**
- * @summary Number of vertices of each side of the THREE.BoxGeometry
- * @type {int}
- * @readonly
- * @private
- */
-PhotoSphereViewer.CUBE_VERTICES = 8;
-
-/**
- * @summary Order of cube textures for arrays
- * @type {int[]}
- * @readonly
- * @private
- */
-PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
-
-/**
- * @summary Order of cube textures for maps
- * @type {string[]}
- * @readonly
- * @private
- */
-PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
-
-/**
- * @summary Map between keyboard events `keyCode|which` and `key`
- * @type {Object.&lt;int, string>}
- * @readonly
- * @private
- */
-PhotoSphereViewer.KEYMAP = {
-  33: 'PageUp',
-  34: 'PageDown',
-  37: 'ArrowLeft',
-  38: 'ArrowUp',
-  39: 'ArrowRight',
-  40: 'ArrowDown',
-  107: '+',
-  109: '-'
+  this.content.addEventListener('click', this.hideNotification.bind(this));
 };
 
 /**
- * @summary System properties
- * @type {Object}
- * @readonly
- * @private
+ * @override
  */
-PhotoSphereViewer.SYSTEM = {
-  loaded: false,
-  pixelRatio: 1,
-  isWebGLSupported: false,
-  isCanvasSupported: false,
-  deviceOrientationSupported: null,
-  maxTextureWidth: 0,
-  mouseWheelEvent: null,
-  fullscreenEvent: null
+PSVNotification.prototype.destroy = function() {
+  delete this.content;
+
+  PSVComponent.prototype.destroy.call(this);
 };
 
 /**
- * @summary SVG icons sources
- * @type {Object.&lt;string, string>}
- * @readonly
+ * @summary Checks if the notification is visible
+ * @returns {boolean}
  */
-PhotoSphereViewer.ICONS = {};
-
-/**
- * @summary Default options, see {@link http://photo-sphere-viewer.js.org/#options}
- * @type {Object}
- * @readonly
- */
-PhotoSphereViewer.DEFAULTS = {
-  panorama: null,
-  container: null,
-  caption: null,
-  usexmpdata: true,
-  pano_data: null,
-  webgl: true,
-  min_fov: 30,
-  max_fov: 90,
-  default_fov: null,
-  default_long: 0,
-  default_lat: 0,
-  sphere_correction: {
-    pan: 0,
-    tilt: 0,
-    roll: 0
-  },
-  longitude_range: null,
-  latitude_range: null,
-  move_speed: 1,
-  zoom_speed: 2,
-  time_anim: 2000,
-  anim_speed: '2rpm',
-  anim_lat: null,
-  fisheye: false,
-  navbar: [
-    'autorotate',
-    'zoom',
-    'download',
-    'markers',
-    'caption',
-    'gyroscope',
-    'stereo',
-    'fullscreen'
-  ],
-  tooltip: {
-    offset: 5,
-    arrow_size: 7,
-    delay: 100
-  },
-  lang: {
-    autorotate: 'Automatic rotation',
-    zoom: 'Zoom',
-    zoomOut: 'Zoom out',
-    zoomIn: 'Zoom in',
-    download: 'Download',
-    fullscreen: 'Fullscreen',
-    markers: 'Markers',
-    gyroscope: 'Gyroscope',
-    stereo: 'Stereo view',
-    stereo_notification: 'Click anywhere to exit stereo view.',
-    please_rotate: ['Please rotate your device', '(or tap to continue)']
-  },
-  mousewheel: true,
-  mousewheel_factor: 1,
-  mousemove: true,
-  mousemove_hover: false,
-  keyboard: true,
-  move_inertia: true,
-  click_event_on_marker: false,
-  transition: {
-    duration: 1500,
-    loader: true
-  },
-  loading_img: null,
-  loading_txt: 'Loading...',
-  size: null,
-  cache_texture: 0,
-  templates: {},
-  markers: [],
-  with_credentials: false
+PSVNotification.prototype.isNotificationVisible = function() {
+  return this.container.classList.contains('psv-notification--visible');
 };
 
 /**
- * @summary doT.js templates
- * @type {Object.&lt;string, string>}
- * @readonly
+ * @summary Displays a notification on the viewer
+ * @param {Object|string} config
+ * @param {string} config.content
+ * @param {int} [config.timeout]
+ *
+ * @example
+ * viewer.showNotification({ content: 'Hello world', timeout: 5000})
+ * viewer.showNotification('Hello world')
  */
-PhotoSphereViewer.TEMPLATES = {
-  markersList: '\
-&lt;div class="psv-markers-list-container"> \
-  &lt;h1 class="psv-markers-list-title">{{= it.config.lang.markers }}&lt;/h1> \
-  &lt;ul class="psv-markers-list"> \
-  {{~ it.markers: marker }} \
-    &lt;li data-psv-marker="{{= marker.id }}" class="psv-markers-list-item {{? marker.className }}{{= marker.className }}{{?}}"> \
-      {{? marker.image }}&lt;img class="psv-markers-list-image" src="{{= marker.image }}"/>{{?}} \
-      &lt;p class="psv-markers-list-name">{{? marker.tooltip }}{{= marker.tooltip.content }}{{?? marker.html }}{{= marker.html }}{{??}}{{= marker.id }}{{?}}&lt;/p> \
-    &lt;/li> \
-  {{~}} \
-  &lt;/ul> \
-&lt;/div>'
+PSVNotification.prototype.showNotification = function(config) {
+  if (typeof config === 'string') {
+    config = {
+      content: config
+    };
+  }
+
+  this.content.innerHTML = config.content;
+
+  this.container.classList.add('psv-notification--visible');
+
+  /**
+   * @event show-notification
+   * @memberof module:components.PSVNotification
+   * @summary Trigered when the notification is shown
+   */
+  this.psv.trigger('show-notification');
+
+  if (config.timeout) {
+    setTimeout(this.hideNotification.bind(this), config.timeout);
+  }
+};
+
+/**
+ * @summary Hides the notification
+ * @fires module:components.PSVNotification.hide-notification
+ */
+PSVNotification.prototype.hideNotification = function() {
+  if (this.isNotificationVisible()) {
+    this.container.classList.remove('psv-notification--visible');
+
+    /**
+     * @event hide-notification
+     * @memberof module:components.PSVNotification
+     * @summary Trigered when the notification is hidden
+     */
+    this.psv.trigger('hide-notification');
+  }
 };
 </code></pre>
 		</section>
