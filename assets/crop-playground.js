@@ -93,14 +93,20 @@ function updateOutput() {
   });
 
   $('#output').text(
-    '<rdf:Description rdf:about="" xmlns:GPano="http://ns.google.com/photos/1.0/panorama/">\n' +
-    '  <GPano:ProjectionType>equirectangular</GPano:ProjectionType>\n' +
-    '  <GPano:CroppedAreaLeftPixels>' + panoData.cropped_x + '</GPano:CroppedAreaLeftPixels>\n' +
-    '  <GPano:CroppedAreaTopPixels>' + panoData.cropped_y + '</GPano:CroppedAreaTopPixels>\n' +
-    '  <GPano:CroppedAreaImageWidthPixels>' + panoData.cropped_width + '</GPano:CroppedAreaImageWidthPixels>\n' +
-    '  <GPano:CroppedAreaImageHeightPixels>' + panoData.cropped_height + '</GPano:CroppedAreaImageHeightPixels>\n' +
-    '  <GPano:FullPanoWidthPixels>' + panoData.full_width + '</GPano:FullPanoWidthPixels>\n' +
-    '  <GPano:FullPanoHeightPixels>' + panoData.full_height + '</GPano:FullPanoHeightPixels>\n' +
-    '</rdf:Description>'
+    '<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>\n' +
+    '<x:xmpmeta xmlns:x="adobe:ns:meta/">\n' +
+    '  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">\n' +
+    '    <rdf:Description rdf:about="" xmlns:GPano="http://ns.google.com/photos/1.0/panorama/">\n' +
+    '      <GPano:ProjectionType>equirectangular</GPano:ProjectionType>\n' +
+    '      <GPano:CroppedAreaLeftPixels>' + panoData.cropped_x + '</GPano:CroppedAreaLeftPixels>\n' +
+    '      <GPano:CroppedAreaTopPixels>' + panoData.cropped_y + '</GPano:CroppedAreaTopPixels>\n' +
+    '      <GPano:CroppedAreaImageWidthPixels>' + panoData.cropped_width + '</GPano:CroppedAreaImageWidthPixels>\n' +
+    '      <GPano:CroppedAreaImageHeightPixels>' + panoData.cropped_height + '</GPano:CroppedAreaImageHeightPixels>\n' +
+    '      <GPano:FullPanoWidthPixels>' + panoData.full_width + '</GPano:FullPanoWidthPixels>\n' +
+    '      <GPano:FullPanoHeightPixels>' + panoData.full_height + '</GPano:FullPanoHeightPixels>\n' +
+    '    </rdf:Description>\n' +
+    '  </rdf:RDF>\n' +
+    '</x:xmpmeta>\n' +
+    '<?xpacket end="r"?>'
   );
 }
