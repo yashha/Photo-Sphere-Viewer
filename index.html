@@ -153,14 +153,14 @@ isHome: true
           <div id="opt_panorama" title="Panorama URL" class="hidden">
             <p>Equirectangular panorama :</p>
             <!-- @formatter:off -->
-{% highlight javascript %}
+{% highlight text %}
 panorama: 'path/to/panorama.jpg'
 {% endhighlight %}
 <!-- @formatter:on -->
 
             <p>Cubemap as array :</p>
             <!-- @formatter:off -->
-{% highlight javascript %}
+{% highlight text %}
 panorama: [
   'path/to/left.jpg',
   'path/to/front.jpg',
@@ -174,7 +174,7 @@ panorama: [
 
             <p>Cubemap as object :</p>
             <!-- @formatter:off -->
-{% highlight javascript %}
+{% highlight text %}
 panorama: {
   left:   'path/to/left.jpg',
   front:  'path/to/front.jpg',
@@ -248,7 +248,7 @@ panorama: {
         <td>Sphere rotation angles, in radians.
           <button class="btn btn-primary btn-xs" data-bootbox="sphere_correction_example">More</button>
           <div id="sphere_correction_example" title="Sphere correction diagram" class="hidden">
-            <img src="https://answers.unity.com/storage/temp/85429-pan-tilt-roll1.png"/>
+            <img src="{{ site.github.url | replace: 'http://', '//' }}/assets//pan-tilt-roll.png"/>
           </div>
         </td>
       </tr>
@@ -314,7 +314,7 @@ panorama: {
           <button class="btn btn-primary btn-xs" data-bootbox="lang-config">View</button>
           <div id="lang-config" title="Navbar buttons texts" class="hidden">
             <!-- @formatter:off -->
-{% highlight javascript %}
+{% highlight text %}
 lang: {
     autorotate: 'Automatic rotation',
     zoom: 'Zoom',
@@ -326,7 +326,8 @@ lang: {
     gyroscope: 'Gyroscope',
     stereo: 'Stereo view',
     stereo_notification: 'Click anywhere to exit stereo view.',
-    please_rotate: ['Please rotate your device', '(or tap to continue)']
+    please_rotate: ['Please rotate your device', '(or tap to continue)'],
+    two_fingers: ['Use two fingers to navigate']
 }
 {% endhighlight %}
 <!-- @formatter:on -->
@@ -365,10 +366,38 @@ lang: {
         <td>Rotate the panorama just by moving the cursor above the view instead of click+move.</td>
       </tr>
       <tr>
-        <td>keyboard</td>
+        <td>touchmove_two_fingers</td>
         <td>boolean</td>
-        <td>true</td>
-        <td>Enabled keyboard navigation in fullscreen.</td>
+        <td>false</td>
+        <td>Requires two fingers to rotate the panorama. This allows standard touch-scroll navigation in the page
+          containing the viewer. If enabled, an overlay asking the user to use two fingers is displayed when only one
+          touch is detected.</td>
+      </tr>
+      <tr>
+        <td>keyboard</td>
+        <td>Object | boolean</td>
+        <td>
+          <button class="btn btn-primary btn-xs" data-bootbox="keyboard-config">View</button>
+          <div id="keyboard-config" title="Tooltip config" class="hidden">
+            <!-- @formatter:off -->
+{% highlight text %}
+keyboard: {
+    'ArrowUp': 'rotateLatitudeUp',
+    'ArrowDown': 'rotateLatitudeDown',
+    'ArrowRight': 'rotateLongitudeRight',
+    'ArrowLeft': 'rotateLongitudeLeft',
+    'PageUp': 'zoomIn',
+    'PageDown': 'zoomOut',
+    '+': 'zoomIn',
+    '-': 'zoomOut',
+    ' ': 'toggleAutorotate'
+}
+{% endhighlight %}
+<!-- @formatter:on -->
+          </div>
+        </td>
+        <td>Enable and configure keyboard navigation in fullscreen. It is a map defining key code->action.
+          Set to <code>false</code> to disable.</td>
       </tr>
       <tr>
         <td>size</td>
@@ -385,7 +414,7 @@ lang: {
           <button class="btn btn-primary btn-xs" data-bootbox="transition-config">View</button>
           <div id="transition-config" title="Tooltip config" class="hidden">
             <!-- @formatter:off -->
-{% highlight javascript %}
+{% highlight text %}
 transition: {
     duration: 1500, // duration of transition in milliseconds
     loader: true // should display the loader ?
@@ -449,7 +478,7 @@ transition: {
             <p>In this example a 4000x2000 image is used as a portion of a 6000x3000 panorama, the remaining space will
               be rendered black.</p>
             <!-- @formatter:off -->
-{% highlight js %}
+{% highlight text %}
 pano_data: {
   full_width: 6000,
   full_height: 3000,
@@ -649,9 +678,11 @@ viewer.getNavbarButton('my-button').hide();
     container: 'photosphere',
     caption: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
     loading_img: "{{ site.github.url | replace: 'http://', '//' }}/assets/photosphere-logo.gif",
+    navbar: 'autorotate zoom download caption fullscreen',
     default_fov: 70,
     default_lat: 0.3,
     mousewheel: false,
+    touchmove_two_fingers: true,
     size: {
       height: 500
     }

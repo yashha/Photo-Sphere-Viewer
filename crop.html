@@ -32,7 +32,7 @@ title: Cropped panorama
     width</u> and <u>Cropped area height</u> are the actual size of your image, <u>Cropped area left</u> and <u>Cropped
     area right</u> are used to define the cropped area position.</p>
 
-  <img src="https://developers.google.com/streetview/images/XMP_pano_pixels.png" class="img-responsive">
+  <img src="{{ site.github.url | replace: 'http://', '//' }}/assets/XMP_pano_pixels.png" class="img-responsive">
 
   <p>More information on <a href="https://developers.google.com/streetview/spherical-metadata">Google documentation</a>.
   </p>
@@ -128,7 +128,7 @@ var viewer = new PhotoSphereViewer({
         </div>
         <div class="form-group">
           <label for="full_height">Full height</label>
-          <input type="number" class="form-control" id="full_height" disabled>
+          <input type="number" min="0" step="100" class="form-control" id="full_height">
         </div>
       </div>
       <div class="col-xs-4">
@@ -143,11 +143,15 @@ var viewer = new PhotoSphereViewer({
       </div>
       <div class="col-xs-4">
         <div class="form-group">
-          <label for="cropped_x">Area left</label>
+          <label for="cropped_x">Area left
+            <button type="button" class="btn btn-xs btn-primary" data-psv-center="x">center</button>
+          </label>
           <input type="number" min="0" step="100" class="form-control" id="cropped_x">
         </div>
         <div class="form-group">
-          <label for="cropped_y">Area top</label>
+          <label for="cropped_y">Area top
+            <button type="button" class="btn btn-xs btn-primary" data-psv-center="y">center</button>
+          </label>
           <input type="number" min="0" step="100" class="form-control" id="cropped_y">
         </div>
       </div>

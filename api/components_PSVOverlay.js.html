@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>components/PSVNavBar.js</title>
+		<title>components/PSVOverlay.js</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -157,7 +157,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">source</span>
-				<h1><span class="name">components/PSVNavBar.js</span></h1>
+				<h1><span class="name">components/PSVOverlay.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -166,184 +166,117 @@
 		<section class="source-section">
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
- * Navigation bar class
+ * Overlay class
  * @param {PhotoSphereViewer} psv
  * @constructor
  * @extends module:components.PSVComponent
  * @memberof module:components
  */
-function PSVNavBar(psv) {
+function PSVOverlay(psv) {
   PSVComponent.call(this, psv);
 
-  /**
-   * @member {Object}
-   * @readonly
-   * @private
-   */
-  this.config = this.psv.config.navbar;
-
-  /**
-   * @summary List of buttons of the navbar
-   * @member {Array.&lt;module:components/buttons.PSVNavBarButton>}
-   * @readonly
-   */
-  this.items = [];
-
-  // all buttons
-  if (this.config === true) {
-    this.config = PSVUtils.clone(PhotoSphereViewer.DEFAULTS.navbar);
-  }
-  // space separated list
-  else if (typeof this.config === 'string') {
-    this.config = this.config.split(' ');
-  }
-  // migration from object
-  else if (!Array.isArray(this.config)) {
-    console.warn('PhotoSphereViewer: hashmap form of "navbar" is deprecated, use an array instead.');
-
-    var config = this.config;
-    this.config = [];
-
-    PSVUtils.forEach(config, function(enabled, key) {
-      if (enabled) {
-        this.config.push(key);
-      }
-    }.bind(this));
-
-    this.config.sort(function(a, b) {
-      return PhotoSphereViewer.DEFAULTS.navbar.indexOf(a) - PhotoSphereViewer.DEFAULTS.navbar.indexOf(b);
-    });
-  }
-
   this.create();
+  this.hide();
 }
 
-PSVNavBar.prototype = Object.create(PSVComponent.prototype);
-PSVNavBar.prototype.constructor = PSVNavBar;
+PSVOverlay.prototype = Object.create(PSVComponent.prototype);
+PSVOverlay.prototype.constructor = PSVOverlay;
 
-PSVNavBar.className = 'psv-navbar psv-navbar--open';
-PSVNavBar.publicMethods = ['showNavbar', 'hideNavbar', 'toggleNavbar', 'getNavbarButton'];
+PSVOverlay.className = 'psv-overlay';
+PSVOverlay.publicMethods = ['showOverlay', 'hideOverlay', 'isOverlayVisible'];
 
 /**
  * @override
- * @throws {PSVError} when the configuration is incorrect
  */
-PSVNavBar.prototype.create = function() {
+PSVOverlay.prototype.create = function() {
   PSVComponent.prototype.create.call(this);
 
-  this.config.forEach(function(button) {
-    if (typeof button === 'object') {
-      this.items.push(new PSVNavBarCustomButton(this, button));
-    }
-    else {
-      switch (button) {
-        case PSVNavBarAutorotateButton.id:
-          this.items.push(new PSVNavBarAutorotateButton(this));
-          break;
+  this.image = document.createElement('div');
+  this.image.className = 'psv-overlay-image';
+  this.container.appendChild(this.image);
 
-        case PSVNavBarZoomButton.id:
-          this.items.push(new PSVNavBarZoomButton(this));
-          break;
+  this.text = document.createElement('div');
+  this.text.className = 'psv-overlay-text';
+  this.container.appendChild(this.text);
 
-        case PSVNavBarDownloadButton.id:
-          this.items.push(new PSVNavBarDownloadButton(this));
-          break;
+  this.subtext = document.createElement('div');
+  this.subtext.className = 'psv-overlay-subtext';
+  this.container.appendChild(this.subtext);
 
-        case PSVNavBarMarkersButton.id:
-          this.items.push(new PSVNavBarMarkersButton(this));
-          break;
-
-        case PSVNavBarFullscreenButton.id:
-          this.items.push(new PSVNavBarFullscreenButton(this));
-          break;
-
-        case PSVNavBarStereoButton.id:
-          this.items.push(new PSVNavBarStereoButton(this));
-          break;
-
-        case PSVNavBarGyroscopeButton.id:
-          this.items.push(new PSVNavBarGyroscopeButton(this));
-          break;
-
-        case 'caption':
-          this.items.push(new PSVNavBarCaption(this, this.psv.config.caption));
-          break;
-
-        /* falls through */
-        default:
-          if (button.indexOf('spacer') === 0) {
-            console.warn('PhotoSphereViewer: navbar spacers have been removed.');
-          }
-          else {
-            throw new PSVError('Unknown button ' + button);
-          }
-          break;
-      }
-    }
-  }, this);
+  this.container.addEventListener('click', this.hideOverlay.bind(this));
 };
 
 /**
  * @override
  */
-PSVNavBar.prototype.destroy = function() {
-  this.items.forEach(function(item) {
-    item.destroy();
-  });
-
-  this.items.length = 0;
-  delete this.config;
+PSVOverlay.prototype.destroy = function() {
+  delete this.image;
+  delete this.text;
+  delete this.subtext;
 
   PSVComponent.prototype.destroy.call(this);
 };
 
 /**
- * @summary Returns a button by its identifier
- * @param {string} id
- * @param {boolean} [silent=false]
- * @returns {module:components/buttons.PSVNavBarButton}
+ * @summary Checks if the overlay is visible
+ * @returns {boolean}
  */
-PSVNavBar.prototype.getNavbarButton = function(id, silent) {
-  var button = null;
+PSVOverlay.prototype.isOverlayVisible = function() {
+  return this.visible;
+};
 
-  this.items.some(function(item) {
-    if (item.id === id) {
-      button = item;
-      return true;
-    }
-    else {
-      return false;
-    }
-  });
-
-  if (!button &amp;&amp; !silent) {
-    console.warn('PhotoSphereViewer: button "' + id + '" not found in the navbar.');
+/**
+ * @summary Displays an overlay on the viewer
+ * @param {Object|string} config
+ * @param {string} config.image
+ * @param {string} config.text
+ * @param {string} config.subtext
+ *
+ * @example
+ * viewer.showOverlay({
+ *   image: '&lt;svg>&lt;/svg>',
+ *   text: '....',
+ *   subtext: '....'
+ * })
+ */
+PSVOverlay.prototype.showOverlay = function(config) {
+  if (typeof config === 'string') {
+    config = {
+      text: config
+    };
   }
 
-  return button;
+  this.image.innerHTML = config.image || '';
+  this.text.innerHTML = config.text || '';
+  this.subtext.innerHTML = config.subtext || '';
+
+  this.show();
+
+  /**
+   * @event show-overlay
+   * @memberof module:components.PSVOverlay
+   * @summary Trigered when the overlay is shown
+   */
+  this.psv.trigger('show-overlay');
 };
 
 /**
- * @summary Shows the navbar
+ * @summary Hides the notification
+ * @fires module:components.PSVOverlay.hide-notification
  */
-PSVNavBar.prototype.showNavbar = function() {
-  this.toggleNavbar(true);
+PSVOverlay.prototype.hideOverlay = function() {
+  if (this.isOverlayVisible()) {
+    this.hide();
+
+    /**
+     * @event hide-overlay
+     * @memberof module:components.PSVOverlay
+     * @summary Trigered when the overlay is hidden
+     */
+    this.psv.trigger('hide-overlay');
+  }
 };
 
-/**
- * @summary Hides the navbar
- */
-PSVNavBar.prototype.hideNavbar = function() {
-  this.toggleNavbar(false);
-};
-
-/**
- * @summary Toggles the navbar
- * @param {boolean} active
- */
-PSVNavBar.prototype.toggleNavbar = function(active) {
-  PSVUtils.toggleClass(this.container, 'psv-navbar--open', active);
-};
 </code></pre>
 		</section>
 			</div>

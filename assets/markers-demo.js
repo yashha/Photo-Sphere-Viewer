@@ -11,6 +11,7 @@ var PSV = new PhotoSphereViewer({
   default_fov: 70,
   default_lat: 0.3,
   mousewheel: false,
+  touchmove_two_fingers: true,
   size: {
     height: 500
   },

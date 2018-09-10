@@ -73,11 +73,12 @@
 											<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
 											<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
 											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
 											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
-											<li><a href="module-components.PSVPleaseRotate.html">components.PSVPleaseRotate</a></li>
 											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
 											<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+											<li><a href="module-components_buttons.PSVNavBarCaptionButton.html">components/buttons.PSVNavBarCaptionButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
@@ -102,6 +103,8 @@
 											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
@@ -260,7 +263,7 @@ PSVUtils.isWebGLSupported = function() {
 /**
  * @summary Detects if device orientation is supported
  * @description We can only be sure device orientation is supported once received an event with coherent data
- * @returns {Promise}
+ * @returns {Promise&lt;boolean>}
  */
 PSVUtils.isDeviceOrientationSupported = function() {
   var defer = D();
@@ -268,10 +271,10 @@ PSVUtils.isDeviceOrientationSupported = function() {
   if ('DeviceOrientationEvent' in window) {
     var listener = function(event) {
       if (event &amp;&amp; event.alpha !== null &amp;&amp; !isNaN(event.alpha)) {
-        defer.resolve();
+        defer.resolve(true);
       }
       else {
-        defer.reject();
+        defer.resolve(false);
       }
 
       window.removeEventListener('deviceorientation', listener);
@@ -286,7 +289,7 @@ PSVUtils.isDeviceOrientationSupported = function() {
     }, 2000);
   }
   else {
-    defer.reject();
+    defer.resolve(false);
   }
 
   return defer.promise;
@@ -416,7 +419,7 @@ PSVUtils.hasParent = function(el, parent) {
 
 /**
  * @summary Gets the closest parent (can by itself)
- * @param {HTMLElement} el (HTMLElement)
+ * @param {HTMLElement|SVGElement} el
  * @param {string} selector
  * @returns {HTMLElement}
  */
@@ -427,7 +430,7 @@ PSVUtils.getClosest = function(el, selector) {
     if (matches.bind(el)(selector)) {
       return el;
     }
-  } while (!!(el = el.parentElement));
+  } while (!!(el instanceof SVGElement ? el = el.parentNode : el = el.parentElement));
 
   return null;
 };
@@ -440,6 +443,61 @@ PSVUtils.mouseWheelEvent = function() {
   return 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
     document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
       'DOMMouseScroll'; // let's assume that remaining browsers are older Firefox
+};
+
+/**
+ * @summary Returns the key name of a KeyboardEvent
+ * @param {KeyboardEvent} evt
+ * @returns {string}
+ */
+PSVUtils.getEventKey = function(evt) {
+  var key = evt.key || PSVUtils.getEventKey.KEYMAP[evt.keyCode || evt.which];
+
+  if (key &amp;&amp; PSVUtils.getEventKey.MS_KEYMAP[key]) {
+    key = PSVUtils.getEventKey.MS_KEYMAP[key];
+  }
+
+  return key;
+};
+
+/**
+ * @summary Map between keyboard events `keyCode|which` and `key`
+ * @type {Object.&lt;int, string>}
+ * @readonly
+ * @protected
+ */
+PSVUtils.getEventKey.KEYMAP = {
+  13: 'Enter',
+  27: 'Escape',
+  32: ' ',
+  33: 'PageUp',
+  34: 'PageDown',
+  37: 'ArrowLeft',
+  38: 'ArrowUp',
+  39: 'ArrowRight',
+  40: 'ArrowDown',
+  46: 'Delete',
+  107: '+',
+  109: '-'
+};
+
+/**
+ * @summary Map for non standard keyboard events `key` for IE and Edge
+ * @see https://github.com/shvaikalesh/shim-keyboard-event-key
+ * @type {Object.&lt;string, string>}
+ * @readonly
+ * @protected
+ */
+PSVUtils.getEventKey.MS_KEYMAP = {
+  Add: '+',
+  Del: 'Delete',
+  Down: 'ArrowDown',
+  Esc: 'Escape',
+  Left: 'ArrowLeft',
+  Right: 'ArrowRight',
+  Spacebar: ' ',
+  Subtract: '-',
+  Up: 'ArrowUp'
 };
 
 /**

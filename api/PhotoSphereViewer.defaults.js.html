@@ -73,11 +73,12 @@
 											<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
 											<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
 											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
 											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
-											<li><a href="module-components.PSVPleaseRotate.html">components.PSVPleaseRotate</a></li>
 											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
 											<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+											<li><a href="module-components_buttons.PSVNavBarCaptionButton.html">components/buttons.PSVNavBarCaptionButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
@@ -102,6 +103,8 @@
 											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
@@ -236,23 +239,6 @@ PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
 PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
 
 /**
- * @summary Map between keyboard events `keyCode|which` and `key`
- * @type {Object.&lt;int, string>}
- * @readonly
- * @private
- */
-PhotoSphereViewer.KEYMAP = {
-  33: 'PageUp',
-  34: 'PageDown',
-  37: 'ArrowLeft',
-  38: 'ArrowUp',
-  39: 'ArrowRight',
-  40: 'ArrowDown',
-  107: '+',
-  109: '-'
-};
-
-/**
  * @summary System properties
  * @type {Object}
  * @readonly
@@ -332,13 +318,25 @@ PhotoSphereViewer.DEFAULTS = {
     gyroscope: 'Gyroscope',
     stereo: 'Stereo view',
     stereo_notification: 'Click anywhere to exit stereo view.',
-    please_rotate: ['Please rotate your device', '(or tap to continue)']
+    please_rotate: ['Please rotate your device', '(or tap to continue)'],
+    two_fingers: ['Use two fingers to navigate']
   },
   mousewheel: true,
   mousewheel_factor: 1,
   mousemove: true,
   mousemove_hover: false,
-  keyboard: true,
+  touchmove_two_fingers: false,
+  keyboard: {
+    'ArrowUp': 'rotateLatitudeUp',
+    'ArrowDown': 'rotateLatitudeDown',
+    'ArrowRight': 'rotateLongitudeRight',
+    'ArrowLeft': 'rotateLongitudeLeft',
+    'PageUp': 'zoomIn',
+    'PageDown': 'zoomOut',
+    '+': 'zoomIn',
+    '-': 'zoomOut',
+    ' ': 'toggleAutorotate'
+  },
   move_inertia: true,
   click_event_on_marker: false,
   transition: {

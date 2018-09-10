@@ -72,11 +72,12 @@
 											<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
 											<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
 											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
 											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
-											<li><a href="module-components.PSVPleaseRotate.html">components.PSVPleaseRotate</a></li>
 											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
 											<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+											<li><a href="module-components_buttons.PSVNavBarCaptionButton.html">components/buttons.PSVNavBarCaptionButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
@@ -101,6 +102,8 @@
 											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
@@ -722,7 +725,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-85">line 85</a></p>
+									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-99">line 99</a></p>
 								</div>
 							</div>
 			
@@ -765,7 +768,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-104">line 104</a></p>
+									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-126">line 126</a></p>
 								</div>
 							</div>
 			
@@ -808,7 +811,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-113">line 113</a></p>
+									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-135">line 135</a></p>
 								</div>
 							</div>
 			
@@ -906,6 +909,57 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="supported" class="function public inherited"><span class="name">supported</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean|Promise.&lt;boolean>}</span></h4>
+				<div class="summary"><p>Checks if the button can be displayed</p></div></dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span> | <span class="param-type">Promise.&lt;boolean></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components_buttons.PSVNavBarButton.html#supported">module:components/buttons.PSVNavBarButton#supported</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-107">line 107</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
 			<h4 id="toggleActive" class="function public inherited"><span class="name">toggleActive</span><span class="signature-params">( [&nbsp;<span class="signature-param">active</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Changes the active state of the button</p></div></dt>
 <dd class="symbol-details function public inherited  collapsible-symbol">
@@ -960,7 +1014,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-93">line 93</a></p>
+									<p class="form-control-static"><a href="buttons_PSVNavBarButton.js.html">buttons/PSVNavBarButton.js</a>, <a href="buttons_PSVNavBarButton.js.html#line-115">line 115</a></p>
 								</div>
 							</div>
 			

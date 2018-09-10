@@ -73,11 +73,12 @@
 											<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
 											<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
 											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
 											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
-											<li><a href="module-components.PSVPleaseRotate.html">components.PSVPleaseRotate</a></li>
 											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
 											<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+											<li><a href="module-components_buttons.PSVNavBarCaptionButton.html">components/buttons.PSVNavBarCaptionButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
@@ -102,6 +103,8 @@
 											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
@@ -181,11 +184,11 @@ function PSVNavBarCaption(navbar, caption) {
   this.content = null;
 
   /**
-   * @member {SVGElement}
+   * @member {PSVNavBarCaptionButton}
    * @readonly
    * @private
    */
-  this.icon = null;
+  this.button = null;
 
   /**
    * @member {Object}
@@ -193,8 +196,7 @@ function PSVNavBarCaption(navbar, caption) {
    */
   this.prop = {
     caption: '',
-    width: 0,
-    hidden: false
+    width: 0
   };
 
   this.create();
@@ -214,16 +216,13 @@ PSVNavBarCaption.publicMethods = ['setCaption'];
 PSVNavBarCaption.prototype.create = function() {
   PSVComponent.prototype.create.call(this);
 
-  this.container.innerHTML = PhotoSphereViewer.ICONS['info.svg'];
-  this.icon = this.container.querySelector('svg');
-  this.icon.setAttribute('class', 'psv-caption-icon');
-  this.icon.style.display = 'none';
+  this.button = new PSVNavBarCaptionButton(this);
+  this.button.hide();
 
-  this.content = document.createElement('span');
+  this.content = document.createElement('div');
   this.content.className = 'psv-caption-content';
   this.container.appendChild(this.content);
 
-  this.icon.addEventListener('click', this);
   window.addEventListener('resize', this);
 };
 
@@ -247,7 +246,6 @@ PSVNavBarCaption.prototype.handleEvent = function(e) {
   switch (e.type) {
     // @formatter:off
     case 'resize': this._onResize(); break;
-    case 'click':  this._onClick();  break;
     // @formatter:on
   }
 };
@@ -280,25 +278,12 @@ PSVNavBarCaption.prototype._onResize = function() {
   var width = parseInt(PSVUtils.getStyle(this.container, 'width')); // get real inner width
 
   if (width >= this.prop.width) {
-    this.icon.style.display = 'none';
+    this.button.hide();
     this.content.style.display = '';
   }
   else {
-    this.icon.style.display = '';
+    this.button.show();
     this.content.style.display = 'none';
-  }
-};
-
-/**
- * @summary Display caption as notification
- * @private
- */
-PSVNavBarCaption.prototype._onClick = function() {
-  if (this.psv.isNotificationVisible()) {
-    this.psv.hideNotification();
-  }
-  else {
-    this.psv.showNotification(this.prop.caption);
   }
 };
 </code></pre>

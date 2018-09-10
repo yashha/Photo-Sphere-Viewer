@@ -73,11 +73,12 @@
 											<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
 											<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
 											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
 											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
-											<li><a href="module-components.PSVPleaseRotate.html">components.PSVPleaseRotate</a></li>
 											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
 											<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+											<li><a href="module-components_buttons.PSVNavBarCaptionButton.html">components/buttons.PSVNavBarCaptionButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
@@ -102,6 +103,8 @@
 											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
@@ -288,8 +291,8 @@ PhotoSphereViewer.prototype.destroy = function() {
   if (this.panel) {
     this.panel.destroy();
   }
-  if (this.pleaseRotate) {
-    this.pleaseRotate.destroy();
+  if (this.overlay) {
+    this.overlay.destroy();
   }
 
   // destroy ThreeJS view
@@ -314,7 +317,7 @@ PhotoSphereViewer.prototype.destroy = function() {
   delete this.panel;
   delete this.tooltip;
   delete this.notification;
-  delete this.pleaseRotate;
+  delete this.overlay;
   delete this.canvas_container;
   delete this.renderer;
   delete this.noSleep;
@@ -476,8 +479,8 @@ PhotoSphereViewer.prototype.toggleAutorotate = function() {
  */
 PhotoSphereViewer.prototype.startGyroscopeControl = function() {
   if (PSVUtils.checkTHREE('DeviceOrientationControls')) {
-    return PhotoSphereViewer.SYSTEM.deviceOrientationSupported.then(
-      function() {
+    return PhotoSphereViewer.SYSTEM.deviceOrientationSupported.then(function(supported) {
+      if (supported) {
         this._stopAll();
 
         this.doControls = new THREE.DeviceOrientationControls(this.camera);
@@ -501,12 +504,12 @@ PhotoSphereViewer.prototype.startGyroscopeControl = function() {
          * @param {boolean} enabled
          */
         this.trigger('gyroscope-updated', true);
-      }.bind(this),
-      function() {
+      }
+      else {
         console.warn('PhotoSphereViewer: gyroscope not available');
         return D.rejected();
       }
-    );
+    }.bind(this));
   }
   else {
     throw new PSVError('Missing Three.js components: DeviceOrientationControls. Get them from three.js-examples package.');
@@ -661,17 +664,25 @@ PhotoSphereViewer.prototype.stopStereoView = function() {
  * @summary Tries to lock the device in landscape or display a message
  */
 PhotoSphereViewer.prototype.lockOrientation = function() {
+  var displayRotateMessageTimeout;
+
   var displayRotateMessage = function() {
-    if (window.innerHeight > window.innerWidth) {
-      if (!this.pleaseRotate) {
-        this.pleaseRotate = new PSVPleaseRotate(this);
-      }
-      this.pleaseRotate.show();
+    if (this.isStereoEnabled() &amp;&amp; window.innerHeight > window.innerWidth) {
+      this.overlay.showOverlay({
+        image: PhotoSphereViewer.ICONS['mobile-rotate.svg'],
+        text: this.config.lang.please_rotate[0],
+        subtext: this.config.lang.please_rotate[1]
+      });
+    }
+
+    if (displayRotateMessageTimeout) {
+      window.clearTimeout(displayRotateMessageTimeout);
     }
   };
 
   if (window.screen &amp;&amp; window.screen.orientation) {
     window.screen.orientation.lock('landscape').then(null, displayRotateMessage.bind(this));
+    displayRotateMessageTimeout = setTimeout(displayRotateMessage.bind(this), 500);
   }
   else {
     displayRotateMessage.apply(this);
@@ -686,9 +697,7 @@ PhotoSphereViewer.prototype.unlockOrientation = function() {
     window.screen.orientation.unlock();
   }
   else {
-    if (this.pleaseRotate) {
-      this.pleaseRotate.hide();
-    }
+    this.overlay.hideOverlay();
   }
 };
 

@@ -1,5 +1,5 @@
 /*!
- * Photo Sphere Viewer 3.4.0
+ * Photo Sphere Viewer 3.4.1
  * Copyright (c) 2014-2015 Jérémy Heleine
  * Copyright (c) 2015-2018 Damien "Mistic" Sorel
  * Licensed under MIT (https://opensource.org/licenses/MIT)
@@ -164,18 +164,26 @@ function PhotoSphereViewer(options) {
     console.warn('PhotoSphereViewer: max_fov cannot be lower than min_fov.');
   }
 
+  // cache_texture must be a positive integer or false
   if (this.config.cache_texture && (!PSVUtils.isInteger(this.config.cache_texture) || this.config.cache_texture < 0)) {
     this.config.cache_texture = PhotoSphereViewer.DEFAULTS.cache_texture;
     console.warn('PhotoSphereViewer: invalid value for cache_texture');
   }
 
+  // panorama_roll is deprecated
   if ('panorama_roll' in this.config) {
     this.config.sphere_correction.roll = this.config.panorama_roll;
     console.warn('PhotoSphereViewer: panorama_roll is deprecated, use sphere_correction.roll instead');
   }
 
+  // gyroscope is deprecated
   if ('gyroscope' in this.config) {
     console.warn('PhotoSphereViewer: gyroscope is deprecated, the control is automatically created if DeviceOrientationControls.js is loaded');
+  }
+
+  // keyboard=true becomes the default map
+  if (this.config.keyboard === true) {
+    this.config.keyboard = PSVUtils.clone(PhotoSphereViewer.DEFAULTS.keyboard);
   }
 
   // min_fov/max_fov between 1 and 179
@@ -292,10 +300,10 @@ function PhotoSphereViewer(options) {
   this.notification = null;
 
   /**
-   * @member {module:components.PSVPleaseRotate}
+   * @member {module:components.PSVOverlay}
    * @readonly
    */
-  this.pleaseRotate = null;
+  this.overlay = null;
 
   /**
    * @member {HTMLElement}
@@ -497,6 +505,9 @@ function PhotoSphereViewer(options) {
 
   // load notification
   this.notification = new PSVNotification(this);
+
+  // load overlay
+  this.overlay = new PSVOverlay(this);
 
   // attach event handlers
   this._bindEvents();
@@ -1424,23 +1435,6 @@ PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
 PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
 
 /**
- * @summary Map between keyboard events `keyCode|which` and `key`
- * @type {Object.<int, string>}
- * @readonly
- * @private
- */
-PhotoSphereViewer.KEYMAP = {
-  33: 'PageUp',
-  34: 'PageDown',
-  37: 'ArrowLeft',
-  38: 'ArrowUp',
-  39: 'ArrowRight',
-  40: 'ArrowDown',
-  107: '+',
-  109: '-'
-};
-
-/**
  * @summary System properties
  * @type {Object}
  * @readonly
@@ -1520,13 +1514,25 @@ PhotoSphereViewer.DEFAULTS = {
     gyroscope: 'Gyroscope',
     stereo: 'Stereo view',
     stereo_notification: 'Click anywhere to exit stereo view.',
-    please_rotate: ['Please rotate your device', '(or tap to continue)']
+    please_rotate: ['Please rotate your device', '(or tap to continue)'],
+    two_fingers: ['Use two fingers to navigate']
   },
   mousewheel: true,
   mousewheel_factor: 1,
   mousemove: true,
   mousemove_hover: false,
-  keyboard: true,
+  touchmove_two_fingers: false,
+  keyboard: {
+    'ArrowUp': 'rotateLatitudeUp',
+    'ArrowDown': 'rotateLatitudeDown',
+    'ArrowRight': 'rotateLongitudeRight',
+    'ArrowLeft': 'rotateLongitudeLeft',
+    'PageUp': 'zoomIn',
+    'PageDown': 'zoomOut',
+    '+': 'zoomIn',
+    '-': 'zoomOut',
+    ' ': 'toggleAutorotate'
+  },
   move_inertia: true,
   click_event_on_marker: false,
   transition: {
@@ -1696,16 +1702,18 @@ PhotoSphereViewer.prototype._onKeyDown = function(evt) {
   var dLat = 0;
   var dZoom = 0;
 
-  var key = evt.key || PhotoSphereViewer.KEYMAP[evt.keyCode || evt.which];
+  var key = PSVUtils.getEventKey(evt);
+  var action = this.config.keyboard[key];
 
-  switch (key) {
+  switch (action) {
     // @formatter:off
-    case 'ArrowUp': dLat = 0.01; break;
-    case 'ArrowDown': dLat = -0.01; break;
-    case 'ArrowRight': dLong = 0.01; break;
-    case 'ArrowLeft': dLong = -0.01; break;
-    case 'PageUp':case '+': dZoom = 1; break;
-    case 'PageDown':case '-': dZoom = -1; break;
+    case 'rotateLatitudeUp': dLat = 0.01; break;
+    case 'rotateLatitudeDown': dLat = -0.01; break;
+    case 'rotateLongitudeRight': dLong = 0.01; break;
+    case 'rotateLongitudeLeft': dLong = -0.01; break;
+    case 'zoomIn': dZoom = 1; break;
+    case 'zoomOut': dZoom = -1; break;
+    case 'toggleAutorotate': this.toggleAutorotate(); break;
     // @formatter:on
   }
 
@@ -1764,10 +1772,12 @@ PhotoSphereViewer.prototype._onMouseMove = function(evt) {
  */
 PhotoSphereViewer.prototype._onTouchStart = function(evt) {
   if (evt.touches.length === 1) {
-    this._startMove(evt.touches[0]);
+    if (!this.config.touchmove_two_fingers) {
+      this._startMove(evt.touches[0]);
+    }
   }
   else if (evt.touches.length === 2) {
-    this._startZoom(evt);
+    this._startMoveZoom(evt);
   }
 };
 
@@ -1777,7 +1787,16 @@ PhotoSphereViewer.prototype._onTouchStart = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._onTouchEnd = function(evt) {
-  this._stopMove(evt.changedTouches[0]);
+  if (evt.touches.length === 1) {
+    this._stopMoveZoom();
+  }
+  else if (evt.touches.length === 0) {
+    this._stopMove(evt.changedTouches[0]);
+
+    if (this.config.touchmove_two_fingers) {
+      this.overlay.hideOverlay();
+    }
+  }
 };
 
 /**
@@ -1787,12 +1806,20 @@ PhotoSphereViewer.prototype._onTouchEnd = function(evt) {
  */
 PhotoSphereViewer.prototype._onTouchMove = function(evt) {
   if (evt.touches.length === 1) {
-    evt.preventDefault();
-    this._move(evt.touches[0]);
+    if (this.config.touchmove_two_fingers) {
+      this.overlay.showOverlay({
+        image: PhotoSphereViewer.ICONS['gesture.svg'],
+        text: this.config.lang.two_fingers[0]
+      });
+    }
+    else {
+      evt.preventDefault();
+      this._move(evt.touches[0]);
+    }
   }
   else if (evt.touches.length === 2) {
     evt.preventDefault();
-    this._zoom(evt);
+    this._moveZoom(evt);
   }
 };
 
@@ -1815,18 +1842,20 @@ PhotoSphereViewer.prototype._startMove = function(evt) {
 };
 
 /**
- * @summary Initializes the zoom
+ * @summary Initializes the combines move and zoom
  * @param {TouchEvent} evt
  * @private
  */
-PhotoSphereViewer.prototype._startZoom = function(evt) {
+PhotoSphereViewer.prototype._startMoveZoom = function(evt) {
   var t = [
     { x: parseInt(evt.touches[0].clientX), y: parseInt(evt.touches[0].clientY) },
     { x: parseInt(evt.touches[1].clientX), y: parseInt(evt.touches[1].clientY) }
   ];
 
   this.prop.pinch_dist = Math.sqrt(Math.pow(t[0].x - t[1].x, 2) + Math.pow(t[0].y - t[1].y, 2));
-  this.prop.moving = false;
+  this.prop.mouse_x = this.prop.start_mouse_x = (t[0].x + t[1].x) / 2;
+  this.prop.mouse_y = this.prop.start_mouse_x = (t[0].y + t[1].y) / 2;
+  this.prop.moving = true;
   this.prop.zooming = true;
 };
 
@@ -1858,7 +1887,15 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
 
     this.prop.mouse_history.length = 0;
   }
+};
 
+/**
+ * @summary Stops the combined move and zoom
+ * @private
+ */
+PhotoSphereViewer.prototype._stopMoveZoom = function() {
+  this.prop.mouse_history.length = 0;
+  this.prop.moving = false;
   this.prop.zooming = false;
 };
 
@@ -2007,12 +2044,12 @@ PhotoSphereViewer.prototype._moveAbsolute = function(evt) {
 };
 
 /**
- * @summary Perfoms zoom
+ * @summary Perfoms combines move and zoom
  * @param {TouchEvent} evt
  * @private
  */
-PhotoSphereViewer.prototype._zoom = function(evt) {
-  if (this.prop.zooming) {
+PhotoSphereViewer.prototype._moveZoom = function(evt) {
+  if (this.prop.zooming && this.prop.moving) {
     var t = [
       { x: parseInt(evt.touches[0].clientX), y: parseInt(evt.touches[0].clientY) },
       { x: parseInt(evt.touches[1].clientX), y: parseInt(evt.touches[1].clientY) }
@@ -2022,6 +2059,11 @@ PhotoSphereViewer.prototype._zoom = function(evt) {
     var delta = 80 * (p - this.prop.pinch_dist) / this.prop.size.width;
 
     this.zoom(this.prop.zoom_lvl + delta);
+
+    this._move({
+      clientX: (t[0].x + t[1].x) / 2,
+      clientY: (t[0].y + t[1].y) / 2
+    });
 
     this.prop.pinch_dist = p;
   }
@@ -2225,8 +2267,8 @@ PhotoSphereViewer.prototype.destroy = function() {
   if (this.panel) {
     this.panel.destroy();
   }
-  if (this.pleaseRotate) {
-    this.pleaseRotate.destroy();
+  if (this.overlay) {
+    this.overlay.destroy();
   }
 
   // destroy ThreeJS view
@@ -2251,7 +2293,7 @@ PhotoSphereViewer.prototype.destroy = function() {
   delete this.panel;
   delete this.tooltip;
   delete this.notification;
-  delete this.pleaseRotate;
+  delete this.overlay;
   delete this.canvas_container;
   delete this.renderer;
   delete this.noSleep;
@@ -2413,8 +2455,8 @@ PhotoSphereViewer.prototype.toggleAutorotate = function() {
  */
 PhotoSphereViewer.prototype.startGyroscopeControl = function() {
   if (PSVUtils.checkTHREE('DeviceOrientationControls')) {
-    return PhotoSphereViewer.SYSTEM.deviceOrientationSupported.then(
-      function() {
+    return PhotoSphereViewer.SYSTEM.deviceOrientationSupported.then(function(supported) {
+      if (supported) {
         this._stopAll();
 
         this.doControls = new THREE.DeviceOrientationControls(this.camera);
@@ -2438,12 +2480,12 @@ PhotoSphereViewer.prototype.startGyroscopeControl = function() {
          * @param {boolean} enabled
          */
         this.trigger('gyroscope-updated', true);
-      }.bind(this),
-      function() {
+      }
+      else {
         console.warn('PhotoSphereViewer: gyroscope not available');
         return D.rejected();
       }
-    );
+    }.bind(this));
   }
   else {
     throw new PSVError('Missing Three.js components: DeviceOrientationControls. Get them from three.js-examples package.');
@@ -2598,17 +2640,25 @@ PhotoSphereViewer.prototype.stopStereoView = function() {
  * @summary Tries to lock the device in landscape or display a message
  */
 PhotoSphereViewer.prototype.lockOrientation = function() {
+  var displayRotateMessageTimeout;
+
   var displayRotateMessage = function() {
-    if (window.innerHeight > window.innerWidth) {
-      if (!this.pleaseRotate) {
-        this.pleaseRotate = new PSVPleaseRotate(this);
-      }
-      this.pleaseRotate.show();
+    if (this.isStereoEnabled() && window.innerHeight > window.innerWidth) {
+      this.overlay.showOverlay({
+        image: PhotoSphereViewer.ICONS['mobile-rotate.svg'],
+        text: this.config.lang.please_rotate[0],
+        subtext: this.config.lang.please_rotate[1]
+      });
+    }
+
+    if (displayRotateMessageTimeout) {
+      window.clearTimeout(displayRotateMessageTimeout);
     }
   };
 
   if (window.screen && window.screen.orientation) {
     window.screen.orientation.lock('landscape').then(null, displayRotateMessage.bind(this));
+    displayRotateMessageTimeout = setTimeout(displayRotateMessage.bind(this), 500);
   }
   else {
     displayRotateMessage.apply(this);
@@ -2623,9 +2673,7 @@ PhotoSphereViewer.prototype.unlockOrientation = function() {
     window.screen.orientation.unlock();
   }
   else {
-    if (this.pleaseRotate) {
-      this.pleaseRotate.hide();
-    }
+    this.overlay.hideOverlay();
   }
 };
 
@@ -4272,11 +4320,11 @@ function PSVNavBarCaption(navbar, caption) {
   this.content = null;
 
   /**
-   * @member {SVGElement}
+   * @member {PSVNavBarCaptionButton}
    * @readonly
    * @private
    */
-  this.icon = null;
+  this.button = null;
 
   /**
    * @member {Object}
@@ -4284,8 +4332,7 @@ function PSVNavBarCaption(navbar, caption) {
    */
   this.prop = {
     caption: '',
-    width: 0,
-    hidden: false
+    width: 0
   };
 
   this.create();
@@ -4305,16 +4352,13 @@ PSVNavBarCaption.publicMethods = ['setCaption'];
 PSVNavBarCaption.prototype.create = function() {
   PSVComponent.prototype.create.call(this);
 
-  this.container.innerHTML = PhotoSphereViewer.ICONS['info.svg'];
-  this.icon = this.container.querySelector('svg');
-  this.icon.setAttribute('class', 'psv-caption-icon');
-  this.icon.style.display = 'none';
+  this.button = new PSVNavBarCaptionButton(this);
+  this.button.hide();
 
-  this.content = document.createElement('span');
+  this.content = document.createElement('div');
   this.content.className = 'psv-caption-content';
   this.container.appendChild(this.content);
 
-  this.icon.addEventListener('click', this);
   window.addEventListener('resize', this);
 };
 
@@ -4338,7 +4382,6 @@ PSVNavBarCaption.prototype.handleEvent = function(e) {
   switch (e.type) {
     // @formatter:off
     case 'resize': this._onResize(); break;
-    case 'click':  this._onClick();  break;
     // @formatter:on
   }
 };
@@ -4371,25 +4414,12 @@ PSVNavBarCaption.prototype._onResize = function() {
   var width = parseInt(PSVUtils.getStyle(this.container, 'width')); // get real inner width
 
   if (width >= this.prop.width) {
-    this.icon.style.display = 'none';
+    this.button.hide();
     this.content.style.display = '';
   }
   else {
-    this.icon.style.display = '';
+    this.button.show();
     this.content.style.display = 'none';
-  }
-};
-
-/**
- * @summary Display caption as notification
- * @private
- */
-PSVNavBarCaption.prototype._onClick = function() {
-  if (this.psv.isNotificationVisible()) {
-    this.psv.hideNotification();
-  }
-  else {
-    this.psv.showNotification(this.prop.caption);
   }
 };
 
@@ -4493,6 +4523,120 @@ PSVNotification.prototype.hideNotification = function() {
     this.psv.trigger('hide-notification');
   }
 };
+
+
+/**
+ * Overlay class
+ * @param {PhotoSphereViewer} psv
+ * @constructor
+ * @extends module:components.PSVComponent
+ * @memberof module:components
+ */
+function PSVOverlay(psv) {
+  PSVComponent.call(this, psv);
+
+  this.create();
+  this.hide();
+}
+
+PSVOverlay.prototype = Object.create(PSVComponent.prototype);
+PSVOverlay.prototype.constructor = PSVOverlay;
+
+PSVOverlay.className = 'psv-overlay';
+PSVOverlay.publicMethods = ['showOverlay', 'hideOverlay', 'isOverlayVisible'];
+
+/**
+ * @override
+ */
+PSVOverlay.prototype.create = function() {
+  PSVComponent.prototype.create.call(this);
+
+  this.image = document.createElement('div');
+  this.image.className = 'psv-overlay-image';
+  this.container.appendChild(this.image);
+
+  this.text = document.createElement('div');
+  this.text.className = 'psv-overlay-text';
+  this.container.appendChild(this.text);
+
+  this.subtext = document.createElement('div');
+  this.subtext.className = 'psv-overlay-subtext';
+  this.container.appendChild(this.subtext);
+
+  this.container.addEventListener('click', this.hideOverlay.bind(this));
+};
+
+/**
+ * @override
+ */
+PSVOverlay.prototype.destroy = function() {
+  delete this.image;
+  delete this.text;
+  delete this.subtext;
+
+  PSVComponent.prototype.destroy.call(this);
+};
+
+/**
+ * @summary Checks if the overlay is visible
+ * @returns {boolean}
+ */
+PSVOverlay.prototype.isOverlayVisible = function() {
+  return this.visible;
+};
+
+/**
+ * @summary Displays an overlay on the viewer
+ * @param {Object|string} config
+ * @param {string} config.image
+ * @param {string} config.text
+ * @param {string} config.subtext
+ *
+ * @example
+ * viewer.showOverlay({
+ *   image: '<svg></svg>',
+ *   text: '....',
+ *   subtext: '....'
+ * })
+ */
+PSVOverlay.prototype.showOverlay = function(config) {
+  if (typeof config === 'string') {
+    config = {
+      text: config
+    };
+  }
+
+  this.image.innerHTML = config.image || '';
+  this.text.innerHTML = config.text || '';
+  this.subtext.innerHTML = config.subtext || '';
+
+  this.show();
+
+  /**
+   * @event show-overlay
+   * @memberof module:components.PSVOverlay
+   * @summary Trigered when the overlay is shown
+   */
+  this.psv.trigger('show-overlay');
+};
+
+/**
+ * @summary Hides the notification
+ * @fires module:components.PSVOverlay.hide-notification
+ */
+PSVOverlay.prototype.hideOverlay = function() {
+  if (this.isOverlayVisible()) {
+    this.hide();
+
+    /**
+     * @event hide-overlay
+     * @memberof module:components.PSVOverlay
+     * @summary Trigered when the overlay is hidden
+     */
+    this.psv.trigger('hide-overlay');
+  }
+};
+
 
 
 /**
@@ -4721,68 +4865,6 @@ PSVPanel.prototype._resize = function(evt) {
   this.prop.mouse_x = x;
   this.prop.mouse_y = y;
 };
-
-
-/**
- * "Please rotate" class
- * @param {PhotoSphereViewer} psv
- * @constructor
- * @extends module:components.PSVComponent
- * @memberof module:components
- */
-function PSVPleaseRotate(psv) {
-  PSVComponent.call(this, psv);
-
-  this.create();
-}
-
-PSVPleaseRotate.prototype = Object.create(PSVComponent.prototype);
-PSVPleaseRotate.prototype.constructor = PSVPleaseRotate;
-
-PSVPleaseRotate.className = 'psv-please-rotate';
-
-/**
- * @override
- */
-PSVPleaseRotate.prototype.create = function() {
-  PSVComponent.prototype.create.call(this);
-
-  this.container.innerHTML =
-    '<div class="psv-please-rotate-image">' + PhotoSphereViewer.ICONS['mobile-rotate.svg'] + '</div>' +
-    '<div class="psv-please-rotate-text">' + this.psv.config.lang.please_rotate[0] + '</div>' +
-    '<div class="psv-please-rotate-subtext">' + this.psv.config.lang.please_rotate[1] + '</div>';
-
-  this.container.addEventListener('click', this);
-  window.addEventListener('orientationchange', this);
-};
-
-/**
- * @override
- */
-PSVPleaseRotate.prototype.destroy = function() {
-  window.removeEventListener('orientationchange', this);
-
-  PSVComponent.prototype.destroy.call(this);
-};
-
-/**
- * @summary Handles events
- * @param {Event} e
- * @private
- */
-PSVPleaseRotate.prototype.handleEvent = function(e) {
-  switch (e.type) {
-    // @formatter:off
-    case 'click': this.hide(); break;
-    case 'orientationchange':
-      if (Math.abs(window.orientation) === 90) {
-        this.hide();
-      }
-      break;
-    // @formatter:on
-  }
-};
-
 
 
 /**
@@ -5176,6 +5258,20 @@ PSVNavBarButton.prototype.create = function() {
     }
     e.stopPropagation();
   }.bind(this));
+
+  var supported = this.supported();
+  if (typeof supported.then === 'function') {
+    this.hide();
+
+    supported.then(function(supported) {
+      if (supported) {
+        this.show();
+      }
+    }.bind(this));
+  }
+  else if (!supported) {
+    this.hide();
+  }
 };
 
 /**
@@ -5184,6 +5280,14 @@ PSVNavBarButton.prototype.create = function() {
  */
 PSVNavBarButton.prototype.destroy = function() {
   PSVComponent.prototype.destroy.call(this);
+};
+
+/**
+ * @summary Checks if the button can be displayed
+ * @returns {boolean|Promise<boolean>}
+ */
+PSVNavBarButton.prototype.supported = function() {
+  return true;
 };
 
 /**
@@ -5304,6 +5408,72 @@ PSVNavBarAutorotateButton.prototype.handleEvent = function(e) {
  */
 PSVNavBarAutorotateButton.prototype._onClick = function() {
   this.psv.toggleAutorotate();
+};
+
+
+/**
+ * Navigation bar caption button class
+ * @param {module:components.PSVNavBarCaption} caption
+ * @constructor
+ * @extends module:components/buttons.PSVNavBarButton
+ * @memberof module:components/buttons
+ */
+function PSVNavBarCaptionButton(caption) {
+  PSVNavBarButton.call(this, caption);
+
+  this.create();
+}
+
+PSVNavBarCaptionButton.prototype = Object.create(PSVNavBarButton.prototype);
+PSVNavBarCaptionButton.prototype.constructor = PSVNavBarCaptionButton;
+
+PSVNavBarCaptionButton.id = 'markers';
+PSVNavBarCaptionButton.className = 'psv-button psv-button--hover-scale psv-caption-button';
+PSVNavBarCaptionButton.icon = 'info.svg';
+
+/**
+ * @override
+ */
+PSVNavBarCaptionButton.prototype.create = function() {
+  PSVNavBarButton.prototype.create.call(this);
+
+  this.psv.on('hide-notification', this);
+};
+
+/**
+ * @override
+ */
+PSVNavBarCaptionButton.prototype.destroy = function() {
+  this.psv.off('hide-notification', this);
+
+  PSVNavBarButton.prototype.destroy.call(this);
+};
+
+/**
+ * @summary Handles events
+ * @param {Event} e
+ * @private
+ */
+PSVNavBarCaptionButton.prototype.handleEvent = function(e) {
+  switch (e.type) {
+    // @formatter:off
+    case 'hide-notification': this.toggleActive(false); break;
+    // @formatter:on
+  }
+};
+
+/**
+ * @override
+ * @description Toggles markers list
+ */
+PSVNavBarCaptionButton.prototype._onClick = function() {
+  if (this.psv.isNotificationVisible()) {
+    this.psv.hideNotification();
+  }
+  else {
+    this.psv.showNotification(this.parent.prop.caption);
+    this.toggleActive(true);
+  }
 };
 
 
@@ -5451,11 +5621,6 @@ PSVNavBarFullscreenButton.iconActive = 'fullscreen-out.svg';
 PSVNavBarFullscreenButton.prototype.create = function() {
   PSVNavBarButton.prototype.create.call(this);
 
-  if (!PhotoSphereViewer.SYSTEM.fullscreenEvent) {
-    this.hide();
-    console.warn('PhotoSphereViewer: fullscreen not supported.');
-  }
-
   this.psv.on('fullscreen-updated', this);
 };
 
@@ -5466,6 +5631,13 @@ PSVNavBarFullscreenButton.prototype.destroy = function() {
   this.psv.off('fullscreen-updated', this);
 
   PSVNavBarButton.prototype.destroy.call(this);
+};
+
+/**
+ * @override
+ */
+PSVNavBarFullscreenButton.prototype.supported = function() {
+  return !!PhotoSphereViewer.SYSTEM.fullscreenEvent;
 };
 
 /**
@@ -5517,13 +5689,6 @@ PSVNavBarGyroscopeButton.icon = 'compass.svg';
 PSVNavBarGyroscopeButton.prototype.create = function() {
   PSVNavBarButton.prototype.create.call(this);
 
-  PhotoSphereViewer.SYSTEM.deviceOrientationSupported.then(
-    this._onAvailabilityChange.bind(this, true),
-    this._onAvailabilityChange.bind(this, false)
-  );
-
-  this.hide();
-
   this.psv.on('gyroscope-updated', this);
 };
 
@@ -5534,6 +5699,18 @@ PSVNavBarGyroscopeButton.prototype.destroy = function() {
   this.psv.off('gyroscope-updated', this);
 
   PSVNavBarButton.prototype.destroy.call(this);
+};
+
+/**
+ * @override
+ */
+PSVNavBarGyroscopeButton.prototype.supported = function() {
+  if (!PSVUtils.checkTHREE('DeviceOrientationControls')) {
+    return false;
+  }
+  else {
+    return PhotoSphereViewer.SYSTEM.deviceOrientationSupported;
+  }
 };
 
 /**
@@ -5555,18 +5732,6 @@ PSVNavBarGyroscopeButton.prototype.handleEvent = function(e) {
  */
 PSVNavBarGyroscopeButton.prototype._onClick = function() {
   this.psv.toggleGyroscopeControl();
-};
-
-/**
- * @summary Updates button display when API is ready
- * @param {boolean} available
- * @private
- * @throws {PSVError} when {@link THREE.DeviceOrientationControls} is not loaded
- */
-PSVNavBarGyroscopeButton.prototype._onAvailabilityChange = function(available) {
-  if (available && PSVUtils.checkTHREE('DeviceOrientationControls')) {
-    this.show();
-  }
 };
 
 
@@ -5626,13 +5791,6 @@ PSVNavBarStereoButton.icon = 'stereo.svg';
 PSVNavBarStereoButton.prototype.create = function() {
   PSVNavBarButton.prototype.create.call(this);
 
-  PhotoSphereViewer.SYSTEM.deviceOrientationSupported.then(
-    this._onAvailabilityChange.bind(this, true),
-    this._onAvailabilityChange.bind(this, false)
-  );
-
-  this.hide();
-
   this.psv.on('stereo-updated', this);
 };
 
@@ -5643,6 +5801,18 @@ PSVNavBarStereoButton.prototype.destroy = function() {
   this.psv.off('stereo-updated', this);
 
   PSVNavBarButton.prototype.destroy.call(this);
+};
+
+/**
+ * @override
+ */
+PSVNavBarStereoButton.prototype.supported = function() {
+  if (!PhotoSphereViewer.SYSTEM.fullscreenEvent || !PSVUtils.checkTHREE('DeviceOrientationControls')) {
+    return false;
+  }
+  else {
+    return PhotoSphereViewer.SYSTEM.deviceOrientationSupported;
+  }
 };
 
 /**
@@ -5665,19 +5835,6 @@ PSVNavBarStereoButton.prototype.handleEvent = function(e) {
 PSVNavBarStereoButton.prototype._onClick = function() {
   this.psv.toggleStereoView();
 };
-
-/**
- * @summary Updates button display when API is ready
- * @param {boolean} available
- * @private
- * @throws {PSVError} when {@link THREE.DeviceOrientationControls} is not loaded
- */
-PSVNavBarStereoButton.prototype._onAvailabilityChange = function(available) {
-  if (available && PSVUtils.checkTHREE('DeviceOrientationControls', 'StereoEffect')) {
-    this.show();
-  }
-};
-
 
 
 /**
@@ -6557,7 +6714,7 @@ PSVUtils.isWebGLSupported = function() {
 /**
  * @summary Detects if device orientation is supported
  * @description We can only be sure device orientation is supported once received an event with coherent data
- * @returns {Promise}
+ * @returns {Promise<boolean>}
  */
 PSVUtils.isDeviceOrientationSupported = function() {
   var defer = D();
@@ -6565,10 +6722,10 @@ PSVUtils.isDeviceOrientationSupported = function() {
   if ('DeviceOrientationEvent' in window) {
     var listener = function(event) {
       if (event && event.alpha !== null && !isNaN(event.alpha)) {
-        defer.resolve();
+        defer.resolve(true);
       }
       else {
-        defer.reject();
+        defer.resolve(false);
       }
 
       window.removeEventListener('deviceorientation', listener);
@@ -6583,7 +6740,7 @@ PSVUtils.isDeviceOrientationSupported = function() {
     }, 2000);
   }
   else {
-    defer.reject();
+    defer.resolve(false);
   }
 
   return defer.promise;
@@ -6713,7 +6870,7 @@ PSVUtils.hasParent = function(el, parent) {
 
 /**
  * @summary Gets the closest parent (can by itself)
- * @param {HTMLElement} el (HTMLElement)
+ * @param {HTMLElement|SVGElement} el
  * @param {string} selector
  * @returns {HTMLElement}
  */
@@ -6724,7 +6881,7 @@ PSVUtils.getClosest = function(el, selector) {
     if (matches.bind(el)(selector)) {
       return el;
     }
-  } while (!!(el = el.parentElement));
+  } while (!!(el instanceof SVGElement ? el = el.parentNode : el = el.parentElement));
 
   return null;
 };
@@ -6737,6 +6894,61 @@ PSVUtils.mouseWheelEvent = function() {
   return 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
     document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
       'DOMMouseScroll'; // let's assume that remaining browsers are older Firefox
+};
+
+/**
+ * @summary Returns the key name of a KeyboardEvent
+ * @param {KeyboardEvent} evt
+ * @returns {string}
+ */
+PSVUtils.getEventKey = function(evt) {
+  var key = evt.key || PSVUtils.getEventKey.KEYMAP[evt.keyCode || evt.which];
+
+  if (key && PSVUtils.getEventKey.MS_KEYMAP[key]) {
+    key = PSVUtils.getEventKey.MS_KEYMAP[key];
+  }
+
+  return key;
+};
+
+/**
+ * @summary Map between keyboard events `keyCode|which` and `key`
+ * @type {Object.<int, string>}
+ * @readonly
+ * @protected
+ */
+PSVUtils.getEventKey.KEYMAP = {
+  13: 'Enter',
+  27: 'Escape',
+  32: ' ',
+  33: 'PageUp',
+  34: 'PageDown',
+  37: 'ArrowLeft',
+  38: 'ArrowUp',
+  39: 'ArrowRight',
+  40: 'ArrowDown',
+  46: 'Delete',
+  107: '+',
+  109: '-'
+};
+
+/**
+ * @summary Map for non standard keyboard events `key` for IE and Edge
+ * @see https://github.com/shvaikalesh/shim-keyboard-event-key
+ * @type {Object.<string, string>}
+ * @readonly
+ * @protected
+ */
+PSVUtils.getEventKey.MS_KEYMAP = {
+  Add: '+',
+  Del: 'Delete',
+  Down: 'ArrowDown',
+  Esc: 'Escape',
+  Left: 'ArrowLeft',
+  Right: 'ArrowRight',
+  Spacebar: ' ',
+  Subtract: '-',
+  Up: 'ArrowUp'
 };
 
 /**
@@ -7489,6 +7701,8 @@ PhotoSphereViewer.ICONS['download.svg'] = '<svg xmlns="http://www.w3.org/2000/sv
 PhotoSphereViewer.ICONS['fullscreen-in.svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M100 40H87.1V18.8h-21V6H100zM100 93.2H66V80.3h21.1v-21H100zM34 93.2H0v-34h12.9v21.1h21zM12.9 40H0V6h34v12.9H12.8z"/><!--Created by Garrett Knoll from the Noun Project--></svg>';
 
 PhotoSphereViewer.ICONS['fullscreen-out.svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M66 7h13v21h21v13H66zM66 60.3h34v12.9H79v21H66zM0 60.3h34v34H21V73.1H0zM21 7h13v34H0V28h21z"/><!--Created by Garrett Knoll from the Noun Project--></svg>';
+
+PhotoSphereViewer.ICONS['gesture.svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M33.38 33.2a1.96 1.96 0 0 0 1.5-3.23 10.61 10.61 0 0 1 7.18-17.51c.7-.06 1.31-.49 1.61-1.12a13.02 13.02 0 0 1 11.74-7.43c7.14 0 12.96 5.8 12.96 12.9 0 3.07-1.1 6.05-3.1 8.38-.7.82-.61 2.05.21 2.76.83.7 2.07.6 2.78-.22a16.77 16.77 0 0 0 4.04-10.91C72.3 7.54 64.72 0 55.4 0a16.98 16.98 0 0 0-14.79 8.7 14.6 14.6 0 0 0-12.23 14.36c0 3.46 1.25 6.82 3.5 9.45.4.45.94.69 1.5.69m45.74 43.55a22.13 22.13 0 0 1-5.23 12.4c-4 4.55-9.53 6.86-16.42 6.86-12.6 0-20.1-10.8-20.17-10.91a1.82 1.82 0 0 0-.08-.1c-5.3-6.83-14.55-23.82-17.27-28.87-.05-.1 0-.21.02-.23a6.3 6.3 0 0 1 8.24 1.85l9.38 12.59a1.97 1.97 0 0 0 3.54-1.17V25.34a4 4 0 0 1 1.19-2.87 3.32 3.32 0 0 1 2.4-.95c1.88.05 3.4 1.82 3.4 3.94v24.32a1.96 1.96 0 0 0 3.93 0v-33.1a3.5 3.5 0 0 1 7 0v35.39a1.96 1.96 0 0 0 3.93 0v-.44c.05-2.05 1.6-3.7 3.49-3.7 1.93 0 3.5 1.7 3.5 3.82v5.63c0 .24.04.48.13.71l.1.26a1.97 1.97 0 0 0 3.76-.37c.33-1.78 1.77-3.07 3.43-3.07 1.9 0 3.45 1.67 3.5 3.74l-1.77 18.1zM77.39 51c-1.25 0-2.45.32-3.5.9v-.15c0-4.27-3.33-7.74-7.42-7.74-1.26 0-2.45.33-3.5.9V16.69a7.42 7.42 0 0 0-14.85 0v1.86a7 7 0 0 0-3.28-.94 7.21 7.21 0 0 0-5.26 2.07 7.92 7.92 0 0 0-2.38 5.67v37.9l-5.83-7.82a10.2 10.2 0 0 0-13.35-2.92 4.1 4.1 0 0 0-1.53 5.48C20 64.52 28.74 80.45 34.07 87.34c.72 1.04 9.02 12.59 23.4 12.59 7.96 0 14.66-2.84 19.38-8.2a26.06 26.06 0 0 0 6.18-14.6l1.78-18.2v-.2c0-4.26-3.32-7.73-7.42-7.73z" fill="#000" fill-rule="evenodd"/><!--Created by AomAm from the Noun Project--></svg>';
 
 PhotoSphereViewer.ICONS['info.svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M28.3 26.1c-1 2.6-1.9 4.8-2.6 7-2.5 7.4-5 14.7-7.2 22-1.3 4.4.5 7.2 4.3 7.8 1.3.2 2.8.2 4.2-.1 8.2-2 11.9-8.6 15.7-15.2l-2.2 2a18.8 18.8 0 0 1-7.4 5.2 2 2 0 0 1-1.6-.2c-.2-.1 0-1 0-1.4l.8-1.8L41.9 28c.5-1.4.9-3 .7-4.4-.2-2.6-3-4.4-6.3-4.4-8.8.2-15 4.5-19.5 11.8-.2.3-.2.6-.3 1.3 3.7-2.8 6.8-6.1 11.8-6.2z"/><circle cx="39.3" cy="9.2" r="8.2"/><!--Created by Arafat Uddin from the Noun Project--></svg>';
 

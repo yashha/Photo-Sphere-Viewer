@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>components/PSVPleaseRotate.js</title>
+		<title>buttons/PSVNavBarCaptionButton.js</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -73,11 +73,12 @@
 											<li><a href="module-components.PSVNavBar.html">components.PSVNavBar</a></li>
 											<li><a href="module-components.PSVNavBarCaption.html">components.PSVNavBarCaption</a></li>
 											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
 											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
-											<li><a href="module-components.PSVPleaseRotate.html">components.PSVPleaseRotate</a></li>
 											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
 											<li><a href="module-components_buttons.PSVNavBarAutorotateButton.html">components/buttons.PSVNavBarAutorotateButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarButton.html">components/buttons.PSVNavBarButton</a></li>
+											<li><a href="module-components_buttons.PSVNavBarCaptionButton.html">components/buttons.PSVNavBarCaptionButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarCustomButton.html">components/buttons.PSVNavBarCustomButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarDownloadButton.html">components/buttons.PSVNavBarDownloadButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarFullscreenButton.html">components/buttons.PSVNavBarFullscreenButton</a></li>
@@ -102,6 +103,8 @@
 											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
 											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
 											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
 											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
@@ -154,7 +157,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">source</span>
-				<h1><span class="name">components/PSVPleaseRotate.js</span></h1>
+				<h1><span class="name">buttons/PSVNavBarCaptionButton.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -163,45 +166,41 @@
 		<section class="source-section">
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
- * "Please rotate" class
- * @param {PhotoSphereViewer} psv
+ * Navigation bar caption button class
+ * @param {module:components.PSVNavBarCaption} caption
  * @constructor
- * @extends module:components.PSVComponent
- * @memberof module:components
+ * @extends module:components/buttons.PSVNavBarButton
+ * @memberof module:components/buttons
  */
-function PSVPleaseRotate(psv) {
-  PSVComponent.call(this, psv);
+function PSVNavBarCaptionButton(caption) {
+  PSVNavBarButton.call(this, caption);
 
   this.create();
 }
 
-PSVPleaseRotate.prototype = Object.create(PSVComponent.prototype);
-PSVPleaseRotate.prototype.constructor = PSVPleaseRotate;
+PSVNavBarCaptionButton.prototype = Object.create(PSVNavBarButton.prototype);
+PSVNavBarCaptionButton.prototype.constructor = PSVNavBarCaptionButton;
 
-PSVPleaseRotate.className = 'psv-please-rotate';
+PSVNavBarCaptionButton.id = 'markers';
+PSVNavBarCaptionButton.className = 'psv-button psv-button--hover-scale psv-caption-button';
+PSVNavBarCaptionButton.icon = 'info.svg';
 
 /**
  * @override
  */
-PSVPleaseRotate.prototype.create = function() {
-  PSVComponent.prototype.create.call(this);
+PSVNavBarCaptionButton.prototype.create = function() {
+  PSVNavBarButton.prototype.create.call(this);
 
-  this.container.innerHTML =
-    '&lt;div class="psv-please-rotate-image">' + PhotoSphereViewer.ICONS['mobile-rotate.svg'] + '&lt;/div>' +
-    '&lt;div class="psv-please-rotate-text">' + this.psv.config.lang.please_rotate[0] + '&lt;/div>' +
-    '&lt;div class="psv-please-rotate-subtext">' + this.psv.config.lang.please_rotate[1] + '&lt;/div>';
-
-  this.container.addEventListener('click', this);
-  window.addEventListener('orientationchange', this);
+  this.psv.on('hide-notification', this);
 };
 
 /**
  * @override
  */
-PSVPleaseRotate.prototype.destroy = function() {
-  window.removeEventListener('orientationchange', this);
+PSVNavBarCaptionButton.prototype.destroy = function() {
+  this.psv.off('hide-notification', this);
 
-  PSVComponent.prototype.destroy.call(this);
+  PSVNavBarButton.prototype.destroy.call(this);
 };
 
 /**
@@ -209,19 +208,27 @@ PSVPleaseRotate.prototype.destroy = function() {
  * @param {Event} e
  * @private
  */
-PSVPleaseRotate.prototype.handleEvent = function(e) {
+PSVNavBarCaptionButton.prototype.handleEvent = function(e) {
   switch (e.type) {
     // @formatter:off
-    case 'click': this.hide(); break;
-    case 'orientationchange':
-      if (Math.abs(window.orientation) === 90) {
-        this.hide();
-      }
-      break;
+    case 'hide-notification': this.toggleActive(false); break;
     // @formatter:on
   }
 };
 
+/**
+ * @override
+ * @description Toggles markers list
+ */
+PSVNavBarCaptionButton.prototype._onClick = function() {
+  if (this.psv.isNotificationVisible()) {
+    this.psv.hideNotification();
+  }
+  else {
+    this.psv.showNotification(this.parent.prop.caption);
+    this.toggleActive(true);
+  }
+};
 </code></pre>
 		</section>
 			</div>

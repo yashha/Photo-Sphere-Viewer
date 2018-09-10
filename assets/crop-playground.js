@@ -27,7 +27,25 @@ $('#playground-form').on('change', '[type=number]', function() {
   if (this.id === 'full_width') {
     panoData['full_height'] = Math.round(this.value / 2);
   }
+  if (this.id === 'full_height') {
+    panoData['full_width'] = this.value * 2;
+  }
 
+  updateOutput();
+  loadPsv();
+});
+
+$('#playground-form').on('click', '[data-psv-center]', function() {
+  switch ($(this).data('psvCenter')) {
+    case 'x':
+      panoData['cropped_x'] = Math.round((panoData['full_width'] - panoData['cropped_width']) / 2);
+      break;
+    case 'y':
+      panoData['cropped_y'] = Math.round((panoData['full_height'] - panoData['cropped_height']) / 2);
+      break;
+  }
+
+  updateOutput();
   loadPsv();
 });
 
@@ -41,6 +59,7 @@ function loadPanorama(file) {
 
     image.onload = function() {
       computePanoData(image.width, image.height);
+      updateOutput();
       loadPsv();
     };
 
@@ -70,8 +89,6 @@ function loadPsv() {
   if (PSV) {
     PSV.destroy();
   }
-
-  updateOutput();
 
   PSV = new PhotoSphereViewer({
     panorama: imageData,
