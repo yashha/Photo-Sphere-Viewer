@@ -96,7 +96,7 @@ PSVUtils.isWebGLSupported = function() {
 /**
  * @summary Detects if device orientation is supported
  * @description We can only be sure device orientation is supported once received an event with coherent data
- * @returns {Promise}
+ * @returns {Promise<boolean>}
  */
 PSVUtils.isDeviceOrientationSupported = function() {
   var defer = D();
@@ -104,10 +104,10 @@ PSVUtils.isDeviceOrientationSupported = function() {
   if ('DeviceOrientationEvent' in window) {
     var listener = function(event) {
       if (event && event.alpha !== null && !isNaN(event.alpha)) {
-        defer.resolve();
+        defer.resolve(true);
       }
       else {
-        defer.reject();
+        defer.resolve(false);
       }
 
       window.removeEventListener('deviceorientation', listener);
@@ -122,7 +122,7 @@ PSVUtils.isDeviceOrientationSupported = function() {
     }, 2000);
   }
   else {
-    defer.reject();
+    defer.resolve(false);
   }
 
   return defer.promise;
@@ -252,7 +252,7 @@ PSVUtils.hasParent = function(el, parent) {
 
 /**
  * @summary Gets the closest parent (can by itself)
- * @param {HTMLElement} el (HTMLElement)
+ * @param {HTMLElement|SVGElement} el
  * @param {string} selector
  * @returns {HTMLElement}
  */
@@ -263,7 +263,7 @@ PSVUtils.getClosest = function(el, selector) {
     if (matches.bind(el)(selector)) {
       return el;
     }
-  } while (!!(el = el.parentElement));
+  } while (!!(el instanceof SVGElement ? el = el.parentNode : el = el.parentElement));
 
   return null;
 };
@@ -276,6 +276,61 @@ PSVUtils.mouseWheelEvent = function() {
   return 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
     document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
       'DOMMouseScroll'; // let's assume that remaining browsers are older Firefox
+};
+
+/**
+ * @summary Returns the key name of a KeyboardEvent
+ * @param {KeyboardEvent} evt
+ * @returns {string}
+ */
+PSVUtils.getEventKey = function(evt) {
+  var key = evt.key || PSVUtils.getEventKey.KEYMAP[evt.keyCode || evt.which];
+
+  if (key && PSVUtils.getEventKey.MS_KEYMAP[key]) {
+    key = PSVUtils.getEventKey.MS_KEYMAP[key];
+  }
+
+  return key;
+};
+
+/**
+ * @summary Map between keyboard events `keyCode|which` and `key`
+ * @type {Object.<int, string>}
+ * @readonly
+ * @protected
+ */
+PSVUtils.getEventKey.KEYMAP = {
+  13: 'Enter',
+  27: 'Escape',
+  32: ' ',
+  33: 'PageUp',
+  34: 'PageDown',
+  37: 'ArrowLeft',
+  38: 'ArrowUp',
+  39: 'ArrowRight',
+  40: 'ArrowDown',
+  46: 'Delete',
+  107: '+',
+  109: '-'
+};
+
+/**
+ * @summary Map for non standard keyboard events `key` for IE and Edge
+ * @see https://github.com/shvaikalesh/shim-keyboard-event-key
+ * @type {Object.<string, string>}
+ * @readonly
+ * @protected
+ */
+PSVUtils.getEventKey.MS_KEYMAP = {
+  Add: '+',
+  Del: 'Delete',
+  Down: 'ArrowDown',
+  Esc: 'Escape',
+  Left: 'ArrowLeft',
+  Right: 'ArrowRight',
+  Spacebar: ' ',
+  Subtract: '-',
+  Up: 'ArrowUp'
 };
 
 /**

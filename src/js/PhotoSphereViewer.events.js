@@ -131,16 +131,18 @@ PhotoSphereViewer.prototype._onKeyDown = function(evt) {
   var dLat = 0;
   var dZoom = 0;
 
-  var key = evt.key || PhotoSphereViewer.KEYMAP[evt.keyCode || evt.which];
+  var key = PSVUtils.getEventKey(evt);
+  var action = this.config.keyboard[key];
 
-  switch (key) {
+  switch (action) {
     // @formatter:off
-    case 'ArrowUp': dLat = 0.01; break;
-    case 'ArrowDown': dLat = -0.01; break;
-    case 'ArrowRight': dLong = 0.01; break;
-    case 'ArrowLeft': dLong = -0.01; break;
-    case 'PageUp':case '+': dZoom = 1; break;
-    case 'PageDown':case '-': dZoom = -1; break;
+    case 'rotateLatitudeUp': dLat = 0.01; break;
+    case 'rotateLatitudeDown': dLat = -0.01; break;
+    case 'rotateLongitudeRight': dLong = 0.01; break;
+    case 'rotateLongitudeLeft': dLong = -0.01; break;
+    case 'zoomIn': dZoom = 1; break;
+    case 'zoomOut': dZoom = -1; break;
+    case 'toggleAutorotate': this.toggleAutorotate(); break;
     // @formatter:on
   }
 
@@ -199,10 +201,12 @@ PhotoSphereViewer.prototype._onMouseMove = function(evt) {
  */
 PhotoSphereViewer.prototype._onTouchStart = function(evt) {
   if (evt.touches.length === 1) {
-    this._startMove(evt.touches[0]);
+    if (!this.config.touchmove_two_fingers) {
+      this._startMove(evt.touches[0]);
+    }
   }
   else if (evt.touches.length === 2) {
-    this._startZoom(evt);
+    this._startMoveZoom(evt);
   }
 };
 
@@ -212,7 +216,16 @@ PhotoSphereViewer.prototype._onTouchStart = function(evt) {
  * @private
  */
 PhotoSphereViewer.prototype._onTouchEnd = function(evt) {
-  this._stopMove(evt.changedTouches[0]);
+  if (evt.touches.length === 1) {
+    this._stopMoveZoom();
+  }
+  else if (evt.touches.length === 0) {
+    this._stopMove(evt.changedTouches[0]);
+
+    if (this.config.touchmove_two_fingers) {
+      this.overlay.hideOverlay();
+    }
+  }
 };
 
 /**
@@ -222,12 +235,20 @@ PhotoSphereViewer.prototype._onTouchEnd = function(evt) {
  */
 PhotoSphereViewer.prototype._onTouchMove = function(evt) {
   if (evt.touches.length === 1) {
-    evt.preventDefault();
-    this._move(evt.touches[0]);
+    if (this.config.touchmove_two_fingers) {
+      this.overlay.showOverlay({
+        image: PhotoSphereViewer.ICONS['gesture.svg'],
+        text: this.config.lang.two_fingers[0]
+      });
+    }
+    else {
+      evt.preventDefault();
+      this._move(evt.touches[0]);
+    }
   }
   else if (evt.touches.length === 2) {
     evt.preventDefault();
-    this._zoom(evt);
+    this._moveZoom(evt);
   }
 };
 
@@ -250,18 +271,20 @@ PhotoSphereViewer.prototype._startMove = function(evt) {
 };
 
 /**
- * @summary Initializes the zoom
+ * @summary Initializes the combines move and zoom
  * @param {TouchEvent} evt
  * @private
  */
-PhotoSphereViewer.prototype._startZoom = function(evt) {
+PhotoSphereViewer.prototype._startMoveZoom = function(evt) {
   var t = [
     { x: parseInt(evt.touches[0].clientX), y: parseInt(evt.touches[0].clientY) },
     { x: parseInt(evt.touches[1].clientX), y: parseInt(evt.touches[1].clientY) }
   ];
 
   this.prop.pinch_dist = Math.sqrt(Math.pow(t[0].x - t[1].x, 2) + Math.pow(t[0].y - t[1].y, 2));
-  this.prop.moving = false;
+  this.prop.mouse_x = this.prop.start_mouse_x = (t[0].x + t[1].x) / 2;
+  this.prop.mouse_y = this.prop.start_mouse_x = (t[0].y + t[1].y) / 2;
+  this.prop.moving = true;
   this.prop.zooming = true;
 };
 
@@ -293,7 +316,15 @@ PhotoSphereViewer.prototype._stopMove = function(evt) {
 
     this.prop.mouse_history.length = 0;
   }
+};
 
+/**
+ * @summary Stops the combined move and zoom
+ * @private
+ */
+PhotoSphereViewer.prototype._stopMoveZoom = function() {
+  this.prop.mouse_history.length = 0;
+  this.prop.moving = false;
   this.prop.zooming = false;
 };
 
@@ -442,12 +473,12 @@ PhotoSphereViewer.prototype._moveAbsolute = function(evt) {
 };
 
 /**
- * @summary Perfoms zoom
+ * @summary Perfoms combines move and zoom
  * @param {TouchEvent} evt
  * @private
  */
-PhotoSphereViewer.prototype._zoom = function(evt) {
-  if (this.prop.zooming) {
+PhotoSphereViewer.prototype._moveZoom = function(evt) {
+  if (this.prop.zooming && this.prop.moving) {
     var t = [
       { x: parseInt(evt.touches[0].clientX), y: parseInt(evt.touches[0].clientY) },
       { x: parseInt(evt.touches[1].clientX), y: parseInt(evt.touches[1].clientY) }
@@ -457,6 +488,11 @@ PhotoSphereViewer.prototype._zoom = function(evt) {
     var delta = 80 * (p - this.prop.pinch_dist) / this.prop.size.width;
 
     this.zoom(this.prop.zoom_lvl + delta);
+
+    this._move({
+      clientX: (t[0].x + t[1].x) / 2,
+      clientY: (t[0].y + t[1].y) / 2
+    });
 
     this.prop.pinch_dist = p;
   }

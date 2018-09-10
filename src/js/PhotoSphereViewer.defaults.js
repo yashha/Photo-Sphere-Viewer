@@ -72,23 +72,6 @@ PhotoSphereViewer.CUBE_MAP = [0, 2, 4, 5, 3, 1];
 PhotoSphereViewer.CUBE_HASHMAP = ['left', 'right', 'top', 'bottom', 'back', 'front'];
 
 /**
- * @summary Map between keyboard events `keyCode|which` and `key`
- * @type {Object.<int, string>}
- * @readonly
- * @private
- */
-PhotoSphereViewer.KEYMAP = {
-  33: 'PageUp',
-  34: 'PageDown',
-  37: 'ArrowLeft',
-  38: 'ArrowUp',
-  39: 'ArrowRight',
-  40: 'ArrowDown',
-  107: '+',
-  109: '-'
-};
-
-/**
  * @summary System properties
  * @type {Object}
  * @readonly
@@ -168,13 +151,25 @@ PhotoSphereViewer.DEFAULTS = {
     gyroscope: 'Gyroscope',
     stereo: 'Stereo view',
     stereo_notification: 'Click anywhere to exit stereo view.',
-    please_rotate: ['Please rotate your device', '(or tap to continue)']
+    please_rotate: ['Please rotate your device', '(or tap to continue)'],
+    two_fingers: ['Use two fingers to navigate']
   },
   mousewheel: true,
   mousewheel_factor: 1,
   mousemove: true,
   mousemove_hover: false,
-  keyboard: true,
+  touchmove_two_fingers: false,
+  keyboard: {
+    'ArrowUp': 'rotateLatitudeUp',
+    'ArrowDown': 'rotateLatitudeDown',
+    'ArrowRight': 'rotateLongitudeRight',
+    'ArrowLeft': 'rotateLongitudeLeft',
+    'PageUp': 'zoomIn',
+    'PageDown': 'zoomOut',
+    '+': 'zoomIn',
+    '-': 'zoomOut',
+    ' ': 'toggleAutorotate'
+  },
   move_inertia: true,
   click_event_on_marker: false,
   transition: {
