@@ -2625,16 +2625,16 @@ window.lunrData = {
         ],
         "PhotoSphereViewer.html#animate": [
           "anim",
-          "durat",
           "function",
           "latitud",
           "longitud",
+          "option",
           "photosphereviewer#anim",
-          "posit",
-          "promis",
+          "psvanim",
           "rotat",
           "smooth",
           "specif",
+          "speed",
           "view"
         ],
         "PhotoSphereViewer.html#change": [
@@ -2649,6 +2649,15 @@ window.lunrData = {
           "trigger",
           "valu",
           "viewer"
+        ],
+        "PhotoSphereViewer.html#cleanSphereCorrection": [
+          "clean",
+          "cleanspherecorrect",
+          "function",
+          "object",
+          "photosphereviewer#cleanspherecorrect",
+          "sphere_correct",
+          "spherecorrect"
         ],
         "PhotoSphereViewer.html#clearPanoramaCache": [
           "cach",
@@ -2723,6 +2732,18 @@ window.lunrData = {
           "isautorotateen",
           "photosphereviewer#isautorotateen",
           "rotat"
+        ],
+        "PhotoSphereViewer.html#isExtendedPosition": [
+          "boolean",
+          "check",
+          "function",
+          "ie",
+          "isextendedposit",
+          "longitude/latitud",
+          "object",
+          "photosphereviewer#isextendedposit",
+          "photosphereviewer.extendedposit",
+          "x/i"
         ],
         "PhotoSphereViewer.html#isFullscreenEnabled": [
           "boolean",
@@ -2842,6 +2863,7 @@ window.lunrData = {
         ],
         "PhotoSphereViewer.html#rotate": [
           "function",
+          "ignorerang",
           "latitud",
           "longitud",
           "photosphereviewer#rot",
@@ -2856,6 +2878,7 @@ window.lunrData = {
           "anim",
           "camera",
           "chang",
+          "config.transit",
           "configur",
           "continu",
           "defin",
@@ -2871,12 +2894,23 @@ window.lunrData = {
           "photosphereviewer#setpanorama",
           "posit",
           "promis",
-          "quot;config.transition&quot",
-          "quot;position&quot",
-          "quot;transition&quot",
           "setpanorama",
           "taken",
           "transit"
+        ],
+        "PhotoSphereViewer.html#speedToDuration": [
+          "angl",
+          "convert",
+          "current",
+          "durat",
+          "function",
+          "new",
+          "number",
+          "photosphereviewer#speedtodur",
+          "posit",
+          "speed",
+          "speedtodur",
+          "valu"
         ],
         "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": [
           "convert",
@@ -2961,10 +2995,15 @@ window.lunrData = {
         "PhotoSphereViewer.html#stopAnimation": [
           "anim",
           "function",
+          "guaranti",
           "ongo",
           "photosphereviewer#stopanim",
+          "promis",
+          "return",
           "stop",
-          "stopanim"
+          "stopanim",
+          "synchron",
+          "valu"
         ],
         "PhotoSphereViewer.html#stopAutorotate": [
           "automat",
@@ -3137,6 +3176,15 @@ window.lunrData = {
           "zoom",
           "zoomout"
         ],
+        "PhotoSphereViewer.html#.AnimateOptions": [
+          "anim",
+          "animateopt",
+          "defin",
+          "object",
+          "option",
+          "photosphereviewer.animateopt",
+          "typedef"
+        ],
         "PhotoSphereViewer.html#.CacheItem": [
           "cach",
           "cacheitem",
@@ -3187,6 +3235,16 @@ window.lunrData = {
           "photosphereviewer.panodata",
           "typedef"
         ],
+        "PhotoSphereViewer.html#.PanoramaOptions": [
+          "anim",
+          "defin",
+          "object",
+          "option",
+          "panorama",
+          "panoramaopt",
+          "photosphereviewer.panoramaopt",
+          "typedef"
+        ],
         "PhotoSphereViewer.html#.Point": [
           "defin",
           "object",
@@ -3207,6 +3265,67 @@ window.lunrData = {
           "object",
           "photosphereviewer.s",
           "size",
+          "typedef"
+        ],
+        "PhotoSphereViewer.html#.SphereCorrection": [
+          "photosphereviewer.spherecorrect",
+          "spherecorrect",
+          "typedef"
+        ],
+        "PSVAnimation.html": [
+          "addit",
+          "anim",
+          "api",
+          "cancel",
+          "class",
+          "complet",
+          "helper",
+          "implement",
+          "interpol",
+          "method",
+          "promis",
+          "psvanim",
+          "reject",
+          "resolv"
+        ],
+        "PSVAnimation.html#cancel": [
+          "anim",
+          "cancel",
+          "function",
+          "psvanimation#cancel"
+        ],
+        "PSVAnimation.html#catch": [
+          "alia",
+          "catch",
+          "function",
+          "onreject",
+          "psvanim",
+          "psvanimation#catch",
+          "then(nul"
+        ],
+        "PSVAnimation.html#finally": [
+          "alia",
+          "final",
+          "function",
+          "onfin",
+          "psvanim",
+          "psvanimation#fin",
+          "then(onfin"
+        ],
+        "PSVAnimation.html#then": [
+          "anim",
+          "chain",
+          "function",
+          "onfulfil",
+          "onreject",
+          "psvanim",
+          "psvanimation#then"
+        ],
+        "PSVAnimation.html#.OnTick": [
+          "ontick",
+          "progress",
+          "properti",
+          "psvanimation.ontick",
           "typedef"
         ],
         "PSVError.html": [
@@ -3420,19 +3539,6 @@ window.lunrData = {
           "psvutils.addclass",
           "sever"
         ],
-        "PSVUtils.html#.animation": [
-          "anim",
-          "delay",
-          "each",
-          "eas",
-          "function",
-          "interpol",
-          "lt;static&gt",
-          "option",
-          "promis",
-          "properti",
-          "psvutils.anim"
-        ],
         "PSVUtils.html#.bound": [
           "bound",
           "ensur",
@@ -3536,6 +3642,21 @@ window.lunrData = {
           "name",
           "psvutils.fullscreenev",
           "string"
+        ],
+        "PSVUtils.html#.getAngle": [
+          "angl",
+          "between",
+          "comput",
+          "current",
+          "function",
+          "getangl",
+          "lt;static&gt",
+          "number",
+          "posit",
+          "position1",
+          "position2",
+          "psvutils.getangl",
+          "target"
         ],
         "PSVUtils.html#.getClosest": [
           "closest",
@@ -3718,7 +3839,7 @@ window.lunrData = {
           "function",
           "istouchen",
           "lt;static&gt",
-          "promis",
+          "promise.&lt;boolean&gt",
           "psvutils.istouchen",
           "screen",
           "touch",
@@ -3782,8 +3903,10 @@ window.lunrData = {
           "zerocent"
         ],
         "PSVUtils.html#.parsePosition": [
-          "50%&quot",
-          "center&quot",
+          "10",
+          "50",
+          "background",
+          "center",
           "close",
           "css",
           "function",
@@ -3794,12 +3917,8 @@ window.lunrData = {
           "object",
           "parseposit",
           "posit",
-          "position&quot",
           "possibl",
           "psvutils.parseposit",
-          "quot;10",
-          "quot;background",
-          "quot;top",
           "specif",
           "top",
           "translat",
@@ -3875,13 +3994,6 @@ window.lunrData = {
           "toggl",
           "toggleclass"
         ],
-        "PSVUtils.html#.AnimationOnTick": [
-          "animationontick",
-          "progress",
-          "properti",
-          "psvutils.animationontick",
-          "typedef"
-        ],
         "PSVUtils.html#.ForEach": [
           "foreach",
           "key",
@@ -3890,11 +4002,19 @@ window.lunrData = {
           "valu"
         ]
       },
-      "length": 413
+      "length": 424
     },
     "tokenStore": {
       "root": {
         "1": {
+          "0": {
+            "docs": {
+              "PSVUtils.html#.parsePosition": {
+                "ref": "PSVUtils.html#.parsePosition",
+                "tf": 7
+              }
+            }
+          },
           "docs": {
             "PhotoSphereViewer.html#zoomIn": {
               "ref": "PhotoSphereViewer.html#zoomIn",
@@ -3908,28 +4028,10 @@ window.lunrData = {
         },
         "5": {
           "0": {
-            "docs": {},
-            "%": {
-              "docs": {},
-              "&": {
-                "docs": {},
-                "q": {
-                  "docs": {},
-                  "u": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "t": {
-                        "docs": {
-                          "PSVUtils.html#.parsePosition": {
-                            "ref": "PSVUtils.html#.parsePosition",
-                            "tf": 7
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
+            "docs": {
+              "PSVUtils.html#.parsePosition": {
+                "ref": "PSVUtils.html#.parsePosition",
+                "tf": 7
               }
             }
           },
@@ -3945,6 +4047,10 @@ window.lunrData = {
                 "index.html": {
                   "ref": "index.html",
                   "tf": 150
+                },
+                "PSVAnimation.html": {
+                  "ref": "PSVAnimation.html",
+                  "tf": 3.8461538461538463
                 }
               }
             }
@@ -3980,6 +4086,17 @@ window.lunrData = {
                           "tf": 625
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "i": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "PSVAnimation.html": {
+                      "ref": "PSVAnimation.html",
+                      "tf": 3.8461538461538463
                     }
                   }
                 }
@@ -4426,43 +4543,44 @@ window.lunrData = {
                   },
                   "PhotoSphereViewer.html#stopAnimation": {
                     "ref": "PhotoSphereViewer.html#stopAnimation",
-                    "tf": 23.333333333333332
+                    "tf": 30.476190476190474
                   },
-                  "PSVUtils.html#.animation": {
-                    "ref": "PSVUtils.html#.animation",
-                    "tf": 675
+                  "PhotoSphereViewer.html#.AnimateOptions": {
+                    "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                    "tf": 17.5
+                  },
+                  "PhotoSphereViewer.html#.PanoramaOptions": {
+                    "ref": "PhotoSphereViewer.html#.PanoramaOptions",
+                    "tf": 14
+                  },
+                  "PSVAnimation.html": {
+                    "ref": "PSVAnimation.html",
+                    "tf": 31.025641025641026
+                  },
+                  "PSVAnimation.html#cancel": {
+                    "ref": "PSVAnimation.html#cancel",
+                    "tf": 35
+                  },
+                  "PSVAnimation.html#then": {
+                    "ref": "PSVAnimation.html#then",
+                    "tf": 35
                   }
                 },
                 "a": {
                   "docs": {},
                   "t": {
                     "docs": {},
-                    "i": {
+                    "e": {
                       "docs": {},
                       "o": {
                         "docs": {},
-                        "n": {
+                        "p": {
                           "docs": {},
-                          "o": {
-                            "docs": {},
-                            "n": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "i": {
-                                  "docs": {},
-                                  "c": {
-                                    "docs": {},
-                                    "k": {
-                                      "docs": {
-                                        "PSVUtils.html#.AnimationOnTick": {
-                                          "ref": "PSVUtils.html#.AnimationOnTick",
-                                          "tf": 683.3333333333334
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
+                          "t": {
+                            "docs": {
+                              "PhotoSphereViewer.html#.AnimateOptions": {
+                                "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                                "tf": 750
                               }
                             }
                           }
@@ -4477,6 +4595,14 @@ window.lunrData = {
               "docs": {},
               "l": {
                 "docs": {
+                  "PhotoSphereViewer.html#speedToDuration": {
+                    "ref": "PhotoSphereViewer.html#speedToDuration",
+                    "tf": 25
+                  },
+                  "PSVUtils.html#.getAngle": {
+                    "ref": "PSVUtils.html#.getAngle",
+                    "tf": 10
+                  },
                   "PSVUtils.html#.parseAngle": {
                     "ref": "PSVUtils.html#.parseAngle",
                     "tf": 27.77777777777778
@@ -4561,6 +4687,21 @@ window.lunrData = {
           },
           "l": {
             "docs": {},
+            "i": {
+              "docs": {},
+              "a": {
+                "docs": {
+                  "PSVAnimation.html#catch": {
+                    "ref": "PSVAnimation.html#catch",
+                    "tf": 23.333333333333332
+                  },
+                  "PSVAnimation.html#finally": {
+                    "ref": "PSVAnimation.html#finally",
+                    "tf": 23.333333333333332
+                  }
+                }
+              }
+            },
             "l": {
               "docs": {},
               "o": {
@@ -5092,12 +5233,20 @@ window.lunrData = {
                       "ref": "PhotoSphereViewer.html#setPanorama",
                       "tf": 2.1739130434782608
                     },
+                    "PhotoSphereViewer.html#.AnimateOptions": {
+                      "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                      "tf": 17.5
+                    },
                     "PhotoSphereViewer.html#.CssSize": {
                       "ref": "PhotoSphereViewer.html#.CssSize",
                       "tf": 11.666666666666666
                     },
                     "PhotoSphereViewer.html#.ExtendedPosition": {
                       "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                      "tf": 14
+                    },
+                    "PhotoSphereViewer.html#.PanoramaOptions": {
+                      "ref": "PhotoSphereViewer.html#.PanoramaOptions",
                       "tf": 14
                     },
                     "PhotoSphereViewer.html#.Point": {
@@ -5226,20 +5375,6 @@ window.lunrData = {
                 }
               }
             },
-            "l": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "y": {
-                  "docs": {
-                    "PSVUtils.html#.animation": {
-                      "ref": "PSVUtils.html#.animation",
-                      "tf": 11.666666666666666
-                    }
-                  }
-                }
-              }
-            },
             "e": {
               "docs": {},
               "p": {
@@ -5276,9 +5411,9 @@ window.lunrData = {
                       "ref": "module-components.PSVHUD.html#gotoMarker",
                       "tf": 25
                     },
-                    "PhotoSphereViewer.html#animate": {
-                      "ref": "PhotoSphereViewer.html#animate",
-                      "tf": 25
+                    "PhotoSphereViewer.html#speedToDuration": {
+                      "ref": "PhotoSphereViewer.html#speedToDuration",
+                      "tf": 10
                     }
                   }
                 }
@@ -5393,9 +5528,9 @@ window.lunrData = {
                       "docs": {},
                       "l": {
                         "docs": {
-                          "PSVUtils.html#.animation": {
-                            "ref": "PSVUtils.html#.animation",
-                            "tf": 11.666666666666666
+                          "PSVAnimation.html": {
+                            "ref": "PSVAnimation.html",
+                            "tf": 23.333333333333332
                           }
                         }
                       }
@@ -5712,6 +5847,10 @@ window.lunrData = {
                         "docs": {},
                         "t": {
                           "docs": {
+                            "PSVAnimation.html": {
+                              "ref": "PSVAnimation.html",
+                              "tf": 3.8461538461538463
+                            },
                             "PSVUtils.html#.parsePosition": {
                               "ref": "PSVUtils.html#.parsePosition",
                               "tf": 5.555555555555555
@@ -5940,6 +6079,50 @@ window.lunrData = {
                                       "PhotoSphereViewer.html#isAutorotateEnabled": {
                                         "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
                                         "tf": 700
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "e": {
+              "docs": {},
+              "x": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "d": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "d": {
+                            "docs": {},
+                            "p": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {
+                                        "PhotoSphereViewer.html#isExtendedPosition": {
+                                          "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                                          "tf": 683.3333333333334
+                                        }
                                       }
                                     }
                                   }
@@ -6379,6 +6562,46 @@ window.lunrData = {
               }
             }
           },
+          "e": {
+            "docs": {
+              "PhotoSphereViewer.html#isExtendedPosition": {
+                "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                "tf": 11.666666666666666
+              }
+            }
+          },
+          "g": {
+            "docs": {},
+            "n": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "g": {
+                            "docs": {
+                              "PhotoSphereViewer.html#rotate": {
+                                "ref": "PhotoSphereViewer.html#rotate",
+                                "tf": 33.33333333333333
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           ".": {
             "docs": {
               "PSVUtils.html#.isPlainObject": {
@@ -6697,10 +6920,6 @@ window.lunrData = {
                                     "ref": "PSVUtils.html#.addClasses",
                                     "tf": 25
                                   },
-                                  "PSVUtils.html#.animation": {
-                                    "ref": "PSVUtils.html#.animation",
-                                    "tf": 25
-                                  },
                                   "PSVUtils.html#.bound": {
                                     "ref": "PSVUtils.html#.bound",
                                     "tf": 16.666666666666664
@@ -6736,6 +6955,10 @@ window.lunrData = {
                                   "PSVUtils.html#.fullscreenEvent": {
                                     "ref": "PSVUtils.html#.fullscreenEvent",
                                     "tf": 33.33333333333333
+                                  },
+                                  "PSVUtils.html#.getAngle": {
+                                    "ref": "PSVUtils.html#.getAngle",
+                                    "tf": 20
                                   },
                                   "PSVUtils.html#.getClosest": {
                                     "ref": "PSVUtils.html#.getClosest",
@@ -7802,6 +8025,38 @@ window.lunrData = {
                             "ref": "PSVUtils.html#.getShortestArc",
                             "tf": 11.666666666666666
                           }
+                        },
+                        "e": {
+                          "docs": {},
+                          "/": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {},
+                                        "d": {
+                                          "docs": {
+                                            "PhotoSphereViewer.html#isExtendedPosition": {
+                                              "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                                              "tf": 11.666666666666666
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -7948,9 +8203,27 @@ window.lunrData = {
                             "ref": "PhotoSphereViewer.html#.PanoData",
                             "tf": 23.333333333333332
                           },
+                          "PhotoSphereViewer.html#.PanoramaOptions": {
+                            "ref": "PhotoSphereViewer.html#.PanoramaOptions",
+                            "tf": 14
+                          },
                           "PSVUtils.html#.getXMPValue": {
                             "ref": "PSVUtils.html#.getXMPValue",
                             "tf": 11.666666666666666
+                          }
+                        },
+                        "o": {
+                          "docs": {},
+                          "p": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "PhotoSphereViewer.html#.PanoramaOptions": {
+                                  "ref": "PhotoSphereViewer.html#.PanoramaOptions",
+                                  "tf": 750
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -8593,6 +8866,10 @@ window.lunrData = {
                                                                     "docs": {},
                                                                     "t": {
                                                                       "docs": {
+                                                                        "PhotoSphereViewer.html#isExtendedPosition": {
+                                                                          "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                                                                          "tf": 11.666666666666666
+                                                                        },
                                                                         "PhotoSphereViewer.html#.ExtendedPosition": {
                                                                           "ref": "PhotoSphereViewer.html#.ExtendedPosition",
                                                                           "tf": 1150
@@ -8819,6 +9096,32 @@ window.lunrData = {
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "r": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "m": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "p": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {
+                                                                    "PhotoSphereViewer.html#.PanoramaOptions": {
+                                                                      "ref": "PhotoSphereViewer.html#.PanoramaOptions",
+                                                                      "tf": 1150
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
                                                     }
                                                   }
                                                 }
@@ -8833,6 +9136,82 @@ window.lunrData = {
                                                 "PhotoSphereViewer.html#.Size": {
                                                   "ref": "PhotoSphereViewer.html#.Size",
                                                   "tf": 1150
+                                                }
+                                              },
+                                              "p": {
+                                                "docs": {},
+                                                "h": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "c": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "r": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "c": {
+                                                                    "docs": {},
+                                                                    "t": {
+                                                                      "docs": {
+                                                                        "PhotoSphereViewer.html#.SphereCorrection": {
+                                                                          "ref": "PhotoSphereViewer.html#.SphereCorrection",
+                                                                          "tf": 1150
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "a": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "m": {
+                                                    "docs": {},
+                                                    "a": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "p": {
+                                                              "docs": {},
+                                                              "t": {
+                                                                "docs": {
+                                                                  "PhotoSphereViewer.html#.AnimateOptions": {
+                                                                    "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                                                                    "tf": 1150
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
@@ -8901,6 +9280,53 @@ window.lunrData = {
                                                   "docs": {},
                                                   "a": {
                                                     "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "s": {
+                                                        "docs": {},
+                                                        "p": {
+                                                          "docs": {},
+                                                          "h": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "c": {
+                                                                    "docs": {},
+                                                                    "o": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {},
+                                                                        "r": {
+                                                                          "docs": {},
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "c": {
+                                                                              "docs": {},
+                                                                              "t": {
+                                                                                "docs": {
+                                                                                  "PhotoSphereViewer.html#cleanSphereCorrection": {
+                                                                                    "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                                                                                    "tf": 1150
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
                                                     "r": {
                                                       "docs": {},
                                                       "p": {
@@ -9706,6 +10132,50 @@ window.lunrData = {
                                                     }
                                                   }
                                                 },
+                                                "e": {
+                                                  "docs": {},
+                                                  "x": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "d": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "d": {
+                                                                "docs": {},
+                                                                "p": {
+                                                                  "docs": {},
+                                                                  "o": {
+                                                                    "docs": {},
+                                                                    "s": {
+                                                                      "docs": {},
+                                                                      "i": {
+                                                                        "docs": {},
+                                                                        "t": {
+                                                                          "docs": {
+                                                                            "PhotoSphereViewer.html#isExtendedPosition": {
+                                                                              "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                                                                              "tf": 1150
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "f": {
                                                   "docs": {},
                                                   "u": {
@@ -9891,6 +10361,35 @@ window.lunrData = {
                                               },
                                               "p": {
                                                 "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "d": {
+                                                            "docs": {},
+                                                            "u": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {
+                                                                  "PhotoSphereViewer.html#speedToDuration": {
+                                                                    "ref": "PhotoSphereViewer.html#speedToDuration",
+                                                                    "tf": 1150
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "h": {
                                                   "docs": {},
                                                   "e": {
@@ -16584,58 +17083,6 @@ window.lunrData = {
                                   }
                                 }
                               }
-                            },
-                            "n": {
-                              "docs": {},
-                              "i": {
-                                "docs": {},
-                                "m": {
-                                  "docs": {
-                                    "PSVUtils.html#.animation": {
-                                      "ref": "PSVUtils.html#.animation",
-                                      "tf": 1150
-                                    }
-                                  },
-                                  "a": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {},
-                                      "i": {
-                                        "docs": {},
-                                        "o": {
-                                          "docs": {},
-                                          "n": {
-                                            "docs": {},
-                                            "o": {
-                                              "docs": {},
-                                              "n": {
-                                                "docs": {},
-                                                "t": {
-                                                  "docs": {},
-                                                  "i": {
-                                                    "docs": {},
-                                                    "c": {
-                                                      "docs": {},
-                                                      "k": {
-                                                        "docs": {
-                                                          "PSVUtils.html#.AnimationOnTick": {
-                                                            "ref": "PSVUtils.html#.AnimationOnTick",
-                                                            "tf": 1150
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
                             }
                           },
                           "b": {
@@ -16915,6 +17362,23 @@ window.lunrData = {
                               "docs": {},
                               "t": {
                                 "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "g": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {
+                                          "PSVUtils.html#.getAngle": {
+                                            "ref": "PSVUtils.html#.getAngle",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
                                 "c": {
                                   "docs": {},
                                   "l": {
@@ -17670,6 +18134,151 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "a": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "m": {
+                      "docs": {
+                        "PhotoSphereViewer.html#animate": {
+                          "ref": "PhotoSphereViewer.html#animate",
+                          "tf": 25
+                        },
+                        "PSVAnimation.html": {
+                          "ref": "PSVAnimation.html",
+                          "tf": 1900
+                        },
+                        "PSVAnimation.html#catch": {
+                          "ref": "PSVAnimation.html#catch",
+                          "tf": 33.33333333333333
+                        },
+                        "PSVAnimation.html#finally": {
+                          "ref": "PSVAnimation.html#finally",
+                          "tf": 33.33333333333333
+                        },
+                        "PSVAnimation.html#then": {
+                          "ref": "PSVAnimation.html#then",
+                          "tf": 33.33333333333333
+                        }
+                      },
+                      "a": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "o": {
+                              "docs": {},
+                              "n": {
+                                "docs": {},
+                                "#": {
+                                  "docs": {},
+                                  "c": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {},
+                                        "c": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {
+                                                "PSVAnimation.html#cancel": {
+                                                  "ref": "PSVAnimation.html#cancel",
+                                                  "tf": 1150
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "t": {
+                                        "docs": {},
+                                        "c": {
+                                          "docs": {},
+                                          "h": {
+                                            "docs": {
+                                              "PSVAnimation.html#catch": {
+                                                "ref": "PSVAnimation.html#catch",
+                                                "tf": 1150
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "f": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {
+                                          "PSVAnimation.html#finally": {
+                                            "ref": "PSVAnimation.html#finally",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "t": {
+                                    "docs": {},
+                                    "h": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {
+                                            "PSVAnimation.html#then": {
+                                              "ref": "PSVAnimation.html#then",
+                                              "tf": 1300
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                ".": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "k": {
+                                              "docs": {
+                                                "PSVAnimation.html#.OnTick": {
+                                                  "ref": "PSVAnimation.html#.OnTick",
+                                                  "tf": 1150
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -17746,6 +18355,10 @@ window.lunrData = {
                             "ref": "PhotoSphereViewer.html#prop",
                             "tf": 35
                           },
+                          "PSVAnimation.html#.OnTick": {
+                            "ref": "PSVAnimation.html#.OnTick",
+                            "tf": 33.33333333333333
+                          },
                           "PSVMarker.html#.getType": {
                             "ref": "PSVMarker.html#.getType",
                             "tf": 34
@@ -17754,17 +18367,9 @@ window.lunrData = {
                             "ref": "PSVMarker.html#update",
                             "tf": 67.5
                           },
-                          "PSVUtils.html#.animation": {
-                            "ref": "PSVUtils.html#.animation",
-                            "tf": 11.666666666666666
-                          },
                           "PSVUtils.html#.forEach": {
                             "ref": "PSVUtils.html#.forEach",
                             "tf": 10
-                          },
-                          "PSVUtils.html#.AnimationOnTick": {
-                            "ref": "PSVUtils.html#.AnimationOnTick",
-                            "tf": 33.33333333333333
                           }
                         }
                       }
@@ -17782,10 +18387,6 @@ window.lunrData = {
                         "ref": "module-components.PSVHUD.html#gotoMarker",
                         "tf": 25
                       },
-                      "PhotoSphereViewer.html#animate": {
-                        "ref": "PhotoSphereViewer.html#animate",
-                        "tf": 25
-                      },
                       "PhotoSphereViewer.html#load": {
                         "ref": "PhotoSphereViewer.html#load",
                         "tf": 50
@@ -17798,13 +18399,13 @@ window.lunrData = {
                         "ref": "PhotoSphereViewer.html#setPanorama",
                         "tf": 20
                       },
-                      "PSVUtils.html#.animation": {
-                        "ref": "PSVUtils.html#.animation",
-                        "tf": 25
+                      "PhotoSphereViewer.html#stopAnimation": {
+                        "ref": "PhotoSphereViewer.html#stopAnimation",
+                        "tf": 57.14285714285714
                       },
-                      "PSVUtils.html#.isTouchEnabled": {
-                        "ref": "PSVUtils.html#.isTouchEnabled",
-                        "tf": 33.33333333333333
+                      "PSVAnimation.html": {
+                        "ref": "PSVAnimation.html",
+                        "tf": 7.6923076923076925
                       }
                     },
                     "e": {
@@ -17842,6 +18443,10 @@ window.lunrData = {
                                                       "PSVUtils.html#.isDeviceOrientationSupported": {
                                                         "ref": "PSVUtils.html#.isDeviceOrientationSupported",
                                                         "tf": 33.33333333333333
+                                                      },
+                                                      "PSVUtils.html#.isTouchEnabled": {
+                                                        "ref": "PSVUtils.html#.isTouchEnabled",
+                                                        "tf": 33.33333333333333
                                                       }
                                                     }
                                                   }
@@ -17877,8 +18482,8 @@ window.lunrData = {
                             "ref": "module-components.PSVLoader.html#setProgress",
                             "tf": 23.333333333333332
                           },
-                          "PSVUtils.html#.AnimationOnTick": {
-                            "ref": "PSVUtils.html#.AnimationOnTick",
+                          "PSVAnimation.html#.OnTick": {
+                            "ref": "PSVAnimation.html#.OnTick",
                             "tf": 33.33333333333333
                           }
                         }
@@ -17950,21 +18555,21 @@ window.lunrData = {
                       "ref": "module-components.PSVHUD.html#renderMarkers",
                       "tf": 17.5
                     },
-                    "PhotoSphereViewer.html#animate": {
-                      "ref": "PhotoSphereViewer.html#animate",
-                      "tf": 25
-                    },
                     "PhotoSphereViewer.html#getPosition": {
                       "ref": "PhotoSphereViewer.html#getPosition",
                       "tf": 17.5
                     },
                     "PhotoSphereViewer.html#rotate": {
                       "ref": "PhotoSphereViewer.html#rotate",
-                      "tf": 50
+                      "tf": 33.33333333333333
                     },
                     "PhotoSphereViewer.html#setPanorama": {
                       "ref": "PhotoSphereViewer.html#setPanorama",
-                      "tf": 22.17391304347826
+                      "tf": 4.3478260869565215
+                    },
+                    "PhotoSphereViewer.html#speedToDuration": {
+                      "ref": "PhotoSphereViewer.html#speedToDuration",
+                      "tf": 20
                     },
                     "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                       "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
@@ -17990,9 +18595,13 @@ window.lunrData = {
                       "ref": "PhotoSphereViewer.html#.Position",
                       "tf": 767.5
                     },
+                    "PSVUtils.html#.getAngle": {
+                      "ref": "PSVUtils.html#.getAngle",
+                      "tf": 20
+                    },
                     "PSVUtils.html#.parsePosition": {
                       "ref": "PSVUtils.html#.parsePosition",
-                      "tf": 12.555555555555555
+                      "tf": 18.11111111111111
                     }
                   },
                   "i": {
@@ -18000,27 +18609,23 @@ window.lunrData = {
                     "o": {
                       "docs": {},
                       "n": {
-                        "docs": {},
-                        "&": {
-                          "docs": {},
-                          "q": {
-                            "docs": {},
-                            "u": {
-                              "docs": {},
-                              "o": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {
-                                    "PSVUtils.html#.parsePosition": {
-                                      "ref": "PSVUtils.html#.parsePosition",
-                                      "tf": 5.555555555555555
-                                    }
-                                  }
-                                }
-                              }
+                        "1": {
+                          "docs": {
+                            "PSVUtils.html#.getAngle": {
+                              "ref": "PSVUtils.html#.getAngle",
+                              "tf": 20
                             }
                           }
-                        }
+                        },
+                        "2": {
+                          "docs": {
+                            "PSVUtils.html#.getAngle": {
+                              "ref": "PSVUtils.html#.getAngle",
+                              "tf": 20
+                            }
+                          }
+                        },
+                        "docs": {}
                       }
                     }
                   }
@@ -18519,6 +19124,10 @@ window.lunrData = {
                         "ref": "PhotoSphereViewer.html#getZoomLevel",
                         "tf": 17.5
                       },
+                      "PhotoSphereViewer.html#stopAnimation": {
+                        "ref": "PhotoSphereViewer.html#stopAnimation",
+                        "tf": 7.142857142857142
+                      },
                       "PSVUtils.html#.getEventKey": {
                         "ref": "PSVUtils.html#.getEventKey",
                         "tf": 17.5
@@ -18570,6 +19179,37 @@ window.lunrData = {
                     "PhotoSphereViewer.html#resize": {
                       "ref": "PhotoSphereViewer.html#resize",
                       "tf": 735
+                    }
+                  }
+                }
+              },
+              "o": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "v": {
+                    "docs": {
+                      "PSVAnimation.html": {
+                        "ref": "PSVAnimation.html",
+                        "tf": 3.8461538461538463
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "j": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "PSVAnimation.html": {
+                        "ref": "PSVAnimation.html",
+                        "tf": 3.8461538461538463
+                      }
                     }
                   }
                 }
@@ -18696,7 +19336,7 @@ window.lunrData = {
                     },
                     "PhotoSphereViewer.html#rotate": {
                       "ref": "PhotoSphereViewer.html#rotate",
-                      "tf": 714
+                      "tf": 697.3333333333334
                     },
                     "PhotoSphereViewer.html#startAutorotate": {
                       "ref": "PhotoSphereViewer.html#startAutorotate",
@@ -18775,6 +19415,65 @@ window.lunrData = {
                       "PhotoSphereViewer.html#.DEFAULTS": {
                         "ref": "PhotoSphereViewer.html#.DEFAULTS",
                         "tf": 11.666666666666666
+                      }
+                    },
+                    "_": {
+                      "docs": {},
+                      "c": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "c": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {
+                                      "PhotoSphereViewer.html#cleanSphereCorrection": {
+                                        "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                                        "tf": 50
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "c": {
+                      "docs": {},
+                      "o": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "c": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {
+                                    "PhotoSphereViewer.html#cleanSphereCorrection": {
+                                      "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                                      "tf": 23.333333333333332
+                                    },
+                                    "PhotoSphereViewer.html#.SphereCorrection": {
+                                      "ref": "PhotoSphereViewer.html#.SphereCorrection",
+                                      "tf": 750
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   },
@@ -18941,9 +19640,37 @@ window.lunrData = {
                 "docs": {},
                 "d": {
                   "docs": {
+                    "PhotoSphereViewer.html#animate": {
+                      "ref": "PhotoSphereViewer.html#animate",
+                      "tf": 25
+                    },
+                    "PhotoSphereViewer.html#speedToDuration": {
+                      "ref": "PhotoSphereViewer.html#speedToDuration",
+                      "tf": 10
+                    },
                     "PSVUtils.html#.parseSpeed": {
                       "ref": "PSVUtils.html#.parseSpeed",
                       "tf": 60
+                    }
+                  },
+                  "t": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "d": {
+                        "docs": {},
+                        "u": {
+                          "docs": {},
+                          "r": {
+                            "docs": {
+                              "PhotoSphereViewer.html#speedToDuration": {
+                                "ref": "PhotoSphereViewer.html#speedToDuration",
+                                "tf": 675
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -19546,7 +20273,7 @@ window.lunrData = {
                 "docs": {
                   "PhotoSphereViewer.html#stopAnimation": {
                     "ref": "PhotoSphereViewer.html#stopAnimation",
-                    "tf": 23.333333333333332
+                    "tf": 30.476190476190474
                   },
                   "PhotoSphereViewer.html#stopAutorotate": {
                     "ref": "PhotoSphereViewer.html#stopAutorotate",
@@ -19567,7 +20294,7 @@ window.lunrData = {
                         "docs": {
                           "PhotoSphereViewer.html#stopAnimation": {
                             "ref": "PhotoSphereViewer.html#stopAnimation",
-                            "tf": 750
+                            "tf": 700
                           }
                         }
                       }
@@ -20481,6 +21208,32 @@ window.lunrData = {
               }
             }
           },
+          "y": {
+            "docs": {},
+            "n": {
+              "docs": {},
+              "c": {
+                "docs": {},
+                "h": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "n": {
+                        "docs": {
+                          "PhotoSphereViewer.html#stopAnimation": {
+                            "ref": "PhotoSphereViewer.html#stopAnimation",
+                            "tf": 7.142857142857142
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "r": {
             "docs": {},
             "c": {
@@ -20865,6 +21618,14 @@ window.lunrData = {
                   "PhotoSphereViewer.html#change": {
                     "ref": "PhotoSphereViewer.html#change",
                     "tf": 36.666666666666664
+                  },
+                  "PhotoSphereViewer.html#speedToDuration": {
+                    "ref": "PhotoSphereViewer.html#speedToDuration",
+                    "tf": 25
+                  },
+                  "PhotoSphereViewer.html#stopAnimation": {
+                    "ref": "PhotoSphereViewer.html#stopAnimation",
+                    "tf": 7.142857142857142
                   },
                   "PSVUtils.html#.getXMPValue": {
                     "ref": "PSVUtils.html#.getXMPValue",
@@ -21404,6 +22165,23 @@ window.lunrData = {
                   }
                 }
               },
+              "a": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "g": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "PSVUtils.html#.getAngle": {
+                          "ref": "PSVUtils.html#.getAngle",
+                          "tf": 670
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "e": {
                 "docs": {},
                 "v": {
@@ -21566,6 +22344,32 @@ window.lunrData = {
               }
             }
           },
+          "u": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "i": {
+                        "docs": {
+                          "PhotoSphereViewer.html#stopAnimation": {
+                            "ref": "PhotoSphereViewer.html#stopAnimation",
+                            "tf": 7.142857142857142
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "i": {
             "docs": {},
             "v": {
@@ -21689,6 +22493,10 @@ window.lunrData = {
                     "PhotoSphereViewer.html": {
                       "ref": "PhotoSphereViewer.html",
                       "tf": 135
+                    },
+                    "PSVAnimation.html": {
+                      "ref": "PSVAnimation.html",
+                      "tf": 110
                     },
                     "PSVError.html": {
                       "ref": "PSVError.html",
@@ -21815,7 +22623,56 @@ window.lunrData = {
                   }
                 },
                 "n": {
-                  "docs": {},
+                  "docs": {
+                    "PhotoSphereViewer.html#cleanSphereCorrection": {
+                      "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                      "tf": 23.333333333333332
+                    }
+                  },
+                  "s": {
+                    "docs": {},
+                    "p": {
+                      "docs": {},
+                      "h": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "c": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "c": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {
+                                              "PhotoSphereViewer.html#cleanSphereCorrection": {
+                                                "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                                                "tf": 700
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "t": {
                     "docs": {},
                     "h": {
@@ -22958,6 +23815,20 @@ window.lunrData = {
                     }
                   }
                 },
+                "l": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "PSVAnimation.html": {
+                          "ref": "PSVAnimation.html",
+                          "tf": 3.8461538461538463
+                        }
+                      }
+                    }
+                  }
+                },
                 "u": {
                   "docs": {},
                   "t": {
@@ -22965,6 +23836,10 @@ window.lunrData = {
                       "PSVMarker.html#getScale": {
                         "ref": "PSVMarker.html#getScale",
                         "tf": 14
+                      },
+                      "PSVUtils.html#.getAngle": {
+                        "ref": "PSVUtils.html#.getAngle",
+                        "tf": 10
                       },
                       "PSVUtils.html#.getShortestArc": {
                         "ref": "PSVUtils.html#.getShortestArc",
@@ -23188,6 +24063,35 @@ window.lunrData = {
                           }
                         }
                       }
+                    },
+                    ".": {
+                      "docs": {},
+                      "t": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "s": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {
+                                      "PhotoSphereViewer.html#setPanorama": {
+                                        "ref": "PhotoSphereViewer.html#setPanorama",
+                                        "tf": 2.1739130434782608
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -23200,6 +24104,10 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
+                        "PhotoSphereViewer.html#speedToDuration": {
+                          "ref": "PhotoSphereViewer.html#speedToDuration",
+                          "tf": 10
+                        },
                         "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
                           "ref": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
                           "tf": 10
@@ -23500,6 +24408,14 @@ window.lunrData = {
                         "PhotoSphereViewer.html#getZoomLevel": {
                           "ref": "PhotoSphereViewer.html#getZoomLevel",
                           "tf": 17.5
+                        },
+                        "PhotoSphereViewer.html#speedToDuration": {
+                          "ref": "PhotoSphereViewer.html#speedToDuration",
+                          "tf": 10
+                        },
+                        "PSVUtils.html#.getAngle": {
+                          "ref": "PSVUtils.html#.getAngle",
+                          "tf": 10
                         }
                       },
                       "m": {
@@ -23571,6 +24487,24 @@ window.lunrData = {
                     "module-components.PSVHUD.html#updateMarker": {
                       "ref": "module-components.PSVHUD.html#updateMarker",
                       "tf": 6.25
+                    }
+                  }
+                }
+              },
+              "c": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "PSVAnimation.html": {
+                        "ref": "PSVAnimation.html",
+                        "tf": 7.6923076923076925
+                      },
+                      "PSVAnimation.html#cancel": {
+                        "ref": "PSVAnimation.html#cancel",
+                        "tf": 785
+                      }
                     }
                   }
                 }
@@ -23719,6 +24653,20 @@ window.lunrData = {
                 }
               }
             },
+            "t": {
+              "docs": {},
+              "c": {
+                "docs": {},
+                "h": {
+                  "docs": {
+                    "PSVAnimation.html#catch": {
+                      "ref": "PSVAnimation.html#catch",
+                      "tf": 683.3333333333334
+                    }
+                  }
+                }
+              }
+            },
             "s": {
               "docs": {},
               "e": {
@@ -23797,6 +24745,17 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "i": {
+                "docs": {},
+                "n": {
+                  "docs": {
+                    "PSVAnimation.html#then": {
+                      "ref": "PSVAnimation.html#then",
+                      "tf": 35
+                    }
+                  }
+                }
               }
             },
             "e": {
@@ -23860,6 +24819,10 @@ window.lunrData = {
                     "PhotoSphereViewer.html#isAutorotateEnabled": {
                       "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
                       "tf": 17.5
+                    },
+                    "PhotoSphereViewer.html#isExtendedPosition": {
+                      "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                      "tf": 11.666666666666666
                     },
                     "PhotoSphereViewer.html#isFullscreenEnabled": {
                       "ref": "PhotoSphereViewer.html#isFullscreenEnabled",
@@ -23955,25 +24918,10 @@ window.lunrData = {
                 "e": {
                   "docs": {},
                   "r": {
-                    "docs": {},
-                    "&": {
-                      "docs": {},
-                      "q": {
-                        "docs": {},
-                        "u": {
-                          "docs": {},
-                          "o": {
-                            "docs": {},
-                            "t": {
-                              "docs": {
-                                "PSVUtils.html#.parsePosition": {
-                                  "ref": "PSVUtils.html#.parsePosition",
-                                  "tf": 7
-                                }
-                              }
-                            }
-                          }
-                        }
+                    "docs": {
+                      "PSVUtils.html#.parsePosition": {
+                        "ref": "PSVUtils.html#.parsePosition",
+                        "tf": 7
                       }
                     }
                   }
@@ -24510,28 +25458,6 @@ window.lunrData = {
               }
             }
           },
-          "a": {
-            "docs": {},
-            "c": {
-              "docs": {},
-              "h": {
-                "docs": {
-                  "PSVUtils.html#.animation": {
-                    "ref": "PSVUtils.html#.animation",
-                    "tf": 11.666666666666666
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {
-                "PSVUtils.html#.animation": {
-                  "ref": "PSVUtils.html#.animation",
-                  "tf": 11.666666666666666
-                }
-              }
-            }
-          },
           ".": {
             "docs": {},
             "g": {
@@ -24737,6 +25663,10 @@ window.lunrData = {
                   "ref": "PhotoSphereViewer.html#setPanorama",
                   "tf": 19.67391304347826
                 },
+                "PhotoSphereViewer.html#speedToDuration": {
+                  "ref": "PhotoSphereViewer.html#speedToDuration",
+                  "tf": 10
+                },
                 "PSVMarker.html#update": {
                   "ref": "PSVMarker.html#update",
                   "tf": 17.5
@@ -24936,9 +25866,17 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
+                      "PhotoSphereViewer.html#speedToDuration": {
+                        "ref": "PhotoSphereViewer.html#speedToDuration",
+                        "tf": 25
+                      },
                       "PSVUtils.html#.bound": {
                         "ref": "PSVUtils.html#.bound",
                         "tf": 34.166666666666664
+                      },
+                      "PSVUtils.html#.getAngle": {
+                        "ref": "PSVUtils.html#.getAngle",
+                        "tf": 20
                       },
                       "PSVUtils.html#.sum": {
                         "ref": "PSVUtils.html#.sum",
@@ -25026,6 +25964,35 @@ window.lunrData = {
                 "module-components_buttons.PSVNavBarZoomButton.html": {
                   "ref": "module-components_buttons.PSVNavBarZoomButton.html",
                   "tf": 10
+                }
+              }
+            },
+            "c": {
+              "docs": {},
+              "k": {
+                "docs": {},
+                "g": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "u": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "d": {
+                            "docs": {
+                              "PSVUtils.html#.parsePosition": {
+                                "ref": "PSVUtils.html#.parsePosition",
+                                "tf": 5.555555555555555
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -25191,6 +26158,10 @@ window.lunrData = {
                         "PhotoSphereViewer.html#isAutorotateEnabled": {
                           "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
                           "tf": 50
+                        },
+                        "PhotoSphereViewer.html#isExtendedPosition": {
+                          "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                          "tf": 33.33333333333333
                         },
                         "PhotoSphereViewer.html#isFullscreenEnabled": {
                           "ref": "PhotoSphereViewer.html#isFullscreenEnabled",
@@ -25798,6 +26769,10 @@ window.lunrData = {
                         "PhotoSphereViewer.html#zoom": {
                           "ref": "PhotoSphereViewer.html#zoom",
                           "tf": 11.666666666666666
+                        },
+                        "PSVUtils.html#.getAngle": {
+                          "ref": "PSVUtils.html#.getAngle",
+                          "tf": 10
                         },
                         "PSVUtils.html#.getShortestArc": {
                           "ref": "PSVUtils.html#.getShortestArc",
@@ -31938,6 +32913,10 @@ window.lunrData = {
                       "module-components.PSVComponent.html#.publicMethods": {
                         "ref": "module-components.PSVComponent.html#.publicMethods",
                         "tf": 11.666666666666666
+                      },
+                      "PSVAnimation.html": {
+                        "ref": "PSVAnimation.html",
+                        "tf": 3.8461538461538463
                       }
                     }
                   }
@@ -33120,6 +34099,26 @@ window.lunrData = {
               }
             }
           },
+          "e": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "p": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "PSVAnimation.html": {
+                        "ref": "PSVAnimation.html",
+                        "tf": 23.333333333333332
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "a": {
             "docs": {},
             "l": {
@@ -33790,6 +34789,10 @@ window.lunrData = {
                             "ref": "PhotoSphereViewer.html#change",
                             "tf": 110
                           },
+                          "PhotoSphereViewer.html#cleanSphereCorrection": {
+                            "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                            "tf": 110
+                          },
                           "PhotoSphereViewer.html#clearPanoramaCache": {
                             "ref": "PhotoSphereViewer.html#clearPanoramaCache",
                             "tf": 110
@@ -33816,6 +34819,10 @@ window.lunrData = {
                           },
                           "PhotoSphereViewer.html#isAutorotateEnabled": {
                             "ref": "PhotoSphereViewer.html#isAutorotateEnabled",
+                            "tf": 110
+                          },
+                          "PhotoSphereViewer.html#isExtendedPosition": {
+                            "ref": "PhotoSphereViewer.html#isExtendedPosition",
                             "tf": 110
                           },
                           "PhotoSphereViewer.html#isFullscreenEnabled": {
@@ -33872,6 +34879,10 @@ window.lunrData = {
                           },
                           "PhotoSphereViewer.html#setPanorama": {
                             "ref": "PhotoSphereViewer.html#setPanorama",
+                            "tf": 110
+                          },
+                          "PhotoSphereViewer.html#speedToDuration": {
+                            "ref": "PhotoSphereViewer.html#speedToDuration",
                             "tf": 110
                           },
                           "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
@@ -33978,6 +34989,22 @@ window.lunrData = {
                             "ref": "PhotoSphereViewer.html#zoomOut",
                             "tf": 110
                           },
+                          "PSVAnimation.html#cancel": {
+                            "ref": "PSVAnimation.html#cancel",
+                            "tf": 110
+                          },
+                          "PSVAnimation.html#catch": {
+                            "ref": "PSVAnimation.html#catch",
+                            "tf": 110
+                          },
+                          "PSVAnimation.html#finally": {
+                            "ref": "PSVAnimation.html#finally",
+                            "tf": 110
+                          },
+                          "PSVAnimation.html#then": {
+                            "ref": "PSVAnimation.html#then",
+                            "tf": 110
+                          },
                           "PSVMarker.html#.getType": {
                             "ref": "PSVMarker.html#.getType",
                             "tf": 110
@@ -34018,10 +35045,6 @@ window.lunrData = {
                             "ref": "PSVUtils.html#.addClasses",
                             "tf": 110
                           },
-                          "PSVUtils.html#.animation": {
-                            "ref": "PSVUtils.html#.animation",
-                            "tf": 110
-                          },
                           "PSVUtils.html#.bound": {
                             "ref": "PSVUtils.html#.bound",
                             "tf": 110
@@ -34056,6 +35079,10 @@ window.lunrData = {
                           },
                           "PSVUtils.html#.fullscreenEvent": {
                             "ref": "PSVUtils.html#.fullscreenEvent",
+                            "tf": 110
+                          },
+                          "PSVUtils.html#.getAngle": {
+                            "ref": "PSVUtils.html#.getAngle",
                             "tf": 110
                           },
                           "PSVUtils.html#.getClosest": {
@@ -34302,6 +35329,20 @@ window.lunrData = {
                   "PhotoSphereViewer.html#setPanorama": {
                     "ref": "PhotoSphereViewer.html#setPanorama",
                     "tf": 19.67391304347826
+                  }
+                }
+              }
+            },
+            "n": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "l": {
+                  "docs": {
+                    "PSVAnimation.html#finally": {
+                      "ref": "PSVAnimation.html#finally",
+                      "tf": 683.3333333333334
+                    }
                   }
                 }
               }
@@ -34734,12 +35775,28 @@ window.lunrData = {
                         "ref": "PhotoSphereViewer.html#prop",
                         "tf": 33.33333333333333
                       },
+                      "PhotoSphereViewer.html#cleanSphereCorrection": {
+                        "ref": "PhotoSphereViewer.html#cleanSphereCorrection",
+                        "tf": 23.333333333333332
+                      },
+                      "PhotoSphereViewer.html#isExtendedPosition": {
+                        "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                        "tf": 44.99999999999999
+                      },
+                      "PhotoSphereViewer.html#.AnimateOptions": {
+                        "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                        "tf": 17.5
+                      },
                       "PhotoSphereViewer.html#.CssSize": {
                         "ref": "PhotoSphereViewer.html#.CssSize",
                         "tf": 11.666666666666666
                       },
                       "PhotoSphereViewer.html#.ExtendedPosition": {
                         "ref": "PhotoSphereViewer.html#.ExtendedPosition",
+                        "tf": 14
+                      },
+                      "PhotoSphereViewer.html#.PanoramaOptions": {
+                        "ref": "PhotoSphereViewer.html#.PanoramaOptions",
                         "tf": 14
                       },
                       "PhotoSphereViewer.html#.Point": {
@@ -34879,13 +35936,21 @@ window.lunrData = {
                         "ref": "PhotoSphereViewer.html#.DEFAULTS",
                         "tf": 11.666666666666666
                       },
+                      "PhotoSphereViewer.html#animate": {
+                        "ref": "PhotoSphereViewer.html#animate",
+                        "tf": 25
+                      },
                       "PhotoSphereViewer.html#setPanorama": {
                         "ref": "PhotoSphereViewer.html#setPanorama",
-                        "tf": 2.1739130434782608
+                        "tf": 22.17391304347826
                       },
-                      "PSVUtils.html#.animation": {
-                        "ref": "PSVUtils.html#.animation",
-                        "tf": 36.666666666666664
+                      "PhotoSphereViewer.html#.AnimateOptions": {
+                        "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                        "tf": 17.5
+                      },
+                      "PhotoSphereViewer.html#.PanoramaOptions": {
+                        "ref": "PhotoSphereViewer.html#.PanoramaOptions",
+                        "tf": 14
                       }
                     }
                   }
@@ -34971,6 +36036,84 @@ window.lunrData = {
                   "PhotoSphereViewer.html#stopAnimation": {
                     "ref": "PhotoSphereViewer.html#stopAnimation",
                     "tf": 23.333333333333332
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "j": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "t": {
+                        "docs": {
+                          "PSVAnimation.html#catch": {
+                            "ref": "PSVAnimation.html#catch",
+                            "tf": 56.66666666666666
+                          },
+                          "PSVAnimation.html#then": {
+                            "ref": "PSVAnimation.html#then",
+                            "tf": 33.33333333333333
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "f": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "n": {
+                  "docs": {
+                    "PSVAnimation.html#finally": {
+                      "ref": "PSVAnimation.html#finally",
+                      "tf": 56.66666666666666
+                    }
+                  }
+                }
+              },
+              "u": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "f": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "l": {
+                        "docs": {
+                          "PSVAnimation.html#then": {
+                            "ref": "PSVAnimation.html#then",
+                            "tf": 33.33333333333333
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "k": {
+                    "docs": {
+                      "PSVAnimation.html#.OnTick": {
+                        "ref": "PSVAnimation.html#.OnTick",
+                        "tf": 683.3333333333334
+                      }
+                    }
                   }
                 }
               }
@@ -35380,7 +36523,7 @@ window.lunrData = {
                 },
                 "PSVUtils.html#.parsePosition": {
                   "ref": "PSVUtils.html#.parsePosition",
-                  "tf": 7
+                  "tf": 14
                 }
               }
             },
@@ -35442,6 +36585,10 @@ window.lunrData = {
                     "docs": {},
                     "f": {
                       "docs": {
+                        "PhotoSphereViewer.html#.AnimateOptions": {
+                          "ref": "PhotoSphereViewer.html#.AnimateOptions",
+                          "tf": 110
+                        },
                         "PhotoSphereViewer.html#.CacheItem": {
                           "ref": "PhotoSphereViewer.html#.CacheItem",
                           "tf": 110
@@ -35462,6 +36609,10 @@ window.lunrData = {
                           "ref": "PhotoSphereViewer.html#.PanoData",
                           "tf": 110
                         },
+                        "PhotoSphereViewer.html#.PanoramaOptions": {
+                          "ref": "PhotoSphereViewer.html#.PanoramaOptions",
+                          "tf": 110
+                        },
                         "PhotoSphereViewer.html#.Point": {
                           "ref": "PhotoSphereViewer.html#.Point",
                           "tf": 110
@@ -35474,8 +36625,12 @@ window.lunrData = {
                           "ref": "PhotoSphereViewer.html#.Size",
                           "tf": 110
                         },
-                        "PSVUtils.html#.AnimationOnTick": {
-                          "ref": "PSVUtils.html#.AnimationOnTick",
+                        "PhotoSphereViewer.html#.SphereCorrection": {
+                          "ref": "PhotoSphereViewer.html#.SphereCorrection",
+                          "tf": 110
+                        },
+                        "PSVAnimation.html#.OnTick": {
+                          "ref": "PSVAnimation.html#.OnTick",
                           "tf": 110
                         },
                         "PSVUtils.html#.ForEach": {
@@ -35681,7 +36836,7 @@ window.lunrData = {
                       "docs": {
                         "PhotoSphereViewer.html#setPanorama": {
                           "ref": "PhotoSphereViewer.html#setPanorama",
-                          "tf": 22.17391304347826
+                          "tf": 24.347826086956523
                         }
                       }
                     }
@@ -35809,6 +36964,49 @@ window.lunrData = {
                   }
                 }
               }
+            },
+            "e": {
+              "docs": {},
+              "n": {
+                "docs": {},
+                "(": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "u": {
+                      "docs": {},
+                      "l": {
+                        "docs": {
+                          "PSVAnimation.html#catch": {
+                            "ref": "PSVAnimation.html#catch",
+                            "tf": 23.333333333333332
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "o": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "f": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "n": {
+                            "docs": {
+                              "PSVAnimation.html#finally": {
+                                "ref": "PSVAnimation.html#finally",
+                                "tf": 23.333333333333332
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "a": {
@@ -35838,6 +37036,10 @@ window.lunrData = {
                       "PSVUtils.html#.deepmerge": {
                         "ref": "PSVUtils.html#.deepmerge",
                         "tf": 30
+                      },
+                      "PSVUtils.html#.getAngle": {
+                        "ref": "PSVUtils.html#.getAngle",
+                        "tf": 10
                       }
                     }
                   }
@@ -36172,6 +37374,25 @@ window.lunrData = {
             }
           }
         },
+        "x": {
+          "docs": {
+            "PSVUtils.html#.bound": {
+              "ref": "PSVUtils.html#.bound",
+              "tf": 16.666666666666664
+            }
+          },
+          "/": {
+            "docs": {},
+            "i": {
+              "docs": {
+                "PhotoSphereViewer.html#isExtendedPosition": {
+                  "ref": "PhotoSphereViewer.html#isExtendedPosition",
+                  "tf": 11.666666666666666
+                }
+              }
+            }
+          }
+        },
         "w": {
           "docs": {},
           "i": {
@@ -36338,243 +37559,6 @@ window.lunrData = {
             }
           }
         },
-        "q": {
-          "docs": {},
-          "u": {
-            "docs": {},
-            "o": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                ";": {
-                  "1": {
-                    "0": {
-                      "docs": {
-                        "PSVUtils.html#.parsePosition": {
-                          "ref": "PSVUtils.html#.parsePosition",
-                          "tf": 7
-                        }
-                      }
-                    },
-                    "docs": {}
-                  },
-                  "docs": {},
-                  "c": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "n": {
-                        "docs": {},
-                        "f": {
-                          "docs": {},
-                          "i": {
-                            "docs": {},
-                            "g": {
-                              "docs": {},
-                              ".": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {},
-                                  "r": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "n": {
-                                        "docs": {},
-                                        "s": {
-                                          "docs": {},
-                                          "i": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {},
-                                              "i": {
-                                                "docs": {},
-                                                "o": {
-                                                  "docs": {},
-                                                  "n": {
-                                                    "docs": {},
-                                                    "&": {
-                                                      "docs": {},
-                                                      "q": {
-                                                        "docs": {},
-                                                        "u": {
-                                                          "docs": {},
-                                                          "o": {
-                                                            "docs": {},
-                                                            "t": {
-                                                              "docs": {
-                                                                "PhotoSphereViewer.html#setPanorama": {
-                                                                  "ref": "PhotoSphereViewer.html#setPanorama",
-                                                                  "tf": 2.1739130434782608
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "p": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "s": {
-                        "docs": {},
-                        "i": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "i": {
-                              "docs": {},
-                              "o": {
-                                "docs": {},
-                                "n": {
-                                  "docs": {},
-                                  "&": {
-                                    "docs": {},
-                                    "q": {
-                                      "docs": {},
-                                      "u": {
-                                        "docs": {},
-                                        "o": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {
-                                              "PhotoSphereViewer.html#setPanorama": {
-                                                "ref": "PhotoSphereViewer.html#setPanorama",
-                                                "tf": 2.1739130434782608
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "t": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "a": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "s": {
-                            "docs": {},
-                            "i": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "i": {
-                                  "docs": {},
-                                  "o": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "&": {
-                                        "docs": {},
-                                        "q": {
-                                          "docs": {},
-                                          "u": {
-                                            "docs": {},
-                                            "o": {
-                                              "docs": {},
-                                              "t": {
-                                                "docs": {
-                                                  "PhotoSphereViewer.html#setPanorama": {
-                                                    "ref": "PhotoSphereViewer.html#setPanorama",
-                                                    "tf": 2.1739130434782608
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "o": {
-                      "docs": {},
-                      "p": {
-                        "docs": {
-                          "PSVUtils.html#.parsePosition": {
-                            "ref": "PSVUtils.html#.parsePosition",
-                            "tf": 7
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "b": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "c": {
-                        "docs": {},
-                        "k": {
-                          "docs": {},
-                          "g": {
-                            "docs": {},
-                            "r": {
-                              "docs": {},
-                              "o": {
-                                "docs": {},
-                                "u": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "d": {
-                                      "docs": {
-                                        "PSVUtils.html#.parsePosition": {
-                                          "ref": "PSVUtils.html#.parsePosition",
-                                          "tf": 5.555555555555555
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "k": {
           "docs": {},
           "e": {
@@ -36627,33 +37611,28 @@ window.lunrData = {
               }
             }
           }
-        },
-        "x": {
-          "docs": {
-            "PSVUtils.html#.bound": {
-              "ref": "PSVUtils.html#.bound",
-              "tf": 16.666666666666664
-            }
-          }
         }
       },
-      "length": 3024
+      "length": 3114
     },
     "corpusTokens": [
       "1",
-      "50%&quot",
+      "10",
+      "50",
       "account",
       "accross",
       "activ",
       "ad",
       "add",
       "addclass",
+      "addit",
       "addmark",
+      "alia",
       "allownon",
       "alter",
       "angl",
       "anim",
-      "animationontick",
+      "animateopt",
       "api",
       "argument",
       "array",
@@ -36666,6 +37645,7 @@ window.lunrData = {
       "automat",
       "autorot",
       "avail",
+      "background",
       "bar",
       "base",
       "between",
@@ -36681,16 +37661,21 @@ window.lunrData = {
       "callback",
       "camera",
       "can't",
+      "cancel",
       "canva",
       "caption",
       "case",
-      "center&quot",
+      "catch",
+      "center",
+      "chain",
       "chang",
       "check",
       "checkthre",
       "children",
       "class",
       "classnam",
+      "clean",
+      "cleanspherecorrect",
       "cleanthreescen",
       "clear",
       "clearmark",
@@ -36701,6 +37686,7 @@ window.lunrData = {
       "close",
       "closest",
       "coher",
+      "complet",
       "compon",
       "component'",
       "components.psvcompon",
@@ -36725,6 +37711,7 @@ window.lunrData = {
       "components/buttons.psvnavbarzoombutton",
       "comput",
       "config",
+      "config.transit",
       "configur",
       "construct",
       "constructor",
@@ -36752,7 +37739,6 @@ window.lunrData = {
       "default",
       "defin",
       "degre",
-      "delay",
       "destroy",
       "detect",
       "determin",
@@ -36768,8 +37754,6 @@ window.lunrData = {
       "durat",
       "dure",
       "e.g",
-      "each",
-      "eas",
       "eg",
       "el",
       "element",
@@ -36793,6 +37777,7 @@ window.lunrData = {
       "face",
       "facebook'",
       "file",
+      "final",
       "fix",
       "flag",
       "float",
@@ -36803,6 +37788,7 @@ window.lunrData = {
       "func",
       "function",
       "get",
+      "getangl",
       "getclosest",
       "getcurrentmark",
       "geteventkey",
@@ -36822,10 +37808,12 @@ window.lunrData = {
       "given",
       "global",
       "gotomark",
+      "guaranti",
       "gyroscop",
       "halfpi",
       "hand",
       "haspar",
+      "helper",
       "hide",
       "hidemark",
       "hidemarkerslist",
@@ -36850,6 +37838,8 @@ window.lunrData = {
       "iconact",
       "id",
       "identifi",
+      "ie",
+      "ignorerang",
       "imag",
       "implement",
       "includ",
@@ -36868,6 +37858,7 @@ window.lunrData = {
       "isautorotateen",
       "iscanvassupport",
       "isdeviceorientationsupport",
+      "isextendedposit",
       "isfullscreenen",
       "isgyroscopeen",
       "isinteg",
@@ -36907,6 +37898,7 @@ window.lunrData = {
       "lock",
       "lockorient",
       "longitud",
+      "longitude/latitud",
       "loop",
       "lt;protect",
       "lt;protected&gt",
@@ -37219,7 +38211,11 @@ window.lunrData = {
       "offset",
       "on",
       "onc",
+      "onfin",
+      "onfulfil",
       "ongo",
+      "onreject",
+      "ontick",
       "open",
       "option",
       "orient",
@@ -37228,6 +38224,7 @@ window.lunrData = {
       "panel",
       "panodata",
       "panorama",
+      "panoramaopt",
       "parent",
       "pars",
       "parseangl",
@@ -37241,6 +38238,7 @@ window.lunrData = {
       "photosphereview",
       "photosphereviewer#anim",
       "photosphereviewer#chang",
+      "photosphereviewer#cleanspherecorrect",
       "photosphereviewer#clearpanoramacach",
       "photosphereviewer#config",
       "photosphereviewer#contain",
@@ -37251,6 +38249,7 @@ window.lunrData = {
       "photosphereviewer#getzoomlevel",
       "photosphereviewer#hud",
       "photosphereviewer#isautorotateen",
+      "photosphereviewer#isextendedposit",
       "photosphereviewer#isfullscreenen",
       "photosphereviewer#isgyroscopeen",
       "photosphereviewer#isstereoen",
@@ -37271,6 +38270,7 @@ window.lunrData = {
       "photosphereviewer#res",
       "photosphereviewer#rot",
       "photosphereviewer#setpanorama",
+      "photosphereviewer#speedtodur",
       "photosphereviewer#sphericalcoordstotexturecoord",
       "photosphereviewer#sphericalcoordstovector3",
       "photosphereviewer#startautorot",
@@ -37298,6 +38298,7 @@ window.lunrData = {
       "photosphereviewer#zoom",
       "photosphereviewer#zoomin",
       "photosphereviewer#zoomout",
+      "photosphereviewer.animateopt",
       "photosphereviewer.cacheitem",
       "photosphereviewer.clickdata",
       "photosphereviewer.csss",
@@ -37306,9 +38307,11 @@ window.lunrData = {
       "photosphereviewer.extendedposit",
       "photosphereviewer.icon",
       "photosphereviewer.panodata",
+      "photosphereviewer.panoramaopt",
       "photosphereviewer.point",
       "photosphereviewer.posit",
       "photosphereviewer.s",
+      "photosphereviewer.spherecorrect",
       "photosphereviewer.templ",
       "photosphereviewer.util",
       "photosphereviewer|module:components.psvcompon",
@@ -37321,7 +38324,8 @@ window.lunrData = {
       "polygon/polylin",
       "polylin",
       "posit",
-      "position&quot",
+      "position1",
+      "position2",
       "possibl",
       "preload",
       "preloadpanorama",
@@ -37331,6 +38335,12 @@ window.lunrData = {
       "prop",
       "properti",
       "psv",
+      "psvanim",
+      "psvanimation#cancel",
+      "psvanimation#catch",
+      "psvanimation#fin",
+      "psvanimation#then",
+      "psvanimation.ontick",
       "psvcompon",
       "psvcomponent#contain",
       "psvcomponent#cr",
@@ -37612,8 +38622,6 @@ window.lunrData = {
       "psvtooltip#vis",
       "psvutil",
       "psvutils.addclass",
-      "psvutils.anim",
-      "psvutils.animationontick",
       "psvutils.bound",
       "psvutils.checkthre",
       "psvutils.cleanthreescen",
@@ -37623,6 +38631,7 @@ window.lunrData = {
       "psvutils.exitfullscreen",
       "psvutils.foreach",
       "psvutils.fullscreenev",
+      "psvutils.getangl",
       "psvutils.getclosest",
       "psvutils.geteventkey",
       "psvutils.getmaxtexturewidth",
@@ -37653,17 +38662,12 @@ window.lunrData = {
       "psvutils.twopi",
       "publicmethod",
       "px",
-      "quot;10",
-      "quot;background",
-      "quot;config.transition&quot",
-      "quot;position&quot",
-      "quot;top",
-      "quot;transition&quot",
       "radian",
       "readm",
       "readonly&gt",
       "receiv",
       "regist",
+      "reject",
       "remov",
       "removeclass",
       "removemark",
@@ -37673,6 +38677,7 @@ window.lunrData = {
       "repres",
       "requestfullscreen",
       "resiz",
+      "resolv",
       "retriev",
       "return",
       "rotat",
@@ -37707,7 +38712,10 @@ window.lunrData = {
       "sourc",
       "specif",
       "speed",
+      "speedtodur",
       "sphere",
+      "sphere_correct",
+      "spherecorrect",
       "spheric",
       "sphericalcoordstotexturecoord",
       "sphericalcoordstovector3",
@@ -37741,6 +38749,7 @@ window.lunrData = {
       "svgcontain",
       "svgelement",
       "svgn",
+      "synchron",
       "tabl",
       "table/blob/master/src/vendor_upstream/dom/normalizewheel.j",
       "taken",
@@ -37749,6 +38758,8 @@ window.lunrData = {
       "test",
       "textur",
       "texturecoordstosphericalcoord",
+      "then(nul",
+      "then(onfin",
       "three.j",
       "three.vector3",
       "threej",
@@ -37807,6 +38818,7 @@ window.lunrData = {
       "window",
       "without",
       "x",
+      "x/i",
       "zerocent",
       "zoom",
       "zoomin",
@@ -40799,7 +41811,7 @@ window.lunrData = {
     "PhotoSphereViewer.html#animate": {
       "id": "PhotoSphereViewer.html#animate",
       "kind": "function",
-      "title": "animate( position, duration ) → {Promise}",
+      "title": "animate( options [, speed ] ) → {PSVAnimation}",
       "longname": "PhotoSphereViewer#animate",
       "name": "animate",
       "tags": "PhotoSphereViewer#animate animate",
@@ -40814,6 +41826,16 @@ window.lunrData = {
       "name": "change",
       "tags": "PhotoSphereViewer#change change",
       "summary": "Triggers an event on the viewer and returns the modified value",
+      "description": ""
+    },
+    "PhotoSphereViewer.html#cleanSphereCorrection": {
+      "id": "PhotoSphereViewer.html#cleanSphereCorrection",
+      "kind": "function",
+      "title": "cleanSphereCorrection( sphere_correction )",
+      "longname": "PhotoSphereViewer#cleanSphereCorrection",
+      "name": "cleanSphereCorrection",
+      "tags": "PhotoSphereViewer#cleanSphereCorrection cleanSphereCorrection",
+      "summary": "Clean a SphereCorrection object",
       "description": ""
     },
     "PhotoSphereViewer.html#clearPanoramaCache": {
@@ -40884,6 +41906,16 @@ window.lunrData = {
       "name": "isAutorotateEnabled",
       "tags": "PhotoSphereViewer#isAutorotateEnabled isAutorotateEnabled",
       "summary": "Checks if the automatic rotation is enabled",
+      "description": ""
+    },
+    "PhotoSphereViewer.html#isExtendedPosition": {
+      "id": "PhotoSphereViewer.html#isExtendedPosition",
+      "kind": "function",
+      "title": "isExtendedPosition( object ) → {boolean}",
+      "longname": "PhotoSphereViewer#isExtendedPosition",
+      "name": "isExtendedPosition",
+      "tags": "PhotoSphereViewer#isExtendedPosition isExtendedPosition",
+      "summary": "Checks if an object is a {PhotoSphereViewer.ExtendedPosition}, ie has x/y or longitude/latitude",
       "description": ""
     },
     "PhotoSphereViewer.html#isFullscreenEnabled": {
@@ -41009,7 +42041,7 @@ window.lunrData = {
     "PhotoSphereViewer.html#rotate": {
       "id": "PhotoSphereViewer.html#rotate",
       "kind": "function",
-      "title": "rotate( position )",
+      "title": "rotate( position [, ignoreRange ] )",
       "longname": "PhotoSphereViewer#rotate",
       "name": "rotate",
       "tags": "PhotoSphereViewer#rotate rotate",
@@ -41019,12 +42051,22 @@ window.lunrData = {
     "PhotoSphereViewer.html#setPanorama": {
       "id": "PhotoSphereViewer.html#setPanorama",
       "kind": "function",
-      "title": "setPanorama( path [, position [, transition ] ] ) → {Promise}",
+      "title": "setPanorama( path [, options [, transition ] ] ) → {Promise}",
       "longname": "PhotoSphereViewer#setPanorama",
       "name": "setPanorama",
       "tags": "PhotoSphereViewer#setPanorama setPanorama",
       "summary": "Loads a new panorama file",
-      "description": "Loads a new panorama file, optionally changing the camera position and activating the transition animation. If the &quot;position&quot; is not defined, the camera will not move and the ongoing animation will continue &quot;config.transition&quot; must be configured for &quot;transition&quot; to be taken in account"
+      "description": "Loads a new panorama file, optionally changing the camera position and activating the transition animation. If the \"position\" is not defined, the camera will not move and the ongoing animation will continue \"config.transition\" must be configured for \"transition\" to be taken in account"
+    },
+    "PhotoSphereViewer.html#speedToDuration": {
+      "id": "PhotoSphereViewer.html#speedToDuration",
+      "kind": "function",
+      "title": "speedToDuration( value, angle ) → {number}",
+      "longname": "PhotoSphereViewer#speedToDuration",
+      "name": "speedToDuration",
+      "tags": "PhotoSphereViewer#speedToDuration speedToDuration",
+      "summary": "Converts a speed into a duration from current position to a new position",
+      "description": ""
     },
     "PhotoSphereViewer.html#sphericalCoordsToTextureCoords": {
       "id": "PhotoSphereViewer.html#sphericalCoordsToTextureCoords",
@@ -41099,12 +42141,12 @@ window.lunrData = {
     "PhotoSphereViewer.html#stopAnimation": {
       "id": "PhotoSphereViewer.html#stopAnimation",
       "kind": "function",
-      "title": "stopAnimation()",
+      "title": "stopAnimation() → {Promise}",
       "longname": "PhotoSphereViewer#stopAnimation",
       "name": "stopAnimation",
       "tags": "PhotoSphereViewer#stopAnimation stopAnimation",
       "summary": "Stops the ongoing animation",
-      "description": ""
+      "description": "The return value is a Promise because the is no guaranty the animation can be stopped synchronously."
     },
     "PhotoSphereViewer.html#stopAutorotate": {
       "id": "PhotoSphereViewer.html#stopAutorotate",
@@ -41286,6 +42328,16 @@ window.lunrData = {
       "summary": "Decreases the zoom level by 1",
       "description": ""
     },
+    "PhotoSphereViewer.html#.AnimateOptions": {
+      "id": "PhotoSphereViewer.html#.AnimateOptions",
+      "kind": "typedef",
+      "title": "AnimateOptions",
+      "longname": "PhotoSphereViewer.AnimateOptions",
+      "name": "AnimateOptions",
+      "tags": "PhotoSphereViewer.AnimateOptions AnimateOptions",
+      "summary": "Object defining animation options",
+      "description": ""
+    },
     "PhotoSphereViewer.html#.CacheItem": {
       "id": "PhotoSphereViewer.html#.CacheItem",
       "kind": "typedef",
@@ -41336,6 +42388,16 @@ window.lunrData = {
       "summary": "Crop information of the panorama",
       "description": ""
     },
+    "PhotoSphereViewer.html#.PanoramaOptions": {
+      "id": "PhotoSphereViewer.html#.PanoramaOptions",
+      "kind": "typedef",
+      "title": "PanoramaOptions",
+      "longname": "PhotoSphereViewer.PanoramaOptions",
+      "name": "PanoramaOptions",
+      "tags": "PhotoSphereViewer.PanoramaOptions PanoramaOptions",
+      "summary": "Object defining panorama and animation options",
+      "description": ""
+    },
     "PhotoSphereViewer.html#.Point": {
       "id": "PhotoSphereViewer.html#.Point",
       "kind": "typedef",
@@ -41364,6 +42426,77 @@ window.lunrData = {
       "name": "Size",
       "tags": "PhotoSphereViewer.Size Size",
       "summary": "Object defining a size",
+      "description": ""
+    },
+    "PhotoSphereViewer.html#.SphereCorrection": {
+      "id": "PhotoSphereViewer.html#.SphereCorrection",
+      "kind": "typedef",
+      "title": "SphereCorrection",
+      "longname": "PhotoSphereViewer.SphereCorrection",
+      "name": "SphereCorrection",
+      "tags": "PhotoSphereViewer.SphereCorrection SphereCorrection",
+      "summary": "",
+      "description": ""
+    },
+    "PSVAnimation.html": {
+      "id": "PSVAnimation.html",
+      "kind": "class",
+      "title": "PSVAnimation",
+      "longname": "PSVAnimation",
+      "name": "PSVAnimation",
+      "tags": "PSVAnimation",
+      "summary": "Interpolation helper for animations",
+      "description": "Implements the Promise API with an additional \"cancel\" method. The promise is resolved when the animation is complete and rejected if the animation is cancelled.",
+      "body": ""
+    },
+    "PSVAnimation.html#cancel": {
+      "id": "PSVAnimation.html#cancel",
+      "kind": "function",
+      "title": "cancel()",
+      "longname": "PSVAnimation#cancel",
+      "name": "cancel",
+      "tags": "PSVAnimation#cancel cancel",
+      "summary": "Cancels the animation",
+      "description": ""
+    },
+    "PSVAnimation.html#catch": {
+      "id": "PSVAnimation.html#catch",
+      "kind": "function",
+      "title": "catch( onRejected ) → {PSVAnimation}",
+      "longname": "PSVAnimation#catch",
+      "name": "catch",
+      "tags": "PSVAnimation#catch catch",
+      "summary": "Alias to .then(null, onRejected)",
+      "description": ""
+    },
+    "PSVAnimation.html#finally": {
+      "id": "PSVAnimation.html#finally",
+      "kind": "function",
+      "title": "finally( onFinally ) → {PSVAnimation}",
+      "longname": "PSVAnimation#finally",
+      "name": "finally",
+      "tags": "PSVAnimation#finally finally",
+      "summary": "Alias to .then(onFinally, onFinally)",
+      "description": ""
+    },
+    "PSVAnimation.html#then": {
+      "id": "PSVAnimation.html#then",
+      "kind": "function",
+      "title": "then( onFulfilled, onRejected ) → {PSVAnimation}",
+      "longname": "PSVAnimation#then",
+      "name": "then",
+      "tags": "PSVAnimation#then then",
+      "summary": "Animation chaining",
+      "description": ""
+    },
+    "PSVAnimation.html#.OnTick": {
+      "id": "PSVAnimation.html#.OnTick",
+      "kind": "typedef",
+      "title": "OnTick( properties, progress )",
+      "longname": "PSVAnimation.OnTick",
+      "name": "OnTick",
+      "tags": "PSVAnimation.OnTick OnTick",
+      "summary": "",
       "description": ""
     },
     "PSVError.html": {
@@ -41611,16 +42744,6 @@ window.lunrData = {
       "summary": "Adds one or several CSS classes to an element",
       "description": ""
     },
-    "PSVUtils.html#.animation": {
-      "id": "PSVUtils.html#.animation",
-      "kind": "function",
-      "title": "&lt;static&gt; animation( options ) → {Promise}",
-      "longname": "PSVUtils.animation",
-      "name": "animation",
-      "tags": "PSVUtils.animation animation",
-      "summary": "Interpolates each property with an easing and optional delay",
-      "description": ""
-    },
     "PSVUtils.html#.bound": {
       "id": "PSVUtils.html#.bound",
       "kind": "function",
@@ -41709,6 +42832,16 @@ window.lunrData = {
       "name": "fullscreenEvent",
       "tags": "PSVUtils.fullscreenEvent fullscreenEvent",
       "summary": "Gets the event name for fullscreen",
+      "description": ""
+    },
+    "PSVUtils.html#.getAngle": {
+      "id": "PSVUtils.html#.getAngle",
+      "kind": "function",
+      "title": "&lt;static&gt; getAngle( position1, position2 ) → {number}",
+      "longname": "PSVUtils.getAngle",
+      "name": "getAngle",
+      "tags": "PSVUtils.getAngle getAngle",
+      "summary": "Computes the angle between the current position and a target position",
       "description": ""
     },
     "PSVUtils.html#.getClosest": {
@@ -41844,7 +42977,7 @@ window.lunrData = {
     "PSVUtils.html#.isTouchEnabled": {
       "id": "PSVUtils.html#.isTouchEnabled",
       "kind": "function",
-      "title": "&lt;static&gt; isTouchEnabled() → {Promise}",
+      "title": "&lt;static&gt; isTouchEnabled() → {Promise.&lt;boolean&gt;}",
       "longname": "PSVUtils.isTouchEnabled",
       "name": "isTouchEnabled",
       "tags": "PSVUtils.isTouchEnabled isTouchEnabled",
@@ -41898,8 +43031,8 @@ window.lunrData = {
       "longname": "PSVUtils.parsePosition",
       "name": "parsePosition",
       "tags": "PSVUtils.parsePosition parsePosition",
-      "summary": "Translate CSS values like &quot;top center&quot; or &quot;10% 50%&quot; as top and left positions",
-      "description": "The implementation is as close as possible to the &quot;background-position&quot; specification https://developer.mozilla.org/en-US/docs/Web/CSS/background-position"
+      "summary": "Translate CSS values like \"top center\" or \"10% 50%\" as top and left positions",
+      "description": "The implementation is as close as possible to the \"background-position\" specification https://developer.mozilla.org/en-US/docs/Web/CSS/background-position"
     },
     "PSVUtils.html#.parseSpeed": {
       "id": "PSVUtils.html#.parseSpeed",
@@ -41959,16 +43092,6 @@ window.lunrData = {
       "name": "toggleClass",
       "tags": "PSVUtils.toggleClass toggleClass",
       "summary": "Toggles a CSS class",
-      "description": ""
-    },
-    "PSVUtils.html#.AnimationOnTick": {
-      "id": "PSVUtils.html#.AnimationOnTick",
-      "kind": "typedef",
-      "title": "AnimationOnTick( properties, progress )",
-      "longname": "PSVUtils.AnimationOnTick",
-      "name": "AnimationOnTick",
-      "tags": "PSVUtils.AnimationOnTick AnimationOnTick",
-      "summary": "",
       "description": ""
     },
     "PSVUtils.html#.ForEach": {

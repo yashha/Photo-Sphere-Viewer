@@ -87,6 +87,7 @@
 											<li><a href="module-components_buttons.PSVNavBarStereoButton.html">components/buttons.PSVNavBarStereoButton</a></li>
 											<li><a href="module-components_buttons.PSVNavBarZoomButton.html">components/buttons.PSVNavBarZoomButton</a></li>
 											<li><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></li>
+											<li><a href="PSVAnimation.html">PSVAnimation</a></li>
 											<li><a href="PSVError.html">PSVError</a></li>
 											<li><a href="PSVMarker.html">PSVMarker</a></li>
 									</ul>
@@ -381,13 +382,13 @@ PSVMarker.prototype.isSvg = function() {
  */
 PSVMarker.prototype.getScale = function(zoomLevel) {
   if (Array.isArray(this.scale)) {
-    return this.scale[0] + (this.scale[1] - this.scale[0]) * PSVUtils.animation.easings.inQuad(zoomLevel / 100);
+    return this.scale[0] + (this.scale[1] - this.scale[0]) * PSVAnimation.easings.inQuad(zoomLevel / 100);
   }
   else if (typeof this.scale === 'function') {
     return this.scale(zoomLevel);
   }
   else if (typeof this.scale === 'number') {
-    return this.scale * PSVUtils.animation.easings.inQuad(zoomLevel / 100);
+    return this.scale * PSVAnimation.easings.inQuad(zoomLevel / 100);
   }
   else {
     return 1;

@@ -46,7 +46,7 @@ isHome: true
     <li><a href="https://threejs.org">three.js &gt;= 0.85</a> + examples files</li>
     <li><a href="https://olado.github.io/doT">doT.js</a></li>
     <li><a href="https://github.com/mistic100/uEvent">uEvent</a></li>
-    <li><a href="https://malko.github.io/D.js">D.js</a></li>
+    <li><a href="https://github.com/taylorhakes/promise-polyfill">promise-polyfill</a> for IE compatibility</li>
   </ul>
 
   <h3>Let's go!</h3>
@@ -55,6 +55,13 @@ isHome: true
   <!-- @formatter:off -->
 {% highlight html %}
 <div id="viewer"></div>
+
+<style>
+  #viewer {
+    width: 100vw;
+    height: 50vh;
+  }
+</style>
 
 <script>
   var viewer = new PhotoSphereViewer({
@@ -671,12 +678,12 @@ viewer.getNavbarButton('my-button').hide();
 </style>
 
 <!-- @formatter:off -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.4.1/dist/photo-sphere-viewer.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.5.0/dist/photo-sphere-viewer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/three@0.99.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d.js@0.7.5/lib/D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.0/dist/polyfill.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dot@1.1.2/doT.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uevent@1.0.0/uevent.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.4.1/dist/photo-sphere-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.5.0/dist/photo-sphere-viewer.min.js"></script>
 <!-- @formatter:on -->
 
 <script>

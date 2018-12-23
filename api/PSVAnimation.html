@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>components.PSVLoader</title>
+		<title>PSVAnimation</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,7 +43,7 @@
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Components","summary":"All documented components."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
 			window.DOCLET_TOC_ENABLED = true;
-			window.DOCLET_AFILTER_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -157,8 +157,8 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
-				<h1><span class="ancestors"><a href="module-components.html">components</a>.</span><span class="name">PSVLoader</span></h1>
-			</div>
+				<h1><span class="name">PSVAnimation</span></h1>
+				<div class="summary"><p>Interpolation helper for animations</p></div>			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
@@ -166,30 +166,17 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_class.html">Classes</a></li>
-							<li class="active"><a href="module-components.html">components</a>.PSVLoader</li>
+							<li class="active">PSVAnimation</li>
 						</ol>
-						<div class="access-filter">
-								<label class="checkbox-inline">
-									<input class="toggle-inherited" type="checkbox" value="" checked>
-									Inherited
-								</label>
-								<label class="checkbox-inline">
-									<input class="toggle-public" type="checkbox" value="" checked>
-									Public
-								</label>
-								<label class="checkbox-inline">
-									<input class="toggle-protected" type="checkbox" value="" checked>
-									Protected
-								</label>
-						</div>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">PSVLoader</span><span class="signature-params">( <span class="signature-param">psv</span>&nbsp;)</span><span class="signature-type"></span></h2>
-</dt>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">PSVAnimation</span><span class="signature-params">( <span class="signature-param">options</span>&nbsp;)</span><span class="signature-type"></span></h2>
+		<div class="summary"><p>Interpolation helper for animations</p></div></dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Loader class</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Implements the Promise API with an additional &quot;cancel&quot; method.
+			The promise is resolved when the animation is complete and rejected if the animation is cancelled.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -202,9 +189,79 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>psv</code></td>
-							<td><span class="param-type"><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></td>
+								<td><code>options</code></td>
+							<td><span class="param-type">Object</span></td>
 							<td class="last">
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>properties</code></td>
+													<td><span class="param-type">Array.&lt;Object></span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>properties[].start</code></td>
+													<td><span class="param-type">number</span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>properties[].end</code></td>
+													<td><span class="param-type">number</span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>duration</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>delay</code></td>
+													<td><span class="param-type">int</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>0</td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>easing</code></td>
+													<td><span class="param-type">string</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>&#x27;linear&#x27;</td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>onTick</code></td>
+													<td><span class="param-type"><a href="PSVAnimation.html#.OnTick">PSVAnimation.OnTick</a></span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+															<p>called on each frame</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 							</td>
 						</tr>
 					</tbody>
@@ -214,13 +271,6 @@
 			
 			
 			
-							<!-- augments -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Augments</label>
-								<div class="col-sm-9">
-										<p class="form-control-static"><a href="module-components.PSVComponent.html">components.PSVComponent</a></p>
-								</div>
-							</div>
 			
 			
 			
@@ -237,7 +287,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVLoader.js.html">components/PSVLoader.js</a>, <a href="components_PSVLoader.js.html#line-8">line 8</a></p>
+									<p class="form-control-static"><a href="PSVAnimation.js.html">PSVAnimation.js</a>, <a href="PSVAnimation.js.html#line-23">line 23</a></p>
 								</div>
 							</div>
 			
@@ -249,216 +299,13 @@
 </dd>
 							</dl>
 							<article class="secondary">
-									<h3>Members</h3>
-									<dl class="symbol">
-											<hr/>
-											<dt class="symbol-title member public inherited collapsible-symbol">
-			<h4 id="container" class="member public inherited"><span class="signature-attribs">&lt;readonly> </span><span class="name">container</span><span class="signature-type"> :HTMLElement</span></h4>
-		</dt>
-<dd class="symbol-details member public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">HTMLElement</span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#container">module:components.PSVComponent#container</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-28">line 28</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public inherited collapsible-symbol">
-			<h4 id="parent" class="member public inherited"><span class="signature-attribs">&lt;readonly> </span><span class="name">parent</span><span class="signature-type"> :<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>|<a href="module-components.PSVComponent.html">module:components.PSVComponent</a></span></h4>
-		</dt>
-<dd class="symbol-details member public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span> | <span class="param-type"><a href="module-components.PSVComponent.html">module:components.PSVComponent</a></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#parent">module:components.PSVComponent#parent</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-22">line 22</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public inherited collapsible-symbol">
-			<h4 id="psv" class="member public inherited"><span class="signature-attribs">&lt;readonly> </span><span class="name">psv</span><span class="signature-type"> :<a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></h4>
-		</dt>
-<dd class="symbol-details member public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#psv">module:components.PSVComponent#psv</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-16">line 16</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public inherited collapsible-symbol">
-			<h4 id="visible" class="member public inherited"><span class="signature-attribs">&lt;readonly> </span><span class="name">visible</span><span class="signature-type"> :boolean</span></h4>
-				<div class="summary"><p>Visibility of the component</p></div></dt>
-<dd class="symbol-details member public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#visible">module:components.PSVComponent#visible</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-35">line 35</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function protected inherited collapsible-symbol">
-			<h4 id="create" class="function protected inherited"><span class="signature-attribs">&lt;protected> </span><span class="name">create</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Creates the component</p></div></dt>
-<dd class="symbol-details function protected inherited  collapsible-symbol">
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="cancel" class="function public"><span class="name">cancel</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Cancels the animation</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -467,113 +314,6 @@
 			
 			
 			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#create">module:components.PSVComponent#create</a></p>
-								</div>
-							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#create">module:components.PSVComponent#create</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-63">line 63</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function protected inherited collapsible-symbol">
-			<h4 id="destroy" class="function protected inherited"><span class="signature-attribs">&lt;protected> </span><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Destroys the component</p></div></dt>
-<dd class="symbol-details function protected inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#destroy">module:components.PSVComponent#destroy</a></p>
-								</div>
-							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#destroy">module:components.PSVComponent#destroy</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-77">line 77</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function protected inherited collapsible-symbol">
-			<h4 id="hide" class="function protected inherited"><span class="signature-attribs">&lt;protected> </span><span class="name">hide</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Hides the component</p></div></dt>
-<dd class="symbol-details function protected inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#hide">module:components.PSVComponent#hide</a></p>
-								</div>
-							</div>
 			
 			
 			
@@ -587,7 +327,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-95">line 95</a></p>
+									<p class="form-control-static"><a href="PSVAnimation.js.html">PSVAnimation.js</a>, <a href="PSVAnimation.js.html#line-192">line 192</a></p>
 								</div>
 							</div>
 			
@@ -599,8 +339,8 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="setProgress" class="function public"><span class="name">setProgress</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Sets the loader progression</p></div></dt>
+			<h4 id="catch" class="function public"><span class="name">catch</span><span class="signature-params">( <span class="signature-param">onRejected</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PSVAnimation.html">PSVAnimation</a>}</span></h4>
+				<div class="summary"><p>Alias to <code>.then(null, onRejected)</code></p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -615,16 +355,24 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>value</code></td>
-							<td><span class="param-type">int</span></td>
+								<td><code>onRejected</code></td>
+							<td><span class="param-type">function</span></td>
 							<td class="last">
-									<p>from 0 to 100</p>
+									<p>Called when the animation has been cancelled</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="PSVAnimation.html">PSVAnimation</a></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -644,7 +392,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVLoader.js.html">components/PSVLoader.js</a>, <a href="components_PSVLoader.js.html#line-89">line 89</a></p>
+									<p class="form-control-static"><a href="PSVAnimation.js.html">PSVAnimation.js</a>, <a href="PSVAnimation.js.html#line-176">line 176</a></p>
 								</div>
 							</div>
 			
@@ -655,25 +403,47 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function protected inherited collapsible-symbol">
-			<h4 id="show" class="function protected inherited"><span class="signature-attribs">&lt;protected> </span><span class="name">show</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Displays the component</p></div></dt>
-<dd class="symbol-details function protected inherited  collapsible-symbol">
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="finally" class="function public"><span class="name">finally</span><span class="signature-params">( <span class="signature-param">onFinally</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PSVAnimation.html">PSVAnimation</a>}</span></h4>
+				<div class="summary"><p>Alias to <code>.then(onFinally, onFinally)</code></p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>onFinally</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>Called when the animation is either complete or cancelled</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="PSVAnimation.html">PSVAnimation</a></span></label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-components.PSVComponent.html#show">module:components.PSVComponent#show</a></p>
+									<div class="form-control-static returns-description"></div>
 								</div>
 							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
 			
 			
 			
@@ -687,7 +457,153 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="components_PSVComponent.js.html">components/PSVComponent.js</a>, <a href="components_PSVComponent.js.html#line-104">line 104</a></p>
+									<p class="form-control-static"><a href="PSVAnimation.js.html">PSVAnimation.js</a>, <a href="PSVAnimation.js.html#line-185">line 185</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="then" class="function public"><span class="name">then</span><span class="signature-params">( <span class="signature-param">onFulfilled</span>, <span class="signature-param">onRejected</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="PSVAnimation.html">PSVAnimation</a>}</span></h4>
+				<div class="summary"><p>Animation chaining</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>onFulfilled</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>Called when the animation is complete, can return a new animation</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>onRejected</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>Called when the animation is cancelled</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="PSVAnimation.html">PSVAnimation</a></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PSVAnimation.js.html">PSVAnimation.js</a>, <a href="PSVAnimation.js.html#line-156">line 156</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Type Definitions</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id=".OnTick" class="typedef public"><span class="name">OnTick</span><span class="signature-params">( <span class="signature-param">properties</span>, <span class="signature-param">progress</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details typedef public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>properties</code></td>
+							<td><span class="param-type">Array.&lt;Object></span></td>
+							<td class="last">
+									<p>current values</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>progress</code></td>
+							<td><span class="param-type">float</span></td>
+							<td class="last">
+									<p>0 to 1</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">function</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="PSVAnimation.js.html">PSVAnimation.js</a>, <a href="PSVAnimation.js.html#line-1">line 1</a></p>
 								</div>
 							</div>
 			
