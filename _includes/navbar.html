@@ -1,15 +1,27 @@
 <li {% if page.title == 'Markers' %}class="active"{% endif %}>
-  <a href="{{ site.github.url | replace: 'http://', '//' }}/markers.html">Markers</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}markers.html">Markers</a>
 </li>
 
 <li {% if page.title == 'Cropped panorama' %}class="active"{% endif %}>
-  <a href="{{ site.github.url | replace: 'http://', '//' }}/crop.html">Cropped panorama</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}crop.html">Cropped panorama</a>
 </li>
 
 <li>
-  <a href="{{ site.github.url | replace: 'http://', '//' }}/api/">API documentation</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}api/">API documentation</a>
 </li>
 
 <li {% if page.title == 'Changelog' %}class="active"{% endif %}>
-  <a href="{{ site.github.url | replace: 'http://', '//' }}/changelog.html">Changelog</a>
+  <a href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}changelog.html">Changelog</a>
+</li>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    {% if page.dir == '/' %}v3{% endif %}
+    {% if page.dir != '/' %}{{ page.dir | replace : '/', '' }}{% endif %}
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="/">{% if page.dir == '/' %}<span class="glyphicon glyphicon-ok"></span>{% endif %} Latest (v3)</a></li>
+    <li><a href="/v4">{% if page.dir == '/v4/' %}<span class="glyphicon glyphicon-ok"></span>{% endif %} Next (v4)</a></li>
+  </ul>
 </li>

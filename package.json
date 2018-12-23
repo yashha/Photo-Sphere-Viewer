@@ -9,9 +9,6 @@
   },
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "photo-sphere-viewer": "latest"
-  },
   "scripts": {
     "postinstall": "bundle install",
     "serve": "bundle exec jekyll serve"

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>components.PSVTooltip</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/custom.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #1C9F72;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #1C9F72;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #1C9F72;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #1C9F72;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer v4 API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":false,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["css/custom.css"],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Photo Sphere Viewer v4 API
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.AbstractComponent.html">components.AbstractComponent</a></li>
+											<li><a href="module-components.PSVHUD.html">components.PSVHUD</a></li>
+											<li><a href="module-components.PSVLoader.html">components.PSVLoader</a></li>
+											<li><a href="module-components.PSVNavbar.html">components.PSVNavbar</a></li>
+											<li><a href="module-components.PSVNavbarCaption.html">components.PSVNavbarCaption</a></li>
+											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
+											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
+											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
+											<li><a href="module-components_buttons.AbstractButton.html">components/buttons.AbstractButton</a></li>
+											<li><a href="module-components_buttons.PSVAutorotateButton.html">components/buttons.PSVAutorotateButton</a></li>
+											<li><a href="module-components_buttons.PSVCaptionButton.html">components/buttons.PSVCaptionButton</a></li>
+											<li><a href="module-components_buttons.PSVCustomButton.html">components/buttons.PSVCustomButton</a></li>
+											<li><a href="module-components_buttons.PSVDownloadButton.html">components/buttons.PSVDownloadButton</a></li>
+											<li><a href="module-components_buttons.PSVFullscreenButton.html">components/buttons.PSVFullscreenButton</a></li>
+											<li><a href="module-components_buttons.PSVGyroscopeButton.html">components/buttons.PSVGyroscopeButton</a></li>
+											<li><a href="module-components_buttons.PSVMarkersButton.html">components/buttons.PSVMarkersButton</a></li>
+											<li><a href="module-components_buttons.PSVStereoButton.html">components/buttons.PSVStereoButton</a></li>
+											<li><a href="module-components_buttons.PSVZoomButton.html">components/buttons.PSVZoomButton</a></li>
+											<li><a href="module-services.AbstractService.html">services.AbstractService</a></li>
+											<li><a href="module-services.PSVDataHelper.html">services.PSVDataHelper</a></li>
+											<li><a href="module-services.PSVEventsHandler.html">services.PSVEventsHandler</a></li>
+											<li><a href="module-services.PSVRenderer.html">services.PSVRenderer</a></li>
+											<li><a href="module-services.PSVTextureLoader.html">services.PSVTextureLoader</a></li>
+											<li><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></li>
+											<li><a href="PSVAnimation.html">PSVAnimation</a></li>
+											<li><a href="PSVError.html">PSVError</a></li>
+											<li><a href="PSVMarker.html">PSVMarker</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:before-render">services.PSVRenderer.before-render</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:panorama-loaded">services.PSVRenderer.panorama-loaded</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:render">services.PSVRenderer.render</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-cached">services.PSVTextureLoader.panorama-cached</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-load-progress">services.PSVTextureLoader.panorama-load-progress</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:position-updated">PhotoSphereViewer.position-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:ready">PhotoSphereViewer.ready</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:size-updated">PhotoSphereViewer.size-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:stereo-updated">PhotoSphereViewer.stereo-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:zoom-updated">PhotoSphereViewer.zoom-updated</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_external.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="external-NoSleep.html">NoSleep</a></li>
+											<li><a href="external-THREE.html">THREE</a></li>
+											<li><a href="external-uEvent.html">uEvent</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.html">components</a></li>
+											<li><a href="module-components_buttons.html">components/buttons</a></li>
+											<li><a href="module-data_config.html">data/config</a></li>
+											<li><a href="module-data_constants.html">data/constants</a></li>
+											<li><a href="module-data_system.html">data/system</a></li>
+											<li><a href="module-services.html">services</a></li>
+											<li><a href="module-utils.html">utils</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">class</span>
+				<h1><span class="ancestors"><a href="module-components.html">components</a>.</span><span class="name">PSVTooltip</span></h1>
+				<div class="summary"><p>Tooltip class</p></div>			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="list_class.html">Classes</a></li>
+							<li class="active"><a href="module-components.html">components</a>.PSVTooltip</li>
+						</ol>
+					<section>
+							<dl class="symbol primary">
+								<dt class="symbol-title class collapsible-symbol expanded">
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">PSVTooltip</span><span class="signature-params">( <span class="signature-param">hud</span>&nbsp;)</span><span class="signature-type"></span></h2>
+		<div class="summary"><p>Tooltip class</p></div></dt>
+<dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>hud</code></td>
+							<td><span class="param-type"><a href="module-components.PSVHUD.html">module:components.PSVHUD</a></span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+							<!-- augments -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Augments</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><a href="module-components.AbstractComponent.html">components.AbstractComponent</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_PSVTooltip.js.html">components/PSVTooltip.js</a>, <a href="components_PSVTooltip.js.html#line-14">line 14</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+							</dl>
+							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public inherited collapsible-symbol">
+			<h4 id="container" class="member public inherited"><span class="signature-attribs">&lt;readonly, inherited> </span><span class="name">container</span><span class="signature-type"> :HTMLElement</span></h4>
+		</dt>
+<dd class="symbol-details member public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">HTMLElement</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#container">module:components.AbstractComponent#container</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_AbstractComponent.js.html">components/AbstractComponent.js</a>, <a href="components_AbstractComponent.js.html#line-43">line 43</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public inherited collapsible-symbol">
+			<h4 id="parent" class="member public inherited"><span class="signature-attribs">&lt;readonly, inherited> </span><span class="name">parent</span><span class="signature-type"> :<a href="PhotoSphereViewer.html">PhotoSphereViewer</a>|<a href="module-components.AbstractComponent.html">module:components.AbstractComponent</a></span></h4>
+		</dt>
+<dd class="symbol-details member public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span> | <span class="param-type"><a href="module-components.AbstractComponent.html">module:components.AbstractComponent</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#parent">module:components.AbstractComponent#parent</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_AbstractComponent.js.html">components/AbstractComponent.js</a>, <a href="components_AbstractComponent.js.html#line-30">line 30</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public inherited collapsible-symbol">
+			<h4 id="psv" class="member public inherited"><span class="signature-attribs">&lt;readonly, inherited> </span><span class="name">psv</span><span class="signature-type"> :<a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></h4>
+				<div class="summary"><p>Reference to main controller</p></div></dt>
+<dd class="symbol-details member public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#psv">module:components.AbstractComponent#psv</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_AbstractComponent.js.html">components/AbstractComponent.js</a>, <a href="components_AbstractComponent.js.html#line-24">line 24</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public inherited collapsible-symbol">
+			<h4 id="visible" class="member public inherited"><span class="signature-attribs">&lt;readonly, inherited> </span><span class="name">visible</span><span class="signature-type"> :boolean</span></h4>
+				<div class="summary"><p>Visibility of the component</p></div></dt>
+<dd class="symbol-details member public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#visible">module:components.AbstractComponent#visible</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#visible">module:components.AbstractComponent#visible</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_AbstractComponent.js.html">components/AbstractComponent.js</a>, <a href="components_AbstractComponent.js.html#line-37">line 37</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Methods</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function protected inherited collapsible-symbol">
+			<h4 id="destroy" class="function protected inherited"><span class="signature-attribs">&lt;protected, inherited> </span><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Destroys the component</p></div></dt>
+<dd class="symbol-details function protected inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#destroy">module:components.AbstractComponent#destroy</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#destroy">module:components.AbstractComponent#destroy</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_AbstractComponent.js.html">components/AbstractComponent.js</a>, <a href="components_AbstractComponent.js.html#line-52">line 52</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="hide" class="function public"><span class="name">hide</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Hides the tooltip</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
+							<div class="form-group">
+								<label class="col-sm-3 control-label fires-event"><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></label>
+								<div class="col-sm-9">
+									<div class="form-control-static fires-summary"><p>Trigered when the tooltip is hidden</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#hide">module:components.AbstractComponent#hide</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_PSVTooltip.js.html">components/PSVTooltip.js</a>, <a href="components_PSVTooltip.js.html#line-216">line 216</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="isVisible" class="function public inherited"><span class="signature-attribs">&lt;inherited> </span><span class="name">isVisible</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Check if the component is visible</p></div></dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#isVisible">module:components.AbstractComponent#isVisible</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_AbstractComponent.js.html">components/AbstractComponent.js</a>, <a href="components_AbstractComponent.js.html#line-80">line 80</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="show" class="function public"><span class="name">show</span><span class="signature-params">( <span class="signature-param">config</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Displays a tooltip on the viewer</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>config</code></td>
+							<td><span class="param-type">Object</span></td>
+							<td class="last">
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>content</code></td>
+													<td><span class="param-type">string</span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+															<p>HTML content of the tootlip</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>top</code></td>
+													<td><span class="param-type">number</span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+															<p>Position of the tip of the arrow of the tooltip, in pixels</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>left</code></td>
+													<td><span class="param-type">number</span></td>
+														<td class="attributes"></td>
+														<td></td>
+													<td class="last">
+															<p>Position of the tip of the arrow of the tooltip, in pixels</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>position</code></td>
+													<td><span class="param-type">string</span> | <span class="param-type">Array.&lt;string></span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td>&#x27;top center&#x27;</td>
+													<td class="last">
+															<p>Tooltip position toward it's arrow tip.
+									                                                 Accepted values are combinations of <code>top</code>, <code>center</code>, <code>bottom</code>
+									                                                 and <code>left</code>, <code>center</code>, <code>right</code></p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>className</code></td>
+													<td><span class="param-type">string</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td></td>
+													<td class="last">
+															<p>Additional CSS class added to the tooltip</p>
+													</td>
+												</tr>
+												<tr>
+														<td><code>box</code></td>
+													<td><span class="param-type">Object</span></td>
+														<td class="attributes">&lt;optional&gt;<br/></td>
+														<td></td>
+													<td class="last">
+															<p>Used when displaying a tooltip on a marker</p>
+																<table class="params table table-striped">
+																	<thead>
+																	<tr>
+																			<th>Name</th>
+																		<th>Type</th>
+																			<th>Attributes</th>
+																			<th>Default</th>
+																		<th class="last">Description</th>
+																	</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																				<td><code>width</code></td>
+																			<td><span class="param-type">number</span></td>
+																				<td class="attributes">&lt;optional&gt;<br/></td>
+																				<td>0</td>
+																			<td class="last">
+																			</td>
+																		</tr>
+																		<tr>
+																				<td><code>height</code></td>
+																			<td><span class="param-type">number</span></td>
+																				<td class="attributes">&lt;optional&gt;<br/></td>
+																				<td>0</td>
+																			<td class="last">
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">viewer.showTooltip({ content: &#x27;Hello world&#x27;, top: 200, left: 450, position: &#x27;center bottom&#x27;})</code></pre>
+					</div>
+			</div>			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
+							<div class="form-group">
+								<label class="col-sm-3 control-label fires-event"><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></label>
+								<div class="col-sm-9">
+									<div class="form-control-static fires-summary"><p>Trigered when the tooltip is shown</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-danger"><h5>Throws</h5>		<form class="form-horizontal exceptions">
+							<div class="form-group">
+								<label class="col-sm-3 control-label exceptions-type"><span class="param-type"><a href="PSVError.html">PSVError</a></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static exceptions-description"><p>when the configuration is incorrect</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="module-components.AbstractComponent.html#show">module:components.AbstractComponent#show</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_PSVTooltip.js.html">components/PSVTooltip.js</a>, <a href="components_PSVTooltip.js.html#line-111">line 111</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Events</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title event public">
+			<h4 id=".event:hide-tooltip" class="event public"><span class="name">hide-tooltip</span></h4>
+				<div class="summary"><p>Trigered when the tooltip is hidden</p></div></dt>
+<dd class="symbol-details event public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_PSVTooltip.js.html">components/PSVTooltip.js</a>, <a href="components_PSVTooltip.js.html#line-222">line 222</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title event public">
+			<h4 id=".event:show-tooltip" class="event public"><span class="name">show-tooltip</span></h4>
+				<div class="summary"><p>Trigered when the tooltip is shown</p></div></dt>
+<dd class="symbol-details event public">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="components_PSVTooltip.js.html">components/PSVTooltip.js</a>, <a href="components_PSVTooltip.js.html#line-244">line 244</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+							</article>
+					</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+		<script src="js/custom.js"></script>
+	
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-28192323-3', 'auto');
+			ga('send', 'pageview');
+		</script>
+	
+</body>
+</html>

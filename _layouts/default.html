@@ -45,7 +45,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ site.github.url | replace: 'http://', '//' }}/index.html">{{site.name}}</a>
+        <a class="navbar-brand" href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}index.html">{{site.name}}</a>
       </div>
       <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
@@ -93,9 +93,7 @@
   </div>
 
   {% if site.download.popup %}
-  <div id="download-popup" title="Download {{site.name}} {{site.version}}" class="hidden">
-    {% include download-popup.html %}
-  </div>
+  {% include download-popup.html version=site.version %}
   {% endif %}
 
   {% else %}

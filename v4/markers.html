@@ -1,0 +1,325 @@
+---
+layout: default
+title: Markers
+---
+
+<section class="bs-docs-section">
+  <p><b>Photo Sphere Viewer</b> includes a markers system since version 3.1. It allows to define points of interest on
+    the Photo Sphere with optional tooltip and description. It also allows to dynamically add and remove markers on
+    user click/tap.</p>
+
+  <p>There are four types of markers :</p>
+  <ul>
+    <li><b>HTML</b> defined with the <code>html</code> attribute</li>
+    <li><b>Images</b> defined with the <code>image</code> attribute</li>
+    <li><b>SVGs</b> defined with the <code>rect</code>, <code>circle</code>, <code>ellipse</code> or <code>path</code>
+      attribute
+    </li>
+    <li><b>Dynamic polygons & polylines</b> defined with the
+      <code>polygonPx</code>, <code>polygonRad</code>, <code>polylinePx</code> or <code>polylineRad</code> attribute
+    </li>
+  </ul>
+
+  <h1 id="demo" class="page-header">Demo</h1>
+
+  <p>The following example contains all types of markers. Click anywhere on the panorama to add a red marker, click
+    again to remove it.</p>
+
+  <div id="photosphere"></div>
+
+  <br>
+
+  <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#markersSource">
+    <b>&lt;/&gt;</b> Show source
+  </button>
+
+  <div class="collapse" id="markersSource">
+    <!-- @formatter:off -->
+{% highlight javascript %}
+{% include_relative assets/markers-demo.js %}
+{% endhighlight %}
+<!-- @formatter:on -->
+  </div>
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="usage" class="page-header">Usage</h1>
+
+  <h2 id="config">Configuration</h2>
+
+  <p>Markers can be added at startup with the <a href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}index.html#options"><code>markers</code>
+    option</a> or after load with the methods detailed further in this page.<br>
+    In both case the markers attributes are :</p>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width: 130px;">Name</th>
+        <th style="width: 130px;">type</th>
+        <th style="width: 150px;">default</th>
+        <th>description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>id</td>
+        <td>string</td>
+        <td><span class="label label-danger">required</span></td>
+        <td>Unique identifier of the marker.</td>
+      </tr>
+      <tr class="grey">
+        <td>image</td>
+        <td>string</td>
+        <td rowspan="10"><span class="label label-danger">one required</span></td>
+        <td>Path to the image representing the marker. Requires <code>width</code> and <code>height</code>.</td>
+      </tr>
+      <tr class="grey">
+        <td>html</td>
+        <td>string</td>
+        <td>HTML content of the marker.</td>
+      </tr>
+      <tr class="grey">
+        <td>rect</td>
+        <td>int[] | Object</td>
+        <td>Size of the rectangle. Eg: <code>[10, 5]</code> or <code>{width: 10, height: 5}</code>.
+        </td>
+      </tr>
+      <tr class="grey">
+        <td>circle</td>
+        <td>int</td>
+        <td>Radius of the circle.</td>
+      </tr>
+      <tr class="grey">
+        <td>ellipse</td>
+        <td>int[] | Object</td>
+        <td>Radiuses of the ellipse. Eg: <code>[10, 5]</code> or <code>{cx: 10, cy: 5}</code>.</td>
+      </tr>
+      <tr class="grey">
+        <td>path</td>
+        <td>string</td>
+        <td>Definition of the path (0,0 will be placed at the defined x/y or longitude/latitude).</td>
+      </tr>
+      <tr class="grey">
+        <td>polygonPx</td>
+        <td>int[][]</td>
+        <td>Array of points defining the polygon in pixel coordinates on the panorama image.<br>
+          Eg: <code>[[100, 200], [150, 300], [300, 200]]</code></td>
+      </tr>
+      <tr class="grey">
+        <td>polygonRad</td>
+        <td>double[][]</td>
+        <td>Same as above but coordinates are in longitude and latitude.<br>
+          Eg: <code>[[0.2, 0.4], [0.9, 1.1], [1.5, 0.7]]</code></td>
+      </tr>
+      <tr class="grey">
+        <td>polylinePx</td>
+        <td>int[][]</td>
+        <td>Array of points defining the polyline in pixel coordinates on the panorama image.<br>
+          Eg: <code>[[100, 200], [150, 300]]</code></td>
+      </tr>
+      <tr class="grey">
+        <td>polylineRad</td>
+        <td>double[][]</td>
+        <td>Same as above but coordinates are in longitude and latitude.<br>
+          Eg: <code>[[0.2, 0.4], [0.9, 1.1]]</code></td>
+      </tr>
+      <tr>
+        <td>width & height</td>
+        <td>int</td>
+        <td><span class="label label-warning">recommended</span><br>
+          <span class="label label-danger">required</span> for images
+        </td>
+        <td>Size of the marker.<br>
+          <i>Ignored for polygons/polylines</i></td>
+      </tr>
+      <tr>
+        <td>x & y</td>
+        <td>int</td>
+        <td rowspan="2"><span class="label label-danger">required</span> x/y <b>or</b> latitude/longitude</td>
+        <td>Position of the marker <b>in texture coordinates</b> (pixels).<br>
+          <i>Ignored for polygons/polylines</i></td>
+      </tr>
+      <tr>
+        <td>latitude & longitude</td>
+        <td>double</td>
+        <td>Position of the marker <b>in spherical coordinates</b> (radians).<br>
+          <i>Ignored for polygons/polylines</i></td>
+      </tr>
+      <tr>
+        <td>scale</td>
+        <td>double | double[2]</td>
+        <td>1 <i>(constant)</i></td>
+        <td>Scale factor multiplied by the zoom level. Provide an array of two values for min and max.</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td></td>
+        <td>Optional CSS class(es) added to the marker element.</td>
+      </tr>
+      <tr>
+        <td>anchor</td>
+        <td>string</td>
+        <td>'center center'</td>
+        <td>Defines where the marker is placed toward its position. Any CSS position is valid like <code>bottom
+          center</code> or <code>20% 80%</code><br>
+          <i>Ignored for polygons/polylines</i>.
+        </td>
+      </tr>
+      <tr>
+        <td>visible</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td>Is the marker visible once added. If hidden, the marker will have to be edited through
+          <code>getMarker</code> method later.
+        </td>
+      </tr>
+      <tr>
+        <td>tooltip</td>
+        <td>string | Object</td>
+        <td></td>
+        <td>Tooltip content of the marker or object defining the tooltip.</td>
+      </tr>
+      <tr>
+        <td>tooltip.content</td>
+        <td>string</td>
+        <td></td>
+        <td>Tooltip content.</td>
+      </tr>
+      <tr>
+        <td>tooltip.position</td>
+        <td>string</td>
+        <td>'top center'</td>
+        <td>Tooltip position toward the marker. Accepted values are combinations of <code>top, center, bottom</code> and
+          <code>left, center, right</code> with the exception of <code>center center</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>style</td>
+        <td>Object</td>
+        <td></td>
+        <td>CSS properties to set on the marker (background, border, etc.).
+          <button class="btn btn-primary btn-xs" data-bootbox="marker-style">Example</button>
+          <div id="marker-style" title="Marker custom style" class="hidden">
+            <!-- @formatter:off -->
+{% highlight text %}
+style: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    cursor         : 'help'
+}
+{% endhighlight %}
+<!-- @formatter:on -->
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>svgStyle</td>
+        <td>Object</td>
+        <td></td>
+        <td>SVG properties to set on the marker (fill, stroke, etc.).<br>
+          <i>Only for SVG and polygons/polylines markers.</i>
+          <button class="btn btn-primary btn-xs" data-bootbox="marker-svg-style">Example</button>
+          <div id="marker-svg-style" title="SVG marker custom style" class="hidden">
+            <!-- @formatter:off -->
+{% highlight text %}
+svgStyle: {
+    fill       : 'rgba(0, 0, 0, 0.5)',
+    stroke     : '#ff0000',
+    strokeWidth: '2px'
+}
+{% endhighlight %}
+<!-- @formatter:on -->
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>content</td>
+        <td>string</td>
+        <td></td>
+        <td>HTML content that will be displayed on the side panel when the marker is clicked.</td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td>Object</td>
+        <td></td>
+        <td>Any custom data you want to attach to the marker.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2 id="methods">Methods</h2>
+
+  <p>Check the <a class="btn btn-outline" href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}api/module-components.PSVHUD.html#methods">API documentation</a> to learn
+    more about additional methods dedicated to the markers.</p>
+
+
+  <h2 id="events">Events</h2>
+
+  <p><a class="btn btn-outline" href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}api/module-components.PSVHUD.html#events">More events</a> are also available for
+    markers.</p>
+</section>
+
+
+<style>
+  table tr.grey td {
+    background: #f6feef;
+  }
+
+  table tr:nth-child(2n+1).grey td {
+    background: #efffe1;
+  }
+</style>
+
+<!-- @formatter:off -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0-alpha.1/dist/photo-sphere-viewer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.99.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@1.0.0/uevent.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0-alpha.1/dist/photo-sphere-viewer.min.js"></script>
+<!-- @formatter:on -->
+
+<script type="text/template" id="lorem-content">
+  <h1>HTML Ipsum Presents</h1>
+
+  <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas.
+    Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+    egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et
+    sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet,
+    wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac
+    dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3238538.6948248185!2d-112.5001998515625!3d37.56365195744152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6be9d8fbbeac6d06!2sParc+national+de+Bryce+Canyon!5e0!3m2!1sfr!2sfr!4v1454251445371"
+    width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+  <h2>Header Level 2</h2>
+
+  <ol>
+    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+    <li>Aliquam tincidunt mauris eu risus.</li>
+  </ol>
+
+  <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet
+    congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis,
+    tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+  <h3>Header Level 3</h3>
+
+  <ul>
+    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+    <li>Aliquam tincidunt mauris eu risus.</li>
+  </ul>
+
+  <pre><code>
+    #header h1 a {
+    display: block;
+    width: 300px;
+    height: 80px;
+    }
+  </code></pre>
+</script>
+
+<script>var rootURL = "{{ site.github.url | replace: 'http://', '//' }}";</script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}assets/markers-demo.js"></script>

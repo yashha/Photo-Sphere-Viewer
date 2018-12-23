@@ -4,6 +4,7 @@ name: Photo Sphere Viewer
 id: mistic100/Photo-Sphere-Viewer
 # current version of the software
 version: 3.4.1
+preVersion: 4.0.0-alpha.1
 # licence of the software
 license: MIT License
 licenseUrl: https://opensource.org/licenses/MIT
@@ -13,11 +14,11 @@ favicon: png
 # download button
 download:
   popup: true
-  url: https://github.com/mistic100/Photo-Sphere-Viewer/archive/master.zip
+  url: https://github.com/mistic100/Photo-Sphere-Viewer/archive/@version@.zip
   bower: Photo-Sphere-Viewer
   npm: photo-sphere-viewer
   cdn:
-    url: https://cdn.jsdelivr.net/npm/photo-sphere-viewer/dist/
+    url: https://cdn.jsdelivr.net/npm/photo-sphere-viewer@@version@/dist/
     img: https://photo-sphere-viewer.js.org/assets/images/jsdelivr-logo.png
     name: jsDelivr
 
@@ -30,8 +31,6 @@ headerLinks:
     url: https://github.com/mistic100/Photo-Sphere-Viewer
   - title: StrangePlanet
     url: https://www.strangeplanet.fr
-  - title: Jérémy Heleine
-    url: http://jeremyheleine.me
 
 # list if additional links on the footer
 footerLinks:

@@ -1,0 +1,756 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>services/PSVRenderer.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/custom.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #1C9F72;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #1C9F72;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #1C9F72;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #1C9F72;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer v4 API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":false,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["css/custom.css"],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Photo Sphere Viewer v4 API
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.AbstractComponent.html">components.AbstractComponent</a></li>
+											<li><a href="module-components.PSVHUD.html">components.PSVHUD</a></li>
+											<li><a href="module-components.PSVLoader.html">components.PSVLoader</a></li>
+											<li><a href="module-components.PSVNavbar.html">components.PSVNavbar</a></li>
+											<li><a href="module-components.PSVNavbarCaption.html">components.PSVNavbarCaption</a></li>
+											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
+											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
+											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
+											<li><a href="module-components_buttons.AbstractButton.html">components/buttons.AbstractButton</a></li>
+											<li><a href="module-components_buttons.PSVAutorotateButton.html">components/buttons.PSVAutorotateButton</a></li>
+											<li><a href="module-components_buttons.PSVCaptionButton.html">components/buttons.PSVCaptionButton</a></li>
+											<li><a href="module-components_buttons.PSVCustomButton.html">components/buttons.PSVCustomButton</a></li>
+											<li><a href="module-components_buttons.PSVDownloadButton.html">components/buttons.PSVDownloadButton</a></li>
+											<li><a href="module-components_buttons.PSVFullscreenButton.html">components/buttons.PSVFullscreenButton</a></li>
+											<li><a href="module-components_buttons.PSVGyroscopeButton.html">components/buttons.PSVGyroscopeButton</a></li>
+											<li><a href="module-components_buttons.PSVMarkersButton.html">components/buttons.PSVMarkersButton</a></li>
+											<li><a href="module-components_buttons.PSVStereoButton.html">components/buttons.PSVStereoButton</a></li>
+											<li><a href="module-components_buttons.PSVZoomButton.html">components/buttons.PSVZoomButton</a></li>
+											<li><a href="module-services.AbstractService.html">services.AbstractService</a></li>
+											<li><a href="module-services.PSVDataHelper.html">services.PSVDataHelper</a></li>
+											<li><a href="module-services.PSVEventsHandler.html">services.PSVEventsHandler</a></li>
+											<li><a href="module-services.PSVRenderer.html">services.PSVRenderer</a></li>
+											<li><a href="module-services.PSVTextureLoader.html">services.PSVTextureLoader</a></li>
+											<li><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></li>
+											<li><a href="PSVAnimation.html">PSVAnimation</a></li>
+											<li><a href="PSVError.html">PSVError</a></li>
+											<li><a href="PSVMarker.html">PSVMarker</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:before-render">services.PSVRenderer.before-render</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:panorama-loaded">services.PSVRenderer.panorama-loaded</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:render">services.PSVRenderer.render</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-cached">services.PSVTextureLoader.panorama-cached</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-load-progress">services.PSVTextureLoader.panorama-load-progress</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:position-updated">PhotoSphereViewer.position-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:ready">PhotoSphereViewer.ready</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:size-updated">PhotoSphereViewer.size-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:stereo-updated">PhotoSphereViewer.stereo-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:zoom-updated">PhotoSphereViewer.zoom-updated</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_external.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="external-NoSleep.html">NoSleep</a></li>
+											<li><a href="external-THREE.html">THREE</a></li>
+											<li><a href="external-uEvent.html">uEvent</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.html">components</a></li>
+											<li><a href="module-components_buttons.html">components/buttons</a></li>
+											<li><a href="module-data_config.html">data/config</a></li>
+											<li><a href="module-data_constants.html">data/constants</a></li>
+											<li><a href="module-data_system.html">data/system</a></li>
+											<li><a href="module-services.html">services</a></li>
+											<li><a href="module-utils.html">utils</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">services/PSVRenderer.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import * as THREE from 'three';
+import { CUBE_VERTICES, EVENTS, SPHERE_RADIUS, SPHERE_VERTICES } from '../data/constants';
+import { SYSTEM } from '../data/system';
+import { PSVAnimation } from '../PSVAnimation';
+import { cleanTHREEScene, getShortestArc, logWarn } from '../utils';
+import { AbstractService } from './AbstractService';
+
+/**
+ * @summary Viewer and renderer
+ * @extends module:services.AbstractService
+ * @memberof module:services
+ */
+class PSVRenderer extends AbstractService {
+
+  /**
+   * @param {PhotoSphereViewer} psv
+   */
+  constructor(psv) {
+    super(psv);
+
+    /**
+     * @member {number}
+     * @private
+     */
+    this.mainReqid = undefined;
+
+    /**
+     * @member {HTMLElement}
+     * @readonly
+     * @protected
+     */
+    this.canvasContainer = null;
+
+    /**
+     * @member {external:THREE.WebGLRenderer | external:THREE.CanvasRenderer}
+     * @readonly
+     * @protected
+     */
+    this.renderer = null;
+
+    /**
+     * @member {external:THREE.StereoEffect}
+     * @protected
+     */
+    this.stereoEffect = null;
+
+    /**
+     * @member {external:THREE.Scene}
+     * @readonly
+     * @protected
+     */
+    this.scene = null;
+
+    /**
+     * @member {external:THREE.PerspectiveCamera}
+     * @readonly
+     * @protected
+     */
+    this.camera = null;
+
+    /**
+     * @member {external:THREE.Mesh}
+     * @readonly
+     * @protected
+     */
+    this.mesh = null;
+
+    /**
+     * @member {external:THREE.Raycaster}
+     * @readonly
+     * @protected
+     */
+    this.raycaster = null;
+
+    /**
+     * @member {external:THREE.DeviceOrientationControls}
+     * @readonly
+     * @protected
+     */
+    this.doControls = null;
+
+    psv.on(EVENTS.SIZE_UPDATED, (size) => {
+      if (this.renderer) {
+        (this.stereoEffect || this.renderer).setSize(size.width, size.height);
+      }
+    });
+  }
+
+  /**
+   * @override
+   */
+  destroy() {
+    // cancel render loop
+    if (this.mainReqid) {
+      window.cancelAnimationFrame(this.mainReqid);
+    }
+
+    // destroy ThreeJS view
+    if (this.scene) {
+      cleanTHREEScene(this.scene);
+    }
+
+    if (this.doControls) {
+      this.doControls.disconnect();
+    }
+
+    // remove container
+    if (this.canvasContainer) {
+      this.psv.container.removeChild(this.canvasContainer);
+    }
+
+    delete this.canvasContainer;
+    delete this.renderer;
+    delete this.stereoEffect;
+    delete this.scene;
+    delete this.camera;
+    delete this.mesh;
+    delete this.raycaster;
+    delete this.doControls;
+
+    super.destroy();
+  }
+
+  /**
+   * @summary Hides the viewer
+   */
+  hide() {
+    if (this.canvasContainer) {
+      this.canvasContainer.style.opacity = 0;
+    }
+  }
+
+  /**
+   * @summary Shows the viewer
+   */
+  show() {
+    if (this.canvasContainer) {
+      this.canvasContainer.style.opacity = 1;
+    }
+  }
+
+  /**
+   * @summary Main event loop, calls {@link render} if `prop.needsUpdate` is true
+   * @param {number} timestamp
+   * @fires module:services.PSVRenderer.before-render
+   * @private
+   */
+  __renderLoop(timestamp) {
+    /**
+     * @event before-render
+     * @memberof module:services.PSVRenderer
+     * @summary Triggered before a render, used to modify the view
+     * @param {number} timestamp - time provided by requestAnimationFrame
+     */
+    this.psv.trigger(EVENTS.BEFORE_RENDER, timestamp);
+
+    if (this.prop.needsUpdate) {
+      this.render();
+      this.prop.needsUpdate = false;
+    }
+
+    this.mainReqid = window.requestAnimationFrame(t => this.__renderLoop(t));
+  }
+
+  /**
+   * @summary Performs a render
+   * @description Do not call this method directly, instead call
+   * {@link PhotoSphereViewer#needsUpdate} on {@link module:services.PSVRenderer.event:before-render}.
+   * @fires module:services.PSVRenderer.render
+   */
+  render() {
+    this.prop.direction = this.psv.dataHelper.sphericalCoordsToVector3(this.prop.position);
+    this.camera.position.set(0, 0, 0);
+    this.camera.lookAt(this.prop.direction);
+
+    if (this.config.fisheye) {
+      this.camera.position.copy(this.prop.direction).multiplyScalar(this.config.fisheye / 2).negate();
+    }
+
+    this.camera.aspect = this.prop.aspect;
+    this.camera.fov = this.prop.vFov;
+    this.camera.updateProjectionMatrix();
+
+    (this.stereoEffect || this.renderer).render(this.scene, this.camera);
+
+    /**
+     * @event render
+     * @memberof module:services.PSVRenderer
+     * @summary Triggered on each viewer render, **this event is triggered very often**
+     */
+    this.psv.trigger(EVENTS.RENDER);
+  }
+
+  /**
+   * @summary Applies the texture to the scene, creates the scene if needed
+   * @param {PhotoSphereViewer.TextureData} textureData
+   * @fires module:services.PSVRenderer.panorama-loaded
+   * @package
+   */
+  setTexture(textureData) {
+    const { texture, panoData } = textureData;
+    this.prop.panoData = panoData;
+
+    if (!this.scene) {
+      this.__createScene();
+    }
+
+    if (this.prop.isCubemap) {
+      for (let i = 0; i &lt; 6; i++) {
+        if (this.mesh.material[i].map) {
+          this.mesh.material[i].map.dispose();
+        }
+
+        this.mesh.material[i].map = texture[i];
+      }
+    }
+    else {
+      if (this.mesh.material.map) {
+        this.mesh.material.map.dispose();
+      }
+
+      this.mesh.material.map = texture;
+    }
+
+    /**
+     * @event panorama-loaded
+     * @memberof module:services.PSVRenderer
+     * @summary Triggered when a panorama image has been loaded
+     */
+    this.psv.trigger(EVENTS.PANORAMA_LOADED);
+
+    if (!this.mainReqid) {
+      this.__renderLoop(+new Date());
+    }
+  }
+
+  /**
+   * @summary Creates the 3D scene and GUI components
+   * @private
+   */
+  __createScene() {
+    this.raycaster = new THREE.Raycaster();
+
+    this.renderer = SYSTEM.isWebGLSupported &amp;&amp; this.config.webgl ? new THREE.WebGLRenderer() : new THREE.CanvasRenderer();
+    this.renderer.setSize(this.prop.size.width, this.prop.size.height);
+    this.renderer.setPixelRatio(SYSTEM.pixelRatio);
+
+    let cameraDistance = SPHERE_RADIUS;
+    if (this.prop.isCubemap) {
+      cameraDistance *= Math.sqrt(3);
+    }
+    if (this.config.fisheye) {
+      cameraDistance += SPHERE_RADIUS;
+    }
+
+    this.camera = new THREE.PerspectiveCamera(this.config.defaultFov, this.prop.size.width / this.prop.size.height, 1, cameraDistance);
+    this.camera.position.set(0, 0, 0);
+
+    if (SYSTEM.checkTHREE('DeviceOrientationControls')) {
+      this.doControls = new THREE.DeviceOrientationControls(this.camera);
+    }
+
+    this.scene = new THREE.Scene();
+    this.scene.add(this.camera);
+
+    if (this.prop.isCubemap) {
+      this.mesh = this.__createCubemap();
+    }
+    else {
+      this.mesh = this.__createSphere();
+    }
+
+    this.scene.add(this.mesh);
+
+    // create canvas container
+    this.canvasContainer = document.createElement('div');
+    this.canvasContainer.className = 'psv-canvas-container';
+    this.renderer.domElement.className = 'psv-canvas';
+    this.psv.container.appendChild(this.canvasContainer);
+    this.canvasContainer.appendChild(this.renderer.domElement);
+    this.hide();
+  }
+
+  /**
+   * @summary Creates the sphere mesh
+   * @param {number} [scale=1]
+   * @returns {external:THREE.Mesh}
+   * @private
+   */
+  __createSphere(scale = 1) {
+    // The middle of the panorama is placed at longitude=0
+    const geometry = new THREE.SphereGeometry(SPHERE_RADIUS * scale, SPHERE_VERTICES, SPHERE_VERTICES, -Math.PI / 2);
+
+    const material = new THREE.MeshBasicMaterial({
+      side    : THREE.DoubleSide, // needs to be DoubleSide for CanvasRenderer
+      overdraw: SYSTEM.isWebGLSupported &amp;&amp; this.config.webgl ? 0 : 1,
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.scale.x = -1;
+    mesh.rotation.x = this.config.sphereCorrection.tilt;
+    mesh.rotation.y = this.config.sphereCorrection.pan;
+    mesh.rotation.z = this.config.sphereCorrection.roll;
+
+    return mesh;
+  }
+
+  /**
+   * @summary Creates the cube mesh
+   * @param {number} [scale=1]
+   * @returns {external:THREE.Mesh}
+   * @private
+   */
+  __createCubemap(scale = 1) {
+    const cubeSize = SPHERE_RADIUS * 2 * scale;
+    const geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize, CUBE_VERTICES, CUBE_VERTICES, CUBE_VERTICES);
+
+    const materials = [];
+    for (let i = 0; i &lt; 6; i++) {
+      materials.push(new THREE.MeshBasicMaterial({
+        side    : THREE.BackSide,
+        overdraw: SYSTEM.isWebGLSupported &amp;&amp; this.config.webgl ? 0 : 1,
+      }));
+    }
+
+    const mesh = new THREE.Mesh(geometry, materials);
+    mesh.position.x -= SPHERE_RADIUS * scale;
+    mesh.position.y -= SPHERE_RADIUS * scale;
+    mesh.position.z -= SPHERE_RADIUS * scale;
+    mesh.applyMatrix(new THREE.Matrix4().makeScale(1, 1, -1));
+
+    return mesh;
+  }
+
+  /**
+   * @summary Performs transition between the current and a new texture
+   * @param {PhotoSphereViewer.TextureData} textureData
+   * @param {PhotoSphereViewer.AnimateOptions} options
+   * @returns {PSVAnimation}
+   * @package
+   */
+  transition(textureData, options) {
+    const { texture } = textureData;
+
+    let positionProvided = this.psv.dataHelper.isExtendedPosition(options);
+    const zoomProvided = 'zoom' in options;
+
+    let mesh;
+
+    if (this.prop.isCubemap) {
+      if (positionProvided) {
+        logWarn('cannot perform cubemap transition to different position');
+        positionProvided = false;
+      }
+
+      mesh = this.__createCubemap(0.9);
+
+      mesh.material.forEach((material, i) => {
+        material.map = texture[i];
+        material.transparent = true;
+        material.opacity = 0;
+      });
+    }
+    else {
+      mesh = this.__createSphere(0.9);
+
+      mesh.material.map = texture;
+      mesh.material.transparent = true;
+      mesh.material.opacity = 0;
+    }
+
+    // rotate the new sphere to make the target position face the camera
+    if (positionProvided) {
+      const cleanPosition = this.psv.dataHelper.cleanPosition(options);
+
+      // Longitude rotation along the vertical axis
+      mesh.rotateY(cleanPosition.longitude - this.prop.position.longitude);
+
+      // Latitude rotation along the camera horizontal axis
+      const axis = new THREE.Vector3(0, 1, 0).cross(this.camera.getWorldDirection(new THREE.Vector3())).normalize();
+      const q = new THREE.Quaternion().setFromAxisAngle(axis, cleanPosition.latitude - this.prop.position.latitude);
+      mesh.quaternion.multiplyQuaternions(q, mesh.quaternion);
+
+      // TODO: find a better way to handle ranges
+      if (this.config.latitudeRange || this.config.longitudeRange) {
+        this.config.longitudeRange = null;
+        this.config.latitudeRange = null;
+        logWarn('trying to perform transition with longitudeRange and/or latitudeRange, ranges cleared');
+      }
+    }
+
+    this.scene.add(mesh);
+    this.psv.needsUpdate();
+
+    return new PSVAnimation({
+      properties: {
+        opacity: { start: 0.0, end: 1.0 },
+        zoom   : zoomProvided ? { start: this.prop.zoomLvl, end: options.zoom } : undefined,
+      },
+      duration  : this.config.transitionDuration,
+      easing    : 'outCubic',
+      onTick    : (properties) => {
+        if (this.prop.isCubemap) {
+          for (let i = 0; i &lt; 6; i++) {
+            mesh.material[i].opacity = properties.opacity;
+          }
+        }
+        else {
+          mesh.material.opacity = properties.opacity;
+        }
+
+        if (zoomProvided) {
+          this.psv.zoom(properties.zoom);
+        }
+
+        this.psv.needsUpdate();
+      },
+    })
+      .then(() => {
+        // remove temp sphere and transfer the texture to the main sphere
+        this.setTexture(textureData);
+        this.scene.remove(mesh);
+
+        mesh.geometry.dispose();
+        mesh.geometry = null;
+
+        // actually rotate the camera
+        if (positionProvided) {
+          this.psv.rotate(options);
+        }
+      });
+  }
+
+  /**
+   * @summary Reverses autorotate direction with smooth transition
+   * @package
+   */
+  reverseAutorotate() {
+    if (!this.psv.isAutorotateEnabled()) {
+      return;
+    }
+
+    const newSpeed = -this.config.autorotateSpeed;
+    const range = this.config.longitudeRange;
+    this.config.longitudeRange = null;
+
+    new PSVAnimation({
+      properties: {
+        speed: { start: this.config.autorotateSpeed, end: 0 },
+      },
+      duration  : 300,
+      easing    : 'inSine',
+      onTick    : (properties) => {
+        this.config.autorotateSpeed = properties.speed;
+      },
+    })
+      .then(() => new PSVAnimation({
+        properties: {
+          speed: { start: 0, end: newSpeed },
+        },
+        duration  : 300,
+        easing    : 'outSine',
+        onTick    : (properties) => {
+          this.config.autorotateSpeed = properties.speed;
+        },
+      }))
+      .then(() => {
+        this.config.longitudeRange = range;
+        this.config.autorotateSpeed = newSpeed;
+      });
+  }
+
+  /**
+   * @summary Attaches the {@link DeviceOrientationControls} to the camera
+   * @package
+   */
+  startGyroscopeControl() {
+    // compute the alpha offset to keep the current orientation
+    this.doControls.alphaOffset = 0;
+    this.doControls.update();
+
+    const direction = this.camera.getWorldDirection(new THREE.Vector3());
+    const sphericalDirection = this.psv.dataHelper.vector3ToSphericalCoords(direction);
+    this.prop.gyroAlphaOffset = getShortestArc(this.prop.position.longitude, sphericalDirection.longitude);
+
+    this.prop.orientationCb = () => {
+      this.doControls.alphaOffset = this.prop.gyroAlphaOffset;
+      this.doControls.update();
+
+      this.camera.getWorldDirection(this.prop.direction);
+      this.prop.direction.multiplyScalar(SPHERE_RADIUS);
+
+      const sphericalCoords = this.psv.dataHelper.vector3ToSphericalCoords(this.prop.direction);
+      this.prop.position.longitude = sphericalCoords.longitude;
+      this.prop.position.latitude = sphericalCoords.latitude;
+      this.psv.needsUpdate();
+    };
+
+    this.psv.on(EVENTS.BEFORE_RENDER, this.prop.orientationCb);
+  }
+
+  /**
+   * @summary Destroys the {@link DeviceOrientationControls}
+   * @package
+   */
+  stopGyroscopeControl() {
+    this.psv.off(EVENTS.BEFORE_RENDER, this.prop.orientationCb);
+    this.prop.orientationCb = null;
+  }
+
+  /**
+   * @summary Attaches the {@link StereoEffect} to the renderer
+   * @package
+   */
+  startStereoView() {
+    this.stereoEffect = new THREE.StereoEffect(this.renderer);
+  }
+
+  /**
+   * @summary Destroys the {@link StereoEffect}
+   * @package
+   */
+  stopStereoView() {
+    this.stereoEffect = null;
+  }
+
+}
+
+export { PSVRenderer };
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+		<script src="js/custom.js"></script>
+	
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-28192323-3', 'auto');
+			ga('send', 'pageview');
+		</script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

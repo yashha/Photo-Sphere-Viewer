@@ -1,0 +1,221 @@
+---
+layout: default
+title: Migrating to v4
+---
+
+<section class="bs-docs-section">
+  <p class="lead">
+    Photo Sphere Viewer 4 is a complete rewrite of the internals of the library using ES6 modules.
+    The library is still compatible with less modern browsers and any build systems (or no build system at all)
+    but many methods have been moved and renamed.
+  </p>
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="compat" class="page-header">Compat. wrapper</h1>
+
+  <p>
+    The module <code>photo-sphere-viewer.compat.js</code> provides a basic compatibility wrapper for PhotoSphereViewer
+    3.<br>
+    To use it, load it after the main module and use <code>PhotoSphereViewerCompat</code> constructor instead of
+    <code>PhotoSphereViewer</code>.
+  </p>
+
+  <p>
+    <strong>Please note this wrapper is not fully tested and only addresses renamed options and moved methods.</strong>
+  </p>
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="config" class="page-header">Configuration</h1>
+
+  <h3 id="config-renamed">Renamed options</h3>
+
+  <p>
+    The viewer configuration is globally the same as version 3 but <strong>every snake_case properties are now in
+    camelCase</strong>, for example <code>default_lat</code> is now named <code>defaultLat</code>.<br>
+    Be sure to rename your configuration properties, the old naming is not supported at all.
+  </p>
+
+  <h3 id="config-deleted">Deleted options</h3>
+
+  <ul>
+    <li><code>transition</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>transitionDuration</code> and <code>transitionLoader</code></li>
+    <li><code>usexmpdata</code> <span class="glyphicon glyphicon-arrow-right"></span> <code>useXmpData</code></li>
+    <li><code>anim_speed</code> <span class="glyphicon glyphicon-arrow-right"></span> <code>autorotateSpeed</code></li>
+    <li><code>anim_lat</code> <span class="glyphicon glyphicon-arrow-right"></span> <code>autorotateLat</code></li>
+    <li><code>time_anim</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>autorotateStartup</code> and <code>autorotateDelay</code></li>
+    <li><code>default_fov</code> <span class="glyphicon glyphicon-arrow-right"></span> <code>defaultZoomLvl</code></li>
+    <li><code>tooltip</code> : the properties of the tooltip are now extracted from the stylesheet</li>
+  </ul>
+
+  <h3 id="config-new">New options</h3>
+
+  <ul>
+    <li><code>icons</code> allows to overwrite default icons (SVG only)</li>
+  </ul>
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="methods" class="page-header">Methods</h1>
+
+  <h3 id="methods-moved">Moved methods</h3>
+
+  <p>
+    In version 3, all methods where on the main <code>PhotoSphereViewer</code> object. Now in version 4, many methods
+    have been moved to sub-objects for the renderer, hud, left-panel, etc.<br>
+    Bellow is the mapping of the most common methods, please check the
+    <a href="{{ site.github.url | replace: 'http://', '//' }}/api/">API documentation</a> for a complete list of
+    methods.
+  </p>
+
+  <h4>General</h4>
+  <ul>
+    <li><code>render()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>needsUpdate()</code> (prefered) or <code>renderer.render()</code>
+    </li>
+    <li><code>preloadPanorama()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>textureLoader.preloadPanorama()</code>
+    </li>
+    <li><code>clearPanoramaCache()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>textureLoader.clearPanoramaCache()</code>
+    </li>
+    <li><code>getPanoramaCache()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>textureLoader.getPanoramaCache()</code>
+    </li>
+  </ul>
+
+  <h4>Markers</h4>
+  <ul>
+    <li><code>addMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.addMarker()</code>
+    </li>
+    <li><code>getMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.getMarker()</code>
+    </li>
+    <li><code>updateMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.updateMarker()</code>
+    </li>
+    <li><code>removeMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.removeMarker()</code>
+    </li>
+    <li><code>gotoMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.gotoMarker()</code>
+    </li>
+    <li><code>hideMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.hideMarker()</code>
+    </li>
+    <li><code>showMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.showMarker()</code>
+    </li>
+    <li><code>toggleMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.toggleMarker()</code>
+    </li>
+    <li><code>clearMarkers()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.clearMarkers()</code>
+    </li>
+    <li><code>getCurrentMarker()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>hud.getCurrentMarker()</code>
+    </li>
+  </ul>
+
+  <h4>Navbar</h4>
+  <ul>
+    <li><code>showNavbar()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>navbar.show()</code>
+    </li>
+    <li><code>hideNavbar()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>navbar.hide()</code>
+    </li>
+    <li><code>toggleNavbar()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <em>deleted</em> test for <code>navbar.isVisible()</code> instead
+    </li>
+    <li><code>getNavbarButton()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>navbar.getButton()</code>
+    </li>
+    <li><code>setCaption()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>navbar.setCaption()</code>
+    </li>
+  </ul>
+
+  <h4>Notification</h4>
+  <ul>
+    <li><code>showNotification()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>notification.show()</code>
+    </li>
+    <li><code>hideNotification()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>notification.hide()</code>
+    </li>
+    <li><code>isNotificationVisible ()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>notification.isVisible()</code>
+    </li>
+  </ul>
+
+  <h4>Overlay</h4>
+  <ul>
+    <li><code>showOverlay()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>overlay.show()</code>
+    </li>
+    <li><code>hideOverlay()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>overlay.hide()</code>
+    </li>
+    <li><code>isOverlayVisible()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>overlay.isVisible()</code>
+    </li>
+  </ul>
+
+  <h4>Panel</h4>
+  <ul>
+    <li><code>showPanel()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>panel.show()</code>
+    </li>
+    <li><code>hidePabel()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>panel.hide()</code>
+    </li>
+  </ul>
+
+  <h4>Tooltip</h4>
+  <ul>
+    <li><code>showTooltip()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>tooltip.show()</code>
+    </li>
+    <li><code>hideTooltip()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>tooltip.hide()</code>
+    </li>
+    <li><code>isTooltipVisible()</code> <span class="glyphicon glyphicon-arrow-right"></span>
+      <code>tooltip.isVisible()</code>
+    </li>
+  </ul>
+
+  <h3 id="methods-new">New methods</h3>
+
+  <ul>
+    <li><code>autoSize()</code> Updates the renderer to fit the new container size (automatically called on window
+      resize)
+    </li>
+    <li><code>showError() / hideError()</code> Replaces the viewer by a message and an optional image</li>
+    <li><code>hud.setMarkers()</code> Replaces all markers</li>
+    <li><code>navbar.setButtons()</code> Replaces all navbar buttons</li>
+  </ul>
+
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="events">Events</h1>
+
+  <p>
+    Although the events are now triggered by the new sub-objects, you only have to use <code>on()</code> and
+    <code>off()</code> on the main object, for the sake of simplicity.
+  </p>
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="markers">Markers</h1>
+
+  <p>
+    Markers' properties are not directly stored in the <code>PSVMarker</code> object anymore but in its
+    <code>config</code> attribute. You should only use <code>hud.updateMarker()</code> to update these properties.
+  </p>
+</section>

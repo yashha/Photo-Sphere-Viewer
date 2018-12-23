@@ -1,0 +1,939 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>components/PSVHUD.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/custom.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #1C9F72;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #1C9F72;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #1C9F72;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #1C9F72;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer v4 API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":false,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["css/custom.css"],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Photo Sphere Viewer v4 API
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.AbstractComponent.html">components.AbstractComponent</a></li>
+											<li><a href="module-components.PSVHUD.html">components.PSVHUD</a></li>
+											<li><a href="module-components.PSVLoader.html">components.PSVLoader</a></li>
+											<li><a href="module-components.PSVNavbar.html">components.PSVNavbar</a></li>
+											<li><a href="module-components.PSVNavbarCaption.html">components.PSVNavbarCaption</a></li>
+											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
+											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
+											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
+											<li><a href="module-components_buttons.AbstractButton.html">components/buttons.AbstractButton</a></li>
+											<li><a href="module-components_buttons.PSVAutorotateButton.html">components/buttons.PSVAutorotateButton</a></li>
+											<li><a href="module-components_buttons.PSVCaptionButton.html">components/buttons.PSVCaptionButton</a></li>
+											<li><a href="module-components_buttons.PSVCustomButton.html">components/buttons.PSVCustomButton</a></li>
+											<li><a href="module-components_buttons.PSVDownloadButton.html">components/buttons.PSVDownloadButton</a></li>
+											<li><a href="module-components_buttons.PSVFullscreenButton.html">components/buttons.PSVFullscreenButton</a></li>
+											<li><a href="module-components_buttons.PSVGyroscopeButton.html">components/buttons.PSVGyroscopeButton</a></li>
+											<li><a href="module-components_buttons.PSVMarkersButton.html">components/buttons.PSVMarkersButton</a></li>
+											<li><a href="module-components_buttons.PSVStereoButton.html">components/buttons.PSVStereoButton</a></li>
+											<li><a href="module-components_buttons.PSVZoomButton.html">components/buttons.PSVZoomButton</a></li>
+											<li><a href="module-services.AbstractService.html">services.AbstractService</a></li>
+											<li><a href="module-services.PSVDataHelper.html">services.PSVDataHelper</a></li>
+											<li><a href="module-services.PSVEventsHandler.html">services.PSVEventsHandler</a></li>
+											<li><a href="module-services.PSVRenderer.html">services.PSVRenderer</a></li>
+											<li><a href="module-services.PSVTextureLoader.html">services.PSVTextureLoader</a></li>
+											<li><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></li>
+											<li><a href="PSVAnimation.html">PSVAnimation</a></li>
+											<li><a href="PSVError.html">PSVError</a></li>
+											<li><a href="PSVMarker.html">PSVMarker</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:before-render">services.PSVRenderer.before-render</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:panorama-loaded">services.PSVRenderer.panorama-loaded</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:render">services.PSVRenderer.render</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-cached">services.PSVTextureLoader.panorama-cached</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-load-progress">services.PSVTextureLoader.panorama-load-progress</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:position-updated">PhotoSphereViewer.position-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:ready">PhotoSphereViewer.ready</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:size-updated">PhotoSphereViewer.size-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:stereo-updated">PhotoSphereViewer.stereo-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:zoom-updated">PhotoSphereViewer.zoom-updated</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_external.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="external-NoSleep.html">NoSleep</a></li>
+											<li><a href="external-THREE.html">THREE</a></li>
+											<li><a href="external-uEvent.html">uEvent</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.html">components</a></li>
+											<li><a href="module-components_buttons.html">components/buttons</a></li>
+											<li><a href="module-data_config.html">data/config</a></li>
+											<li><a href="module-data_constants.html">data/constants</a></li>
+											<li><a href="module-data_system.html">data/system</a></li>
+											<li><a href="module-services.html">services</a></li>
+											<li><a href="module-utils.html">utils</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">components/PSVHUD.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import * as THREE from 'three';
+import { EVENTS, IDS, MARKER_DATA, SPHERE_RADIUS, SVG_NS } from '../data/constants';
+import { PSVError } from '../PSVError';
+import { PSVMarker } from '../PSVMarker';
+import { addClasses, each, getClosest, hasParent, removeClasses, toggleClass } from '../utils';
+import { AbstractComponent } from './AbstractComponent';
+
+/**
+ * @summary HUD class
+ * @extends module:components.AbstractComponent
+ * @memberof module:components
+ */
+class PSVHUD extends AbstractComponent {
+
+  /**
+   * @param {PhotoSphereViewer} psv
+   */
+  constructor(psv) {
+    super(psv, 'psv-hud');
+
+    /**
+     * @summary All registered markers
+     * @member {Object&lt;string, PSVMarker>}
+     * @readonly
+     */
+    this.markers = {};
+
+    /**
+     * @summary Last selected marker
+     * @member {PSVMarker}
+     * @readonly
+     */
+    this.currentMarker = null;
+
+    /**
+     * @summary Marker under the cursor
+     * @member {PSVMarker}
+     * @readonly
+     */
+    this.hoveringMarker = null;
+
+    if (this.psv.config.mousemove) {
+      this.container.style.cursor = 'move';
+    }
+
+    /**
+     * @member {SVGElement}
+     * @readonly
+     */
+    this.svgContainer = document.createElementNS(SVG_NS, 'svg');
+    this.svgContainer.setAttribute('class', 'psv-hud-svg-container');
+    this.container.appendChild(this.svgContainer);
+
+    // Markers events via delegation
+    this.container.addEventListener('mouseenter', this, true);
+    this.container.addEventListener('mouseleave', this, true);
+    this.container.addEventListener('mousemove', this, true);
+
+    // Viewer events
+    this.psv.on(EVENTS.CLICK, this);
+    this.psv.on(EVENTS.DOUBLE_CLICK, this);
+    this.psv.on(EVENTS.RENDER, this);
+  }
+
+  /**
+   * @override
+   */
+  destroy() {
+    this.clearMarkers(false);
+
+    this.container.removeEventListener('mouseenter', this);
+    this.container.removeEventListener('mouseleave', this);
+    this.container.removeEventListener('mousemove', this);
+
+    this.psv.off(EVENTS.CLICK, this);
+    this.psv.off(EVENTS.DOUBLE_CLICK, this);
+    this.psv.off(EVENTS.RENDER, this);
+
+    delete this.svgContainer;
+    delete this.currentMarker;
+    delete this.hoveringMarker;
+    delete this.markers;
+
+    super.destroy();
+  }
+
+  /**
+   * @summary Handles events
+   * @param {Event} e
+   * @private
+   */
+  handleEvent(e) {
+    /* eslint-disable */
+    switch (e.type) {
+      // @formatter:off
+      case 'mouseenter': this.__onMouseEnter(e); break;
+      case 'mouseleave': this.__onMouseLeave(e); break;
+      case 'mousemove':  this.__onMouseMove(e);  break;
+      case EVENTS.CLICK:        this.__onClick(e.args[0], e, false); break;
+      case EVENTS.DOUBLE_CLICK: this.__onClick(e.args[0], e, true);  break;
+      case EVENTS.RENDER:       this.renderMarkers();                break;
+      // @formatter:on
+    }
+    /* eslint-enable */
+  }
+
+  /**
+   * @summary Adds a new marker to viewer
+   * @param {PSVMarker.Properties} properties
+   * @param {boolean} [render=true] - renders the marker immediately
+   * @returns {PSVMarker}
+   * @throws {PSVError} when the marker's id is missing or already exists
+   */
+  addMarker(properties, render = true) {
+    if (this.markers[properties.id]) {
+      throw new PSVError(`marker "${properties.id}" already exists`);
+    }
+
+    const marker = new PSVMarker(properties, this.psv);
+
+    if (marker.isNormal()) {
+      this.container.appendChild(marker.$el);
+    }
+    else {
+      this.svgContainer.appendChild(marker.$el);
+    }
+
+    this.markers[marker.id] = marker;
+
+    if (render) {
+      this.renderMarkers();
+    }
+
+    return marker;
+  }
+
+  /**
+   * @summary Returns the internal marker object for a marker id
+   * @param {*} markerId
+   * @returns {PSVMarker}
+   * @throws {PSVError} when the marker cannot be found
+   */
+  getMarker(markerId) {
+    const id = typeof markerId === 'object' ? markerId.id : markerId;
+
+    if (!this.markers[id]) {
+      throw new PSVError(`cannot find marker "${id}"`);
+    }
+
+    return this.markers[id];
+  }
+
+  /**
+   * @summary Returns the last marker selected by the user
+   * @returns {PSVMarker}
+   */
+  getCurrentMarker() {
+    return this.currentMarker;
+  }
+
+  /**
+   * @summary Updates the existing marker with the same id
+   * @description Every property can be changed but you can't change its type (Eg: `image` to `html`).
+   * @param {PSVMarker.Properties|PSVMarker} properties
+   * @param {boolean} [render=true] - renders the marker immediately
+   * @returns {PSVMarker}
+   */
+  updateMarker(properties, render = true) {
+    const marker = this.getMarker(properties);
+
+    marker.update(properties);
+
+    if (render) {
+      this.renderMarkers();
+    }
+
+    return marker;
+  }
+
+  /**
+   * @summary Removes a marker from the viewer
+   * @param {*} markerOrId
+   * @param {boolean} [render=true] - renders the marker immediately
+   */
+  removeMarker(markerOrId) {
+    const marker = this.getMarker(markerOrId);
+
+    if (marker.isNormal()) {
+      this.container.removeChild(marker.$el);
+    }
+    else {
+      this.svgContainer.removeChild(marker.$el);
+    }
+
+    if (this.hoveringMarker === marker) {
+      this.psv.tooltip.hide();
+    }
+
+    marker.destroy();
+    delete this.markers[marker.id];
+  }
+
+  /**
+   * @summary Replaces all markers
+   * @param {array} markers
+   * @param {boolean} [render=true] - renders the marker immediately
+   */
+  setMarkers(markers, render = true) {
+    this.clearMarkers(false);
+
+    each(markers, marker => this.addMarker(marker, false));
+
+    if (render) {
+      this.renderMarkers();
+    }
+  }
+
+  /**
+   * @summary Removes all markers
+   * @param {boolean} [render=true] - renders the markers immediately
+   */
+  clearMarkers(render = true) {
+    each(this.markers, marker => this.removeMarker(marker, false));
+
+    if (render) {
+      this.renderMarkers();
+    }
+  }
+
+  /**
+   * @summary Rotate the view to face the marker
+   * @param {*} markerOrId
+   * @param {string|number} [duration] - rotates smoothy, see {@link PhotoSphereViewer#animate}
+   * @fires module:components.PSVHUD.goto-marker-done
+   * @return {PSVAnimation}  A promise that will be resolved when the animation finishes
+   */
+  gotoMarker(markerOrId, duration) {
+    const marker = this.getMarker(markerOrId);
+
+    return this.psv.animate(marker.props.position, duration)
+      .then(() => {
+        /**
+         * @event goto-marker-done
+         * @memberof module:components.PSVHUD
+         * @summary Triggered when the animation to a marker is done
+         * @param {PSVMarker} marker
+         */
+        this.psv.trigger(EVENTS.GOTO_MARKER_DONE, marker);
+      });
+  }
+
+  /**
+   * @summary Hides a marker
+   * @param {*} marker
+   */
+  hideMarker(marker) {
+    this.getMarker(marker).visible = false;
+    this.renderMarkers();
+  }
+
+  /**
+   * @summary Shows a marker
+   * @param {*} marker
+   */
+  showMarker(marker) {
+    this.getMarker(marker).visible = true;
+    this.renderMarkers();
+  }
+
+  /**
+   * @summary Toggles a marker
+   * @param {*} marker
+   */
+  toggleMarker(marker) {
+    this.getMarker(marker).visible ^= true;
+    this.renderMarkers();
+  }
+
+  /**
+   * @summary Updates the visibility and the position of all markers
+   */
+  renderMarkers() {
+    if (!this.visible) {
+      return;
+    }
+
+    const rotation = !this.psv.isGyroscopeEnabled() ? 0 : THREE.Math.radToDeg(this.psv.renderer.camera.rotation.z);
+
+    each(this.markers, (marker) => {
+      let isVisible = marker.visible;
+
+      if (isVisible &amp;&amp; marker.isPoly()) {
+        const positions = this.__getPolyPositions(marker);
+        isVisible = positions.length > (marker.isPolygon() ? 2 : 1);
+
+        if (isVisible) {
+          marker.props.position2D = this.__getPolyDimensions(marker, positions);
+
+          const points = positions.map(pos => pos.x + ',' + pos.y).join(' ');
+
+          marker.$el.setAttributeNS(null, 'points', points);
+        }
+      }
+      else if (isVisible) {
+        if (marker.props.dynamicSize) {
+          this.__updateMarkerSize(marker);
+        }
+
+        const scale = marker.getScale(this.psv.getZoomLevel());
+        const position = this.__getMarkerPosition(marker, scale);
+        isVisible = this.__isMarkerVisible(marker, position);
+
+        if (isVisible) {
+          marker.props.position2D = position;
+
+          if (marker.isSvg()) {
+            let transform = `translate(${position.x}, ${position.y})`;
+            if (scale !== 1) {
+              transform += ` scale(${scale}, ${scale})`;
+            }
+            if (!marker.config.lockRotation &amp;&amp; rotation) {
+              transform += ` rotate(${rotation})`;
+            }
+
+            marker.$el.setAttributeNS(null, 'transform', transform);
+          }
+          else {
+            let transform = `translate3D(${position.x}px, ${position.y}px, 0px)`;
+            if (scale !== 1) {
+              transform += ` scale(${scale}, ${scale})`;
+            }
+            if (!marker.config.lockRotation &amp;&amp; rotation) {
+              transform += ` rotateZ(${rotation}deg)`;
+            }
+
+            marker.$el.style.transform = transform;
+          }
+        }
+      }
+
+      toggleClass(marker.$el, 'psv-marker--visible', isVisible);
+    });
+  }
+
+  /**
+   * @summary Determines if a point marker is visible&lt;br>
+   * It tests if the point is in the general direction of the camera, then check if it's in the viewport
+   * @param {PSVMarker} marker
+   * @param {PhotoSphereViewer.Point} position
+   * @returns {boolean}
+   * @private
+   */
+  __isMarkerVisible(marker, position) {
+    return marker.props.positions3D[0].dot(this.psv.prop.direction) > 0
+      &amp;&amp; position.x + marker.props.width >= 0
+      &amp;&amp; position.x - marker.props.width &lt;= this.psv.prop.size.width
+      &amp;&amp; position.y + marker.props.height >= 0
+      &amp;&amp; position.y - marker.props.height &lt;= this.psv.prop.size.height;
+  }
+
+  /**
+   * @summary Computes the real size of a marker
+   * @description This is done by removing all it's transformations (if any) and making it visible
+   * before querying its bounding rect
+   * @param {PSVMarker} marker
+   * @private
+   */
+  __updateMarkerSize(marker) {
+    addClasses(marker.$el, 'psv-marker--transparent');
+
+    let transform;
+    if (marker.isSvg()) {
+      transform = marker.$el.getAttributeNS(null, 'transform');
+      marker.$el.removeAttributeNS(null, 'transform');
+    }
+    else {
+      transform = marker.$el.style.transform;
+      marker.$el.style.transform = '';
+    }
+
+    const rect = marker.$el.getBoundingClientRect();
+    marker.props.width = rect.right - rect.left;
+    marker.props.height = rect.bottom - rect.top;
+
+    removeClasses(marker.$el, 'psv-marker--transparent');
+
+    if (transform) {
+      if (marker.isSvg()) {
+        marker.$el.setAttributeNS(null, 'transform', transform);
+      }
+      else {
+        marker.$el.style.transform = transform;
+      }
+    }
+
+    // the size is no longer dynamic once known
+    marker.props.dynamicSize = false;
+  }
+
+  /**
+   * @summary Computes HUD coordinates of a marker
+   * @param {PSVMarker} marker
+   * @param {number} scale
+   * @returns {PhotoSphereViewer.Point}
+   * @private
+   */
+  __getMarkerPosition(marker, scale) {
+    const position = this.psv.dataHelper.vector3ToViewerCoords(marker.props.positions3D[0]);
+
+    position.x -= marker.props.width * marker.props.anchor.x * scale;
+    position.y -= marker.props.height * marker.props.anchor.y * scale;
+
+    return position;
+  }
+
+  /**
+   * @summary Computes HUD coordinates of each point of a polygon/polyline&lt;br>
+   * It handles points behind the camera by creating intermediary points suitable for the projector
+   * @param {PSVMarker} marker
+   * @returns {PhotoSphereViewer.Point[]}
+   * @private
+   */
+  __getPolyPositions(marker) {
+    const nbVectors = marker.props.positions3D.length;
+
+    // compute if each vector is visible
+    const positions3D = marker.props.positions3D.map((vector) => {
+      return {
+        vector : vector,
+        visible: vector.dot(this.psv.prop.direction) > 0,
+      };
+    });
+
+    // get pairs of visible/invisible vectors for each invisible vector connected to a visible vector
+    const toBeComputed = [];
+    positions3D.forEach((pos, i) => {
+      if (!pos.visible) {
+        const neighbours = [
+          i === 0 ? positions3D[nbVectors - 1] : positions3D[i - 1],
+          i === nbVectors - 1 ? positions3D[0] : positions3D[i + 1],
+        ];
+
+        neighbours.forEach((neighbour) => {
+          if (neighbour.visible) {
+            toBeComputed.push({
+              visible  : neighbour,
+              invisible: pos,
+              index    : i,
+            });
+          }
+        });
+      }
+    });
+
+    // compute intermediary vector for each pair (the loop is reversed for splice to insert at the right place)
+    toBeComputed.reverse().forEach((pair) => {
+      positions3D.splice(pair.index, 0, {
+        vector : this.__getPolyIntermediaryPoint(pair.visible.vector, pair.invisible.vector),
+        visible: true,
+      });
+    });
+
+    // translate vectors to screen pos
+    return positions3D
+      .filter(pos => pos.visible)
+      .map(pos => this.psv.dataHelper.vector3ToViewerCoords(pos.vector));
+  }
+
+  /**
+   * Given one point in the same direction of the camera and one point behind the camera,
+   * computes an intermediary point on the great circle delimiting the half sphere visible by the camera.
+   * The point is shifted by .01 rad because the projector cannot handle points exactly on this circle.
+   * TODO : does not work with fisheye view (must not use the great circle)
+   * {@link http://math.stackexchange.com/a/1730410/327208}
+   * @param P1 {external:THREE.Vector3}
+   * @param P2 {external:THREE.Vector3}
+   * @returns {external:THREE.Vector3}
+   * @private
+   */
+  __getPolyIntermediaryPoint(P1, P2) {
+    const C = this.psv.prop.direction.clone().normalize();
+    const N = new THREE.Vector3().crossVectors(P1, P2).normalize();
+    const V = new THREE.Vector3().crossVectors(N, P1).normalize();
+    const X = P1.clone().multiplyScalar(-C.dot(V));
+    const Y = V.clone().multiplyScalar(C.dot(P1));
+    const H = new THREE.Vector3().addVectors(X, Y).normalize();
+    const a = new THREE.Vector3().crossVectors(H, C);
+    return H.applyAxisAngle(a, 0.01).multiplyScalar(SPHERE_RADIUS);
+  }
+
+  /**
+   * @summary Computes the boundaries positions of a polygon/polyline marker
+   * @param {PSVMarker} marker - alters width and height
+   * @param {PhotoSphereViewer.Point[]} positions
+   * @returns {PhotoSphereViewer.Point}
+   * @private
+   */
+  __getPolyDimensions(marker, positions) {
+    let minX = +Infinity;
+    let minY = +Infinity;
+    let maxX = -Infinity;
+    let maxY = -Infinity;
+
+    positions.forEach((pos) => {
+      minX = Math.min(minX, pos.x);
+      minY = Math.min(minY, pos.y);
+      maxX = Math.max(maxX, pos.x);
+      maxY = Math.max(maxY, pos.y);
+    });
+
+    marker.props.width = maxX - minX;
+    marker.props.height = maxY - minY;
+
+    return {
+      x: minX,
+      y: minY,
+    };
+  }
+
+  /**
+   * @summary Returns the marker associated to an event target
+   * @param {EventTarget} target
+   * @param {boolean} [closest=false]
+   * @returns {PSVMarker}
+   * @private
+   */
+  __getTargetMarker(target, closest = false) {
+    const target2 = closest ? getClosest(target, '.psv-marker') : target;
+    return target2 ? target2[MARKER_DATA] : undefined;
+  }
+
+  /**
+   * @summary Checks if an event target is in the tooltip
+   * @param {EventTarget} target
+   * @returns {boolean}
+   * @private
+   */
+  __targetOnTooltip(target) {
+    return target ? hasParent(target, this.psv.tooltip.container) : false;
+  }
+
+  /**
+   * @summary Handles mouse enter events, show the tooltip for non polygon markers
+   * @param {MouseEvent} e
+   * @fires module:components.PSVHUD.over-marker
+   * @private
+   */
+  __onMouseEnter(e) {
+    const marker = this.__getTargetMarker(e.target);
+
+    if (marker &amp;&amp; !marker.isPoly()) {
+      this.hoveringMarker = marker;
+
+      /**
+       * @event over-marker
+       * @memberof module:components.PSVHUD
+       * @summary Triggered when the user puts the cursor hover a marker
+       * @param {PSVMarker} marker
+       */
+      this.psv.trigger(EVENTS.OVER_MARKER, marker);
+
+      if (marker.config.tooltip) {
+        this.psv.tooltip.show({
+          content : marker.config.tooltip.content,
+          position: marker.config.tooltip.position,
+          left    : marker.props.position2D.x,
+          top     : marker.props.position2D.y,
+          box     : {
+            width : marker.props.width,
+            height: marker.props.height,
+          },
+        });
+      }
+    }
+  }
+
+  /**
+   * @summary Handles mouse leave events, hide the tooltip
+   * @param {MouseEvent} e
+   * @fires module:components.PSVHUD.leave-marker
+   * @private
+   */
+  __onMouseLeave(e) {
+    const marker = this.__getTargetMarker(e.target);
+
+    // do not hide if we enter the tooltip itself while hovering a polygon
+    if (marker &amp;&amp; !(marker.isPoly() &amp;&amp; this.__targetOnTooltip(e.relatedTarget))) {
+      /**
+       * @event leave-marker
+       * @memberof module:components.PSVHUD
+       * @summary Triggered when the user puts the cursor away from a marker
+       * @param {PSVMarker} marker
+       */
+      this.psv.trigger(EVENTS.LEAVE_MARKER, marker);
+
+      this.hoveringMarker = null;
+
+      this.psv.tooltip.hide();
+    }
+  }
+
+  /**
+   * @summary Handles mouse move events, refresh the tooltip for polygon markers
+   * @param {MouseEvent} e
+   * @fires module:components.PSVHUD.leave-marker
+   * @fires module:components.PSVHUD.over-marker
+   * @private
+   */
+  __onMouseMove(e) {
+    if (!this.psv.eventsHandler.state.moving) {
+      let marker;
+      const targetMarker = this.__getTargetMarker(e.target);
+
+      if (targetMarker &amp;&amp; targetMarker.isPoly()) {
+        marker = targetMarker;
+      }
+      // do not hide if we enter the tooltip itself while hovering a polygon
+      else if (this.__targetOnTooltip(e.target) &amp;&amp; this.hoveringMarker) {
+        marker = this.hoveringMarker;
+      }
+
+      if (marker) {
+        if (!this.hoveringMarker) {
+          this.psv.trigger(EVENTS.OVER_MARKER, marker);
+
+          this.hoveringMarker = marker;
+        }
+
+        const boundingRect = this.psv.container.getBoundingClientRect();
+
+        if (marker.config.tooltip) {
+          this.psv.tooltip.show({
+            content : marker.config.tooltip.content,
+            position: marker.config.tooltip.position,
+            top     : e.clientY - boundingRect.top - this.psv.tooltip.prop.arrowSize / 2,
+            left    : e.clientX - boundingRect.left - this.psv.tooltip.prop.arrowSize,
+            box     : { // separate the tooltip from the cursor
+              width : this.psv.tooltip.prop.arrowSize * 2,
+              height: this.psv.tooltip.prop.arrowSize * 2,
+            },
+          });
+        }
+      }
+      else if (this.hoveringMarker &amp;&amp; this.hoveringMarker.isPoly()) {
+        this.psv.trigger(EVENTS.LEAVE_MARKER, this.hoveringMarker);
+
+        this.hoveringMarker = null;
+
+        this.psv.tooltip.hide();
+      }
+    }
+  }
+
+  /**
+   * @summary Handles mouse click events, select the marker and open the panel if necessary
+   * @param {Object} data
+   * @param {Event} e
+   * @param {boolean} dblclick
+   * @fires module:components.PSVHUD.select-marker
+   * @fires module:components.PSVHUD.unselect-marker
+   * @private
+   */
+  __onClick(data, e, dblclick) {
+    const marker = this.__getTargetMarker(data.target, true);
+
+    if (marker) {
+      this.currentMarker = marker;
+
+      /**
+       * @event select-marker
+       * @memberof module:components.PSVHUD
+       * @summary Triggered when the user clicks on a marker. The marker can be retrieved from outside the event handler
+       * with {@link module:components.PSVHUD.getCurrentMarker}
+       * @param {PSVMarker} marker
+       * @param {boolean} dblclick - the simple click is always fired before the double click
+       */
+      this.psv.trigger(EVENTS.SELECT_MARKER, marker, dblclick);
+
+      if (this.psv.config.clickEventOnMarker) {
+        // add the marker to event data
+        data.marker = marker;
+      }
+      else {
+        e.stopPropagation();
+      }
+    }
+    else if (this.currentMarker) {
+      /**
+       * @event unselect-marker
+       * @memberof module:components.PSVHUD
+       * @summary Triggered when a marker was selected and the user clicks elsewhere
+       * @param {PSVMarker} marker
+       */
+      this.psv.trigger(EVENTS.UNSELECT_MARKER, this.currentMarker);
+
+      this.currentMarker = null;
+    }
+
+    if (marker &amp;&amp; marker.config.content) {
+      this.psv.panel.show({
+        id     : IDS.MARKER,
+        content: marker.config.content,
+      });
+    }
+    else {
+      this.psv.panel.hide(IDS.MARKER);
+    }
+  }
+
+}
+
+export { PSVHUD };
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+		<script src="js/custom.js"></script>
+	
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-28192323-3', 'auto');
+			ga('send', 'pageview');
+		</script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

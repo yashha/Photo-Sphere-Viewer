@@ -1,0 +1,176 @@
+---
+layout: default
+title: Cropped panorama
+---
+
+<section class="bs-docs-section">
+  <p><b>Photo Sphere Viewer</b> supports cropped panorama given the appropriate configuration is provided. Cropped
+    panoramas are not covering the whole 360°&times;180° sphere area but only a smaller portion. For example you might
+    have a image covering 360° horizontally but only 90° vertically, or a semi sphere (180°&times;180°)</p>
+
+  <p>These incomplete panoramas are handled in two ways by Photo Sphere viewer:</p>
+  <ul>
+    <li>Read XMP metadata directly from the file (with the <code>useXmpData</code> option enabled)</li>
+    <li>Provide the <code>panoData</code> configuration object</li>
+  </ul>
+
+  <p>Use the <a href="#playground" class="btn btn-primary btn-xs">Playground</a> at the bottom of this page to find the best values for your panorama.</p>
+
+  <h1 id="theory" class="page-header">Theory</h1>
+
+  <p>In both case the data contains six important values:</p>
+  <ul>
+    <li>Full panorama width</li>
+    <li>Full panorama height</li>
+    <li>Cropped area width</li>
+    <li>Cropped area height</li>
+    <li>Cropped area left</li>
+    <li>Cropped area right</li>
+  </ul>
+
+  <p>The <u>Full panorama width</u> / <u>Full panorama height</u> ratio must always be 2:1, <u>Cropped area
+    width</u> and <u>Cropped area height</u> are the actual size of your image, <u>Cropped area left</u> and <u>Cropped
+    area right</u> are used to define the cropped area position.</p>
+
+  <img src="{{ site.github.url | replace: 'http://', '//' }}/assets/XMP_pano_pixels.png" class="img-responsive">
+
+  <p>More information on <a href="https://developers.google.com/streetview/spherical-metadata">Google documentation</a>.
+  </p>
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="data" class="page-header">Provide data</h1>
+
+  <h2 id="xmp">XMP</h2>
+
+  <p>If you created your panorama with a mobile phone or dedicated 360° camera, it should already contain the correct
+    XMP data. Otherwise you can inject it yourself with tools like <a href="https://sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>.
+  </p>
+
+  <p>The XMP payload is as follow:</p>
+  <!-- @formatter:off -->
+{% highlight xml %}
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="" xmlns:GPano="http://ns.google.com/photos/1.0/panorama/">
+      <GPano:ProjectionType>equirectangular</GPano:ProjectionType>
+      <GPano:CroppedAreaLeftPixels>500</GPano:CroppedAreaLeftPixels>
+      <GPano:CroppedAreaTopPixels>250</GPano:CroppedAreaTopPixels>
+      <GPano:CroppedAreaImageWidthPixels>3000</GPano:CroppedAreaImageWidthPixels>
+      <GPano:CroppedAreaImageHeightPixels>1500</GPano:CroppedAreaImageHeightPixels>
+      <GPano:FullPanoWidthPixels>4000</GPano:FullPanoWidthPixels>
+      <GPano:FullPanoHeightPixels>2000</GPano:FullPanoHeightPixels>
+    </rdf:Description>
+  </rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="r"?>
+{% endhighlight %}
+<!-- @formatter:on -->
+
+  <p>To write the XMP data to an image file, copy-paste in a text file and use this command:</p>
+  <!-- @formatter:off -->
+{% highlight plain %}
+exiftool -tagsfromfile data.xmp -all:all panorama.jpg
+{% endhighlight %}
+<!-- @formatter:on -->
+
+  <h2 id="manual">Manually</h2>
+
+  <p>You can also directly pass the six values to Photo Sphere Viewer with the <code>panoData</code> parameter.</p>
+  <!-- @formatter:off -->
+{% highlight javascript %}
+var viewer = new PhotoSphereViewer({
+  container: 'viewer',
+  panorama: 'path/to/panorama.jpg',
+  panoData: {
+      fullWidth: 4000,
+      fullHeight: 2000,
+      croppedWidth: 3000,
+      croppedHeight: 1500,
+      croppedX: 500,
+      croppedY: 250
+  }
+});
+{% endhighlight %}
+<!-- @formatter:on -->
+</section>
+
+<section class="bs-docs-section">
+  <h1 id="playground" class="page-header">Playground</h1>
+
+  <p>Use this demo to find the best values for your image.</p>
+
+  <form id="playground-form">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="file">Panorama image</label>
+          <div class="input-group">
+            <label class="input-group-btn">
+                <span class="btn btn-default">
+                    Browse&hellip;
+                  <input type="file" id="file"
+                         accept="image/jpeg,image/png"
+                         style="display: none;">
+                </span>
+            </label>
+            <input type="text" class="form-control" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="fullWidth">Full width</label>
+          <input type="number" min="0" step="100" class="form-control" id="fullWidth">
+        </div>
+        <div class="form-group">
+          <label for="fullHeight">Full height</label>
+          <input type="number" min="0" step="100" class="form-control" id="fullHeight">
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="croppedWidth">Cropped width</label>
+          <input type="number" class="form-control" id="croppedWidth" disabled>
+        </div>
+        <div class="form-group">
+          <label for="croppedHeight">Cropped height</label>
+          <input type="number" class="form-control" id="croppedHeight" disabled>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="croppedX">Area left
+            <button type="button" class="btn btn-xs btn-primary" data-psv-center="x">center</button>
+          </label>
+          <input type="number" min="0" step="100" class="form-control" id="croppedX">
+        </div>
+        <div class="form-group">
+          <label for="croppedY">Area top
+            <button type="button" class="btn btn-xs btn-primary" data-psv-center="y">center</button>
+          </label>
+          <input type="number" min="0" step="100" class="form-control" id="croppedY">
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div id="photosphere"></div>
+
+  <h3>XMP Data</h3>
+  <figure class="highlight"><pre><code class="language-xml" data-lang="xml" id="output"></code></pre></figure>
+
+</section>
+
+<!-- @formatter:off -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0-alpha.1/dist/photo-sphere-viewer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.99.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@1.0.0/uevent.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0-alpha.1/dist/photo-sphere-viewer.min.js"></script>
+<!-- @formatter:on -->
+
+<script>var rootURL = "{{ site.github.url | replace: 'http://', '//' }}";</script>
+<script src="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}assets/crop-playground.js"></script>

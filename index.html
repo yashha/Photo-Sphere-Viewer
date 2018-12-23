@@ -5,6 +5,15 @@ description: A JavaScript library to display Photo Sphere panoramas
 isHome: true
 ---
 
+<div class="bs-callout bs-callout-info">
+  <h4>New version</h4>
+
+  <p>
+    The new major version of Photo Sphere Viewer is available for testing,
+    <a href="{{ site.github.url | replace: 'http://', '//' }}/v4">Check it out</a>.
+  </p>
+</div>
+
 <section class="bs-docs-section">
   <h1 id="presentation" class="page-header">Presentation</h1>
 
@@ -60,18 +69,18 @@ isHome: true
     <h4>Cropped panoramas</h4>
 
     <p>If your image is not covering a full 360°&times;180° sphere, it will be deformed. You can fix it by providing <a
-      href="{{ site.github.url | replace: 'http://', '//' }}/crop.html">cropping data</a>.</p>
+      href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}crop.html">cropping data</a>.</p>
   </div>
 
-  <div class="bs-callout bs-callout-danger">
+  <div class="bs-callout bs-callout-warning">
     <h4>Canvas rendering</h4>
 
     <p>In order to get Photo Sphere Viewer working on browsers without WebGL you will need some additional files from
       Three.js examples (also available in <code>three.js-examples</code> Bower package) :</p>
     <ul>
       <!-- @formatter:off -->
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CanvasRenderer.js">CanvasRenderer.js</a></li>
-      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/Projector.js">Projector.js</a></li>
+      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/r97/CanvasRenderer.js">CanvasRenderer.js</a></li>
+      <li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/r97/Projector.js">Projector.js</a></li>
       <!-- @formatter:on -->
     </ul>
   </div>
@@ -200,7 +209,7 @@ panorama: {
         <td>markers</td>
         <td>Array</td>
         <td>[]</td>
-        <td>List of <a href="{{ site.github.url | replace: 'http://', '//' }}/markers.html">markers</a>.</td>
+        <td>List of <a href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}markers.html">markers</a>.</td>
       </tr>
       <tr>
         <td>min_fov</td>
@@ -546,7 +555,7 @@ tooltip: {
 
   <p>All useful methods are documented in the
     <a class="btn btn-outline"
-       href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#methods">API documentation</a>
+       href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}api/PhotoSphereViewer.html#methods">API documentation</a>
   </p>
 
   <p>To call a method you need to keep a reference to the viewer (created with <code>new</code> keyword). It's good
@@ -566,7 +575,7 @@ viewer.on('ready', function() {
 
   <p>On the viewer you can also use the <code>on</code> method to listen to
     <a class="btn btn-outline"
-       href="{{ site.github.url | replace: 'http://', '//' }}/api/PhotoSphereViewer.html#events">various events</a>.</p>
+       href="{{ site.github.url | replace: 'http://', '//' }}{{ page.dir }}api/PhotoSphereViewer.html#events">various events</a>.</p>
 
 
   <h2 id="navbar">Navbar customization</h2>
@@ -662,14 +671,12 @@ viewer.getNavbarButton('my-button').hide();
 </style>
 
 <!-- @formatter:off -->
-<link rel="stylesheet" href="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/build/three.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/d.js/lib/D.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/dot/doT.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/uevent/uevent.min.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/three/examples/js/renderers/Projector.js"></script>
-<script src="{{ site.github.url | replace: 'http://', '//' }}/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.4.1/dist/photo-sphere-viewer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.99.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d.js@0.7.5/lib/D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dot@1.1.2/doT.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@1.0.0/uevent.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.4.1/dist/photo-sphere-viewer.min.js"></script>
 <!-- @formatter:on -->
 
 <script>

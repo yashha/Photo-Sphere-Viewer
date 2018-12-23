@@ -1,0 +1,287 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>data/icons.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/custom.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #1C9F72;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #1C9F72;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #1C9F72;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #1C9F72;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":false,"dateFormat":"Do MMM YYYY","systemName":"Photo Sphere Viewer v4 API","systemSummary":"A JavaScript library to display Photo Sphere panoramas","systemLogo":"","systemColor":"#1C9F72","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"event","title":"Events","summary":"All documented events."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Licensed under MIT License, documentation under CC BY 3.0.","linenums":true,"collapseSymbols":true,"inverseNav":false,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":false,"analytics":{"ua":"UA-28192323-3","domain":"auto"},"methodHeadingReturns":true,"sort":"longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["css/custom.css"],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js","js/custom.js"],"monospaceLinks":false,"cleverLinks":true};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Photo Sphere Viewer v4 API
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.AbstractComponent.html">components.AbstractComponent</a></li>
+											<li><a href="module-components.PSVHUD.html">components.PSVHUD</a></li>
+											<li><a href="module-components.PSVLoader.html">components.PSVLoader</a></li>
+											<li><a href="module-components.PSVNavbar.html">components.PSVNavbar</a></li>
+											<li><a href="module-components.PSVNavbarCaption.html">components.PSVNavbarCaption</a></li>
+											<li><a href="module-components.PSVNotification.html">components.PSVNotification</a></li>
+											<li><a href="module-components.PSVOverlay.html">components.PSVOverlay</a></li>
+											<li><a href="module-components.PSVPanel.html">components.PSVPanel</a></li>
+											<li><a href="module-components.PSVTooltip.html">components.PSVTooltip</a></li>
+											<li><a href="module-components_buttons.AbstractButton.html">components/buttons.AbstractButton</a></li>
+											<li><a href="module-components_buttons.PSVAutorotateButton.html">components/buttons.PSVAutorotateButton</a></li>
+											<li><a href="module-components_buttons.PSVCaptionButton.html">components/buttons.PSVCaptionButton</a></li>
+											<li><a href="module-components_buttons.PSVCustomButton.html">components/buttons.PSVCustomButton</a></li>
+											<li><a href="module-components_buttons.PSVDownloadButton.html">components/buttons.PSVDownloadButton</a></li>
+											<li><a href="module-components_buttons.PSVFullscreenButton.html">components/buttons.PSVFullscreenButton</a></li>
+											<li><a href="module-components_buttons.PSVGyroscopeButton.html">components/buttons.PSVGyroscopeButton</a></li>
+											<li><a href="module-components_buttons.PSVMarkersButton.html">components/buttons.PSVMarkersButton</a></li>
+											<li><a href="module-components_buttons.PSVStereoButton.html">components/buttons.PSVStereoButton</a></li>
+											<li><a href="module-components_buttons.PSVZoomButton.html">components/buttons.PSVZoomButton</a></li>
+											<li><a href="module-services.AbstractService.html">services.AbstractService</a></li>
+											<li><a href="module-services.PSVDataHelper.html">services.PSVDataHelper</a></li>
+											<li><a href="module-services.PSVEventsHandler.html">services.PSVEventsHandler</a></li>
+											<li><a href="module-services.PSVRenderer.html">services.PSVRenderer</a></li>
+											<li><a href="module-services.PSVTextureLoader.html">services.PSVTextureLoader</a></li>
+											<li><a href="PhotoSphereViewer.html">PhotoSphereViewer</a></li>
+											<li><a href="PSVAnimation.html">PSVAnimation</a></li>
+											<li><a href="PSVError.html">PSVError</a></li>
+											<li><a href="PSVMarker.html">PSVMarker</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_event.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.PSVHUD.html#.event:goto-marker-done">components.PSVHUD.goto-marker-done</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:leave-marker">components.PSVHUD.leave-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:over-marker">components.PSVHUD.over-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker">components.PSVHUD.select-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:select-marker-list">components.PSVHUD.select-marker-list</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:unselect-marker">components.PSVHUD.unselect-marker</a></li>
+											<li><a href="module-components.PSVHUD.html#.event:filter:render-markers-list">components.PSVHUD.filter:render-markers-list</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:hide-notification">components.PSVNotification.hide-notification</a></li>
+											<li><a href="module-components.PSVNotification.html#.event:show-notification">components.PSVNotification.show-notification</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:hide-overlay">components.PSVOverlay.hide-overlay</a></li>
+											<li><a href="module-components.PSVOverlay.html#.event:show-overlay">components.PSVOverlay.show-overlay</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:close-panel">components.PSVPanel.close-panel</a></li>
+											<li><a href="module-components.PSVPanel.html#.event:open-panel">components.PSVPanel.open-panel</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:hide-tooltip">components.PSVTooltip.hide-tooltip</a></li>
+											<li><a href="module-components.PSVTooltip.html#.event:show-tooltip">components.PSVTooltip.show-tooltip</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:before-render">services.PSVRenderer.before-render</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:panorama-loaded">services.PSVRenderer.panorama-loaded</a></li>
+											<li><a href="module-services.PSVRenderer.html#.event:render">services.PSVRenderer.render</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-cached">services.PSVTextureLoader.panorama-cached</a></li>
+											<li><a href="module-services.PSVTextureLoader.html#.event:panorama-load-progress">services.PSVTextureLoader.panorama-load-progress</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:autorotate">PhotoSphereViewer.autorotate</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:click">PhotoSphereViewer.click</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:dblclick">PhotoSphereViewer.dblclick</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:fullscreen-updated">PhotoSphereViewer.fullscreen-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:gyroscope-updated">PhotoSphereViewer.gyroscope-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:position-updated">PhotoSphereViewer.position-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:ready">PhotoSphereViewer.ready</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:size-updated">PhotoSphereViewer.size-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:stereo-updated">PhotoSphereViewer.stereo-updated</a></li>
+											<li><a href="PhotoSphereViewer.html#.event:zoom-updated">PhotoSphereViewer.zoom-updated</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_external.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="external-NoSleep.html">NoSleep</a></li>
+											<li><a href="external-THREE.html">THREE</a></li>
+											<li><a href="external-uEvent.html">uEvent</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-components.html">components</a></li>
+											<li><a href="module-components_buttons.html">components/buttons</a></li>
+											<li><a href="module-data_config.html">data/config</a></li>
+											<li><a href="module-data_constants.html">data/constants</a></li>
+											<li><a href="module-data_system.html">data/system</a></li>
+											<li><a href="module-services.html">services</a></li>
+											<li><a href="module-utils.html">utils</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">data/icons.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import compass from '../../icons/compass.svg';
+import download from '../../icons/download.svg';
+import error from '../../icons/error.svg';
+import fullscreenIn from '../../icons/fullscreen-in.svg';
+import fullscreenOut from '../../icons/fullscreen-out.svg';
+import gesture from '../../icons/gesture.svg';
+import info from '../../icons/info.svg';
+import mobileRotate from '../../icons/mobile-rotate.svg';
+import pin from '../../icons/pin.svg';
+import playActive from '../../icons/play-active.svg';
+import play from '../../icons/play.svg';
+import stereo from '../../icons/stereo.svg';
+import zoomIn from '../../icons/zoom-in.svg';
+import zoomOut from '../../icons/zoom-out.svg';
+
+/**
+ * @summary Default icons
+ * @type {Object&lt;string, string>}
+ * @constant
+ * @memberOf module:data/config
+ */
+const ICONS = {
+  compass,
+  download,
+  error,
+  fullscreenIn,
+  fullscreenOut,
+  gesture,
+  info,
+  mobileRotate,
+  pin,
+  play,
+  playActive,
+  stereo,
+  zoomIn,
+  zoomOut,
+};
+
+/**
+ * @summary Gets icons from config
+ * @param {Object&lt;string, string>} options
+ * @returns {Object&lt;string, string>}
+ * @memberOf module:data/config
+ */
+function getIcons(options) {
+  const icons = {};
+
+  Object.keys(ICONS).forEach((name) => {
+    if (!options || !options[name]) {
+      icons[name] = ICONS[name];
+    }
+    else {
+      icons[name] = options[name];
+    }
+  });
+
+  return icons;
+}
+
+export { ICONS, getIcons };
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Licensed under MIT License, documentation under CC BY 3.0.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+		<script src="js/custom.js"></script>
+	
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-28192323-3', 'auto');
+			ga('send', 'pageview');
+		</script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
