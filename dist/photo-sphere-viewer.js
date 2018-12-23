@@ -1,20 +1,20 @@
 /*!
- * Photo Sphere Viewer 3.4.1
+ * Photo Sphere Viewer 3.5.0
  * Copyright (c) 2014-2015 Jérémy Heleine
  * Copyright (c) 2015-2018 Damien "Mistic" Sorel
  * Licensed under MIT (https://opensource.org/licenses/MIT)
  */
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['three', 'd.js', 'uevent', 'dot/doT'], factory);
+    define(['three', 'uevent', 'dot/doT'], factory);
   }
   else if (typeof module === 'object' && module.exports) {
-    module.exports = factory(require('three'), require('d.js'), require('uevent'), require('dot/doT'));
+    module.exports = factory(require('three'), require('uevent'), require('dot/doT'));
   }
   else {
-    root.PhotoSphereViewer = factory(root.THREE, root.D, root.uEvent, root.doT);
+    root.PhotoSphereViewer = factory(root.THREE, root.uEvent, root.doT);
   }
-}(this, function(THREE, D, uEvent, doT) {
+}(this, function(THREE, uEvent, doT) {
 "use strict";
 
 /**
@@ -49,10 +49,27 @@
  * @typedef {PhotoSphereViewer.Position} PhotoSphereViewer.ExtendedPosition
  * @summary Object defining a spherical or texture position
  * @description A position that can be expressed either in spherical coordinates (radians or degrees) or in texture coordinates (pixels)
- * @property {float} longitude
- * @property {float} latitude
  * @property {int} x
  * @property {int} y
+ */
+
+/**
+ * @typedef {PhotoSphereViewer.ExtendedPosition} PhotoSphereViewer.AnimateOptions
+ * @summary Object defining animation options
+ * @property {number} zoom - target zoom level between 0 and 100
+ */
+
+/**
+ * @typedef {Object} PhotoSphereViewer.SphereCorrection
+ * @property {number} pan
+ * @property {number} tilt
+ * @property {number} roll
+ */
+
+/**
+ * @typedef {PhotoSphereViewer.AnimateOptions} PhotoSphereViewer.PanoramaOptions
+ * @summary Object defining panorama and animation options
+ * @property {PhotoSphereViewer.SphereCorrection} sphere_correction - new sphere correction to apply to the panorama
  */
 
 /**
@@ -198,17 +215,6 @@ function PhotoSphereViewer(options) {
   else {
     this.config.default_fov = PSVUtils.bound(this.config.default_fov, this.config.min_fov, this.config.max_fov);
   }
-
-  // parse default_long, is between 0 and 2*PI
-  this.config.default_long = PSVUtils.parseAngle(this.config.default_long);
-
-  // parse default_lat, is between -PI/2 and PI/2
-  this.config.default_lat = PSVUtils.parseAngle(this.config.default_lat, true);
-
-  // parse camera_correction, is between -PI/2 and PI/2
-  this.config.sphere_correction.pan = PSVUtils.parseAngle(this.config.sphere_correction.pan, true);
-  this.config.sphere_correction.tilt = PSVUtils.parseAngle(this.config.sphere_correction.tilt, true);
-  this.config.sphere_correction.roll = PSVUtils.parseAngle(this.config.sphere_correction.roll, true);
 
   // default anim_lat is default_lat
   if (this.config.anim_lat === null) {
@@ -473,17 +479,11 @@ function PhotoSphereViewer(options) {
   this._onResize();
 
   // apply default zoom level
-  var tempZoom = Math.round((this.config.default_fov - this.config.min_fov) / (this.config.max_fov - this.config.min_fov) * 100);
-  this.zoom(tempZoom - 2 * (tempZoom - 50));
+  var tempZoom = (this.config.default_fov - this.config.min_fov) / (this.config.max_fov - this.config.min_fov) * 100;
+  this.config.default_zoom_lvl = tempZoom - 2 * (tempZoom - 50);
 
   // actual move speed depends on pixel-ratio
   this.prop.move_speed = THREE.Math.degToRad(this.config.move_speed / PhotoSphereViewer.SYSTEM.pixelRatio);
-
-  // set default position
-  this.rotate({
-    longitude: this.config.default_long,
-    latitude: this.config.default_lat
-  });
 
   // load loader (!!)
   this.loader = new PSVLoader(this);
@@ -552,8 +552,10 @@ function PhotoSphereViewer(options) {
     }.bind(this), 0);
   }.bind(this));
 
-  PhotoSphereViewer.SYSTEM.touchEnabled.then(function() {
-    this.container.classList.add('psv-is-touch');
+  PhotoSphereViewer.SYSTEM.touchEnabled.then(function(enabled) {
+    if (enabled) {
+      this.container.classList.add('psv-is-touch');
+    }
   }.bind(this));
 }
 
@@ -671,77 +673,74 @@ PhotoSphereViewer.prototype._render = function() {
  */
 PhotoSphereViewer.prototype._loadXMP = function(panorama) {
   if (!this.config.usexmpdata) {
-    return D.resolved(null);
+    return Promise.resolve(null);
   }
 
-  var defer = D();
-  var xhr = new XMLHttpRequest();
-  if (this.config.with_credentials) {
-    xhr.withCredentials = true;
-  }
-  var progress = 0;
+  return new Promise(function(resolve) {
+    var progress = 0;
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200 || xhr.status === 201 || xhr.status === 202 || xhr.status === 0) {
-        this.loader.setProgress(100);
+    var xhr = new XMLHttpRequest();
+    if (this.config.with_credentials) {
+      xhr.withCredentials = true;
+    }
 
-        var binary = xhr.responseText;
-        var a = binary.indexOf('<x:xmpmeta'), b = binary.indexOf('</x:xmpmeta>');
-        var data = binary.substring(a, b);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200 || xhr.status === 201 || xhr.status === 202 || xhr.status === 0) {
+          this.loader.setProgress(100);
 
-        // No data retrieved
-        if (a === -1 || b === -1 || data.indexOf('GPano:') === -1) {
-          defer.resolve(null);
+          var binary = xhr.responseText;
+          var a = binary.indexOf('<x:xmpmeta'), b = binary.indexOf('</x:xmpmeta>');
+          var data = binary.substring(a, b);
+          var pano_data = null;
+
+          if (a !== -1 && b !== -1 && data.indexOf('GPano:') !== -1) {
+            pano_data = {
+              full_width: parseInt(PSVUtils.getXMPValue(data, 'FullPanoWidthPixels')),
+              full_height: parseInt(PSVUtils.getXMPValue(data, 'FullPanoHeightPixels')),
+              cropped_width: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaImageWidthPixels')),
+              cropped_height: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaImageHeightPixels')),
+              cropped_x: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaLeftPixels')),
+              cropped_y: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaTopPixels'))
+            };
+
+            if (!pano_data.full_width || !pano_data.full_height || !pano_data.cropped_width || !pano_data.cropped_height) {
+              console.warn('PhotoSphereViewer: invalid XMP data');
+              pano_data = null;
+            }
+          }
+
+          resolve(pano_data);
         }
         else {
-          var pano_data = {
-            full_width: parseInt(PSVUtils.getXMPValue(data, 'FullPanoWidthPixels')),
-            full_height: parseInt(PSVUtils.getXMPValue(data, 'FullPanoHeightPixels')),
-            cropped_width: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaImageWidthPixels')),
-            cropped_height: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaImageHeightPixels')),
-            cropped_x: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaLeftPixels')),
-            cropped_y: parseInt(PSVUtils.getXMPValue(data, 'CroppedAreaTopPixels'))
-          };
-
-          if (!pano_data.full_width || !pano_data.full_height || !pano_data.cropped_width || !pano_data.cropped_height) {
-            console.warn('PhotoSphereViewer: invalid XMP data');
-            defer.resolve(null);
-          }
-          else {
-            defer.resolve(pano_data);
-          }
+          this.container.textContent = 'Cannot load image';
+          throw new PSVError('Cannot load image');
         }
       }
-      else {
-        this.container.textContent = 'Cannot load image';
-        throw new PSVError('Cannot load image');
+      else if (xhr.readyState === 3) {
+        this.loader.setProgress(progress += 10);
       }
-    }
-    else if (xhr.readyState === 3) {
-      this.loader.setProgress(progress += 10);
-    }
-  }.bind(this);
+    }.bind(this);
 
-  xhr.onprogress = function(e) {
-    if (e.lengthComputable) {
-      var new_progress = parseInt(e.loaded / e.total * 100);
-      if (new_progress > progress) {
-        progress = new_progress;
-        this.loader.setProgress(progress);
+    xhr.onprogress = function(e) {
+      if (e.lengthComputable) {
+        var new_progress = parseInt(e.loaded / e.total * 100);
+        if (new_progress > progress) {
+          progress = new_progress;
+          this.loader.setProgress(progress);
+        }
       }
-    }
-  }.bind(this);
+    }.bind(this);
 
-  xhr.onerror = function() {
-    this.container.textContent = 'Cannot load image';
-    throw new PSVError('Cannot load image');
-  }.bind(this);
+    xhr.onerror = function(e) {
+      this.container.textContent = 'Cannot load image';
+      reject(e);
+      throw new PSVError('Cannot load image');
+    }.bind(this);
 
-  xhr.open('GET', panorama, true);
-  xhr.send(null);
-
-  return defer.promise;
+    xhr.open('GET', panorama, true);
+    xhr.send(null);
+  }.bind(this));
 };
 
 /**
@@ -823,122 +822,121 @@ PhotoSphereViewer.prototype._loadEquirectangularTexture = function(panorama) {
     if (cache) {
       this.prop.pano_data = cache.pano_data;
 
-      return D.resolved(cache.image);
+      return Promise.resolve(cache.image);
     }
   }
 
   return this._loadXMP(panorama).then(function(pano_data) {
-    var defer = D();
-    var loader = new THREE.ImageLoader();
-    var progress = pano_data ? 100 : 0;
+    return new Promise(function(resolve, reject) {
+      var loader = new THREE.ImageLoader();
+      var progress = pano_data ? 100 : 0;
 
-    if (this.config.with_credentials) {
-      loader.setCrossOrigin('use-credentials');
-    }
-    else {
-      loader.setCrossOrigin('anonymous');
-    }
-
-    var onload = function(img) {
-      progress = 100;
-
-      this.loader.setProgress(progress);
-
-      /**
-       * @event panorama-load-progress
-       * @memberof PhotoSphereViewer
-       * @summary Triggered while a panorama image is loading
-       * @param {string} panorama
-       * @param {int} progress
-       */
-      this.trigger('panorama-load-progress', panorama, progress);
-
-      // Config XMP data
-      if (!pano_data && this.config.pano_data) {
-        pano_data = PSVUtils.clone(this.config.pano_data);
-      }
-
-      // Default XMP data
-      if (!pano_data) {
-        pano_data = {
-          full_width: img.width,
-          full_height: img.height,
-          cropped_width: img.width,
-          cropped_height: img.height,
-          cropped_x: 0,
-          cropped_y: 0
-        };
-      }
-
-      this.prop.pano_data = pano_data;
-
-      var texture;
-
-      var ratio = Math.min(pano_data.full_width, PhotoSphereViewer.SYSTEM.maxTextureWidth) / pano_data.full_width;
-
-      // resize image / fill cropped parts with black
-      if (ratio !== 1 || pano_data.cropped_width !== pano_data.full_width || pano_data.cropped_height !== pano_data.full_height) {
-        var resized_pano_data = PSVUtils.clone(pano_data);
-
-        resized_pano_data.full_width *= ratio;
-        resized_pano_data.full_height *= ratio;
-        resized_pano_data.cropped_width *= ratio;
-        resized_pano_data.cropped_height *= ratio;
-        resized_pano_data.cropped_x *= ratio;
-        resized_pano_data.cropped_y *= ratio;
-
-        img.width = resized_pano_data.cropped_width;
-        img.height = resized_pano_data.cropped_height;
-
-        var buffer = document.createElement('canvas');
-        buffer.width = resized_pano_data.full_width;
-        buffer.height = resized_pano_data.full_height;
-
-        var ctx = buffer.getContext('2d');
-        ctx.drawImage(img, resized_pano_data.cropped_x, resized_pano_data.cropped_y, resized_pano_data.cropped_width, resized_pano_data.cropped_height);
-
-        texture = new THREE.Texture(buffer);
+      if (this.config.with_credentials) {
+        loader.setCrossOrigin('use-credentials');
       }
       else {
-        texture = new THREE.Texture(img);
+        loader.setCrossOrigin('anonymous');
       }
 
-      texture.needsUpdate = true;
-      texture.minFilter = THREE.LinearFilter;
-      texture.generateMipmaps = false;
+      var onload = function(img) {
+        progress = 100;
 
-      if (this.config.cache_texture) {
-        this._putPanoramaCache({
-          panorama: panorama,
-          image: texture,
-          pano_data: pano_data
-        });
-      }
+        this.loader.setProgress(progress);
 
-      defer.resolve(texture);
-    };
+        /**
+         * @event panorama-load-progress
+         * @memberof PhotoSphereViewer
+         * @summary Triggered while a panorama image is loading
+         * @param {string} panorama
+         * @param {int} progress
+         */
+        this.trigger('panorama-load-progress', panorama, progress);
 
-    var onprogress = function(e) {
-      if (e.lengthComputable) {
-        var new_progress = parseInt(e.loaded / e.total * 100);
-
-        if (new_progress > progress) {
-          progress = new_progress;
-          this.loader.setProgress(progress);
-          this.trigger('panorama-load-progress', panorama, progress);
+        // Config XMP data
+        if (!pano_data && this.config.pano_data) {
+          pano_data = PSVUtils.clone(this.config.pano_data);
         }
-      }
-    };
 
-    var onerror = function(e) {
-      this.container.textContent = 'Cannot load image';
-      defer.reject(e);
-      throw new PSVError('Cannot load image');
-    };
+        // Default XMP data
+        if (!pano_data) {
+          pano_data = {
+            full_width: img.width,
+            full_height: img.height,
+            cropped_width: img.width,
+            cropped_height: img.height,
+            cropped_x: 0,
+            cropped_y: 0
+          };
+        }
 
-    loader.load(panorama, onload.bind(this), onprogress.bind(this), onerror.bind(this));
+        this.prop.pano_data = pano_data;
 
-    return defer.promise;
+        var texture;
+
+        var ratio = Math.min(pano_data.full_width, PhotoSphereViewer.SYSTEM.maxTextureWidth) / pano_data.full_width;
+
+        // resize image / fill cropped parts with black
+        if (ratio !== 1 || pano_data.cropped_width !== pano_data.full_width || pano_data.cropped_height !== pano_data.full_height) {
+          var resized_pano_data = PSVUtils.clone(pano_data);
+
+          resized_pano_data.full_width *= ratio;
+          resized_pano_data.full_height *= ratio;
+          resized_pano_data.cropped_width *= ratio;
+          resized_pano_data.cropped_height *= ratio;
+          resized_pano_data.cropped_x *= ratio;
+          resized_pano_data.cropped_y *= ratio;
+
+          img.width = resized_pano_data.cropped_width;
+          img.height = resized_pano_data.cropped_height;
+
+          var buffer = document.createElement('canvas');
+          buffer.width = resized_pano_data.full_width;
+          buffer.height = resized_pano_data.full_height;
+
+          var ctx = buffer.getContext('2d');
+          ctx.drawImage(img, resized_pano_data.cropped_x, resized_pano_data.cropped_y, resized_pano_data.cropped_width, resized_pano_data.cropped_height);
+
+          texture = new THREE.Texture(buffer);
+        }
+        else {
+          texture = new THREE.Texture(img);
+        }
+
+        texture.needsUpdate = true;
+        texture.minFilter = THREE.LinearFilter;
+        texture.generateMipmaps = false;
+
+        if (this.config.cache_texture) {
+          this._putPanoramaCache({
+            panorama: panorama,
+            image: texture,
+            pano_data: pano_data
+          });
+        }
+
+        resolve(texture);
+      };
+
+      var onprogress = function(e) {
+        if (e.lengthComputable) {
+          var new_progress = parseInt(e.loaded / e.total * 100);
+
+          if (new_progress > progress) {
+            progress = new_progress;
+            this.loader.setProgress(progress);
+            this.trigger('panorama-load-progress', panorama, progress);
+          }
+        }
+      };
+
+      var onerror = function(e) {
+        this.container.textContent = 'Cannot load image';
+        reject(e);
+        throw new PSVError('Cannot load image');
+      };
+
+      loader.load(panorama, onload.bind(this), onprogress.bind(this), onerror.bind(this));
+    }.bind(this));
   }.bind(this));
 };
 
@@ -951,103 +949,102 @@ PhotoSphereViewer.prototype._loadEquirectangularTexture = function(panorama) {
  * @private
  */
 PhotoSphereViewer.prototype._loadCubemapTexture = function(panorama) {
-  var defer = D();
-  var loader = new THREE.ImageLoader();
-  var progress = [0, 0, 0, 0, 0, 0];
-  var loaded = [];
-  var done = 0;
+  return new Promise(function(resolve, reject) {
+    var loader = new THREE.ImageLoader();
+    var progress = [0, 0, 0, 0, 0, 0];
+    var loaded = [];
+    var done = 0;
 
-  if (this.config.with_credentials) {
-    loader.setCrossOrigin('use-credentials');
-  }
-  else {
-    loader.setCrossOrigin('anonymous');
-  }
-
-  var onend = function() {
-    loaded.forEach(function(img) {
-      img.needsUpdate = true;
-      img.minFilter = THREE.LinearFilter;
-      img.generateMipmaps = false;
-    });
-
-    defer.resolve(loaded);
-  };
-
-  var onload = function(i, img) {
-    done++;
-    progress[i] = 100;
-
-    this.loader.setProgress(PSVUtils.sum(progress) / 6);
-    this.trigger('panorama-load-progress', panorama[i], progress[i]);
-
-    var ratio = Math.min(img.width, PhotoSphereViewer.SYSTEM.maxTextureWidth / 2) / img.width;
-
-    // resize image
-    if (ratio !== 1) {
-      var buffer = document.createElement('canvas');
-      buffer.width = img.width * ratio;
-      buffer.height = img.height * ratio;
-
-      var ctx = buffer.getContext('2d');
-      ctx.drawImage(img, 0, 0, buffer.width, buffer.height);
-
-      loaded[i] = new THREE.Texture(buffer);
+    if (this.config.with_credentials) {
+      loader.setCrossOrigin('use-credentials');
     }
     else {
-      loaded[i] = new THREE.Texture(img);
+      loader.setCrossOrigin('anonymous');
     }
 
-    if (this.config.cache_texture) {
-      this._putPanoramaCache({
-        panorama: panorama[i],
-        image: loaded[i]
+    var onend = function() {
+      loaded.forEach(function(img) {
+        img.needsUpdate = true;
+        img.minFilter = THREE.LinearFilter;
+        img.generateMipmaps = false;
       });
+
+      resolve(loaded);
+    };
+
+    var onload = function(i, img) {
+      done++;
+      progress[i] = 100;
+
+      this.loader.setProgress(PSVUtils.sum(progress) / 6);
+      this.trigger('panorama-load-progress', panorama[i], progress[i]);
+
+      var ratio = Math.min(img.width, PhotoSphereViewer.SYSTEM.maxTextureWidth / 2) / img.width;
+
+      // resize image
+      if (ratio !== 1) {
+        var buffer = document.createElement('canvas');
+        buffer.width = img.width * ratio;
+        buffer.height = img.height * ratio;
+
+        var ctx = buffer.getContext('2d');
+        ctx.drawImage(img, 0, 0, buffer.width, buffer.height);
+
+        loaded[i] = new THREE.Texture(buffer);
+      }
+      else {
+        loaded[i] = new THREE.Texture(img);
+      }
+
+      if (this.config.cache_texture) {
+        this._putPanoramaCache({
+          panorama: panorama[i],
+          image: loaded[i]
+        });
+      }
+
+      if (done === 6) {
+        onend();
+      }
+    };
+
+    var onprogress = function(i, e) {
+      if (e.lengthComputable) {
+        var new_progress = parseInt(e.loaded / e.total * 100);
+
+        if (new_progress > progress[i]) {
+          progress[i] = new_progress;
+          this.loader.setProgress(PSVUtils.sum(progress) / 6);
+          this.trigger('panorama-load-progress', panorama[i], progress[i]);
+        }
+      }
+    };
+
+    var onerror = function(i, e) {
+      this.container.textContent = 'Cannot load image';
+      reject(e);
+      throw new PSVError('Cannot load image ' + i);
+    };
+
+    for (var i = 0; i < 6; i++) {
+      if (this.config.cache_texture) {
+        var cache = this.getPanoramaCache(panorama[i]);
+
+        if (cache) {
+          done++;
+          progress[i] = 100;
+          loaded[i] = cache.image;
+          continue;
+        }
+      }
+
+      loader.load(panorama[i], onload.bind(this, i), onprogress.bind(this, i), onerror.bind(this, i));
     }
 
     if (done === 6) {
-      onend();
+      resolve(loaded);
     }
-  };
-
-  var onprogress = function(i, e) {
-    if (e.lengthComputable) {
-      var new_progress = parseInt(e.loaded / e.total * 100);
-
-      if (new_progress > progress[i]) {
-        progress[i] = new_progress;
-        this.loader.setProgress(PSVUtils.sum(progress) / 6);
-        this.trigger('panorama-load-progress', panorama[i], progress[i]);
-      }
-    }
-  };
-
-  var onerror = function(i, e) {
-    this.container.textContent = 'Cannot load image';
-    defer.reject(e);
-    throw new PSVError('Cannot load image ' + i);
-  };
-
-  for (var i = 0; i < 6; i++) {
-    if (this.config.cache_texture) {
-      var cache = this.getPanoramaCache(panorama[i]);
-
-      if (cache) {
-        done++;
-        progress[i] = 100;
-        loaded[i] = cache.image;
-        continue;
-      }
-    }
-
-    loader.load(panorama[i], onload.bind(this, i), onprogress.bind(this, i), onerror.bind(this, i));
-  }
-
-  if (done === 6) {
-    defer.resolve(loaded);
-  }
-
-  return defer.promise;
+  }.bind(this));
 };
 
 /**
@@ -1154,11 +1151,23 @@ PhotoSphereViewer.prototype._createSphere = function(scale) {
 
   var mesh = new THREE.Mesh(geometry, material);
   mesh.scale.x = -1;
-  mesh.rotation.x = this.config.sphere_correction.tilt;
-  mesh.rotation.y = this.config.sphere_correction.pan;
-  mesh.rotation.z = this.config.sphere_correction.roll;
 
   return mesh;
+};
+
+/**
+ * @summary Applies a SphereCorrection to a Mesh
+ * @param {THREE.Mesh} mesh
+ * @param {PhotoSphereViewer.SphereCorrection} sphere_correction
+ * @private
+ */
+PhotoSphereViewer.prototype._setSphereCorrection = function(mesh, sphere_correction) {
+  this.cleanSphereCorrection(sphere_correction);
+  mesh.rotation.set(
+    sphere_correction.tilt,
+    sphere_correction.pan,
+    sphere_correction.roll
+  );
 };
 
 /**
@@ -1195,18 +1204,21 @@ PhotoSphereViewer.prototype._createCubemap = function(scale) {
 /**
  * @summary Performs transition between the current and a new texture
  * @param {THREE.Texture} texture
- * @param {PhotoSphereViewer.Position} [position]
+ * @param {PhotoSphereViewer.PanoramaOptions} options
  * @returns {Promise}
  * @private
  * @throws {PSVError} if the panorama is a cubemap
  */
-PhotoSphereViewer.prototype._transition = function(texture, position) {
+PhotoSphereViewer.prototype._transition = function(texture, options) {
   var mesh;
 
+  var positionProvided = this.isExtendedPosition(options);
+  var zoomProvided = options.zoom !== undefined;
+
   if (this.prop.isCubemap) {
-    if (position) {
+    if (positionProvided) {
       console.warn('PhotoSphereViewer: cannot perform cubemap transition to different position.');
-      position = undefined;
+      positionProvided = false;
     }
 
     mesh = this._createCubemap(0.9);
@@ -1223,17 +1235,23 @@ PhotoSphereViewer.prototype._transition = function(texture, position) {
     mesh.material.map = texture;
     mesh.material.transparent = true;
     mesh.material.opacity = 0;
+
+    if (options.sphere_correction) {
+      this._setSphereCorrection(mesh, options.sphere_correction);
+    }
   }
 
   // rotate the new sphere to make the target position face the camera
-  if (position) {
+  if (positionProvided) {
+    this.cleanPosition(options);
+
     // Longitude rotation along the vertical axis
-    mesh.rotateY(position.longitude - this.prop.position.longitude);
+    var verticalAxis = new THREE.Vector3(0, 1, 0);
+    mesh.rotateOnWorldAxis(verticalAxis, options.longitude - this.prop.position.longitude);
 
     // Latitude rotation along the camera horizontal axis
-    var axis = new THREE.Vector3(0, 1, 0).cross(this.camera.getWorldDirection()).normalize();
-    var q = new THREE.Quaternion().setFromAxisAngle(axis, position.latitude - this.prop.position.latitude);
-    mesh.quaternion.multiplyQuaternions(q, mesh.quaternion);
+    var horizontalAxis = new THREE.Vector3(0, 1, 0).cross(this.camera.getWorldDirection()).normalize();
+    mesh.rotateOnWorldAxis(horizontalAxis, options.latitude - this.prop.position.latitude);
 
     // FIXME: find a better way to handle ranges
     if (this.config.latitude_range || this.config.longitude_range) {
@@ -1245,9 +1263,10 @@ PhotoSphereViewer.prototype._transition = function(texture, position) {
   this.scene.add(mesh);
   this.needsUpdate();
 
-  return PSVUtils.animation({
+  return new PSVAnimation({
     properties: {
-      opacity: { start: 0.0, end: 1.0 }
+      opacity: { start: 0.0, end: 1.0 },
+      zoom: zoomProvided ? { start: this.prop.zoom_lvl, end: options.zoom } : undefined
     },
     duration: this.config.transition.duration,
     easing: 'outCubic',
@@ -1259,6 +1278,10 @@ PhotoSphereViewer.prototype._transition = function(texture, position) {
       }
       else {
         mesh.material.opacity = properties.opacity;
+      }
+
+      if (zoomProvided) {
+        this.zoom(properties.zoom);
       }
 
       this.needsUpdate();
@@ -1273,8 +1296,15 @@ PhotoSphereViewer.prototype._transition = function(texture, position) {
       mesh.geometry = null;
 
       // actually rotate the camera
-      if (position) {
-        this.rotate(position);
+      if (positionProvided) {
+        this.rotate(options);
+      }
+
+      if (options.sphere_correction) {
+        this._setSphereCorrection(this.mesh, options.sphere_correction);
+      }
+      else {
+        this._setSphereCorrection(this.mesh, {});
       }
     }.bind(this));
 };
@@ -1289,7 +1319,7 @@ PhotoSphereViewer.prototype._reverseAutorotate = function() {
   var range = this.config.longitude_range;
   this.config.longitude_range = null;
 
-  PSVUtils.animation({
+  new PSVAnimation({
     properties: {
       speed: { start: this.config.anim_speed, end: 0 }
     },
@@ -1300,7 +1330,7 @@ PhotoSphereViewer.prototype._reverseAutorotate = function() {
     }
   })
     .then(function() {
-      return PSVUtils.animation({
+      return new PSVAnimation({
         properties: {
           speed: { start: 0, end: newSpeed }
         },
@@ -1830,15 +1860,16 @@ PhotoSphereViewer.prototype._onTouchMove = function(evt) {
  */
 PhotoSphereViewer.prototype._startMove = function(evt) {
   this.stopAutorotate();
-  this.stopAnimation();
+  this.stopAnimation()
+    .then(function() {
+      this.prop.mouse_x = this.prop.start_mouse_x = parseInt(evt.clientX);
+      this.prop.mouse_y = this.prop.start_mouse_y = parseInt(evt.clientY);
+      this.prop.moving = true;
+      this.prop.zooming = false;
 
-  this.prop.mouse_x = this.prop.start_mouse_x = parseInt(evt.clientX);
-  this.prop.mouse_y = this.prop.start_mouse_y = parseInt(evt.clientY);
-  this.prop.moving = true;
-  this.prop.zooming = false;
-
-  this.prop.mouse_history.length = 0;
-  this._logMouseMove(evt);
+      this.prop.mouse_history.length = 0;
+      this._logMouseMove(evt);
+    }.bind(this));
 };
 
 /**
@@ -1912,7 +1943,7 @@ PhotoSphereViewer.prototype._stopMoveInertia = function(evt) {
 
   var norm = Math.sqrt(direction.x * direction.x + direction.y * direction.y);
 
-  this.prop.animation_promise = PSVUtils.animation({
+  this.prop.animation_promise = new PSVAnimation({
     properties: {
       clientX: { start: evt.clientX, end: evt.clientX + direction.x },
       clientY: { start: evt.clientY, end: evt.clientY + direction.y }
@@ -1923,7 +1954,7 @@ PhotoSphereViewer.prototype._stopMoveInertia = function(evt) {
       this._move(properties, false);
     }.bind(this)
   })
-    .ensure(function() {
+    .finally(function() {
       this.prop.moving = false;
     }.bind(this));
 };
@@ -2312,28 +2343,47 @@ PhotoSphereViewer.prototype.destroy = function() {
  * If the "position" is not defined, the camera will not move and the ongoing animation will continue<br>
  * "config.transition" must be configured for "transition" to be taken in account
  * @param {string|string[]} path - URL of the new panorama file
- * @param {PhotoSphereViewer.ExtendedPosition} [position]
+ * @param {PhotoSphereViewer.PanoramaOptions} [options]
  * @param {boolean} [transition=false]
  * @returns {Promise}
  * @throws {PSVError} when another panorama is already loading
  */
-PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
+PhotoSphereViewer.prototype.setPanorama = function(path, options, transition) {
   if (this.prop.loading_promise !== null) {
     throw new PSVError('Loading already in progress');
   }
 
-  if (typeof position === 'boolean') {
-    transition = position;
-    position = undefined;
+  if (typeof options === 'boolean') {
+    transition = options;
+    options = undefined;
+  }
+  if (!options && !this.scene) {
+    options = {
+      longitude: this.config.default_long,
+      latitude: this.config.default_lat,
+      zoom: this.config.default_zoom_lvl,
+      sphere_correction: this.config.sphere_correction
+    };
+  }
+  else if (!options) {
+    options = {};
   }
 
-  if (position) {
-    this.cleanPosition(position);
+  var positionProvided = this.isExtendedPosition(options);
+  var zoomProvided = 'zoom' in options;
 
+  if (positionProvided || zoomProvided) {
     this._stopAll();
   }
 
   this.config.panorama = path;
+
+  var done = function() {
+    this.loader.hide();
+    this.canvas_container.style.opacity = 1;
+
+    this.prop.loading_promise = null;
+  }.bind(this);
 
   if (!transition || !this.config.transition || !this.scene) {
     this.loader.show();
@@ -2345,17 +2395,18 @@ PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
       .then(function(texture) {
         this._setTexture(texture);
 
-        if (position) {
-          this.rotate(position);
+        if (options.sphere_correction && !this.prop.isCubemap) {
+          this._setSphereCorrection(this.mesh, options.sphere_correction);
+        }
+
+        if (positionProvided) {
+          this.rotate(options);
+        }
+        if (zoomProvided) {
+          this.zoom(options.zoom);
         }
       }.bind(this))
-      .ensure(function() {
-        this.loader.hide();
-        this.canvas_container.style.opacity = 1;
-
-        this.prop.loading_promise = null;
-      }.bind(this))
-      .rethrow();
+      .then(done, done);
   }
   else {
     if (this.config.transition.loader) {
@@ -2366,14 +2417,9 @@ PhotoSphereViewer.prototype.setPanorama = function(path, position, transition) {
       .then(function(texture) {
         this.loader.hide();
 
-        return this._transition(texture, position);
+        return this._transition(texture, options);
       }.bind(this))
-      .ensure(function() {
-        this.loader.hide();
-
-        this.prop.loading_promise = null;
-      }.bind(this))
-      .rethrow();
+      .then(done, done);
   }
 
   return this.prop.loading_promise;
@@ -2483,7 +2529,7 @@ PhotoSphereViewer.prototype.startGyroscopeControl = function() {
       }
       else {
         console.warn('PhotoSphereViewer: gyroscope not available');
-        return D.rejected();
+        return Promise.reject();
       }
     }.bind(this));
   }
@@ -2692,21 +2738,24 @@ PhotoSphereViewer.prototype.toggleStereoView = function() {
 /**
  * @summary Rotates the view to specific longitude and latitude
  * @param {PhotoSphereViewer.ExtendedPosition} position
+ * @param {boolean} [ignoreRange=false] - ignore longitude_range and latitude_range
  * @fires PhotoSphereViewer._side-reached
  * @fires PhotoSphereViewer.position-updated
  */
-PhotoSphereViewer.prototype.rotate = function(position) {
+PhotoSphereViewer.prototype.rotate = function(position, ignoreRange) {
   this.cleanPosition(position);
 
-  /**
-   * @event _side-reached
-   * @memberof PhotoSphereViewer
-   * @param {string} side
-   * @private
-   */
-  this.applyRanges(position).forEach(
-    this.trigger.bind(this, '_side-reached')
-  );
+  if (!ignoreRange) {
+    /**
+     * @event _side-reached
+     * @memberof PhotoSphereViewer
+     * @param {string} side
+     * @private
+     */
+    this.applyRanges(position).forEach(
+      this.trigger.bind(this, '_side-reached')
+    );
+  }
 
   this.prop.position.longitude = position.longitude;
   this.prop.position.latitude = position.latitude;
@@ -2723,48 +2772,77 @@ PhotoSphereViewer.prototype.rotate = function(position) {
 
 /**
  * @summary Rotates the view to specific longitude and latitude with a smooth animation
- * @param {PhotoSphereViewer.ExtendedPosition} position
- * @param {string|int} duration - animation speed or duration (in milliseconds)
- * @returns {Promise}
+ * @param {PhotoSphereViewer.AnimateOptions} options
+ * @param {string|int} [speed] - animation speed or duration (in milliseconds)
+ * @returns {PSVAnimation}
  */
-PhotoSphereViewer.prototype.animate = function(position, duration) {
+PhotoSphereViewer.prototype.animate = function(options, speed) {
   this._stopAll();
 
-  this.cleanPosition(position);
+  var positionProvided = this.isExtendedPosition(options);
+  var zoomProvided = 'zoom' in options;
 
-  if (!duration || Math.abs(position.longitude - this.prop.position.longitude) < PhotoSphereViewer.ANGLE_THRESHOLD && Math.abs(position.latitude - this.prop.position.latitude) < PhotoSphereViewer.ANGLE_THRESHOLD) {
-    this.rotate(position);
+  var animProperties = {};
+  var duration;
 
-    return D.resolved();
+  // clean/filter position and compute duration
+  if (positionProvided) {
+    this.cleanPosition(options);
+    this.applyRanges(options);
+
+    var currentPosition = this.prop.position;
+    var dLongitude = Math.abs(options.longitude - currentPosition.longitude);
+    var dLatitude = Math.abs(options.latitude - currentPosition.latitude);
+
+    if (dLongitude >= PhotoSphereViewer.ANGLE_THRESHOLD || dLatitude >= PhotoSphereViewer.ANGLE_THRESHOLD) {
+      // longitude offset for shortest arc
+      var tOffset = PSVUtils.getShortestArc(this.prop.position.longitude, options.longitude);
+
+      animProperties.longitude = { start: currentPosition.longitude, end: currentPosition.longitude + tOffset };
+      animProperties.latitude = { start: currentPosition.latitude, end: options.latitude };
+
+      duration = this.speedToDuration(speed, PSVUtils.getAngle(currentPosition, options));
+    }
   }
 
-  this.applyRanges(position).forEach(
-    this.trigger.bind(this, '_side-reached')
-  );
+  // clean/filter zoom and compute duration
+  if (zoomProvided) {
+    var dZoom = Math.abs(options.zoom - this.prop.zoom_lvl);
 
-  if (!duration && typeof duration !== 'number') {
-    // desired radial speed
-    duration = duration ? PSVUtils.parseSpeed(duration) : this.config.anim_speed;
-    // get the angle between current position and target
-    var angle = Math.acos(
-      Math.cos(this.prop.position.latitude) * Math.cos(position.latitude) * Math.cos(this.prop.position.longitude - position.longitude) +
-      Math.sin(this.prop.position.latitude) * Math.sin(position.latitude)
-    );
-    // compute duration
-    duration = angle / duration * 1000;
+    if (dZoom >= 1) {
+      animProperties.zoom = { start: this.prop.zoom_lvl, end: options.zoom };
+
+      if (!duration) {
+        // if animating zoom only and a speed is given, use an arbitrary PI/2 to compute the duration
+        duration = this.speedToDuration(speed, Math.PI / 4 * dZoom / 100);
+      }
+    }
   }
 
-  // longitude offset for shortest arc
-  var tOffset = PSVUtils.getShortestArc(this.prop.position.longitude, position.longitude);
+  // if no animation needed
+  if (!duration) {
+    if (positionProvided) {
+      this.rotate(options);
+    }
+    if (zoomProvided) {
+      this.zoom(options.zoom);
+    }
 
-  this.prop.animation_promise = PSVUtils.animation({
-    properties: {
-      longitude: { start: this.prop.position.longitude, end: this.prop.position.longitude + tOffset },
-      latitude: { start: this.prop.position.latitude, end: position.latitude }
-    },
+    return PSVAnimation.resolve();
+  }
+
+  this.prop.animation_promise = new PSVAnimation({
+    properties: animProperties,
     duration: duration,
     easing: 'inOutSine',
-    onTick: this.rotate.bind(this)
+    onTick: function(properties) {
+      if (positionProvided) {
+        this.rotate(properties, true);
+      }
+      if (zoomProvided) {
+        this.zoom(properties.zoom);
+      }
+    }.bind(this)
   });
 
   return this.prop.animation_promise;
@@ -2772,11 +2850,19 @@ PhotoSphereViewer.prototype.animate = function(position, duration) {
 
 /**
  * @summary Stops the ongoing animation
+ * @description The return value is a Promise because the is no guaranty the animation can be stopped synchronously.
+ * @returns {Promise} Resolved when the animation has ben cancelled
  */
 PhotoSphereViewer.prototype.stopAnimation = function() {
   if (this.prop.animation_promise) {
-    this.prop.animation_promise.cancel();
-    this.prop.animation_promise = null;
+    return new Promise(function(resolve) {
+      this.prop.animation_promise.finally(resolve);
+      this.prop.animation_promise.cancel();
+      this.prop.animation_promise = null;
+    }.bind(this));
+  }
+  else {
+    return Promise.resolve();
   }
 };
 
@@ -2786,7 +2872,7 @@ PhotoSphereViewer.prototype.stopAnimation = function() {
  * @fires PhotoSphereViewer.zoom-updated
  */
 PhotoSphereViewer.prototype.zoom = function(level) {
-  this.prop.zoom_lvl = PSVUtils.bound(Math.round(level), 0, 100);
+  this.prop.zoom_lvl = PSVUtils.bound(level, 0, 100);
   this.prop.vFov = this.config.max_fov + (this.prop.zoom_lvl / 100) * (this.config.min_fov - this.config.max_fov);
   this.prop.hFov = THREE.Math.radToDeg(2 * Math.atan(Math.tan(THREE.Math.degToRad(this.prop.vFov) / 2) * this.prop.aspect));
   this.needsUpdate();
@@ -2955,6 +3041,24 @@ PhotoSphereViewer.prototype._setViewerSize = function(size) {
 };
 
 /**
+ * @summary Converts a speed into a duration from current position to a new position
+ * @param {string|number} value
+ * @param {number} angle
+ * @returns {number}
+ */
+PhotoSphereViewer.prototype.speedToDuration = function(value, angle) {
+  if (!value || typeof value !== 'number') {
+    // desired radial speed
+    var speed = value ? PSVUtils.parseSpeed(value) : this.config.anim_speed;
+    // compute duration
+    return angle / Math.abs(speed) * 1000;
+  }
+  else {
+    return Math.abs(value);
+  }
+};
+
+/**
  * @summary Converts pixel texture coordinates to spherical radians coordinates
  * @param {PhotoSphereViewer.Point} point
  * @returns {PhotoSphereViewer.Position}
@@ -3070,6 +3174,27 @@ PhotoSphereViewer.prototype.cleanPosition = function(position) {
 
   position.longitude = PSVUtils.parseAngle(position.longitude);
   position.latitude = PSVUtils.parseAngle(position.latitude, true);
+};
+
+/**
+ * @summary Clean a SphereCorrection object
+ * @param {PhotoSphereViewer.SphereCorrection} sphere_correction - mutated
+ */
+PhotoSphereViewer.prototype.cleanSphereCorrection = function(sphere_correction) {
+  sphere_correction.pan = PSVUtils.parseAngle(sphere_correction.pan || 0, true);
+  sphere_correction.tilt = PSVUtils.parseAngle(sphere_correction.tilt || 0, true);
+  sphere_correction.roll = PSVUtils.parseAngle(sphere_correction.roll || 0, true);
+};
+
+/**
+ * @summary Checks if an object is a {PhotoSphereViewer.ExtendedPosition}, ie has x/y or longitude/latitude
+ * @param {object} object
+ * @returns {boolean}
+ */
+PhotoSphereViewer.prototype.isExtendedPosition = function(object) {
+  return [['x', 'y'], ['longitude', 'latitude']].some(function(keys) {
+    return keys[0] in object && keys[1] in object;
+  });
 };
 
 /**
@@ -6102,6 +6227,210 @@ PSVNavBarZoomButton.prototype._changeZoom = function(x) {
 
 
 /**
+ * @callback OnTick
+ * @memberOf PSVAnimation
+ * @param {Object[]} properties - current values
+ * @param {float} progress - 0 to 1
+ */
+
+/**
+ * @summary Interpolation helper for animations
+ * @description
+ * Implements the Promise API with an additional "cancel" method.
+ * The promise is resolved when the animation is complete and rejected if the animation is cancelled.
+ * @param {Object} options
+ * @param {Object[]} options.properties
+ * @param {number} options.properties[].start
+ * @param {number} options.properties[].end
+ * @param {int} options.duration
+ * @param {int} [options.delay=0]
+ * @param {string} [options.easing='linear']
+ * @param {PSVAnimation.OnTick} options.onTick - called on each frame
+ * @constructor
+ */
+function PSVAnimation(options) {
+  if (!(this instanceof PSVAnimation)) {
+    return new PSVAnimation(options);
+  }
+
+  this._cancelled = false;
+  this._resolved = false;
+
+  var self = this;
+
+  this._promise = new Promise(function(resolve, reject) {
+    self._resolve = resolve;
+    self._reject = reject;
+  });
+
+  if (options) {
+    if (!options.easing || typeof options.easing === 'string') {
+      options.easing = PSVAnimation.easings[options.easing || 'linear'];
+    }
+    this._start = null;
+    this._options = options;
+
+    if (options.delay) {
+      this._delayTimeout = window.setTimeout(function() {
+        this._delayTimeout = null;
+        window.requestAnimationFrame(this._run.bind(this));
+      }.bind(this), options.delay);
+    }
+    else {
+      window.requestAnimationFrame(this._run.bind(this));
+    }
+  }
+}
+
+/**
+ * @summary Collection of easing functions
+ * {@link https://gist.github.com/frederickk/6165768}
+ * @type {Object.<string, Function>}
+ */
+// @formatter:off
+// jscs:disable
+/* jshint ignore:start */
+PSVAnimation.easings = {
+  linear: function(t) { return t; },
+
+  inQuad: function(t) { return t*t; },
+  outQuad: function(t) { return t*(2-t); },
+  inOutQuad: function(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t; },
+
+  inCubic: function(t) { return t*t*t; },
+  outCubic: function(t) { return (--t)*t*t+1; },
+  inOutCubic: function(t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1; },
+
+  inQuart: function(t) { return t*t*t*t; },
+  outQuart: function(t) { return 1-(--t)*t*t*t; },
+  inOutQuart: function(t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t; },
+
+  inQuint: function(t) { return t*t*t*t*t; },
+  outQuint: function(t) { return 1+(--t)*t*t*t*t; },
+  inOutQuint: function(t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t; },
+
+  inSine: function(t) { return 1-Math.cos(t*(Math.PI/2)); },
+  outSine: function(t) { return Math.sin(t*(Math.PI/2)); },
+  inOutSine: function(t) { return .5-.5*Math.cos(Math.PI*t); },
+
+  inExpo: function(t) { return Math.pow(2, 10*(t-1)); },
+  outExpo: function(t) { return 1-Math.pow(2, -10*t); },
+  inOutExpo: function(t) { t=t*2-1; return t<0 ? .5*Math.pow(2, 10*t) : 1-.5*Math.pow(2, -10*t); },
+
+  inCirc: function(t) { return 1-Math.sqrt(1-t*t); },
+  outCirc: function(t) { t--; return Math.sqrt(1-t*t); },
+  inOutCirc: function(t) { t*=2; return t<1 ? .5-.5*Math.sqrt(1-t*t) : .5+.5*Math.sqrt(1-(t-=2)*t); }
+};
+/* jshint ignore:end */
+// jscs:enable
+// @formatter:on
+
+/**
+ * @summary Main loop for the animation
+ * @param {int} timestamp
+ * @private
+ */
+PSVAnimation.prototype._run = function(timestamp) {
+  // the animation has been cancelled
+  if (this._cancelled) {
+    return;
+  }
+
+  // first iteration
+  if (this._start === null) {
+    this._start = timestamp;
+  }
+
+  // compute progress
+  var progress = (timestamp - this._start) / this._options.duration;
+  var current = {};
+  var name;
+
+  if (progress < 1.0) {
+    // interpolate properties
+    for (name in this._options.properties) {
+      if (this._options.properties[name]) {
+        current[name] = this._options.properties[name].start + (this._options.properties[name].end - this._options.properties[name].start) * this._options.easing(progress);
+      }
+    }
+
+    this._options.onTick(current, progress);
+
+    window.requestAnimationFrame(this._run.bind(this));
+  }
+  else {
+    // call onTick one last time with final values
+    for (name in this._options.properties) {
+      if (this._options.properties[name]) {
+        current[name] = this._options.properties[name].end;
+      }
+    }
+
+    this._options.onTick(current, 1.0);
+
+    window.requestAnimationFrame(function() {
+      this._resolved = true;
+      this._resolve();
+    }.bind(this));
+  }
+};
+
+/**
+ * @summary Animation chaining
+ * @param {function} onFulfilled - Called when the animation is complete, can return a new animation
+ * @param {function} onRejected - Called when the animation is cancelled
+ * @returns {PSVAnimation}
+ */
+PSVAnimation.prototype.then = function(onFulfilled, onRejected) {
+  var p = new PSVAnimation();
+
+  // Allow cancellation to climb up the promise chain
+  p._promise.then(null, this.cancel.bind(this));
+
+  this._promise.then(function() {
+    p._resolve(onFulfilled ? onFulfilled() : undefined);
+  }, function() {
+    p._reject(onRejected ? onRejected() : undefined);
+  });
+
+  return p;
+};
+
+/**
+ * @summary Alias to `.then(null, onRejected)`
+ * @param {function} onRejected - Called when the animation has been cancelled
+ * @returns {PSVAnimation}
+ */
+PSVAnimation.prototype.catch = function(onRejected) {
+  return this.then(undefined, onRejected);
+};
+
+/**
+ * @summary Alias to `.then(onFinally, onFinally)`
+ * @param {function} onFinally - Called when the animation is either complete or cancelled
+ * @returns {PSVAnimation}
+ */
+PSVAnimation.prototype.finally = function(onFinally) {
+  return this.then(onFinally, onFinally);
+};
+
+/**
+ * @summary Cancels the animation
+ */
+PSVAnimation.prototype.cancel = function() {
+  if (!this._cancelled && !this._resolved) {
+    this._cancelled = true;
+    this._reject();
+
+    if (this._delayTimeout) {
+      window.cancelAnimationFrame(this._delayTimeout);
+      this._delayTimeout = null;
+    }
+  }
+};
+
+
+/**
  * Custom error used in the lib
  * @param {string} message
  * @constructor
@@ -6346,13 +6675,13 @@ PSVMarker.prototype.isSvg = function() {
  */
 PSVMarker.prototype.getScale = function(zoomLevel) {
   if (Array.isArray(this.scale)) {
-    return this.scale[0] + (this.scale[1] - this.scale[0]) * PSVUtils.animation.easings.inQuad(zoomLevel / 100);
+    return this.scale[0] + (this.scale[1] - this.scale[0]) * PSVAnimation.easings.inQuad(zoomLevel / 100);
   }
   else if (typeof this.scale === 'function') {
     return this.scale(zoomLevel);
   }
   else if (typeof this.scale === 'number') {
-    return this.scale * PSVUtils.animation.easings.inQuad(zoomLevel / 100);
+    return this.scale * PSVAnimation.easings.inQuad(zoomLevel / 100);
   }
   else {
     return 1;
@@ -6717,62 +7046,52 @@ PSVUtils.isWebGLSupported = function() {
  * @returns {Promise<boolean>}
  */
 PSVUtils.isDeviceOrientationSupported = function() {
-  var defer = D();
+  return new Promise(function(resolve) {
+    if ('DeviceOrientationEvent' in window) {
+      var listener = function(e) {
+        if (e && e.alpha !== null && !isNaN(e.alpha)) {
+          resolve(true);
+        }
+        else {
+          resolve(false);
+        }
 
-  if ('DeviceOrientationEvent' in window) {
-    var listener = function(event) {
-      if (event && event.alpha !== null && !isNaN(event.alpha)) {
-        defer.resolve(true);
-      }
-      else {
-        defer.resolve(false);
-      }
+        window.removeEventListener('deviceorientation', listener);
+      };
 
-      window.removeEventListener('deviceorientation', listener);
-    };
+      window.addEventListener('deviceorientation', listener, false);
 
-    window.addEventListener('deviceorientation', listener, false);
-
-    setTimeout(function() {
-      if (defer.promise.isPending()) {
-        listener(null);
-      }
-    }, 2000);
-  }
-  else {
-    defer.resolve(false);
-  }
-
-  return defer.promise;
+      // after 2 secs, auto-reject the promise
+      setTimeout(listener, 2000);
+    }
+    else {
+      resolve(false);
+    }
+  });
 };
 
 /**
  * @summary Detects if the user is using a touch screen
- * @returns {Promise}
+ * @returns {Promise<boolean>}
  */
 PSVUtils.isTouchEnabled = function() {
-  var defer = D();
+  return new Promise(function(resolve) {
+    var listener = function(e) {
+      if (e) {
+        resolve(true);
+      }
+      else {
+        resolve(false);
+      }
 
-  var listener = function(e) {
-    if (e) {
-      defer.resolve();
-    }
-    else {
-      defer.reject();
-    }
+      window.removeEventListener('touchstart', listener);
+    };
 
-    window.removeEventListener('touchstart', listener);
-  };
+    window.addEventListener('touchstart', listener, false);
 
-  window.addEventListener('touchstart', listener, false);
-
-  setTimeout(function() {
-    if (defer.promise.isPending()) {
-      listener(null);
-    }
-  }, 10000); // this is totally arbitrary
-
-  return defer.promise;
+    // after 10 secs auto-reject the promise
+    setTimeout(listener, 10000);
+  });
 };
 
 /**
@@ -7091,6 +7410,22 @@ PSVUtils.getShortestArc = function(from, to) {
 };
 
 /**
+ * @summary Computes the angle between the current position and a target position
+ * @param {PhotoSphereViewer.Position} position1
+ * @param {PhotoSphereViewer.Position} position2
+ * @returns {number}
+ */
+PSVUtils.getAngle = function(position1, position2) {
+  return Math.acos(
+    Math.cos(position1.latitude) *
+    Math.cos(position2.latitude) *
+    Math.cos(position1.longitude - position2.longitude) +
+    Math.sin(position1.latitude) *
+    Math.sin(position2.latitude)
+  );
+};
+
+/**
  * @summary Translate CSS values like "top center" or "10% 50%" as top and left positions
  * @description The implementation is as close as possible to the "background-position" specification
  * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/background-position}
@@ -7280,133 +7615,6 @@ PSVUtils.cleanTHREEScene = function(scene) {
   });
   scene.children.length = 0;
 };
-
-/**
- * @callback AnimationOnTick
- * @memberOf PSVUtils
- * @param {Object} properties - current values
- * @param {float} progress - 0 to 1
- */
-
-/**
- * @summary Interpolates each property with an easing and optional delay
- * @param {Object} options
- * @param {Object[]} options.properties
- * @param {number} options.properties[].start
- * @param {number} options.properties[].end
- * @param {int} options.duration
- * @param {int} [options.delay=0]
- * @param {string} [options.easing='linear']
- * @param {AnimationOnTick} options.onTick - called on each frame
- * @returns {Promise} Promise with an additional "cancel" method
- */
-PSVUtils.animation = function(options) {
-  var defer = D(false); // alwaysAsync = false to allow immediate resolution of "cancel"
-  var start = null;
-
-  if (!options.easing || typeof options.easing === 'string') {
-    options.easing = PSVUtils.animation.easings[options.easing || 'linear'];
-  }
-
-  function run(timestamp) {
-    // the animation has been cancelled
-    if (defer.promise.getStatus() === -1) {
-      return;
-    }
-
-    // first iteration
-    if (start === null) {
-      start = timestamp;
-    }
-
-    // compute progress
-    var progress = (timestamp - start) / options.duration;
-    var current = {};
-    var name;
-
-    if (progress < 1.0) {
-      // interpolate properties
-      for (name in options.properties) {
-        current[name] = options.properties[name].start + (options.properties[name].end - options.properties[name].start) * options.easing(progress);
-      }
-
-      options.onTick(current, progress);
-
-      window.requestAnimationFrame(run);
-    }
-    else {
-      // call onTick one last time with final values
-      for (name in options.properties) {
-        current[name] = options.properties[name].end;
-      }
-
-      options.onTick(current, 1.0);
-
-      window.requestAnimationFrame(function() {
-        defer.resolve();
-      });
-    }
-  }
-
-  if (options.delay !== undefined) {
-    window.setTimeout(function() {
-      window.requestAnimationFrame(run);
-    }, options.delay);
-  }
-  else {
-    window.requestAnimationFrame(run);
-  }
-
-  // add a "cancel" to the promise
-  var promise = defer.promise;
-  promise.cancel = function() {
-    defer.reject();
-  };
-  return promise;
-};
-
-/**
- * @summary Collection of easing functions
- * {@link https://gist.github.com/frederickk/6165768}
- * @type {Object.<string, Function>}
- */
-// @formatter:off
-// jscs:disable
-/* jshint ignore:start */
-PSVUtils.animation.easings = {
-  linear: function(t) { return t; },
-
-  inQuad: function(t) { return t*t; },
-  outQuad: function(t) { return t*(2-t); },
-  inOutQuad: function(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t; },
-
-  inCubic: function(t) { return t*t*t; },
-  outCubic: function(t) { return (--t)*t*t+1; },
-  inOutCubic: function(t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1; },
-
-  inQuart: function(t) { return t*t*t*t; },
-  outQuart: function(t) { return 1-(--t)*t*t*t; },
-  inOutQuart: function(t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t; },
-
-  inQuint: function(t) { return t*t*t*t*t; },
-  outQuint: function(t) { return 1+(--t)*t*t*t*t; },
-  inOutQuint: function(t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t; },
-
-  inSine: function(t) { return 1-Math.cos(t*(Math.PI/2)); },
-  outSine: function(t) { return Math.sin(t*(Math.PI/2)); },
-  inOutSine: function(t) { return .5-.5*Math.cos(Math.PI*t); },
-
-  inExpo: function(t) { return Math.pow(2, 10*(t-1)); },
-  outExpo: function(t) { return 1-Math.pow(2, -10*t); },
-  inOutExpo: function(t) { t=t*2-1; return t<0 ? .5*Math.pow(2, 10*t) : 1-.5*Math.pow(2, -10*t); },
-
-  inCirc: function(t) { return 1-Math.sqrt(1-t*t); },
-  outCirc: function(t) { t--; return Math.sqrt(1-t*t); },
-  inOutCirc: function(t) { t*=2; return t<1 ? .5-.5*Math.sqrt(1-t*t) : .5+.5*Math.sqrt(1-(t-=2)*t); }
-};
-/* jshint ignore:end */
-// jscs:enable
-// @formatter:off
 
 /**
  * @summary Returns a function, that, when invoked, will only be triggered at most once during a given window of time.
@@ -7615,83 +7823,6 @@ PSVUtils.forEach = function(object, callback) {
     }
   }
 };
-
-
-/**
- * requestAnimationFrame polyfill
- * {@link http://mattsnider.com/cross-browser-and-legacy-supported-requestframeanimation}
- * @license MIT
- */
-(function(w) {
-    "use strict";
-    // most browsers have an implementation
-    w.requestAnimationFrame = w.requestAnimationFrame ||
-            w.mozRequestAnimationFrame || w.webkitRequestAnimationFrame ||
-            w.msRequestAnimationFrame;
-    w.cancelAnimationFrame = w.cancelAnimationFrame ||
-            w.mozCancelAnimationFrame || w.webkitCancelAnimationFrame ||
-            w.msCancelAnimationFrame;
-
-    // polyfill, when necessary
-    if (!w.requestAnimationFrame) {
-        var aAnimQueue = [],
-            aProcessing = [],
-            iRequestId = 0,
-            iIntervalId;
-
-        // create a mock requestAnimationFrame function
-        w.requestAnimationFrame = function(callback) {
-            aAnimQueue.push([++iRequestId, callback]);
-
-            if (!iIntervalId) {
-                iIntervalId = setInterval(function() {
-                    if (aAnimQueue.length) {
-                        var time = +new Date();
-                        // Process all of the currently outstanding frame
-                        // requests, but none that get added during the
-                        // processing.
-                        // Swap the arrays so we don't have to create a new
-                        // array every frame.
-                        var temp = aProcessing;
-                        aProcessing = aAnimQueue;
-                        aAnimQueue = temp;
-                        while (aProcessing.length) {
-                            aProcessing.shift()[1](time);
-                        }
-                    } else {
-                        // don't continue the interval, if unnecessary
-                        clearInterval(iIntervalId);
-                        iIntervalId = undefined;
-                    }
-                }, 1000 / 50);  // estimating support for 50 frames per second
-            }
-
-            return iRequestId;
-        };
-
-        // create a mock cancelAnimationFrame function
-        w.cancelAnimationFrame = function(requestId) {
-            // find the request ID and remove it
-            var i, j;
-            for (i = 0, j = aAnimQueue.length; i < j; i += 1) {
-                if (aAnimQueue[i][0] === requestId) {
-                    aAnimQueue.splice(i, 1);
-                    return;
-                }
-            }
-
-            // If it's not in the queue, it may be in the set we're currently
-            // processing (if cancelAnimationFrame is called from within a
-            // requestAnimationFrame callback).
-            for (i = 0, j = aProcessing.length; i < j; i += 1) {
-                if (aProcessing[i][0] === requestId) {
-                    aProcessing.splice(i, 1);
-                    return;
-                }
-            }
-        };
-    }
-})(window);
 
 
 PhotoSphereViewer.ICONS['compass.svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 0a50 50 0 1 0 0 100A50 50 0 0 0 50 0zm0 88.81a38.86 38.86 0 0 1-38.81-38.8 38.86 38.86 0 0 1 38.8-38.82A38.86 38.86 0 0 1 88.82 50 38.87 38.87 0 0 1 50 88.81z"/><path d="M72.07 25.9L40.25 41.06 27.92 74.12l31.82-15.18v-.01l12.32-33.03zM57.84 54.4L44.9 42.58l21.1-10.06-8.17 21.9z"/><!--Created by iconoci from the Noun Project--></svg>';
