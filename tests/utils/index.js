@@ -63,6 +63,17 @@ describe('PSVUtils::parseAngle', function() {
     }
   });
 
+  it('should normalize angles between -Pi and Pi', function() {
+    var values = {
+      '45deg': Math.PI / 4,
+      '4': -2 * Math.PI + 4
+    };
+
+    for (var pos in values) {
+      assert.equal(PSVUtils.parseAngle(pos, true, false).toFixed(16), values[pos].toFixed(16), pos);
+    }
+  });
+
   it('should throw exception on invalid values', function() {
     assert.throws(function() {
       PSVUtils.parseAngle('foobar');

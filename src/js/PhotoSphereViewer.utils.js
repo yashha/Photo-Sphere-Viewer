@@ -172,9 +172,9 @@ PhotoSphereViewer.prototype.cleanPosition = function(position) {
  * @param {PhotoSphereViewer.SphereCorrection} sphere_correction - mutated
  */
 PhotoSphereViewer.prototype.cleanSphereCorrection = function(sphere_correction) {
-  sphere_correction.pan = PSVUtils.parseAngle(sphere_correction.pan || 0, true);
+  sphere_correction.pan = PSVUtils.parseAngle(sphere_correction.pan || 0);
   sphere_correction.tilt = PSVUtils.parseAngle(sphere_correction.tilt || 0, true);
-  sphere_correction.roll = PSVUtils.parseAngle(sphere_correction.roll || 0, true);
+  sphere_correction.roll = PSVUtils.parseAngle(sphere_correction.roll || 0, true, false);
 };
 
 /**

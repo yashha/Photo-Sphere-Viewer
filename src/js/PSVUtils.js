@@ -586,10 +586,15 @@ PSVUtils.parseSpeed = function(speed) {
  * @summary Parses an angle value in radians or degrees and returns a normalized value in radians
  * @param {string|number} angle - eg: 3.14, 3.14rad, 180deg
  * @param {boolean} [zeroCenter=false] - normalize between -Pi/2 - Pi/2 instead of 0 - 2*Pi
+ * @param {boolean} [halfCircle=zeroCenter] - normalize between -Pi - Pi instead of -Pi/2 - Pi/2
  * @returns {float}
  * @throws {PSVError} when the angle cannot be parsed
  */
-PSVUtils.parseAngle = function(angle, zeroCenter) {
+PSVUtils.parseAngle = function(angle, zeroCenter, halfCircle) {
+  if (halfCircle === undefined) {
+    halfCircle = zeroCenter;
+  }
+
   if (typeof angle === 'string') {
     var match = angle.toLowerCase().trim().match(/^(-?[0-9]+(?:\.[0-9]*)?)(.*)$/);
 
@@ -625,7 +630,7 @@ PSVUtils.parseAngle = function(angle, zeroCenter) {
     angle = PSVUtils.TwoPI + angle;
   }
 
-  return zeroCenter ? PSVUtils.bound(angle - Math.PI, -PSVUtils.HalfPI, PSVUtils.HalfPI) : angle;
+  return zeroCenter ? PSVUtils.bound(angle - Math.PI, -Math.PI / (halfCircle ? 2 : 1), Math.PI / (halfCircle ? 2 : 1)) : angle;
 };
 
 /**
