@@ -1,7 +1,7 @@
 /*!
- * Photo Sphere Viewer 3.5.0
+ * Photo Sphere Viewer 3.5.1
  * Copyright (c) 2014-2015 Jérémy Heleine
- * Copyright (c) 2015-2018 Damien "Mistic" Sorel
+ * Copyright (c) 2015-2019 Damien "Mistic" Sorel
  * Licensed under MIT (https://opensource.org/licenses/MIT)
  */
 (function(root, factory) {
@@ -2924,7 +2924,9 @@ PhotoSphereViewer.prototype.enterFullscreen = function() {
 };
 
 PhotoSphereViewer.prototype.exitFullscreen = function() {
-  PSVUtils.exitFullscreen();
+  if (this.isFullscreenEnabled()) {
+    PSVUtils.exitFullscreen();
+  }
 };
 
 /**
@@ -3181,9 +3183,9 @@ PhotoSphereViewer.prototype.cleanPosition = function(position) {
  * @param {PhotoSphereViewer.SphereCorrection} sphere_correction - mutated
  */
 PhotoSphereViewer.prototype.cleanSphereCorrection = function(sphere_correction) {
-  sphere_correction.pan = PSVUtils.parseAngle(sphere_correction.pan || 0, true);
+  sphere_correction.pan = PSVUtils.parseAngle(sphere_correction.pan || 0);
   sphere_correction.tilt = PSVUtils.parseAngle(sphere_correction.tilt || 0, true);
-  sphere_correction.roll = PSVUtils.parseAngle(sphere_correction.roll || 0, true);
+  sphere_correction.roll = PSVUtils.parseAngle(sphere_correction.roll || 0, true, false);
 };
 
 /**
@@ -7533,10 +7535,15 @@ PSVUtils.parseSpeed = function(speed) {
  * @summary Parses an angle value in radians or degrees and returns a normalized value in radians
  * @param {string|number} angle - eg: 3.14, 3.14rad, 180deg
  * @param {boolean} [zeroCenter=false] - normalize between -Pi/2 - Pi/2 instead of 0 - 2*Pi
+ * @param {boolean} [halfCircle=zeroCenter] - normalize between -Pi - Pi instead of -Pi/2 - Pi/2
  * @returns {float}
  * @throws {PSVError} when the angle cannot be parsed
  */
-PSVUtils.parseAngle = function(angle, zeroCenter) {
+PSVUtils.parseAngle = function(angle, zeroCenter, halfCircle) {
+  if (halfCircle === undefined) {
+    halfCircle = zeroCenter;
+  }
+
   if (typeof angle === 'string') {
     var match = angle.toLowerCase().trim().match(/^(-?[0-9]+(?:\.[0-9]*)?)(.*)$/);
 
@@ -7572,7 +7579,7 @@ PSVUtils.parseAngle = function(angle, zeroCenter) {
     angle = PSVUtils.TwoPI + angle;
   }
 
-  return zeroCenter ? PSVUtils.bound(angle - Math.PI, -PSVUtils.HalfPI, PSVUtils.HalfPI) : angle;
+  return zeroCenter ? PSVUtils.bound(angle - Math.PI, -Math.PI / (halfCircle ? 2 : 1), Math.PI / (halfCircle ? 2 : 1)) : angle;
 };
 
 /**
