@@ -750,7 +750,9 @@ PhotoSphereViewer.prototype.enterFullscreen = function() {
 };
 
 PhotoSphereViewer.prototype.exitFullscreen = function() {
-  PSVUtils.exitFullscreen();
+  if (this.isFullscreenEnabled()) {
+    PSVUtils.exitFullscreen();
+  }
 };
 
 /**
