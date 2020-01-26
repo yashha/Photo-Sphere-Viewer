@@ -78,7 +78,7 @@
     <li>Aliquam tincidunt mauris eu risus.</li>
   </ul>
 
-  <img src="assets/pin2.png" style="width:100%"/>
+  <img src="assets/pin-blue.png" style="width:100%"/>
 
   <pre><code>
 #header h1 a {
@@ -194,7 +194,7 @@
             tooltip  : '#' + a.length,
             latitude : j,
             longitude: i,
-            image    : 'assets/pin1.png',
+            image    : 'assets/pin-red.png',
             width    : 32,
             height   : 32,
             anchor   : 'bottom center',
@@ -214,7 +214,7 @@
         content  : document.getElementById('pin-content').innerHTML,
         latitude : 0,
         longitude: 0.20,
-        image    : 'assets/pin2.png',
+        image    : 'assets/pin-blue.png',
         width    : 32,
         height   : 32,
         anchor   : 'bottom center',
@@ -286,7 +286,7 @@
 
       a.push({
         id       : 'text',
-        html     : 'This <b>is</b> text <img src="assets/pin3.png" style="height: 24px; vertical-align: top;"/>',
+        html     : 'This <b>is</b> text <img src="assets/pin-red.png" style="height: 24px; vertical-align: top;"/>',
         anchor   : 'bottom right',
         style    : {
           color     : 'white',
@@ -421,7 +421,7 @@
         tooltip  : 'Generated marker',
         longitude: data.longitude,
         latitude : data.latitude,
-        image    : 'assets/pin1.png',
+        image    : 'assets/pin-red.png',
         width    : 32,
         height   : 32,
         anchor   : 'bottom center',
@@ -440,7 +440,7 @@
       else if (data.rightclick) {
         PSV.hud.updateMarker({
           id   : marker.id,
-          image: 'assets/pin2.png',
+          image: 'assets/pin-blue.png',
         });
       }
     }
